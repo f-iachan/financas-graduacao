@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e84670de79113489ef6116b201ea4025.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -432,7 +432,7 @@ Felipe Iachan
 </section>
 <section id="price-sac-primeiros-anos" class="slide level2 smaller">
 <h2>Price × SAC: primeiros anos</h2>
-<div id="1a0860fa" class="cell" data-execution_count="6">
+<div id="aa7c1926" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <style scoped="">
@@ -539,8 +539,10 @@ Felipe Iachan
 <section id="taxas-de-juros-1" class="slide level2">
 <h2>Taxas de juros</h2>
 <p><span class="math display">\[\left(1+r_{real}\right)=\frac{1+r_{nom}}{1+\pi}\implies r_{real}\approx r_{nom}-\pi\]</span></p>
+<!-- CORREÇÃO: figura BDM 5.1 (recorte do livro-texto) substituída por série própria com dados reais do FRED, mesmo conceito (juro nominal x inflação ao longo do tempo), horizonte estendido até o presente -->
 
-<img data-src="figs/bdm-taxas.png" style="width:70.0%" class="r-stretch"></section>
+<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (séries GS1, CPIAUCSL), dados mensais de 1953 a 06/2026. Inflação: variação do CPI em 12 meses.</span></p>
+</section>
 <section id="curvas-de-juros" class="slide level2">
 <h2>Curvas de juros</h2>
 <ul>
@@ -555,23 +557,27 @@ Felipe Iachan
 <section id="curva-de-juros" class="slide level2 smaller">
 <h2>Curva de juros</h2>
 
-<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>^IRX</code>, <code>^FVX</code>, <code>^TNX</code>, <code>^TYX</code>), dados de 17/06/2026.</span></p>
+<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>^IRX</code>, <code>^FVX</code>, <code>^TNX</code>, <code>^TYX</code>), dados de 17/06/2026.</span></p>
 </section>
-<section id="formatos-da-curva-de-juros" class="slide level2">
+<section id="formatos-da-curva-de-juros" class="slide level2 smaller">
 <h2>Formatos da curva de juros</h2>
+<!-- ADICIONADO: reconstrução ilustrativa (não pixel a pixel) da Figura 5.4 de Berk & DeMarzo — apenas os valores da curva íngreme (2% no curto prazo, 7% no longo prazo) são texto legível na fonte; os formatos normal e invertido preservam só o padrão qualitativo -->
 
-<img data-src="figs/bdm-9b.png" style="width:80.0%" class="r-stretch"><ul>
+<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Reconstrução ilustrativa dos três formatos-padrão (Berk &amp; DeMarzo, Figura 5.4). Apenas os valores da curva íngreme (curto prazo 2%, longo prazo 7%) são texto legível na fonte; normal e invertida mostram o padrão qualitativo, sem reproduzir números do gráfico original.</span></p>
+<ul>
 <li>Política monetária, classicamente, mira taxas de curto prazo.</li>
 <li>Por que a curva costuma ser tipicamente inclinada positivamente?</li>
 </ul>
 </section>
-<section id="curva-invertida" class="slide level2">
+<section id="curva-invertida" class="slide level2 smaller">
 <h2>Curva invertida</h2>
 <ul>
 <li>Curva invertida, tipicamente, entendida como mau sinal.</li>
 </ul>
+<!-- CORREÇÃO: figura BDM 5.5 (recorte do livro-texto, até 2010) substituída por série própria com dados reais do FRED, mesmo conceito (juros curto x longo prazo e recessões), horizonte estendido até o presente -->
 
-<img data-src="figs/bdm-9c.png" style="width:80.0%" class="r-stretch"></section>
+<img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (GS1, GS10, indicador de recessão USREC do NBER), dados mensais de 1953 a 06/2026. Cinza: recessões; verde: curva normal (10a ≥ 1a); laranja: curva invertida.</span></p>
+</section>
 <section id="custo-de-oportunidade-do-capital" class="slide level2">
 <h2>Custo de oportunidade do capital</h2>
 <ul>

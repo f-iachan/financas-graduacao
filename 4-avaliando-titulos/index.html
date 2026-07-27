@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e84670de79113489ef6116b201ea4025.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -173,6 +173,8 @@ Felipe Iachan
 </ul>
 </div><div class="column" style="width:55%;">
 <p><img data-src="figs/titulo-tipico.jpg" style="width:100.0%"></p>
+<!-- ADICIONADO: não está na fonte -->
+<p><span class="fonte">Título ao portador do Estado da Luisiana (EUA), 1879, com cupons destacáveis anexados. Domínio público (direitos autorais expirados) — Wikimedia Commons, arquivo “BabyBondLA.jpg”.</span></p>
 </div></div>
 </section>
 <section id="exemplo" class="slide level2">
@@ -347,19 +349,22 @@ Felipe Iachan
 
 <img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: CBOE/Yahoo Finance (<code>^IRX</code>, <code>^FVX</code>, <code>^TNX</code>, <code>^TYX</code>), dados locais de 17/06/2026.</span></p>
 </section>
-<section id="movimentos-de-juros" class="slide level2">
+<section id="movimentos-de-juros" class="slide level2 smaller">
 <h2>Movimentos de Juros</h2>
 
-<img data-src="figs/bdm-5.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
+<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Exemplo de Berk &amp; DeMarzo (2024), Cap. 6 — preços recomputados nativamente pela fórmula de precificação, não copiados do gráfico original.</span></p>
+</section>
 <section id="a-curva-se-move" class="slide level2 smaller">
 <h2>A curva se move</h2>
 
-<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: CBOE/Yahoo Finance, dados locais.</span></p>
+<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: CBOE/Yahoo Finance, dados locais.</span></p>
 </section>
-<section id="tempo-até-o-vencimento" class="slide level2">
+<section id="tempo-até-o-vencimento" class="slide level2 smaller">
 <h2>Tempo até o Vencimento</h2>
 
-<img data-src="figs/bdm-6.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Título de 30 anos, cupom anual, YTM fixo em 5% a.a.: o zero-cupom sobe suavemente até o valor de face; os títulos com cupom sobem entre pagamentos e caem no valor do cupom em cada data de pagamento — todos convergem ao valor de face no vencimento.</p>
+<p><span class="fonte">Reconstrução ilustrativa do exemplo de Berk &amp; DeMarzo (2024), Cap. 6, com cupom anual como hipótese explícita (o original não especifica a frequência de pagamento em texto).</span></p>
+</section>
 <section id="intuição-juros-cupom-e-ganho-de-capital" class="slide level2">
 <h2>Intuição: Juros, Cupom e Ganho de Capital</h2>
 <p>Relação fundamental:</p>
@@ -409,17 +414,17 @@ Felipe Iachan
 <section id="duration-modificada-como-tangente" class="slide level2 smaller">
 <h2>Duration modificada como tangente</h2>
 
-<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="sensibilidade-a-juros-duration-modificada" class="slide level2 smaller">
 <h2>Sensibilidade a juros: duration modificada</h2>
 
-<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Eixo y: <span class="math inline">\(D_{mod}\)</span>, onde <span class="math inline">\(\Delta P/P \approx -D_{mod}\Delta y\)</span>. Uma alta de 1 p.p. no yield implica perda aproximada de <span class="math inline">\(D_{mod}\%\)</span> no preço.</p>
+<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Eixo y: <span class="math inline">\(D_{mod}\)</span>, onde <span class="math inline">\(\Delta P/P \approx -D_{mod}\Delta y\)</span>. Uma alta de 1 p.p. no yield implica perda aproximada de <span class="math inline">\(D_{mod}\%\)</span> no preço.</p>
 <p>Zero-cupom: <span class="math inline">\(D_{Mac}=T\)</span>, mas <span class="math inline">\(D_{mod}=T/(1+y)\)</span>; com <span class="math inline">\(y=6\%\)</span>, <span class="math inline">\(30/1{,}06=28{,}3\)</span>.</p>
 </section>
 <section id="exemplo-treasury-de-10-anos" class="slide level2 smaller">
 <h2>Exemplo: Treasury de 10 anos</h2>
-<div id="9237a55d" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
+<div id="df6944a9" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -449,6 +454,411 @@ Felipe Iachan
 </div>
 </div>
 <p>Treasury hipotético: valor de face 100, cupom de 4% a.a., pagamento semestral.</p>
+<!-- ADICIONADO: não está na fonte -->
+</section>
+<section id="marcação-a-mercado" class="slide level2">
+<h2>Marcação a mercado</h2>
+<p>Quem carrega até o vencimento recebe o combinado. Quem vende antes recebe <span class="destaque">o preço do dia</span>.</p>
+<ul>
+<li>No Tesouro Direto o risco de crédito é desprezível — o risco de mercado, não</li>
+<li>A taxa sobe, o preço unitário (PU) cai, e a perda é de quem vendeu antes</li>
+<li>Duration dá a primeira ordem dessa queda; convexidade, a segunda</li>
+</ul>
+<p><span class="math display">\[\frac{\Delta P}{P}\;\approx\;-D_{Mod}\,\Delta y\;+\;\tfrac{1}{2}\,C\,(\Delta y)^2\]</span></p>
+<!-- PLANNING: aqui vale contar a experiência de 2021-2022, quando quem tinha
+     Tesouro IPCA+ 2045 viu o extrato cair ~30% sem nenhum default. -->
+<!-- ADICIONADO: não está na fonte -->
+</section>
+<section id="a-conta-brasileira-base-252-dias-úteis" class="slide level2 smaller">
+<h2>A conta brasileira: base 252 dias úteis</h2>
+<p><span class="math display">\[PU=\sum_i \frac{CF_i}{(1+y)^{du_i/252}}\]</span></p>
+<ul>
+<li><span class="math inline">\(du_i\)</span>: <strong>dias úteis</strong> até cada fluxo — não dias corridos, não meses</li>
+<li><span class="math inline">\(y\)</span> é taxa efetiva anual; o expoente <span class="math inline">\(du/252\)</span> carrega todo o prazo</li>
+<li>NTN-F, cupom de 10% a.a.: <span class="math inline">\((1{,}10)^{1/2}-1 = 4{,}8809\%\)</span> por semestre</li>
+<li>NTN-B, cupom de 6% a.a.: <span class="math inline">\((1{,}06)^{1/2}-1 = 2{,}9563\%\)</span> — <span class="destaque">não é 3%</span></li>
+</ul>
+<!-- ADICIONADO: não está na fonte -->
+</section>
+<section id="marcação-a-mercado-na-prática" class="slide level2 smaller">
+<h2>Marcação a mercado na prática</h2>
+<style>
+.ntn{
+  --ntn-azul:#6a9bcc; --ntn-laranja:#d97757; --ntn-verde:#788c5d;
+  --ntn-tinta:#141413; --ntn-papel:#faf9f5; --ntn-linha:#e8e6dc;
+  --ntn-cinza:#5f5e5a; --ntn-cinza-claro:#b0aea5;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--ntn-tinta); max-width:1160px; margin:0 auto; font-size:16px; line-height:1.35;
+  text-align:left;
+}
+.ntn *{box-sizing:border-box;}
+.ntn-top{padding:10px 14px; background:var(--ntn-papel);
+  border:1px solid var(--ntn-linha); border-radius:10px;}
+.ntn-row{display:flex; flex-wrap:wrap; gap:10px 22px; align-items:flex-end;}
+.ntn-row + .ntn-row{margin-top:10px;}
+.ntn-field{display:flex; flex-direction:column; gap:3px; min-width:170px; flex:1;}
+.ntn-field label{font-size:13px; color:var(--ntn-cinza); font-weight:600;}
+.ntn-field .val{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ntn-tinta);}
+.ntn-field input[type=range]{width:100%; accent-color:var(--ntn-azul); cursor:pointer; margin:0;}
+.ntn-du{display:flex; align-items:center; gap:7px; font-size:13px; color:var(--ntn-cinza);
+  font-weight:600; flex:0 0 auto;}
+.ntn-du input{width:78px; font-size:15px; font-weight:700; padding:3px 5px; text-align:right;
+  border:1px solid var(--ntn-linha); border-radius:6px; background:#fff; color:var(--ntn-tinta);
+  font-variant-numeric:tabular-nums; font-family:inherit;}
+.ntn-pick{display:flex; border:1px solid var(--ntn-linha); border-radius:8px; overflow:hidden;
+  flex:0 0 auto;}
+.ntn-pick button{border:0; background:#fff; padding:7px 12px; font-size:14px; line-height:1.1;
+  cursor:pointer; color:var(--ntn-cinza); font-weight:600; font-family:inherit;
+  border-right:1px solid var(--ntn-linha);}
+.ntn-pick button:last-child{border-right:0;}
+.ntn-pick button[aria-pressed=true]{background:var(--ntn-azul); color:#fff;}
+.ntn-grid{display:grid; grid-template-columns:1.12fr .88fr; gap:18px; margin:14px 0 6px;}
+.ntn-chart{border:1px solid var(--ntn-linha); border-radius:10px; padding:4px;}
+.ntn-chart svg{width:100%; height:auto; display:block;}
+.ntn-panel{display:flex; flex-direction:column; gap:12px;}
+.ntn-card{border:1px solid var(--ntn-linha); border-radius:10px; padding:10px 14px;}
+.ntn-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;}
+.ntn-head h4{margin:0; font-size:15px; font-weight:700;}
+.ntn-big{font-size:32px; font-weight:700; font-variant-numeric:tabular-nums; line-height:1.05;}
+.ntn-delta{font-size:17px; font-weight:700; font-variant-numeric:tabular-nums;}
+.ntn-down{color:var(--ntn-laranja);} .ntn-up{color:var(--ntn-verde);}
+.ntn-card dl{display:grid; grid-template-columns:auto auto; gap:3px 12px; margin:6px 0 0;
+  font-variant-numeric:tabular-nums;}
+.ntn-card dt{color:var(--ntn-cinza); font-size:14px;}
+.ntn-card dd{margin:0; text-align:right; font-weight:600; font-size:14px;}
+.ntn-approx{font-size:13px; color:var(--ntn-cinza); margin-top:8px; line-height:1.5;}
+.ntn-approx b{color:var(--ntn-tinta);}
+.ntn-foot{font-size:12.5px; color:var(--ntn-cinza); line-height:1.45;}
+.ntn-foot b{color:var(--ntn-tinta);}
+</style>
+
+<div class="ntn">
+  <div class="ntn-top">
+    <div class="ntn-row">
+      <div class="ntn-pick" id="ntn-tipo">
+        <button data-t="ltn" aria-pressed="true">Prefixado (LTN)</button>
+        <button data-t="ntnf" aria-pressed="false">Pref. c/ juros (NTN-F)</button>
+        <button data-t="ipca" aria-pressed="false">IPCA+ Principal</button>
+        <button data-t="ntnb" aria-pressed="false">IPCA+ c/ juros (NTN-B)</button>
+      </div>
+      <div class="ntn-du">
+        <span>dias úteis até o vencimento</span>
+        <input type="number" id="ntn-du" min="21" max="10080" step="1" value="5040">
+        <span id="ntn-lblAnos"></span>
+      </div>
+    </div>
+    <div class="ntn-row">
+      <div class="ntn-field">
+        <label>Prazo até o vencimento — <span class="val" id="ntn-lblT"></span></label>
+        <input type="range" id="ntn-T" min="1" max="40" step="1" value="20">
+      </div>
+      <div class="ntn-field">
+        <label>Taxa de compra (<span id="ntn-lblTipoTaxa">a.a., base 252</span>) — <span class="val" id="ntn-lblY"></span></label>
+        <input type="range" id="ntn-Y" min="2" max="18" step="0.1" value="7">
+      </div>
+      <div class="ntn-field">
+        <label>Choque na taxa — <span class="val" id="ntn-lblD"></span></label>
+        <input type="range" id="ntn-D" min="-4" max="4" step="0.25" value="2">
+      </div>
+    </div>
+  </div>
+
+  <div class="ntn-grid">
+    <div class="ntn-chart">
+      <svg id="ntn-svg" viewbox="0 0 680 340" role="img" aria-label="Curva preço-taxa do título, com o ponto de compra, a reta da duration e o ponto após o choque"></svg>
+    </div>
+    <div class="ntn-panel">
+      <div class="ntn-card">
+        <div class="ntn-head"><h4>Marcação a mercado</h4>
+          <span class="ntn-delta" id="ntn-deltaPct"></span></div>
+        <div class="ntn-big" id="ntn-priceShock"></div>
+        <dl>
+          <dt>preço na compra (PU)</dt><dd id="ntn-price0"></dd>
+          <dt>preço após o choque</dt><dd id="ntn-priceS"></dd>
+          <dt>variação</dt><dd id="ntn-deltaRs"></dd>
+        </dl>
+      </div>
+      <div class="ntn-card">
+        <div class="ntn-head"><h4>Sensibilidade</h4></div>
+        <dl>
+          <dt>duration (Macaulay)</dt><dd id="ntn-dmac"></dd>
+          <dt>duration modificada</dt><dd id="ntn-dmod"></dd>
+          <dt>convexidade</dt><dd id="ntn-conv"></dd>
+        </dl>
+        <div class="ntn-approx" id="ntn-approx"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ntn-foot" id="ntn-foot"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // === Especificação dos títulos ===============================================
+  // cupom anual (0 = zero-cupom). IPCA+ trabalha em TERMOS REAIS (taxa = juro real).
+  // NTN-F: 10% a.a.  ->  cupom semestral (1,10)^(1/2)-1 = 4,880885%
+  // NTN-B:  6% a.a.  ->  cupom semestral (1,06)^(1/2)-1 = 2,956301%
+  var SPEC = {
+    ltn:  {nome:"Tesouro Prefixado (LTN)",                 cupom:0,    real:false},
+    ntnf: {nome:"Tesouro Prefixado c/ juros (NTN-F)",      cupom:0.10, real:false},
+    ipca: {nome:"Tesouro IPCA+ Principal (NTN-B Princ.)",  cupom:0,    real:true },
+    ntnb: {nome:"Tesouro IPCA+ c/ juros (NTN-B)",          cupom:0.06, real:true }
+  };
+  var FACE = 1000;
+  var DU_ANO = 252;      // dias úteis por ano (convenção Tesouro Direto / ANBIMA)
+  var DU_SEM = 126;      // dias úteis entre cupons semestrais
+
+  // === Modelo (funções puras, convenção 252 dias úteis) ========================
+  // Tempo = du/252. Preço = soma dos fluxos descontados por (1+y)^(du/252).
+  // Cupons semestrais contados de trás para frente a partir do vencimento
+  // (o primeiro período pode ser mais curto — é o caso de quem compra no meio
+  //  do semestre; nesse caso o PU já embute os juros acumulados).
+  function cashflows(cupomAnual, duVenc){
+    var cf=[], j, n;
+    if(cupomAnual>0){
+      var cs = Math.pow(1+cupomAnual, 0.5) - 1;   // taxa efetiva por semestre
+      var pago = FACE*cs;
+      n = Math.ceil(duVenc/DU_SEM);
+      for(j=1;j<=n;j++) cf.push({du: duVenc - DU_SEM*(n-j), cf: pago});
+      cf[n-1].cf += FACE;                          // face junto ao último cupom
+    } else {
+      cf.push({du: duVenc, cf: FACE});             // zero-cupom
+    }
+    return cf;
+  }
+  function priceAt(cf, y){
+    return cf.reduce(function(s,f){ return s + f.cf/Math.pow(1+y, f.du/DU_ANO); }, 0);
+  }
+  // Macaulay (em anos de 252 d.u.), modificada e convexidade — todas na base 252.
+  function risk(cf, y){
+    var P = priceAt(cf,y), mac=0, cx=0, i, f, t, pv;
+    for(i=0;i<cf.length;i++){
+      f = cf[i]; t = f.du/DU_ANO;
+      pv = f.cf/Math.pow(1+y,t);
+      mac += t*pv;
+      cx  += t*(t+1)*pv;                           // numerador de d2P/dy2 * (1+y)^2
+    }
+    mac/=P;
+    return {P:P, mac:mac, mod:mac/(1+y), conv:cx/(P*Math.pow(1+y,2))};
+  }
+
+  // Reta tangente em (y0,P0) com inclinação dP/dy, recortada na CAIXA do gráfico.
+  // Recorta no eixo X (não no Y) para PRESERVAR a inclinação => tangência intacta.
+  function tangentSegment(P0, slope, y0, ylo, yhi, pmin, pmax){
+    var tan=function(v){ return P0+slope*(v-y0); };
+    var lo=ylo, hi=yhi;
+    if(slope!==0){
+      var a=y0+(pmax-P0)/slope, b=y0+(pmin-P0)/slope;
+      var ya=a<b?a:b, yb=a<b?b:a;
+      lo=Math.max(lo,ya); hi=Math.min(hi,yb);
+    } else if(P0<pmin||P0>pmax){ return null; }
+    return hi>lo ? {ya:lo, yb:hi, tan:tan} : null;
+  }
+
+  // === Autoteste (convenção 252) ==============================================
+  var TESTES_OK = (function selfTest(){
+    var ok=true, err=function(){ ok=false; if(typeof console!=="undefined") console.error.apply(console, arguments); };
+
+    // 1) zero-cupom: duration de Macaulay = prazo (em anos de 252 d.u.)
+    var rz=risk(cashflows(0, 15*DU_ANO), 0.07);
+    if(Math.abs(rz.mac-15)>1e-9) err("[ntn] Mac zero != T", rz.mac);
+
+    // 2) preço = face quando y = cupom (NTN-B 6% e NTN-F 10%), base 252
+    var b=cashflows(0.06, 20*DU_SEM), pb=priceAt(b,0.06);
+    if(Math.abs(pb-FACE)>1e-6) err("[ntn] NTN-B par != face", pb);
+    var f=cashflows(0.10, 10*DU_SEM), pf=priceAt(f,0.10);
+    if(Math.abs(pf-FACE)>1e-6) err("[ntn] NTN-F par != face", pf);
+
+    // 3) cupons semestrais efetivos: (1+c)^(1/2)-1, NÃO c/2
+    var csF=Math.pow(1.10,0.5)-1, csB=Math.pow(1.06,0.5)-1;
+    if(Math.abs(csF-0.04880884817)>1e-9) err("[ntn] cupom NTN-F", csF);
+    if(Math.abs(csB-0.02956301410)>1e-9) err("[ntn] cupom NTN-B", csB);
+
+    // 4) caso conhecido na base 252: LTN com du=1259 e y=12% a.a.
+    //    P = 1000/(1,12)^(1259/252) = 567,68209461...
+    var pL=priceAt(cashflows(0,1259), 0.12);
+    if(Math.abs(pL-567.6820946131492)>1e-8) err("[ntn] reprice 252 (du=1259)", pL);
+    //    e du IMPORTA: 1259 d.u. nao e o mesmo que 5 anos cheios (1260 d.u.)
+    if(Math.abs(pL-priceAt(cashflows(0,1260),0.12))<1e-4) err("[ntn] du nao esta entrando no expoente");
+
+    // 5) duration+convexidade ~ reprice exato (choque pequeno)
+    var r=risk(b,0.06), dy=0.001;
+    var exato=(priceAt(b,0.06+dy)-r.P)/r.P;
+    var aprox=-r.mod*dy + 0.5*r.conv*dy*dy;
+    if(Math.abs(exato-aprox)>1e-6) err("[ntn] approx ruim", exato, aprox);
+
+    // 6) duration+convexidade e MELHOR que so duration para choques de +/-200 bp
+    var c20=cashflows(0.06, 20*DU_ANO), y0=0.065, r20=risk(c20,y0), s;
+    for(s=-1;s<=1;s+=2){
+      var d=s*0.02;
+      var ex=(priceAt(c20,y0+d)-r20.P)/r20.P;
+      var eD=Math.abs(ex-(-r20.mod*d));
+      var eDC=Math.abs(ex-(-r20.mod*d + 0.5*r20.conv*d*d));
+      if(!(eDC<eD)) err("[ntn] convexidade nao melhora em "+(d*1e4)+" bp", eD, eDC);
+    }
+
+    // 7) a tangente RECORTADA ainda passa pelo ponto de compra
+    var rr=risk(cashflows(0, 20*DU_ANO),0.07), sl=-rr.mod*rr.P;
+    var seg=tangentSegment(rr.P, sl, 0.07, 0.02, 0.14, 71.31, 686.43);
+    if(!seg || 0.07<seg.ya-1e-12 || 0.07>seg.yb+1e-12 || Math.abs(seg.tan(0.07)-rr.P)>1e-9)
+      err("[ntn] tangente nao passa pela compra", seg);
+
+    if(ok && typeof console!=="undefined") console.log("[ntn] autoteste OK (7 testes, base 252)");
+    return ok;
+  })();
+
+  if(typeof module!=="undefined" && module.exports){    // permite checagem externa em node
+    module.exports={cashflows:cashflows, priceAt:priceAt, risk:risk, TESTES_OK:TESTES_OK};
+    return;
+  }
+
+  // === Formatação =============================================================
+  var brl=function(v){ return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",minimumFractionDigits:2,maximumFractionDigits:2}); };
+  var num=function(v,d){ d=(d===undefined?2:d); return v.toLocaleString("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d}); };
+  var pct=function(v,d){ return num(v,d)+"%"; };
+  var inteiro=function(v){ return v.toLocaleString("pt-BR",{maximumFractionDigits:0}); };
+
+  // === DOM ====================================================================
+  var $=function(id){ return document.getElementById(id); };
+  var inT=$("ntn-T"), inY=$("ntn-Y"), inD=$("ntn-D"), inDU=$("ntn-du"), svg=$("ntn-svg");
+  var tipo="ltn", du=DU_ANO*(+inT.value);
+  inDU.value=du;
+
+  var W=680,H=340,m={l:74,r:20,t:20,b:44};
+  var sx=function(v,a,b){ return m.l+(W-m.l-m.r)*((v-a)/(b-a)); };
+  var sy=function(v,a,b){ return H-m.b-(H-m.t-m.b)*((v-a)/(b-a)); };
+  var E=function(tag,at){ var e=document.createElementNS("http://www.w3.org/2000/svg",tag);
+    for(var k in at) e.setAttribute(k,at[k]); return e; };
+  var COR={azul:"#6a9bcc", laranja:"#d97757", verde:"#788c5d",
+           cinza:"#5f5e5a", cinzaClaro:"#b0aea5", grade:"#ece9e0", eixo:"#b0aea5"};
+
+  function draw(){
+    var spec=SPEC[tipo], y=+inY.value/100, dy=+inD.value/100;
+    var cf=cashflows(spec.cupom, du);
+    var r0=risk(cf,y), yS=y+dy, pS=priceAt(cf,yS);
+    var dPct=(pS-r0.P)/r0.P*100, dRs=pS-r0.P;
+
+    $("ntn-lblT").textContent=inteiro(du)+" d.u.";
+    $("ntn-lblAnos").textContent="≈ "+num(du/DU_ANO,1)+" anos";
+    $("ntn-lblY").textContent=pct(+inY.value,1);
+    $("ntn-lblD").textContent=(dy>=0?"+":"")+num(+inD.value,2)+" p.p.";
+    $("ntn-lblTipoTaxa").textContent=spec.real?"juro real a.a., base 252":"a.a., base 252";
+
+    $("ntn-price0").textContent=brl(r0.P);
+    $("ntn-priceS").textContent=brl(pS);
+    $("ntn-priceShock").textContent=brl(pS);
+    $("ntn-deltaRs").textContent=(dRs>=0?"+":"")+brl(dRs);
+    var dEl=$("ntn-deltaPct");
+    dEl.textContent=(dPct>=0?"+":"")+num(dPct,1)+"%";
+    dEl.className="ntn-delta "+(dPct<0?"ntn-down":"ntn-up");
+
+    $("ntn-dmac").textContent=num(r0.mac,2)+" anos";
+    $("ntn-dmod").textContent=num(r0.mod,2);
+    $("ntn-conv").textContent=num(r0.conv,1);
+
+    var aproxD=-r0.mod*dy, aproxDC=-r0.mod*dy + 0.5*r0.conv*dy*dy;
+    $("ntn-approx").innerHTML=
+      "Choque de "+(dy>=0?"+":"")+num(dy*100,2)+" p.p. — variação do preço:<br>"+
+      "só duration: <b>"+num(aproxD*100,2)+"%</b> · "+
+      "+ convexidade: <b>"+num(aproxDC*100,2)+"%</b> · "+
+      "exato: <b>"+num(dPct,2)+"%</b>";
+
+    drawCurve(cf,y,yS,r0.P,pS,spec);
+
+    var cs = spec.cupom>0 ? (Math.pow(1+spec.cupom,0.5)-1) : 0;
+    $("ntn-foot").innerHTML=
+      "<b>"+spec.nome+"</b> · face R$ 1.000 · "+
+      (spec.cupom>0
+        ? "cupom de "+num(spec.cupom*100,0)+"% a.a. pago em 2 parcelas de "+num(cs*100,4)+"% = (1+"+num(spec.cupom*100,0)+"%)<sup>1/2</sup>−1"
+        : "zero-cupom")+
+      " · "+(spec.real?"taxa = juro real (o principal é corrigido pelo IPCA)":"taxa nominal")+
+      "<br><b>Convenção 252 dias úteis</b> (Tesouro Direto / ANBIMA): "+
+      "PU = Σ fluxo ÷ (1+taxa)<sup>du/252</sup>, com <i>du</i> = dias úteis até cada fluxo "+
+      "(cupons a cada 126 d.u.). Duration e convexidade calculadas na mesma base. "+
+      (TESTES_OK?"Autoteste embutido: OK.":"Autoteste embutido: FALHOU (ver console).");
+  }
+
+  function drawCurve(cf,y,yS,P0,pS,spec){
+    var ylo=Math.max(0.001, Math.min(y,yS)-0.05), yhi=Math.max(y,yS)+0.05;
+    var N=90, pts=[], k, yy;
+    for(k=0;k<=N;k++){ yy=ylo+(yhi-ylo)*k/N; pts.push([yy, priceAt(cf,yy)]); }
+    var vals=pts.map(function(p){return p[1];});
+    var pmin=Math.min.apply(null,vals)*0.98, pmax=Math.max.apply(null,vals)*1.02;
+
+    svg.innerHTML="";
+    var g, pv, xx, tx;
+    for(g=0;g<=4;g++){
+      pv=pmin+(pmax-pmin)*g/4; yy=sy(pv,pmin,pmax);
+      svg.appendChild(E("line",{x1:m.l,y1:yy,x2:W-m.r,y2:yy,stroke:COR.grade,"stroke-width":1}));
+      tx=E("text",{x:m.l-8,y:yy+5,"text-anchor":"end","font-size":13,fill:COR.cinza});
+      tx.textContent=inteiro(pv); svg.appendChild(tx);
+    }
+    svg.appendChild(E("line",{x1:m.l,y1:H-m.b,x2:W-m.r,y2:H-m.b,stroke:COR.eixo,"stroke-width":1.2}));
+    svg.appendChild(E("line",{x1:m.l,y1:m.t,x2:m.l,y2:H-m.b,stroke:COR.eixo,"stroke-width":1.2}));
+    for(g=0;g<=4;g++){
+      var yv=ylo+(yhi-ylo)*g/4; xx=sx(yv,ylo,yhi);
+      tx=E("text",{x:xx,y:H-m.b+19,"text-anchor":"middle","font-size":13,fill:COR.cinza});
+      tx.textContent=num(yv*100,1)+"%"; svg.appendChild(tx);
+    }
+    tx=E("text",{x:(m.l+W-m.r)/2,y:H-6,"text-anchor":"middle","font-size":14,fill:COR.cinza});
+    tx.textContent="taxa (% a.a., base 252)"+(spec.real?" — real":""); svg.appendChild(tx);
+    tx=E("text",{x:16,y:m.t+4,"font-size":14,fill:COR.cinza});
+    tx.textContent="PU (R$)"; svg.appendChild(tx);
+
+    var d="";
+    pts.forEach(function(p,i){ d+=(i?"L":"M")+sx(p[0],ylo,yhi).toFixed(1)+" "+sy(p[1],pmin,pmax).toFixed(1)+" "; });
+    svg.appendChild(E("path",{d:d,fill:"none",stroke:COR.azul,"stroke-width":3,"stroke-linejoin":"round"}));
+
+    var r0=risk(cf,y), slope=-r0.mod*P0;
+    var seg=tangentSegment(P0, slope, y, ylo, yhi, pmin, pmax);
+    if(seg){
+      svg.appendChild(E("line",{x1:sx(seg.ya,ylo,yhi),y1:sy(seg.tan(seg.ya),pmin,pmax),
+                                x2:sx(seg.yb,ylo,yhi),y2:sy(seg.tan(seg.yb),pmin,pmax),
+                                stroke:COR.cinza,"stroke-width":1.6,"stroke-dasharray":"6 5"}));
+    }
+
+    var mark=function(yy2,pp,color,lab){
+      var x=sx(yy2,ylo,yhi), yv2=sy(pp,pmin,pmax);
+      svg.appendChild(E("line",{x1:x,y1:yv2,x2:x,y2:H-m.b,stroke:color,"stroke-width":1.2,"stroke-dasharray":"3 4",opacity:0.6}));
+      svg.appendChild(E("circle",{cx:x,cy:yv2,r:6,fill:color}));
+      var t=E("text",{x:x,y:yv2-12,"text-anchor":"middle","font-size":15,fill:color,"font-weight":700});
+      t.textContent=lab; svg.appendChild(t);
+    };
+    mark(y,P0,COR.azul,"compra");
+    if(Math.abs(yS-y)>1e-9) mark(yS,pS,COR.laranja,"após o choque");
+  }
+
+  // === Eventos ================================================================
+  inT.addEventListener("input",function(){ du=DU_ANO*(+inT.value); inDU.value=du; draw(); });
+  inDU.addEventListener("input",function(){
+    var v=Math.round(+inDU.value);
+    if(!isFinite(v)||v<21) return;                 // deixa o usuário terminar de digitar
+    du=Math.min(v,10080);
+    inT.value=Math.min(40,Math.max(1,Math.round(du/DU_ANO)));
+    draw();
+  });
+  inY.addEventListener("input",draw);
+  inD.addEventListener("input",draw);
+  $("ntn-tipo").addEventListener("click",function(ev){
+    var b=ev.target.closest("button"); if(!b) return;
+    tipo=b.dataset.t;
+    Array.prototype.forEach.call(ev.currentTarget.children,function(x){ x.setAttribute("aria-pressed", x===b); });
+    draw();
+  });
+  // setas nos controles não devem trocar de slide no reveal.js
+  ["ntn-T","ntn-Y","ntn-D","ntn-du"].forEach(function(id){
+    $(id).addEventListener("keydown",function(e){ e.stopPropagation(); });
+  });
+
+  draw();
+})();
+</script>
+<p><span class="fonte">Artefato interativo próprio (sem dependências, sem rede). Convenção de 252 dias úteis; cupons semestrais efetivos <span class="math inline">\((1+c)^{1/2}-1\)</span>. Detalhes e verificação em <code>dados/4-avaliando-titulos/SNAPSHOT_INFO.txt</code>.</span></p>
+<!-- PLANNING: peça a um aluno para abrir o site do Tesouro Direto, escolher um
+     título e reproduzir o PU aqui — basta digitar os dias úteis até o vencimento. -->
 </section>
 <section id="spreads-e-risco-de-crédito" class="slide level2">
 <h2>Spreads e Risco de Crédito</h2>
@@ -513,7 +923,7 @@ Felipe Iachan
 <section id="crise-soberana-europeia-yields-de-10-anos" class="slide level2 smaller">
 <h2>Crise soberana europeia: yields de 10 anos</h2>
 
-<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="fonte">
+<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="fonte">
 <p>Eventos: 1 Euro (01/1999); 2 Lehman (15/09/2008); 3 SMP (10/05/2010); 4 LTROs (21/12/2011 e 29/02/2012); 5 Draghi (26/07/2012); 6 OMT (06/09/2012).</p>
 </div>
 <div class="fonte">

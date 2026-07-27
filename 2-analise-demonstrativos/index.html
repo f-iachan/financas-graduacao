@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e84670de79113489ef6116b201ea4025.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -214,7 +214,7 @@ Felipe Iachan
 </section>
 <section id="petrobras-balanço-atual" class="slide level2 smaller">
 <h2>PETROBRAS — balanço atual</h2>
-<div id="1ae811f2" class="cell" data-execution_count="2">
+<div id="9a3c3d2b" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <style scoped="">
@@ -529,12 +529,15 @@ Felipe Iachan
 </section>
 <section id="section" class="slide level2" data-background-color="black">
 <h2></h2>
+<!-- CORREÇÃO: slide não tinha legenda de fonte; adicionada abaixo (ambas as datas já
+constam como texto na própria imagem, mas não em tamanho legível em projeção). -->
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="figs/globo-1.png" style="width:100.0%"></p>
 </div><div class="column" style="width:50%;">
 <p><img data-src="figs/globo-2.png" style="width:100.0%"></p>
 </div></div>
+<p><span class="fonte">Fonte: O Globo, 13/06/2013 (reportagem original) e 17/06/2013 (correção do próprio jornal) — confusão entre patrimônio líquido e o total de dívidas do grupo Eike Batista.</span></p>
 </section>
 <section id="exercício" class="slide level2 smaller">
 <h2>Exercício</h2>
@@ -563,19 +566,32 @@ Felipe Iachan
 </table>
 <p>Qual a capitalização de mercado? Como ela se compara ao valor contábil (<em>book value</em>) do patrimônio dos acionistas?</p>
 </section>
-<section id="análise-do-balanço-market-to-book-fracpb" class="slide level2">
+<section id="análise-do-balanço-market-to-book-fracpb" class="slide level2 smaller">
 <h2>Análise do Balanço — Market-to-Book <span class="math inline">\(\frac{P}{B}\)</span></h2>
+<!-- CORREÇÃO: figs/market-book-2019-1.png (provável captura de Berk & DeMarzo, Market-to-Book
+de 2016 para AmeriServ, Citigroup, "Financial Services", "Large U.S. Firms", "Tech Stocks" e
+Amazon, sem rótulos numéricos legíveis) substituída por gráfico nativo com dados reais e atuais
+(yfinance), reaproveitando os mesmos 5 tickers do slide "Múltiplos nos dados". Ver
+dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt para a verificação de proveniência. -->
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column" style="width:40%;">
 <ul>
 <li>Razão entre valor de mercado e valor contábil do P.L. <em>(equity)</em></li>
 <li>Empresas bem-sucedidas: tipicamente acima de 1</li>
 <li><em>Value</em> e <em>growth stocks</em></li>
 <li>Relação com o q de Tobin</li>
 </ul>
-</div><div class="column" style="width:48%;">
-<p><img data-src="figs/market-book-2019-1.png" style="width:100.0%"></p>
-<p><span class="fonte">Market-to-book para grupos de firmas em 2016. <em>Value stocks</em> (M/B baixo) em vermelho; <em>growth stocks</em> (M/B alto) em azul.</span></p>
+</div><div class="column" style="width:58%;">
+<div id="cc42a6ad" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Dados reais atuais (yfinance, <code>priceToBook</code>), mesmos 5 tickers do slide “Múltiplos nos dados” adiante. Petrobras e Vale (negócios de commodity) mais próximas do valor contábil; WEG com o maior prêmio. Verificação de proveniência (câmbio, VALE3.SA vs.&nbsp;ADR): <code>dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt</code>.</span></p>
 </div></div>
 </section>
 <section id="análise-do-balanço-outras-medidas" class="slide level2 smaller">
@@ -604,8 +620,8 @@ Felipe Iachan
 </section>
 <section id="petrobras-dre-atual" class="slide level2 smaller">
 <h2>PETROBRAS — DRE atual</h2>
-<div id="bf8b119e" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="f19ddf15" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -847,7 +863,7 @@ Felipe Iachan
 <section id="petrobras-margens-e-roe-no-tempo" class="slide level2 smaller">
 <h2>PETROBRAS — margens e ROE no tempo</h2>
 
-<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Índice de um ano só pode enganar; a <span class="destaque">série temporal</span> revela ciclo e tendência.</p>
+<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Índice de um ano só pode enganar; a <span class="destaque">série temporal</span> revela ciclo e tendência.</p>
 <p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercícios 2021–2025.</span></p>
 </section>
 <section id="análise-dos-resultados-cont.-1" class="slide level2 smaller">
@@ -868,8 +884,8 @@ Felipe Iachan
 </section>
 <section id="petrobras-índices-principais" class="slide level2 smaller">
 <h2>PETROBRAS — índices principais</h2>
-<div id="d45207fd" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="407c8648" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -982,8 +998,8 @@ Felipe Iachan
 </section>
 <section id="petrobras-fluxo-de-caixa-atual" class="slide level2 smaller">
 <h2>PETROBRAS — fluxo de caixa atual</h2>
-<div id="71f4b3b9" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="104c1642" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1259,8 +1275,8 @@ Felipe Iachan
 </div>
 </div>
 </div><div class="column" style="width:54%;">
-<div id="ca6cbc7f" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="96b017a1" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1349,7 +1365,7 @@ Felipe Iachan
 <section id="múltiplos-nos-dados" class="slide level2">
 <h2>Múltiplos nos dados</h2>
 
-<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Itaú aparece como <code>n.d.</code> em EV/EBITDA: bancos não têm EBITDA comparável.</p>
+<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Itaú aparece como <code>n.d.</code> em EV/EBITDA: bancos não têm EBITDA comparável.</p>
 <p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>.info</code>), dados locais do curso.</span></p>
 </section>
 <section id="discussão-adicional" class="slide level2">
