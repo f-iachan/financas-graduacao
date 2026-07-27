@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="pt"><head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <meta name="author" content="Felipe Iachan">
+  <title>Aula 2 — Análise de Demonstrativos Financeiros</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e84670de79113489ef6116b201ea4025.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Aula 2 — Análise de Demonstrativos Financeiros</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felipe Iachan 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="balanço-patrimonial" class="title-slide slide level1 center">
+<h1>Balanço Patrimonial</h1>
+
+</section>
+<section id="demonstrativos" class="slide level2">
+<h2>Demonstrativos</h2>
+<ul>
+<li>Grandes empresas de capital aberto têm tipicamente propriedade dispersa
+<ul>
+<li>Ex.: IBM em 2022, 360 mil acionistas</li>
+</ul></li>
+<li>Qualquer investidor pode comprar ações e se tornar acionista; acionista corrente pode deixar de sê-lo</li>
+<li>Como os gestores comunicam a situação da firma a investidores atuais e potenciais:
+<ul>
+<li>Sistema padronizado de demonstrativos financeiros</li>
+</ul></li>
+</ul>
+</section>
+<section id="regulação" class="slide level2">
+<h2>Regulação</h2>
+<ul>
+<li>Generally Accepted Accounting Principles — GAAP
+<ul>
+<li>Múltiplos padrões adotados e regulados nacionalmente</li>
+<li>Demanda por padronização internacional</li>
+</ul></li>
+<li>International Financial Reporting Standards (IFRS) — novos padrões contábeis internacionais</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>No Brasil:
+<ul>
+<li>Lei 11.638/07 exige adequação de todos aos novos padrões contábeis nacionais</li>
+<li>CVM e Bacen exigem de companhias de capital aberto adequação ao IFRS desde 2010</li>
+<li>Comitê de Pronunciamentos Contábeis (CPC) emite normas, visando harmonização com IFRS</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="tipos-de-demonstrativos-financeiros" class="slide level2">
+<h2>Tipos de demonstrativos financeiros</h2>
+<p>De maneira simplificada:</p>
+<ol type="1">
+<li>Balanço Patrimonial <em>(Balance Sheet, Statement of Financial Position)</em></li>
+<li>Demonstrativo de Resultados <em>(Income Statement)</em></li>
+<li>Demonstrativo de Fluxos de Caixa <em>(Statement of Cash-flows)</em></li>
+<li>Demonstrativo de Equivalência Patrimonial <em>(Statement of Stockholders Equity)</em></li>
+</ol>
+<p>Outros: no Brasil, estrutura determinada pela Lei n° 11.638/07.</p>
+</section>
+<section id="balanço-patrimonial-1" class="slide level2 smaller">
+<h2>Balanço Patrimonial</h2>
+<p><em>(Balance Sheet ou Statement of Financial Position)</em></p>
+<ul>
+<li>Dividido em duas partes: ativo e passivo</li>
+<li><strong>Ativo</strong> <em>(assets)</em>: bens e direitos — caixa, estoque, imóveis, instalações, equipamentos. Como os recursos da firma estão investidos</li>
+<li><strong>Passivo</strong> <em>(liabilities)</em>: compromissos da firma junto a credores</li>
+<li><strong>Patrimônio Líquido</strong> <em>(net worth)</em>: diferença A − P; quanto do valor dos ativos excede as obrigações. Patrimônio dos sócios</li>
+</ul>
+<div class="fragment">
+<p>Identidade Patrimonial:</p>
+<p><span class="math display">\[A \equiv P + PL\]</span></p>
+</div>
+</section>
+<section id="petrobras-balanço-atual" class="slide level2 smaller">
+<h2>PETROBRAS — balanço atual</h2>
+<div id="1ae811f2" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Conta</th>
+<th data-quarto-table-cell-role="th">2025 (R$ bi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Ativo circulante</td>
+<td>139,4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Ativo não circulante</td>
+<td>1.078,8</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Imobilizado (Net PPE)</td>
+<td>920,7</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Total do ativo</td>
+<td>1.218,2</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Passivo circulante</td>
+<td>197,5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Passivo não circulante</td>
+<td>604,9</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Patrimônio líquido</td>
+<td>414,0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>A identidade <strong>A ≡ P + PL</strong> confere nos dados: ativo 1.218,2 ≈ passivo 802,4 + PL 415,8 (R$ bi).</p>
+<p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercício 2025.</span></p>
+</section>
+<section id="petrobras-composição-do-balanço" class="slide level2 smaller">
+<h2>PETROBRAS — composição do balanço</h2>
+
+<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercício 2025.</span></p>
+</section>
+<section id="ativo-exemplo-do-livro" class="slide level2 compact">
+<h2>Ativo — exemplo do livro</h2>
+<p>Global Conglomerate Corporation, exercício terminado em 31/12 (valores em $ milhões).</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conta</th>
+<th style="text-align: right;">2005</th>
+<th style="text-align: right;">2004</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Ativo circulante</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Caixa</td>
+<td style="text-align: right;">21,2</td>
+<td style="text-align: right;">19,5</td>
+</tr>
+<tr class="odd">
+<td>Contas a receber</td>
+<td style="text-align: right;">18,5</td>
+<td style="text-align: right;">13,2</td>
+</tr>
+<tr class="even">
+<td>Estoques</td>
+<td style="text-align: right;">15,3</td>
+<td style="text-align: right;">14,3</td>
+</tr>
+<tr class="odd">
+<td>Outros circulantes</td>
+<td style="text-align: right;">2,0</td>
+<td style="text-align: right;">1,0</td>
+</tr>
+<tr class="even">
+<td><strong>Total ativo circulante</strong></td>
+<td style="text-align: right;"><strong>57,0</strong></td>
+<td style="text-align: right;"><strong>48,0</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Ativos realizáveis no longo prazo</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Terras</td>
+<td style="text-align: right;">22,2</td>
+<td style="text-align: right;">20,7</td>
+</tr>
+<tr class="odd">
+<td>Edifícios</td>
+<td style="text-align: right;">36,5</td>
+<td style="text-align: right;">30,5</td>
+</tr>
+<tr class="even">
+<td>Equipamentos</td>
+<td style="text-align: right;">39,7</td>
+<td style="text-align: right;">33,2</td>
+</tr>
+<tr class="odd">
+<td>(menos) Depreciação acumulada</td>
+<td style="text-align: right;">(18,7)</td>
+<td style="text-align: right;">(17,5)</td>
+</tr>
+<tr class="even">
+<td>Propriedades, instalações e equipamentos líquidos</td>
+<td style="text-align: right;">79,7</td>
+<td style="text-align: right;">66,9</td>
+</tr>
+<tr class="odd">
+<td>Fundo de comércio</td>
+<td style="text-align: right;">20,0</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="even">
+<td>Outros realizáveis no longo prazo</td>
+<td style="text-align: right;">21,0</td>
+<td style="text-align: right;">14,0</td>
+</tr>
+<tr class="odd">
+<td><strong>Total dos ativos realizáveis no longo prazo</strong></td>
+<td style="text-align: right;"><strong>120,7</strong></td>
+<td style="text-align: right;"><strong>80,9</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Total do ativo</strong></td>
+<td style="text-align: right;"><strong>177,7</strong></td>
+<td style="text-align: right;"><strong>128,9</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Fonte: Berk &amp; DeMarzo (2024), Tabela 2.1.</span></p>
+</section>
+<section id="ativo" class="slide level2">
+<h2>Ativo</h2>
+<ul>
+<li><strong>Ativo circulante</strong> <em>(current assets)</em>: dinheiro ou ativos que poderiam ser convertidos em dinheiro dentro de um ano
+<ul>
+<li>Dinheiro, títulos negociáveis, contas a receber, estoques, despesas antecipadas, outros</li>
+</ul></li>
+<li><strong>Ativo não circulante</strong> <em>(long-term assets)</em>: ativos de longo prazo
+<ul>
+<li>Ativos de liquidação mais difícil após depreciação contábil, imobilizado (propriedades, arrendamento), Fundo de Comércio/Goodwill &amp; Intangibles</li>
+</ul></li>
+</ul>
+</section>
+<section id="passivo" class="slide level2">
+<h2>Passivo</h2>
+<ul>
+<li><strong>Circulante</strong> <em>(current liabilities)</em>: curto prazo
+<ul>
+<li>Contas a pagar, títulos a pagar, impostos e salários devidos</li>
+</ul></li>
+<li><strong>Não circulante</strong> <em>(long-term liabilities)</em>: longo prazo
+<ul>
+<li>Dívidas de longo prazo, leasings, impostos diferidos</li>
+</ul></li>
+<li><strong>Capital de giro líquido</strong> (NWC, <em>net working capital</em>):
+<ul>
+<li>Ativo Circulante − Passivo Circulante</li>
+</ul></li>
+</ul>
+</section>
+<section id="passivo-exemplo-do-livro" class="slide level2 compact">
+<h2>Passivo — exemplo do livro</h2>
+<p>Global Conglomerate Corporation, exercício terminado em 31/12 (valores em $ milhões).</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Conta</th>
+<th style="text-align: right;">2005</th>
+<th style="text-align: right;">2004</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Exigíveis no curto prazo</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Contas a pagar</td>
+<td style="text-align: right;">29,2</td>
+<td style="text-align: right;">24,5</td>
+</tr>
+<tr class="odd">
+<td>Títulos a pagar / dívidas de curto prazo</td>
+<td style="text-align: right;">3,5</td>
+<td style="text-align: right;">3,2</td>
+</tr>
+<tr class="even">
+<td>Vencimentos no curto prazo de dívidas de longo prazo</td>
+<td style="text-align: right;">13,3</td>
+<td style="text-align: right;">12,3</td>
+</tr>
+<tr class="odd">
+<td>Outros exigíveis no curto prazo</td>
+<td style="text-align: right;">2,0</td>
+<td style="text-align: right;">4,0</td>
+</tr>
+<tr class="even">
+<td><strong>Total passivo circulante</strong></td>
+<td style="text-align: right;"><strong>48,0</strong></td>
+<td style="text-align: right;"><strong>44,0</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Exigíveis no longo prazo</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Dívidas de longo prazo</td>
+<td style="text-align: right;">99,9</td>
+<td style="text-align: right;">56,3</td>
+</tr>
+<tr class="odd">
+<td>Obrigações de leasing financeiro</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="even">
+<td>Total de dívidas</td>
+<td style="text-align: right;">99,9</td>
+<td style="text-align: right;">56,3</td>
+</tr>
+<tr class="odd">
+<td>Impostos diferidos</td>
+<td style="text-align: right;">7,6</td>
+<td style="text-align: right;">7,4</td>
+</tr>
+<tr class="even">
+<td>Outros exigíveis no longo prazo</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="odd">
+<td><strong>Total de exigíveis no longo prazo</strong></td>
+<td style="text-align: right;"><strong>107,5</strong></td>
+<td style="text-align: right;"><strong>63,7</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Total do passivo</strong></td>
+<td style="text-align: right;"><strong>155,5</strong></td>
+<td style="text-align: right;"><strong>107,7</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Patrimônio dos sócios</strong></td>
+<td style="text-align: right;"><strong>22,2</strong></td>
+<td style="text-align: right;"><strong>21,2</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Total do passivo e patrimônio dos sócios</strong></td>
+<td style="text-align: right;"><strong>177,7</strong></td>
+<td style="text-align: right;"><strong>128,9</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Fonte: Berk &amp; DeMarzo (2024), Tabela 2.1.</span></p>
+</section>
+<section id="patrimônio-líquido" class="slide level2">
+<h2>Patrimônio Líquido</h2>
+<ul>
+<li>Ativo − Passivo = <span class="destaque">valor contábil</span> do patrimônio dos acionistas <em>(book value)</em></li>
+<li>Notar diferença em relação ao valor de capitalização de mercado <em>(market capitalization)</em>
+<ul>
+<li>Ex.: investimento em um edifício — como é contabilizado</li>
+</ul></li>
+<li>P.L. negativo e o que pode querer dizer</li>
+</ul>
+</section>
+<section id="section" class="slide level2" data-background-color="black">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="figs/globo-1.png" style="width:100.0%"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="figs/globo-2.png" style="width:100.0%"></p>
+</div></div>
+</section>
+<section id="exercício" class="slide level2 smaller">
+<h2>Exercício</h2>
+<p>Use o valor contábil do patrimônio dos sócios da Global em 2005:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dado</th>
+<th style="text-align: right;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Patrimônio dos sócios</td>
+<td style="text-align: right;">$22,2 milhões</td>
+</tr>
+<tr class="even">
+<td>Ações em circulação</td>
+<td style="text-align: right;">3,6 milhões</td>
+</tr>
+<tr class="odd">
+<td>Preço por ação</td>
+<td style="text-align: right;">$10,00</td>
+</tr>
+</tbody>
+</table>
+<p>Qual a capitalização de mercado? Como ela se compara ao valor contábil (<em>book value</em>) do patrimônio dos acionistas?</p>
+</section>
+<section id="análise-do-balanço-market-to-book-fracpb" class="slide level2">
+<h2>Análise do Balanço — Market-to-Book <span class="math inline">\(\frac{P}{B}\)</span></h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Razão entre valor de mercado e valor contábil do P.L. <em>(equity)</em></li>
+<li>Empresas bem-sucedidas: tipicamente acima de 1</li>
+<li><em>Value</em> e <em>growth stocks</em></li>
+<li>Relação com o q de Tobin</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><img data-src="figs/market-book-2019-1.png" style="width:100.0%"></p>
+<p><span class="fonte">Market-to-book para grupos de firmas em 2016. <em>Value stocks</em> (M/B baixo) em vermelho; <em>growth stocks</em> (M/B alto) em azul.</span></p>
+</div></div>
+</section>
+<section id="análise-do-balanço-outras-medidas" class="slide level2 smaller">
+<h2>Análise do Balanço — Outras medidas</h2>
+<ul>
+<li><strong>Alavancagem</strong>, debt-to-equity: <span class="math inline">\(\dfrac{\text{Capital de Terceiros}}{\text{Capital Próprio}}\)</span>
+<ul>
+<li>Tem versões em <em>market</em> e <em>book value</em></li>
+</ul></li>
+<li><strong>Valor da empresa</strong> (valor de franquia): desfaz-se o endividamento líquido</li>
+</ul>
+<p><span class="math display">\[EV \equiv \text{Val. merc. das ações} + \underbrace{\text{dívida} - \text{caixa}}_{\text{dívida líquida}}\]</span></p>
+<ul>
+<li>Outras informações:
+<ul>
+<li>Liquidez corrente (<em>current ratio</em>): <span class="math inline">\(\dfrac{\text{At. Corrente}}{\text{Pas. Corrente}}\)</span></li>
+<li>Liquidez seca (<em>quick ratio</em>, <em>acid test</em>): <span class="math inline">\(\dfrac{\text{At. Corrente} - \text{Estoques}}{\text{Passivo Corrente}}\)</span></li>
+<li>Comportamento de estoques, endividamento</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="demonstrativo-de-resultados" class="title-slide slide level1 center">
+<h1>Demonstrativo de Resultados</h1>
+
+</section>
+<section id="petrobras-dre-atual" class="slide level2 smaller">
+<h2>PETROBRAS — DRE atual</h2>
+<div id="bf8b119e" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Conta</th>
+<th data-quarto-table-cell-role="th">2025 (R$ bi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Receita líquida</td>
+<td>488,7</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Custo dos produtos vendidos</td>
+<td>(256,1)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Lucro bruto</td>
+<td>232,6</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Despesas operacionais</td>
+<td>(80,5)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Resultado operacional</td>
+<td>152,1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Resultado financeiro líquido</td>
+<td>(21,6)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Lucro antes dos impostos</td>
+<td>146,8</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>Impostos</td>
+<td>(38,8)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>Lucro líquido</td>
+<td>107,6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Margem bruta 47.6%; margem líquida 22.0%.</p>
+<p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercício 2025.</span></p>
+</section>
+<section id="resultados-do-exercício-livro" class="slide level2 compact">
+<h2>Resultados do Exercício [livro]</h2>
+<p><em>(Income Statement ou Statement of Financial Performance)</em></p>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p>Global Conglomerate Corporation, exercício terminado em 31/12 (valores em $ milhões).</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Conta</th>
+<th style="text-align: right;">2005</th>
+<th style="text-align: right;">2004</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Total de vendas</td>
+<td style="text-align: right;">186,7</td>
+<td style="text-align: right;">176,1</td>
+</tr>
+<tr class="even">
+<td>Custo das vendas</td>
+<td style="text-align: right;">(153,4)</td>
+<td style="text-align: right;">(147,3)</td>
+</tr>
+<tr class="odd">
+<td><strong>Lucro bruto</strong></td>
+<td style="text-align: right;"><strong>33,3</strong></td>
+<td style="text-align: right;"><strong>28,8</strong></td>
+</tr>
+<tr class="even">
+<td>Despesas de vendas, gerais e administrativas</td>
+<td style="text-align: right;">(13,5)</td>
+<td style="text-align: right;">(13,0)</td>
+</tr>
+<tr class="odd">
+<td>Pesquisa e desenvolvimento</td>
+<td style="text-align: right;">(8,2)</td>
+<td style="text-align: right;">(7,6)</td>
+</tr>
+<tr class="even">
+<td>Depreciação e amortização</td>
+<td style="text-align: right;">(1,2)</td>
+<td style="text-align: right;">(1,1)</td>
+</tr>
+<tr class="odd">
+<td><strong>Resultado operacional</strong></td>
+<td style="text-align: right;"><strong>10,4</strong></td>
+<td style="text-align: right;"><strong>7,1</strong></td>
+</tr>
+<tr class="even">
+<td>Outras receitas</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="odd">
+<td><strong>Lucro antes de juros e impostos (EBIT)</strong></td>
+<td style="text-align: right;"><strong>10,4</strong></td>
+<td style="text-align: right;"><strong>7,1</strong></td>
+</tr>
+<tr class="even">
+<td>Resultado de juros (despesa)</td>
+<td style="text-align: right;">(7,7)</td>
+<td style="text-align: right;">(4,6)</td>
+</tr>
+<tr class="odd">
+<td><strong>Resultado antes dos impostos</strong></td>
+<td style="text-align: right;"><strong>2,7</strong></td>
+<td style="text-align: right;"><strong>2,5</strong></td>
+</tr>
+<tr class="even">
+<td>Impostos</td>
+<td style="text-align: right;">(0,7)</td>
+<td style="text-align: right;">(0,6)</td>
+</tr>
+<tr class="odd">
+<td><strong>Lucro líquido</strong></td>
+<td style="text-align: right;"><strong>2,0</strong></td>
+<td style="text-align: right;"><strong>1,9</strong></td>
+</tr>
+<tr class="even">
+<td>Lucros por ação</td>
+<td style="text-align: right;">$0,556</td>
+<td style="text-align: right;">$0,528</td>
+</tr>
+<tr class="odd">
+<td>Lucros diluídos por ação</td>
+<td style="text-align: right;">$0,526</td>
+<td style="text-align: right;">$0,500</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:38%;">
+<ul>
+<li><strong>Receitas (1):</strong> valor das vendas</li>
+<li><strong>Custos (2):</strong> custo direto dos produtos/serviços</li>
+<li><strong>Lucro Bruto (3):</strong> (1) − (2)</li>
+<li><strong>Despesas Operacionais (4):</strong> SG&amp;A, P&amp;D, depreciação</li>
+<li><strong>Resultado Operacional (5):</strong> (3) − (4)</li>
+<li><strong>Receitas/perdas não operacionais (6):</strong> câmbio, dividendos, tesouraria, alienações</li>
+<li><strong>EBIT (7):</strong> (5) + (6)</li>
+<li><strong>Despesa com juros (8)</strong></li>
+<li><strong>Lucro líquido:</strong> (7) − (8) − impostos</li>
+</ul>
+</div></div>
+<p><span class="fonte">Fonte: Berk &amp; DeMarzo (2024), Tabela 2.2.</span></p>
+</section>
+<section id="notas-sobre-o-demonstrativo-de-resultados" class="slide level2">
+<h2>Notas sobre o Demonstrativo de Resultados</h2>
+<ul>
+<li>Repare a entrada de Pesquisa e Desenvolvimento (P&amp;D):
+<ul>
+<li>Para economistas: investimento</li>
+<li>Para a contabilidade: <span class="destaque">despesa com aquisição de intangíveis</span>, que normalmente não entram no Balanço Patrimonial</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>E o investimento em capital (CapEx)?
+<ul>
+<li>Não entra no resultado</li>
+<li>Mas entra a depreciação</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="análise-dos-resultados" class="slide level2">
+<h2>Análise dos Resultados</h2>
+<ul>
+<li><p><strong>EBIT</strong> — <em>earnings before interest and taxes</em>: exclui despesas com juros do resultado antes de impostos</p></li>
+<li><p><strong>EBITDA</strong> — <em>earnings before interest, taxes, depreciation, amortization</em>: adiciona depreciação e amortização de volta (não são despesas de caixa)</p></li>
+<li><p><strong>Lucro por ação, EPS</strong> (<em>earnings per share</em>):</p></li>
+</ul>
+<p><span class="math display">\[\text{EPS} = \frac{\text{Lucro Líquido}}{\#\text{ações em circulação}}\]</span></p>
+</section>
+<section id="análise-dos-resultados-cont." class="slide level2 smaller">
+<h2>Análise dos Resultados (cont.)</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>Medidas de eficiência / margem:</strong></p>
+<ul>
+<li><p>Margem operacional: <span class="math inline">\(\dfrac{\text{Res. Operacional}}{\text{Total de Vendas}}\)</span></p></li>
+<li><p>Margem líquida: <span class="math inline">\(\dfrac{\text{Lucro Líquido}}{\text{Total de Vendas}}\)</span></p></li>
+</ul>
+<p><strong>Eficiência de ativos:</strong></p>
+<ul>
+<li>Turnover de ativos: <span class="math inline">\(\dfrac{\text{Vendas}}{\text{Ativos}}\)</span> ou <span class="math inline">\(\dfrac{\text{Vendas}}{\text{At. N-Circ.}}\)</span></li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>Capital de giro:</strong></p>
+<ul>
+<li><p>Prazo de recebimento (dias): <span class="math inline">\(\dfrac{\text{Contas a receber}}{\text{Vendas}/\text{dias}}\)</span></p></li>
+<li><p>Turnover de estoques: <span class="math inline">\(\dfrac{\text{Custo bens vendidos}}{\text{Estoque}}\)</span></p></li>
+</ul>
+<p><strong>Índices de cobertura de juros:</strong></p>
+<ul>
+<li>Cobertura de juros: <span class="math inline">\(\dfrac{\text{EBIT ou EBITDA}}{\text{Despesa com juros}}\)</span></li>
+</ul>
+</div></div>
+</section>
+<section id="petrobras-margens-e-roe-no-tempo" class="slide level2 smaller">
+<h2>PETROBRAS — margens e ROE no tempo</h2>
+
+<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Índice de um ano só pode enganar; a <span class="destaque">série temporal</span> revela ciclo e tendência.</p>
+<p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercícios 2021–2025.</span></p>
+</section>
+<section id="análise-dos-resultados-cont.-1" class="slide level2 smaller">
+<h2>Análise dos Resultados (cont.)</h2>
+<p><strong>Retornos contábeis</strong> (diferente do retorno da ação):</p>
+<ul>
+<li><p>Return on Equity (ROE): <span class="math inline">\(\dfrac{\text{Lucro Líquido}}{\text{P.L. Contábil}}\)</span></p></li>
+<li><p>Return on Assets (ROA): <span class="math inline">\(\dfrac{\text{Lucro Líquido} + \text{Despesa com juros}}{\text{Ativos}}\)</span></p>
+<ul>
+<li>Às vezes sem levar em conta despesa com juros e uso da dívida no financiamento dos ativos</li>
+</ul></li>
+<li><p>Return on Invested Capital (ROIC): <span class="math inline">\(\dfrac{EBIT\,(1-\tau)}{P.L.\,\text{Contábil} + \text{Dívida Líquida}}\)</span></p></li>
+</ul>
+<p><strong>Índices de avaliação:</strong></p>
+<ul>
+<li>Preço-Lucro (P/E, <em>price-earnings</em>): <span class="math inline">\(\dfrac{P}{E} = \dfrac{\text{Market Cap}}{\text{Lucro Líquido}} = \dfrac{\text{Preço da Ação}}{\text{Resultado por ação}}\)</span></li>
+</ul>
+</section>
+<section id="petrobras-índices-principais" class="slide level2 smaller">
+<h2>PETROBRAS — índices principais</h2>
+<div id="d45207fd" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Índice</th>
+<th data-quarto-table-cell-role="th">Fórmula</th>
+<th data-quarto-table-cell-role="th">PETR4 2025</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Liquidez corrente</td>
+<td>At.Circ / Pas.Circ</td>
+<td>0.71</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Liquidez seca</td>
+<td>(At.Circ − Estoq) / Pas.Circ</td>
+<td>0.48</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Margem operacional</td>
+<td>Res.Op / Vendas</td>
+<td>31.1%</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Margem líquida</td>
+<td>Lucro Líq / Vendas</td>
+<td>22.0%</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Turnover de ativos</td>
+<td>Vendas / Ativos</td>
+<td>0.40</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Cobertura de juros</td>
+<td>EBIT / Desp.Juros</td>
+<td>7.5×</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>ROE</td>
+<td>Lucro Líq / PL</td>
+<td>26.0%</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>ROA</td>
+<td>(Lucro Líq + Juros) / Ativos</td>
+<td>10.7%</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>ROIC</td>
+<td>EBIT(1−τ) / (PL + Dív.Líq)</td>
+<td>21.3%</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>P/L</td>
+<td>Market Cap / Lucro Líq</td>
+<td>4.8</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>P/B</td>
+<td>Val.Merc / PL contábil</td>
+<td>1.12</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>EV/EBITDA</td>
+<td>Enterprise Value / EBITDA</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code>; τ = 34% no ROIC.</span></p>
+</section></section>
+<section>
+<section id="demonstrativo-de-fluxo-de-caixa" class="title-slide slide level1 center">
+<h1>Demonstrativo de Fluxo de Caixa</h1>
+
+</section>
+<section id="petrobras-fluxo-de-caixa-atual" class="slide level2 smaller">
+<h2>PETROBRAS — fluxo de caixa atual</h2>
+<div id="71f4b3b9" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Conta</th>
+<th data-quarto-table-cell-role="th">2025 (R$ bi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Lucro líquido</td>
+<td>108,0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Depreciação/amortização</td>
+<td>83,0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Δ capital de giro</td>
+<td>(24,4)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Caixa operacional</td>
+<td>197,5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>CapEx</td>
+<td>(107,0)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Fluxo de caixa livre</td>
+<td>90,5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Caixa de investimento</td>
+<td>(85,7)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>Caixa de financiamento</td>
+<td>(95,4)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>Variação de caixa</td>
+<td>16,4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Em 2025, caixa operacional de 197,5 e CapEx de (107,0) resultam em FCL de 90,5 (R$ bi).</p>
+<p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercício 2025.</span></p>
+</section>
+<section id="abordagem-indireta-operação-e-investimento" class="slide level2 compact">
+<h2>Abordagem indireta — operação e investimento</h2>
+<p>Global Conglomerate Corporation, exercício terminado em 31/12 (valores em $ milhões).</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Conta</th>
+<th style="text-align: right;">2005</th>
+<th style="text-align: right;">2004</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Atividades operacionais</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Lucro líquido</td>
+<td style="text-align: right;">2,0</td>
+<td style="text-align: right;">1,9</td>
+</tr>
+<tr class="odd">
+<td>Depreciação e amortização</td>
+<td style="text-align: right;">1,2</td>
+<td style="text-align: right;">1,1</td>
+</tr>
+<tr class="even">
+<td>Outros itens não correspondentes ao caixa</td>
+<td style="text-align: right;">(2,8)</td>
+<td style="text-align: right;">(1,0)</td>
+</tr>
+<tr class="odd">
+<td>Efeito de caixa de alterações em</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Contas a receber</td>
+<td style="text-align: right;">(5,3)</td>
+<td style="text-align: right;">(0,3)</td>
+</tr>
+<tr class="odd">
+<td>Contas a pagar</td>
+<td style="text-align: right;">4,7</td>
+<td style="text-align: right;">(0,5)</td>
+</tr>
+<tr class="even">
+<td>Estoque</td>
+<td style="text-align: right;">(1,0)</td>
+<td style="text-align: right;">(1,0)</td>
+</tr>
+<tr class="odd">
+<td><strong>Caixa das atividades operacionais</strong></td>
+<td style="text-align: right;"><strong>(1,2)</strong></td>
+<td style="text-align: right;"><strong>0,2</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Atividades de investimento</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>Desembolso de capital</td>
+<td style="text-align: right;">(14,0)</td>
+<td style="text-align: right;">(4,0)</td>
+</tr>
+<tr class="even">
+<td>Aquisições e outras atividades de investimento</td>
+<td style="text-align: right;">(27,0)</td>
+<td style="text-align: right;">(2,0)</td>
+</tr>
+<tr class="odd">
+<td><strong>Caixa das atividades de investimento</strong></td>
+<td style="text-align: right;"><strong>(41,0)</strong></td>
+<td style="text-align: right;"><strong>(6,0)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Fonte: Berk &amp; DeMarzo (2024), Tabela 2.3.</span></p>
+</section>
+<section id="abordagem-indireta-financiamento" class="slide level2 compact">
+<h2>Abordagem indireta — financiamento</h2>
+<p>Global Conglomerate Corporation, exercício terminado em 31/12 (valores em $ milhões).</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conta</th>
+<th style="text-align: right;">2005</th>
+<th style="text-align: right;">2004</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Atividades de financiamento</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Dividendos pagos</td>
+<td style="text-align: right;">(1,0)</td>
+<td style="text-align: right;">(1,0)</td>
+</tr>
+<tr class="odd">
+<td>Venda ou compra de ações</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="even">
+<td>Aumento nos empréstimos de curto prazo</td>
+<td style="text-align: right;">1,3</td>
+<td style="text-align: right;">3,0</td>
+</tr>
+<tr class="odd">
+<td>Aumento nos empréstimos de longo prazo</td>
+<td style="text-align: right;">43,6</td>
+<td style="text-align: right;">2,5</td>
+</tr>
+<tr class="even">
+<td><strong>Caixa de atividades de financiamento</strong></td>
+<td style="text-align: right;"><strong>43,9</strong></td>
+<td style="text-align: right;"><strong>4,5</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Alterações no caixa e equivalentes de caixa</strong></td>
+<td style="text-align: right;"><strong>1,7</strong></td>
+<td style="text-align: right;"><strong>(1,3)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Fonte: Berk &amp; DeMarzo (2024), Tabela 2.3.</span></p>
+</section>
+<section id="itens-principais" class="slide level2 smaller">
+<h2>Itens Principais</h2>
+<ul>
+<li><strong>Atividades operacionais</strong>
+<ul>
+<li>Somam-se de volta ao lucro líquido todas as <strong>despesas que não foram de caixa</strong>: depreciação, impostos diferidos, compensação com ações/opções</li>
+<li>Corrigem-se <strong>contas a receber</strong>, <strong>deduzindo</strong> o aumento</li>
+<li><strong>Adicionam-se</strong> aumentos nas <strong>contas a pagar</strong></li>
+<li><strong>Deduzem-se</strong> aumentos nos <strong>estoques</strong></li>
+</ul></li>
+<li><strong>Atividades de investimento</strong>
+<ul>
+<li><strong>Desembolso de capital</strong> (CapEx): novas aquisições de propriedades, instalações e equipamentos
+<ul>
+<li>Não aparecem no resultado; apenas a depreciação aparece</li>
+</ul></li>
+<li>Aquisições e outras atividades de investimento</li>
+</ul></li>
+</ul>
+</section>
+<section id="itens-principais-cont." class="slide level2">
+<h2>Itens Principais (cont.)</h2>
+<ul>
+<li><strong>Atividades de financiamento</strong>
+<ul>
+<li>Dividendos pagos</li>
+<li>Ações adquiridas</li>
+<li>Variação em empréstimos de curto e longo prazo</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>Também costumam ser reportados separadamente:</p>
+<p><span class="math display">\[\text{Lucros retidos} \equiv \text{Lucro Líquido} - \text{Dividendo}\]</span></p>
+</div>
+</section>
+<section id="lucro-caixa-ponte-para-fcl" class="slide level2 smaller">
+<h2>Lucro ≠ caixa: ponte para FCL</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="cell" data-reveal="true" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[Lucro líquido] --&gt; B["Somar depreciação&lt;br/&gt;e amortização"]
+  B --&gt; C["± Variações de&lt;br/&gt;capital de giro"]
+  C --&gt; D[Caixa operacional]
+  D --&gt; E["− CapEx"]
+  E --&gt; F[Fluxo de caixa livre]
+  style A fill:#0072B2,color:#fff
+  style D fill:#009E73,color:#fff
+  style F fill:#D55E00,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:54%;">
+<div id="ca6cbc7f" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">R$ bi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Lucro líquido</th>
+<td>108,0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Depreciação/amort.</th>
+<td>+ 83,0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Δ capital de giro</th>
+<td>-24,4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">= Caixa operacional</th>
+<td>197,5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">CapEx</th>
+<td>-107,0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">= Fluxo de caixa livre</th>
+<td>90,5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+<p><span class="fonte">Fonte: fluxo de caixa, Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercício 2025.</span></p>
+</section>
+<section id="exemplo-depreciação-e-fluxo-de-caixa" class="slide level2 smaller">
+<h2>Exemplo — depreciação e fluxo de caixa</h2>
+<p><strong>Problema.</strong> Suponha que a Global tenha uma despesa extra de $1 milhão em depreciação em 2005. Se a alíquota sobre o lucro antes dos impostos for de 26%, qual é o impacto sobre seus rendimentos? E sobre o caixa da empresa no fim do exercício?</p>
+<div class="fragment">
+<p><strong>Solução.</strong></p>
+<ul>
+<li>Resultado operacional, EBIT e lucro antes dos impostos caem $1,0 milhão</li>
+<li>Impostos declarados caem <span class="math inline">\(26\% \times \$1{,}0 = \$0{,}26\)</span> milhão</li>
+<li>Lucro líquido cai $0,74 milhão</li>
+<li>Como depreciação não é desembolso de caixa, soma-se $1,0 milhão no fluxo de caixa</li>
+<li>Caixa operacional aumenta <span class="math inline">\(-\$0{,}74 + \$1{,}00 = \$0{,}26\)</span> milhão</li>
+</ul>
+<p>A economia tributária da depreciação extra aumenta o caixa final em <span class="destaque">$0,26 milhão</span>.</p>
+</div>
+</section></section>
+<section>
+<section id="outros-demonstrativos-e-análise" class="title-slide slide level1 center">
+<h1>Outros demonstrativos e análise</h1>
+
+</section>
+<section id="adicionais" class="slide level2">
+<h2>Adicionais</h2>
+<ul>
+<li><strong>Discussão e análise da administração</strong>: deve incluir operações não reportadas no BP, por exemplo, grandes garantias emitidas</li>
+<li><strong>Demonstrativo de equivalência patrimonial</strong>: divide a variação do PL em lucros retidos e novas ações emitidas</li>
+<li><strong>Notas explicativas</strong></li>
+<li>No Brasil: demonstrativo de valor adicionado, outros</li>
+</ul>
+</section>
+<section id="múltiplos-nos-dados" class="slide level2">
+<h2>Múltiplos nos dados</h2>
+
+<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Itaú aparece como <code>n.d.</code> em EV/EBITDA: bancos não têm EBITDA comparável.</p>
+<p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>.info</code>), dados locais do curso.</span></p>
+</section>
+<section id="discussão-adicional" class="slide level2">
+<h2>Discussão Adicional</h2>
+<ul>
+<li><strong>Auditoria</strong></li>
+<li>Escândalos de grande porte — WorldCom, Enron</li>
+<li><strong>Sarbanes-Oxley:</strong>
+<ul>
+<li>Incentivos e independência de auditorias</li>
+<li>Aumento de punições para informações falsas</li>
+<li>Mudanças nos processos internos de alocação e controle de recursos</li>
+</ul></li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

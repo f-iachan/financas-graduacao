@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="pt"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <meta name="author" content="Felipe Iachan">
+  <title>Avaliando Investimentos</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-e84670de79113489ef6116b201ea4025.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Avaliando Investimentos</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felipe Iachan 
+</div>
+</div>
+</div>
+
+</section>
+<section id="onde-estamos" class="slide level2">
+<h2>Onde estamos</h2>
+<ul>
+<li>Aulas passadas: como avaliar <span class="secundario">títulos e ações</span> a preços de mercado</li>
+<li>Hoje: como a <strong>firma</strong> avalia seus próprios projetos de investimento</li>
+<li>Roteiro: regra do VPL → TIR e payback → onde essas regras falham → comparando projetos</li>
+</ul>
+<!-- PLANNING: ~5 min de recap dos módulos anteriores. -->
+</section>
+<section id="a-pergunta" class="slide level2 center">
+<h2>A pergunta</h2>
+<div class="r-fit-text">
+<p>Dado um conjunto de projetos, qual <span class="destaque">regra de decisão</span> a firma deve usar para escolher?</p>
+</div>
+</section>
+<section id="valor-em-um-mercado-competitivo" class="slide level2">
+<h2>Valor em um mercado competitivo</h2>
+<ul>
+<li>Mercado competitivo e completo de ativos: qualquer fluxo de caixa pode ser comprado ou vendido a preço de mercado</li>
+<li>Logo, o valor de um ativo <strong>não depende</strong> das preferências de quem o detém</li>
+</ul>
+<blockquote>
+<p>“Em um mercado perfeito, o valor de se produzir uma maçã a mais independe da disposição do fazendeiro em comê-la.”</p>
+</blockquote>
+</section>
+<section id="princípio-da-valoração" class="slide level2">
+<h2>Princípio da valoração</h2>
+<ul>
+<li>O valor de um ativo para a firma (ou seus donos) é dado por sua <strong>avaliação a preços de mercado</strong></li>
+</ul>
+<p><span class="math display">\[\text{VPL} = VP(\text{Benefícios}) - VP(\text{Custos})\]</span></p>
+</section>
+<section id="recall-regra-do-vpl" class="slide level2">
+<h2>Recall: regra do VPL</h2>
+<ul>
+<li>Entre alternativas de investimento, a firma deve escolher a de <strong>maior VPL</strong></li>
+<li><span class="destaque">Escolher essa alternativa equivale a receber o VPL, em dinheiro, hoje</span></li>
+</ul>
+<div class="cell" data-reveal="true" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Fluxos de caixa do projeto] --&gt; B[Descontar a r]
+  B --&gt; C[VPL]
+  C --&gt; D{VPL &gt; 0?}
+  D --&gt;|sim| E[Investir]
+  D --&gt;|não| F[Recusar]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="por-que-maximizar-o-vpl" class="slide level2 smaller">
+<h2>Por que maximizar o VPL?</h2>
+<p>Aceitar um projeto X não muda o valor da firma pelo <em>fluxo</em> de X — muda pelo seu <strong>VPL</strong>.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Valor de mercado (R$ milhões)</th>
+<th style="text-align: right;">Recusar projeto X</th>
+<th style="text-align: right;">Aceitar projeto X</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Caixa</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>Outros ativos</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td>Projeto X</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">VP</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>10</strong></td>
+<td style="text-align: right;"><strong>9 + VP</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Aceitar aumenta o valor da firma sempre que <span class="math inline">\(VP &gt; 1\)</span>, i.e., sempre que o <span class="destaque">VPL do projeto é positivo</span>.</p>
+</section>
+<section id="o-caso-mais-comum" class="slide level2">
+<h2>O caso mais comum</h2>
+<ul>
+<li>Duas alternativas: aceitar um projeto determinado, ou recusá-lo</li>
+<li>Recusar <span class="math inline">\(\Rightarrow VPL = 0\)</span> (alternativa de referência)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Logo, maximizar VPL implica:
+<ul>
+<li>Aceitar se <span class="math inline">\(VPL &gt; 0\)</span></li>
+<li>Recusar se <span class="math inline">\(VPL &lt; 0\)</span></li>
+</ul></li>
+</ul>
+<p><span class="destaque">A taxa de desconto deve refletir o risco do projeto</span> (a melhor alternativa de mercado com o mesmo perfil de risco — voltaremos a isso).</p>
+</div>
+</section>
+<section id="como-as-firmas-decidem-na-prática" class="slide level2 smaller">
+<h2>Como as firmas decidem, na prática</h2>
+<p>Gitman e Forrester (1977): apenas <strong>~10% das grandes firmas</strong> usavam o VPL como método principal de decisão. A evidência mudou desde então:</p>
+
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Graham e Harvey (2001).</span></p>
+</section>
+<section id="evidência-mais-recente" class="slide level2 smaller">
+<h2>Evidência mais recente</h2>
+<p>Graham (2022), <em>AFA Presidential Address</em>: atualização com a pesquisa de CFOs de 2022 (Duke CFO Survey), separando firmas grandes e pequenas.</p>
+<div id="fcc68339" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Método</th>
+<th style="text-align: right;">Ano</th>
+<th style="text-align: left;">Porte</th>
+<th style="text-align: right;">% que usa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">VPL (NPV)</td>
+<td style="text-align: right;">2001</td>
+<td style="text-align: left;">todas as firmas</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VPL (NPV)</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
+<td style="text-align: right;">77</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VPL (NPV)</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Payback</td>
+<td style="text-align: right;">2001</td>
+<td style="text-align: left;">todas as firmas</td>
+<td style="text-align: right;">57</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Payback</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
+<td style="text-align: right;">64</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Payback</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
+<td style="text-align: right;">66</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span class="fonte">VPL e TIR/hurdle rate seguem como os métodos mais usados por firmas grandes; payback continua popular, sobretudo em firmas pequenas.</span></p>
+</section>
+<section id="exemplo-acme-s.a." class="slide level2">
+<h2>Exemplo: Acme S.A.</h2>
+<ul>
+<li>Acme avalia lançar um novo produto</li>
+<li>Investimento em maquinário: <strong>R$ 81,6 milhões</strong>, hoje</li>
+<li>Lucro esperado: <strong>R$ 28 milhões/ano</strong>, por 4 anos (depois o produto fica obsoleto)</li>
+</ul>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo de caixa do projeto Acme: investimento inicial de 81,6 milhões e lucros anuais de 28 milhões por 4 anos">
+<line class="axis" x1="105" y1="92" x2="1005" y2="92"></line> <line class="tick" x1="105" y1="54" x2="105" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="555" y1="54" x2="555" y2="132"></line> <line class="tick" x1="780" y1="54" x2="780" y2="132"></line> <line class="tick" x1="1005" y1="54" x2="1005" y2="132"></line> <text class="time-label" x="105" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1</text> <text class="time-label" x="555" y="42" text-anchor="middle">2</text> <text class="time-label" x="780" y="42" text-anchor="middle">3</text> <text class="time-label" x="1005" y="42" text-anchor="middle">4</text> <text class="flow-label outflow" x="105" y="182" text-anchor="middle">−R$ 81,6 mi</text> <text class="flow-label inflow" x="330" y="182" text-anchor="middle">+R$ 28 mi</text> <text class="flow-label inflow" x="555" y="182" text-anchor="middle">+R$ 28 mi</text> <text class="flow-label inflow" x="780" y="182" text-anchor="middle">+R$ 28 mi</text> <text class="flow-label inflow" x="1005" y="182" text-anchor="middle">+R$ 28 mi</text>
+</svg>
+</section>
+<section id="avaliação-da-acme" class="slide level2">
+<h2>Avaliação da Acme</h2>
+<p>Dada uma taxa de desconto <span class="math inline">\(r\)</span>:</p>
+<p><span class="math display">\[VPL(r) = -81,6 + \frac{28}{r}\left(1 - \frac{1}{(1+r)^4}\right)\]</span></p>
+<p>Com custo de capital estimado em <span class="math inline">\(r = 10\%\)</span>:</p>
+<div id="31af1383" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<p><span class="math display">\[VPL = 7,2 &gt; 0\]</span></p>
+</div>
+</div>
+<p><span class="destaque">O projeto aumenta o valor da firma.</span></p>
+</section>
+<section id="robustez-vpl-como-função-de-r" class="slide level2 smaller">
+<h2>Robustez: VPL como função de r</h2>
+
+<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="taxa-interna-de-retorno-tir" class="slide level2">
+<h2>Taxa interna de retorno (TIR)</h2>
+<ul>
+<li>A regra do VPL diz: investir sse <span class="math inline">\(VPL(r) &gt; 0\)</span></li>
+<li>A raiz de <span class="math inline">\(VPL(r) = 0\)</span> é a <strong>taxa interna de retorno</strong> (TIR; <em>IRR</em> em inglês)</li>
+</ul>
+<div id="6a0df94d" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
+<p><span class="math display">\[VPL(r^*) = 0 \quad\Longrightarrow\quad r^* = TIR = 14\%\]</span></p>
+</div>
+</div>
+<ul>
+<li>Com a estimativa inicial <span class="math inline">\(r = 10\%\)</span>: investir, com margem de erro de <span class="math inline">\(\approx 4\)</span> p.p.</li>
+<li>Seria adequado comparar a <strong>TIR contra o custo de capital</strong></li>
+</ul>
+<p><span class="destaque">Mas cuidado: em geral a TIR precisa ser usada com cautela.</span></p>
+</section>
+<section id="regras-de-investimento-alternativas" class="slide level2">
+<h2>Regras de investimento alternativas</h2>
+<ul>
+<li>As regras mais comuns na prática: <strong>VPL, TIR, payback</strong></li>
+<li>Já vimos o VPL. Vamos ver payback, depois voltar à TIR em detalhe</li>
+</ul>
+</section>
+<section id="critério-de-payback" class="slide level2">
+<h2>Critério de payback</h2>
+<ul>
+<li>Calcule o tempo até o projeto <strong>pagar de volta</strong> seu investimento inicial</li>
+<li>Aceite o projeto sse esse tempo for menor que um limite pré-estabelecido</li>
+</ul>
+</section>
+<section id="payback-exemplo-acme" class="slide level2 smaller">
+<h2>Payback: exemplo Acme</h2>
+<p>Voltando à Acme, com limite de <strong>2 anos</strong>:</p>
+<ul>
+<li>Investimento inicial: R$ 81,6 mi</li>
+<li>Recuperado em 2 anos: $2 = $ R$ 56 mi</li>
+<li><span class="math inline">\(56 &lt; 81{,}6\)</span>: <span class="destaque">o critério falha</span> e o investimento <strong>não é feito</strong></li>
+</ul>
+<p>Custo do erro: o VPL de R$ 7,2 mi é perdido.</p>
+</section>
+<section id="desvantagens-do-critério-de-payback" class="slide level2">
+<h2>Desvantagens do critério de payback</h2>
+<ul>
+<li>Ignora o valor do dinheiro no tempo <em>(viés: não descontar <strong>superestima</strong> fluxos futuros — o payback simples fica mais permissivo que o payback descontado)</em></li>
+<li>Visão de curto prazo: ignora fluxos após a data crítica <em>(viés: rejeita projetos de retorno tardio)</em></li>
+<li>Não é embasado em teoria econômica: maximiza o quê? qual o prazo correto para cada firma?</li>
+</ul>
+</section>
+<section id="critério-da-tir" class="slide level2">
+<h2>Critério da TIR</h2>
+<ul>
+<li>Regra: investir sse $TIR &gt; $ custo de capital</li>
+<li>No exemplo Acme: $TIR = 14% &gt; 10% = $ custo de capital <span class="math inline">\(\Rightarrow\)</span> investir</li>
+</ul>
+<p>TIR funciona bem (coincide com o VPL) quando o projeto é <strong>simples</strong>:</p>
+<ul>
+<li>Algum dispêndio inicial</li>
+<li>Fluxos positivos depois, sem mais trocas de sinal</li>
+</ul>
+</section>
+<section id="quando-a-tir-funciona-mal" class="slide level2">
+<h2>Quando a TIR funciona mal</h2>
+<ul>
+<li>Recebimento em <span class="math inline">\(t=0\)</span>, gastos depois: <span class="destaque">o critério sai invertido</span></li>
+<li>Fluxos com mais de uma troca de sinal: pode haver <strong>múltiplas TIRs</strong>, ou nenhuma</li>
+</ul>
+<!-- PLANNING: transição — próximos slides mostram esses casos com um exemplo concreto. -->
+</section>
+<section id="dificuldades-com-a-tir" class="slide level2 smaller">
+<h2>Dificuldades com a TIR</h2>
+<div class="r-fit-text">
+<p>Benefício hoje, custo depois</p>
+</div>
+<ul>
+<li>Fluxos do ponto de vista do técnico: o contrato atual lhe rende <strong>R$ 750 mil/ano, por 3 anos</strong></li>
+<li>Proposta de rescisão do clube: R$ 1 mi hoje + 3 parcelas de R$ 250 mil (em vez do contrato)</li>
+<li>Custo de capital: <span class="math inline">\(r = 10\%\)</span></li>
+</ul>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo líquido da rescisão: recebimento de 1 milhão hoje e pagamentos de 500 mil nos três anos seguintes">
+<line class="axis" x1="105" y1="92" x2="1005" y2="92"></line> <line class="tick" x1="105" y1="54" x2="105" y2="132"></line> <line class="tick" x1="405" y1="54" x2="405" y2="132"></line> <line class="tick" x1="705" y1="54" x2="705" y2="132"></line> <line class="tick" x1="1005" y1="54" x2="1005" y2="132"></line> <text class="time-label" x="105" y="42" text-anchor="middle">0</text> <text class="time-label" x="405" y="42" text-anchor="middle">1</text> <text class="time-label" x="705" y="42" text-anchor="middle">2</text> <text class="time-label" x="1005" y="42" text-anchor="middle">3</text> <text class="flow-label inflow" x="105" y="182" text-anchor="middle">+R$ 1.000.000</text> <text class="flow-label outflow" x="405" y="182" text-anchor="middle">−R$ 500.000</text> <text class="flow-label outflow" x="705" y="182" text-anchor="middle">−R$ 500.000</text> <text class="flow-label outflow" x="1005" y="182" text-anchor="middle">−R$ 500.000</text>
+</svg>
+<p>Fluxo líquido: benefício <strong>hoje</strong>, custo <strong>depois</strong>.</p>
+</section>
+<section id="análise-a-tir" class="slide level2">
+<h2>Análise: a TIR</h2>
+<div id="e55a3c0a" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
+<p><span class="math display">\[0 = 1.000 - \frac{500}{1+TIR} - \frac{500}{(1+TIR)^2} - \frac{500}{(1+TIR)^3} \;\Longrightarrow\; TIR = 23,38\%\]</span></p>
+</div>
+</div>
+<div id="805cc100" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
+<p>Note que $TIR = 23,38% &gt; 10% = $ custo de capital.</p>
+</div>
+</div>
+<p>Pela regra da TIR: aceitar.</p>
+</section>
+<section id="análise-e-o-vpl" class="slide level2">
+<h2>Análise: e o VPL?</h2>
+<div id="11266c31" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
+<p><span class="math display">\[VPL = 1.000 - \frac{500}{1{,}1} - \frac{500}{1{,}1^2} - \frac{500}{1{,}1^3} = -R\$243.426 &lt; 0\]</span></p>
+</div>
+</div>
+<p><span class="destaque">A regra da TIR e a regra do VPL discordam!</span> Qual foi o problema?</p>
+</section>
+<section id="o-gráfico-explica" class="slide level2 smaller">
+<h2>O gráfico explica</h2>
+
+<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Quando o benefício ocorre antes do custo, <span class="destaque">o VPL é função <strong>crescente</strong> de r</span> — o oposto do caso usual. A regra da TIR sai invertida.</p>
+</section>
+<section id="dificuldades-com-a-tir-1" class="slide level2 smaller">
+<h2>Dificuldades com a TIR</h2>
+<div class="r-fit-text">
+<p>Trocas de sinal</p>
+</div>
+<p>Suponha que a rescisão envolvesse também um pagamento de R$ 600 mil ao final do ano 10:</p>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo com pagamento adicional no ano 10, gerando duas trocas de sinal">
+<line class="axis" x1="90" y1="92" x2="1010" y2="92"></line> <line class="tick" x1="90" y1="54" x2="90" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="570" y1="54" x2="570" y2="132"></line> <line class="tick" x1="720" y1="54" x2="720" y2="132"></line> <line class="tick" x1="1010" y1="54" x2="1010" y2="132"></line> <text class="time-label" x="90" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1–3</text> <text class="time-label" x="570" y="42" text-anchor="middle">4–9</text> <text class="time-label" x="720" y="100" text-anchor="middle">…</text> <text class="time-label" x="1010" y="42" text-anchor="middle">10</text> <text class="flow-label inflow" x="90" y="182" text-anchor="middle">+1.000.000</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−500.000</text> <text class="flow-label" x="570" y="182" text-anchor="middle">0</text> <text class="flow-label inflow" x="1010" y="182" text-anchor="middle">+600.000</text>
+</svg>
+<div id="aa4de88c" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
+<p>Há <strong>duas TIRs</strong>: <span class="math inline">\(TIR_1 = 5,79\% &lt; 10\%\)</span> e <span class="math inline">\(TIR_2 = 13,80\% &gt; 10\%\)</span>.</p>
+</div>
+</div>
+<p>Procedimentos numéricos tipicamente reportam a primeira raiz que encontrarem.</p>
+</section>
+<section id="o-gráfico-duas-raízes" class="slide level2 smaller">
+<h2>O gráfico: duas raízes</h2>
+
+<img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Ao custo de capital de 10% (entre as duas raízes), o VPL é <strong>negativo</strong>.</p>
+</section>
+<section id="ainda-mais-complicações" class="slide level2">
+<h2>Ainda mais complicações</h2>
+<ul>
+<li><span class="math inline">\(VPL &gt; 0\)</span> pode ser a região <strong>entre</strong> duas raízes (em vez de fora delas)</li>
+<li>Podem existir <strong>mais de duas</strong> raízes</li>
+<li>Pode <span class="destaque">não existir raiz alguma</span> — próximo exemplo</li>
+</ul>
+</section>
+<section id="inexistência-de-raiz" class="slide level2 smaller">
+<h2>Inexistência de raiz</h2>
+<p>Suponha, em vez dos acordos anteriores, que a proposta fosse: R$ 750 mil imediatamente, R$ 250 mil nos anos 1 a 3, e R$ 1 mi ao final do ano 4.</p>
+<ul>
+<li>Fluxo <strong>líquido</strong> = proposta menos o contrato de R$ 750 mil/ano que se deixa de receber</li>
+<li>Em cada um dos anos 1–3: <span class="math inline">\(250 - 750 = -500\)</span> (mil) — <span class="destaque">duas trocas de sinal</span> no fluxo líquido</li>
+</ul>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo líquido com duas trocas de sinal: recebimento em t=0, pagamentos líquidos nos anos 1 a 3, recebimento no ano 4">
+<line class="axis" x1="105" y1="92" x2="1005" y2="92"></line> <line class="tick" x1="105" y1="54" x2="105" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="555" y1="54" x2="555" y2="132"></line> <line class="tick" x1="780" y1="54" x2="780" y2="132"></line> <line class="tick" x1="1005" y1="54" x2="1005" y2="132"></line> <text class="time-label" x="105" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1</text> <text class="time-label" x="555" y="42" text-anchor="middle">2</text> <text class="time-label" x="780" y="42" text-anchor="middle">3</text> <text class="time-label" x="1005" y="42" text-anchor="middle">4</text> <text class="flow-label inflow" x="105" y="182" text-anchor="middle">+750</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−500</text> <text class="flow-label outflow" x="555" y="182" text-anchor="middle">−500</text> <text class="flow-label outflow" x="780" y="182" text-anchor="middle">−500</text> <text class="flow-label inflow" x="1005" y="182" text-anchor="middle">+1.000</text>
+</svg>
+<p><span class="fonte">Valores em R$ mil.</span></p>
+</section>
+<section id="gráfico-duas-trocas-de-sinal-sem-raiz" class="slide level2 smaller">
+<h2>Gráfico: duas trocas de sinal, sem raiz</h2>
+
+<img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Mesmo com duas trocas de sinal, pode não existir TIR</span>: o VPL nunca cruza zero — o oposto do caso anterior (ali, duas trocas de sinal geraram duas raízes).</p>
+</section>
+<section id="cuidados-com-a-regra-do-vpl" class="slide level2">
+<h2>Cuidados com a regra do VPL</h2>
+<ul>
+<li>Até agora, projetos <strong>isolados</strong></li>
+<li>Frequentemente projetos são <strong>mutuamente exclusivos</strong> (ex.: usar um terreno para hotel <em>ou</em> cinema)</li>
+<li>Regra: escolher o de <strong>maior VPL</strong></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><span class="secundario">Opções reais</span>: incorporam dinâmica e incerteza em investimentos irreversíveis — adiar/esperar é uma alternativa relevante, às vezes erroneamente contraposta ao VPL <em>(tema em aberto do curso — estudaremos se o tempo permitir)</em></li>
+</ul>
+</div>
+</section>
+<section id="projetos-mutuamente-exclusivos" class="slide level2 smaller">
+<h2>Projetos mutuamente exclusivos</h2>
+<div class="r-fit-text">
+<p>Mesma escala</p>
+</div>
+<p>O que é preferível: 10% de retorno sobre R$ 10.000, ou 1% sobre R$ 200.000?</p>
+<ul>
+<li>Com custo de capital <span class="math inline">\(r_{CC}=0\)</span>: VPL de R$ 1.000 contra R$ 2.000</li>
+<li><span class="destaque">A TIR perde a noção da base sobre a qual o retorno incide</span></li>
+</ul>
+<p>Se a escala do investimento dobra (dispêndio e receitas <span class="math inline">\(\times 2\)</span>):</p>
+<ul>
+<li>VPL é linear <span class="math inline">\(\Rightarrow\)</span> dobra</li>
+<li>TIR é homogênea de grau zero <span class="math inline">\(\Rightarrow\)</span> não muda</li>
+</ul>
+</section>
+<section id="exemplo-duas-alternativas-r-12" class="slide level2 smaller">
+<h2>Exemplo: duas alternativas, r = 12%</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>Alternativa 1 — sociedade</strong></p>
+<p><span class="math display">\[-10.000 \to +6.000, +6.000, +6.000\]</span></p>
+<div id="61b885f6" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
+<p><span class="math inline">\(VPL = 4.411\)</span>, <span class="math inline">\(TIR = 36,3\%\)</span></p>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<p><strong>Alternativa 2 — entrega (2 drones)</strong></p>
+<p><span class="math display">\[-10.000 \to +5.000, +5.000, +5.000\]</span></p>
+<div id="62bdfe74" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
+<p><span class="math inline">\(VPL = 2.009\)</span>, <span class="math inline">\(TIR = 23,4\%\)</span></p>
+</div>
+</div>
+</div></div>
+<p>Ambas as métricas <span class="secundario">concordam</span>: sociedade vence em VPL e em TIR.</p>
+</section>
+<section id="gráfico-mesma-escala" class="slide level2 smaller">
+<h2>Gráfico: mesma escala</h2>
+
+<img data-src="index_files/figure-revealjs/cell-17-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="mudança-de-escala" class="slide level2 smaller">
+<h2>Mudança de escala</h2>
+<p>Alternativa 2.b — entrega com <strong>10 drones</strong>: multiplicam-se gastos e receitas por 5.</p>
+<p><span class="math display">\[-50.000 \to +25.000, +25.000, +25.000\]</span></p>
+<div id="e421e8ea" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
+<p><span class="math display">\[VPL = -50.000 + \frac{25.000}{1{,}12} + \frac{25.000}{1{,}12^2} + \frac{25.000}{1{,}12^3} = 10.046\]</span></p>
+</div>
+</div>
+<div id="31251a14" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
+<ul>
+<li>Menor retorno por real investido — a TIR não muda: <span class="math inline">\(TIR = 23,4\%\)</span> (mesma da alternativa de 2 drones)</li>
+</ul>
+</div>
+</div>
+<ul>
+<li><span class="destaque">Mais valor total criado</span></li>
+</ul>
+</section>
+<section id="gráfico-crossover-de-escala" class="slide level2 smaller">
+<h2>Gráfico: crossover de escala</h2>
+
+<img data-src="index_files/figure-revealjs/cell-20-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">A TIR maior (sociedade) não implica o maior VPL</span> quando a escala é diferente.</p>
+</section>
+<section id="períodos-de-investimento-distintos" class="slide level2">
+<h2>Períodos de investimento distintos</h2>
+<ul>
+<li>Receber 10% a.a. por 10 anos é melhor que 12% uma única vez</li>
+<li>Mas exemplos podem ser menos óbvios</li>
+</ul>
+<p>Compare a alternativa de 10 drones (2.b) com vender o negócio já no ano 1 por R$ 40.000 adicionais (2.c):</p>
+<p><span class="math display">\[-50.000 \to +65.000 \quad (\text{apenas em } t=0,1)\]</span></p>
+<div id="66f063d9" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
+<p><span class="math inline">\(TIR_{2.c} = 30\% &gt; TIR_{2.b} = 23,4\%\)</span>. Mas e o VPL? E para taxas distintas?</p>
+</div>
+</div>
+</section>
+<section id="gráfico-vender-ou-não-vender" class="slide level2 smaller">
+<h2>Gráfico: vender ou não vender</h2>
+
+<img data-src="index_files/figure-revealjs/cell-22-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">TIR maior não significa a melhor decisão</span> quando o momento dos fluxos difere.</p>
+</section>
+<section id="mais-sobre-horizontes-distintos" class="slide level2 smaller">
+<h2>Mais sobre horizontes distintos</h2>
+<p>A firma escolhe entre dois fornecedores de servidores, com prazos diferentes:</p>
+<ul>
+<li><strong>Fornecedor A</strong>: mais caro hoje, manutenção menor, serviço por <strong>3 anos</strong></li>
+<li><strong>Fornecedor B</strong>: mais barato hoje, manutenção maior, serviço por <strong>2 anos</strong></li>
+</ul>
+<div id="ddffaf0f" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Fornecedor</th>
+<th style="text-align: left;">PV a 10%</th>
+<th style="text-align: right;">t=0</th>
+<th style="text-align: right;">t=1</th>
+<th style="text-align: right;">t=2</th>
+<th style="text-align: left;">t=3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">-12,49</td>
+<td style="text-align: right;">-10</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: left;">-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">-10,47</td>
+<td style="text-align: right;">-7</td>
+<td style="text-align: right;">-2</td>
+<td style="text-align: right;">-2</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="como-errar" class="slide level2">
+<h2>Como errar</h2>
+<div id="68f5044e" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
+<ul>
+<li>VPL de B (-10,47) é menos negativo que VPL de A (-12,49)</li>
+</ul>
+</div>
+</div>
+<ul>
+<li><span class="destaque">Problema: os contratos duram tempos diferentes</span> — comparação direta de VPL não é válida</li>
+<li>Solução?</li>
+</ul>
+</section>
+<section id="como-abordar-anuidade-equivalente" class="slide level2 smaller">
+<h2>Como abordar: anuidade equivalente</h2>
+<ul>
+<li>Ideia: transformar cada custo em um <strong>custo anual equivalente</strong>, incluindo dispêndio inicial e manutenção</li>
+<li><strong>Anuidade Equivalente (EAA)</strong> — <em>equivalent annual annuity</em></li>
+</ul>
+<p>Custo de A: primeiro anuitiza o gasto inicial de R$ 10 mi ao longo de 3 anos:</p>
+<div id="0b265903" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
+<p><span class="math display">\[10 = \frac{x}{1+r} + \frac{x}{(1+r)^2} + \frac{x}{(1+r)^3} \;\Longrightarrow\; x \approx 4,02\]</span></p>
+</div>
+</div>
+<p>Somando a manutenção de R$ 1 mi/ano:</p>
+<div id="6c19a523" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
+<p><span class="math display">\[EAA_A = -5,02\]</span></p>
+</div>
+</div>
+</section>
+<section id="eaa-de-b-e-a-conclusão" class="slide level2">
+<h2>EAA de B, e a conclusão</h2>
+<p>Mesmo procedimento para B (anuitizar R$ 7 mi em 2 anos, <span class="math inline">\(r=10\%\)</span>):</p>
+<div id="a6370c34" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
+<p><span class="math display">\[EAA_B = -6,03\]</span></p>
+</div>
+</div>
+<div id="c85dd887" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
+<p><span class="destaque">Fornecedor A é o mais barato por ano</span>, apesar de ter o VPL total mais negativo — porque dura mais.</p>
+</div>
+</div>
+</section>
+<section id="eaa-forma-equivalente" class="slide level2">
+<h2>EAA: forma equivalente</h2>
+<p>Outra maneira de obter o mesmo resultado, direto do VPL:</p>
+<p><span class="math display">\[VPL = \frac{EAA}{r}\left(1 - \frac{1}{(1+r)^N}\right)\]</span></p>
+<ul>
+<li>Mais difícil de aplicar: envolve duas operações de desconto/apreçamento</li>
+<li>Outras perguntas relevantes:
+<ul>
+<li>Por quanto tempo o servidor é de fato necessário?</li>
+<li>Preços de instalação/serviço podem mudar após o ano 3? <em>(falta de estacionariedade)</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="o-que-aprendemos" class="slide level2">
+<h2>O que aprendemos</h2>
+<ul>
+<li>A regra do VPL é a única sempre consistente com maximizar valor da firma</li>
+<li>TIR e payback são atalhos úteis, mas <span class="destaque">falham em projetos não-simples</span>: sinais trocados, escalas diferentes, horizontes diferentes</li>
+<li>Para horizontes distintos em projetos mutuamente exclusivos, use a <strong>anuidade equivalente</strong></li>
+<li>Próxima aula: <span class="secundario">orçamento de capital</span> — dos fluxos de caixa incrementais ao VPL do projeto</li>
+</ul>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
