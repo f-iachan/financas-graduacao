@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-91c98995524fbe49170e041f91ae4f9a.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -123,9 +123,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="quarto-light">
@@ -149,12 +146,12 @@ Felipe Iachan
 <h2>Quem conduz o curso</h2>
 <div class="columns">
 <div class="column" style="width:56%;">
-<h3 id="felipe-saraiva-iachan">Felipe Saraiva Iachan</h3>
+<h3 id="equipe-de-ensino">Equipe de ensino</h3>
 <ul>
-<li>Professor responsável</li>
-<li>FGV EPGE</li>
+<li>Felipe Saraiva Iachan — professor responsável</li>
+<li>FGV EPGE · <a href="https://f-iachan.github.io/">site pessoal</a></li>
 <li>Contato: <code>felipe.iachan@fgv.br</code></li>
-<li>Monitor: André Mello Jablonski</li>
+<li>André Mello Jablonski — monitor</li>
 <li>Contato: <code>andre.m.jablonski@gmail.com</code></li>
 </ul>
 </div><div class="column" style="width:40%;">
@@ -260,13 +257,13 @@ Felipe Iachan
 </section>
 <section id="mapa-do-curso" class="slide level2 smaller">
 <h2>Mapa do curso</h2>
-<div class="columns">
-<div class="column" style="width:28%;">
+<div class="columns mapa-curso">
+<div class="column" style="width:25%;">
 <h3 id="fundamentos">1 · Fundamentos</h3>
 <p>Demonstrativos</p>
 <p>Valor do dinheiro</p>
 <p>Títulos</p>
-</div><div class="column" style="width:22%;">
+</div><div class="column" style="width:25%;">
 <h3 id="decidir">2 · Decidir</h3>
 <p>Ações e projetos</p>
 <p>VPL e TIR</p>
@@ -408,23 +405,41 @@ Felipe Iachan
 </ul>
 <p><span class="fonte">Fontes: Apple, Form 10-K 2025; SEC/FINRA, <em>Holding Your Securities</em> (2023).</span></p>
 </div><div class="column" style="width:56%;">
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
-flowchart TB
-  A["Acionistas dispersos&lt;br/&gt;donos do capital"] --&gt;|"elegem"| B["Conselho de Administração"]
-  B --&gt;|"nomeia / monitora"| C["Gestores&lt;br/&gt;CEO/CFO"]
-  C --&gt;|"decisões de investimento&lt;br/&gt;e financiamento"| D["Valor da firma"]
-  C -.-&gt;|"conflito de agência"| A
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<svg class="course-diagram-svg agency-svg" viewbox="0 0 620 540" role="img" aria-label="Separação entre propriedade e controle">
+  <defs>
+    <marker id="agency-arrow" viewbox="0 0 10 10" refx="9" refy="5" markerwidth="7" markerheight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="diagram-arrowhead"></path>
+    </marker>
+  </defs>
+
+  <rect class="diagram-node diagram-blue" x="40" y="15" width="350" height="72"></rect>
+  <text class="diagram-label" x="215" y="44">Acionistas dispersos</text>
+  <text class="diagram-sublabel" x="215" y="68">donos do capital</text>
+
+  <path class="diagram-edge" d="M 215 87 V 132" marker-end="url(#agency-arrow)"></path>
+  <text class="diagram-edge-label" x="232" y="116">elegem</text>
+
+  <rect class="diagram-node diagram-blue" x="40" y="135" width="350" height="68"></rect>
+  <text class="diagram-label" x="215" y="176">Conselho de Administração</text>
+
+  <path class="diagram-edge" d="M 215 203 V 252" marker-end="url(#agency-arrow)"></path>
+  <text class="diagram-edge-label" x="232" y="235">nomeia e monitora</text>
+
+  <rect class="diagram-node diagram-green" x="40" y="255" width="350" height="72"></rect>
+  <text class="diagram-label" x="215" y="284">Gestores</text>
+  <text class="diagram-sublabel" x="215" y="309">CEO / CFO</text>
+
+  <path class="diagram-edge" d="M 215 327 V 376" marker-end="url(#agency-arrow)"></path>
+  <text class="diagram-edge-label" x="232" y="350">decisões de investimento</text>
+  <text class="diagram-edge-label" x="232" y="370">e financiamento</text>
+
+  <rect class="diagram-node diagram-blue" x="40" y="379" width="350" height="68"></rect>
+  <text class="diagram-label" x="215" y="420">Valor da firma</text>
+
+  <path class="diagram-edge diagram-dashed" d="M 390 291 C 560 291, 560 51, 390 51" marker-end="url(#agency-arrow)"></path>
+  <text class="diagram-loop-label" x="446" y="160">conflito</text>
+  <text class="diagram-loop-label" x="438" y="184">de agência</text>
+</svg>
 </div></div>
 <p>A seta tracejada é o <span class="destaque">problema de agência</span>: quem decide não é quem é dono.</p>
 </section>
@@ -459,37 +474,53 @@ flowchart TB
 </section>
 <section id="estrutura-típica" class="slide level2">
 <h2>Estrutura Típica</h2>
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
-flowchart TB
-  B["Conselho de Administração"] --&gt; CEO["Diretor-presidente (CEO)"]
-  CEO --&gt; CFO["Diretor financeiro (CFO)"]
-  CEO --&gt; COO["Diretor de operações (COO)"]
-  CFO --&gt; CONT["Controladoria"]
-  CFO --&gt; TES["Tesouraria"]
-  CONT --&gt; CONTAB["Contabilidade"]
-  CONT --&gt; TRIB["Departamento tributário"]
-  TES --&gt; ORC["Orçamento de capital"]
-  TES --&gt; RISCO["Gestão de risco"]
-  TES --&gt; CRED["Gestão de crédito"]
+<svg class="course-diagram-svg org-svg" viewbox="0 0 1200 515" role="img" aria-label="Estrutura organizacional típica de uma sociedade anônima">
+  <defs>
+    <marker id="org-arrow" viewbox="0 0 10 10" refx="9" refy="5" markerwidth="6" markerheight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="diagram-arrowhead"></path>
+    </marker>
+  </defs>
 
-  classDef geral fill:#b7dce0,stroke:#4d7378,color:#141413,stroke-width:2px;
-  classDef financeiro fill:#d8e9a8,stroke:#6d8d3b,color:#141413,stroke-width:2px;
-  classDef contabilidade fill:#f5dfc2,stroke:#d97757,color:#141413,stroke-width:2px;
+  <rect class="diagram-node diagram-blue" x="450" y="5" width="300" height="58"></rect>
+  <text class="diagram-label" x="600" y="40">Conselho de Administração</text>
+  <path class="diagram-edge" d="M 600 63 V 94" marker-end="url(#org-arrow)"></path>
 
-  class B,CEO,COO geral;
-  class CFO,CONT,TES,ORC,RISCO,CRED financeiro;
-  class CONTAB,TRIB contabilidade;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+  <rect class="diagram-node diagram-blue" x="450" y="97" width="300" height="58"></rect>
+  <text class="diagram-label" x="600" y="132">Diretor-presidente (CEO)</text>
+
+  <path class="diagram-edge" d="M 600 155 V 174 H 420 V 190" marker-end="url(#org-arrow)"></path>
+  <path class="diagram-edge" d="M 600 155 V 174 H 840 V 190" marker-end="url(#org-arrow)"></path>
+
+  <rect class="diagram-node diagram-green" x="270" y="193" width="300" height="58"></rect>
+  <text class="diagram-label" x="420" y="228">Diretor financeiro (CFO)</text>
+  <rect class="diagram-node diagram-blue" x="690" y="193" width="300" height="58"></rect>
+  <text class="diagram-label" x="840" y="228">Diretor de operações (COO)</text>
+
+  <path class="diagram-edge" d="M 420 251 V 276 H 240 V 298" marker-end="url(#org-arrow)"></path>
+  <path class="diagram-edge" d="M 420 251 V 276 H 540 V 298" marker-end="url(#org-arrow)"></path>
+
+  <rect class="diagram-node diagram-green" x="120" y="301" width="240" height="58"></rect>
+  <text class="diagram-label" x="240" y="336">Controladoria</text>
+  <rect class="diagram-node diagram-green" x="420" y="301" width="240" height="58"></rect>
+  <text class="diagram-label" x="540" y="336">Tesouraria</text>
+
+  <path class="diagram-edge" d="M 240 359 V 386 H 120 V 418" marker-end="url(#org-arrow)"></path>
+  <path class="diagram-edge" d="M 240 359 V 386 H 360 V 418" marker-end="url(#org-arrow)"></path>
+  <path class="diagram-edge" d="M 540 359 V 386 H 600 V 418" marker-end="url(#org-arrow)"></path>
+  <path class="diagram-edge" d="M 540 359 V 386 H 840 V 418" marker-end="url(#org-arrow)"></path>
+  <path class="diagram-edge" d="M 540 359 V 386 H 1080 V 418" marker-end="url(#org-arrow)"></path>
+
+  <rect class="diagram-node diagram-beige" x="15" y="421" width="210" height="58"></rect>
+  <text class="diagram-label" x="120" y="456">Contabilidade</text>
+  <rect class="diagram-node diagram-beige" x="240" y="421" width="240" height="58"></rect>
+  <text class="diagram-label" x="360" y="456">Departamento tributário</text>
+  <rect class="diagram-node diagram-green" x="490" y="421" width="220" height="58"></rect>
+  <text class="diagram-label" x="600" y="456">Orçamento de capital</text>
+  <rect class="diagram-node diagram-green" x="740" y="421" width="200" height="58"></rect>
+  <text class="diagram-label" x="840" y="456">Gestão de risco</text>
+  <rect class="diagram-node diagram-green" x="970" y="421" width="220" height="58"></rect>
+  <text class="diagram-label" x="1080" y="456">Gestão de crédito</text>
+</svg>
 <p><span class="fonte">Funções financeiras em verde; contabilidade e tributos em bege.</span></p>
 </section>
 <section id="incentivos" class="slide level2">
@@ -533,7 +564,7 @@ flowchart TB
 <h2>Bolsas: escala e consolidação</h2>
 <div class="columns">
 <div class="column" style="width:64%;">
-<div id="c8317e72" class="cell" data-execution_count="7">
+<div id="638c8e7c" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -577,35 +608,46 @@ flowchart TB
 <h2>Alguns Desenvolvimentos Recentes</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
-flowchart TB
-  I["Investidor"] --&gt; C["Corretora / app"]
-  C --&gt; R{"Roteador de ordens"}
-  R --&gt; E["Bolsas eletrônicas&lt;br/&gt;(NYSE, Nasdaq, B3...)"]
-  R --&gt; M["Formadores de mercado&lt;br/&gt;e internalizadores"]
-  R --&gt; A["ATS / dark pools&lt;br/&gt;liquidez fora da bolsa"]
-  E --&gt; P["Preço e liquidez"]
-  M --&gt; P
-  A --&gt; P
+<svg class="course-diagram-svg market-svg" viewbox="0 0 700 550" role="img" aria-label="Roteamento contemporâneo de ordens nos mercados financeiros">
+  <defs>
+    <marker id="market-arrow" viewbox="0 0 10 10" refx="9" refy="5" markerwidth="6" markerheight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="diagram-arrowhead"></path>
+    </marker>
+  </defs>
 
-  classDef investidor fill:#f5dfc2,stroke:#d97757,color:#141413,stroke-width:2px;
-  classDef intermediario fill:#d8e9a8,stroke:#6d8d3b,color:#141413,stroke-width:2px;
-  classDef mercado fill:#b7dce0,stroke:#4d7378,color:#141413,stroke-width:2px;
+  <rect class="diagram-node diagram-beige" x="245" y="5" width="210" height="58"></rect>
+  <text class="diagram-label" x="350" y="40">Investidor</text>
+  <path class="diagram-edge" d="M 350 63 V 96" marker-end="url(#market-arrow)"></path>
 
-  class I investidor;
-  class C,R intermediario;
-  class E,M,A,P mercado;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+  <rect class="diagram-node diagram-green" x="230" y="99" width="240" height="58"></rect>
+  <text class="diagram-label" x="350" y="134">Corretora / app</text>
+  <path class="diagram-edge" d="M 350 157 V 190" marker-end="url(#market-arrow)"></path>
+
+  <path class="diagram-node diagram-green" d="M 350 193 L 420 263 L 350 333 L 280 263 Z"></path>
+  <text class="diagram-label" x="350" y="257">Roteador</text>
+  <text class="diagram-sublabel" x="350" y="281">de ordens</text>
+
+  <path class="diagram-edge" d="M 350 333 V 352 H 105 V 371" marker-end="url(#market-arrow)"></path>
+  <path class="diagram-edge" d="M 350 333 V 371" marker-end="url(#market-arrow)"></path>
+  <path class="diagram-edge" d="M 350 333 V 352 H 595 V 371" marker-end="url(#market-arrow)"></path>
+
+  <rect class="diagram-node diagram-blue" x="0" y="374" width="210" height="66"></rect>
+  <text class="diagram-label" x="105" y="402">Bolsas eletrônicas</text>
+  <text class="diagram-sublabel" x="105" y="426">NYSE · Nasdaq · B3</text>
+  <rect class="diagram-node diagram-blue" x="245" y="374" width="210" height="66"></rect>
+  <text class="diagram-label" x="350" y="402">Formadores de mercado</text>
+  <text class="diagram-sublabel" x="350" y="426">e internalizadores</text>
+  <rect class="diagram-node diagram-blue" x="490" y="374" width="210" height="66"></rect>
+  <text class="diagram-label" x="595" y="402">ATS / dark pools</text>
+  <text class="diagram-sublabel" x="595" y="426">liquidez fora da bolsa</text>
+
+  <path class="diagram-edge" d="M 105 440 V 462 H 270 V 483" marker-end="url(#market-arrow)"></path>
+  <path class="diagram-edge" d="M 350 440 V 483" marker-end="url(#market-arrow)"></path>
+  <path class="diagram-edge" d="M 595 440 V 462 H 430 V 483" marker-end="url(#market-arrow)"></path>
+
+  <rect class="diagram-node diagram-blue" x="230" y="486" width="240" height="58"></rect>
+  <text class="diagram-label" x="350" y="521">Preço e liquidez</text>
+</svg>
 </div><div class="column" style="width:48%;">
 <ul>
 <li>Do pregão físico ao livro eletrônico</li>
