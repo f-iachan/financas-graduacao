@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -123,9 +123,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -148,8 +145,8 @@ Felipe Iachan
 
 </section>
 <section>
-<section id="balanço-patrimonial" class="title-slide slide level1 center">
-<h1>Balanço Patrimonial</h1>
+<section id="demonstrações-financeiras" class="title-slide slide level1 center">
+<h1>Demonstrações Financeiras</h1>
 
 </section>
 <section id="demonstrativos" class="slide level2">
@@ -197,6 +194,11 @@ Felipe Iachan
 <li>Demonstrativo de Equivalência Patrimonial <em>(Statement of Stockholders Equity)</em></li>
 </ol>
 <p>Outros: no Brasil, estrutura determinada pela Lei n° 11.638/07.</p>
+</section></section>
+<section>
+<section id="balanço-patrimonial" class="title-slide slide level1 center">
+<h1>Balanço Patrimonial</h1>
+
 </section>
 <section id="balanço-patrimonial-1" class="slide level2 smaller">
 <h2>Balanço Patrimonial</h2>
@@ -214,7 +216,7 @@ Felipe Iachan
 </section>
 <section id="petrobras-balanço-atual" class="slide level2 smaller">
 <h2>PETROBRAS — balanço atual</h2>
-<div id="9a3c3d2b" class="cell" data-execution_count="2">
+<div id="231bfe69" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <style scoped="">
@@ -582,7 +584,7 @@ dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt para a verificação de proveni
 <li>Relação com o q de Tobin</li>
 </ul>
 </div><div class="column" style="width:58%;">
-<div id="cc42a6ad" class="cell" data-execution_count="4">
+<div id="b9ca1995" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -620,7 +622,7 @@ dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt para a verificação de proveni
 </section>
 <section id="petrobras-dre-atual" class="slide level2 smaller">
 <h2>PETROBRAS — DRE atual</h2>
-<div id="f19ddf15" class="cell" data-execution_count="5">
+<div id="b2b78087" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
@@ -866,6 +868,204 @@ dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt para a verificação de proveni
 <img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Índice de um ano só pode enganar; a <span class="destaque">série temporal</span> revela ciclo e tendência.</p>
 <p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>), exercícios 2021–2025.</span></p>
 </section>
+<section id="petrobras-um-ano-duas-leituras" class="slide level2 smaller">
+<h2>PETROBRAS — um ano, duas leituras</h2>
+<style>
+.pbrx{
+  --pbrx-azul:#6a9bcc; --pbrx-laranja:#d97757; --pbrx-verde:#788c5d;
+  --pbrx-tinta:#141413; --pbrx-cinza:#5f5e5a; --pbrx-linha:#e8e6dc;
+  --pbrx-papel:#faf9f5;
+  max-width:1160px; margin:0 auto; color:var(--pbrx-tinta);
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:16px; line-height:1.3; text-align:left;
+}
+.pbrx *{box-sizing:border-box;}
+.pbrx-toolbar{display:flex; align-items:center; gap:12px; padding:9px 13px;
+  background:var(--pbrx-papel); border:1px solid var(--pbrx-linha); border-radius:10px;}
+.pbrx-toolbar label{font-size:14px; font-weight:700; color:var(--pbrx-cinza);}
+.pbrx-toolbar select{font-family:inherit; font-size:16px; font-weight:700;
+  color:var(--pbrx-tinta); background:#fff;
+  border:1px solid #b0aea5; border-radius:7px; padding:5px 30px 5px 9px; cursor:pointer;}
+.pbrx-toolbar select:focus-visible{outline:3px solid rgba(106,155,204,.35); outline-offset:2px;}
+.pbrx-prompt{margin-left:auto; font-size:13px; color:var(--pbrx-cinza);}
+.pbrx-grid{display:grid; grid-template-columns:1.08fr .92fr; gap:16px; margin-top:12px;}
+.pbrx-card{border:1px solid var(--pbrx-linha); border-radius:10px; padding:13px 15px; background:#fff;}
+.pbrx-card h4{font-size:15px; margin:0 0 10px; font-weight:700;}
+.pbrx-equation{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center;
+  gap:7px; margin:2px 0 14px; text-align:center; font-variant-numeric:tabular-nums;}
+.pbrx-equation strong{font-size:22px; line-height:1.1;}
+.pbrx-equation small{display:block; margin-top:3px; color:var(--pbrx-cinza); font-size:11px; font-weight:600;}
+.pbrx-eqsign{font-size:21px; color:#8b8982;}
+.pbrx-bars{display:grid; gap:9px;}
+.pbrx-barline{display:grid; grid-template-columns:78px 1fr; align-items:center; gap:9px;}
+.pbrx-barlabel{font-size:13px; color:var(--pbrx-cinza); font-weight:600;}
+.pbrx-track{height:30px; display:flex; overflow:hidden; border-radius:6px; background:#efede6;}
+.pbrx-seg{height:100%; display:flex; align-items:center; justify-content:center; min-width:0;
+  color:#fff; font-size:12px; font-weight:700; font-variant-numeric:tabular-nums;
+  transition:width .22s ease;}
+.pbrx-ativo{width:100%; background:var(--pbrx-azul);}
+.pbrx-passivo{background:var(--pbrx-laranja);}
+.pbrx-pl{background:var(--pbrx-verde);}
+.pbrx-metrics{display:grid; gap:11px;}
+.pbrx-metrichead{display:flex; justify-content:space-between; align-items:baseline; gap:10px;}
+.pbrx-metrichead span{font-size:13px; color:var(--pbrx-cinza);}
+.pbrx-metrichead strong{font-size:21px; font-variant-numeric:tabular-nums;}
+.pbrx-metrictrack{height:9px; overflow:hidden; border-radius:999px; background:#efede6; margin-top:4px;}
+.pbrx-metricfill{display:block; height:100%; width:0; border-radius:inherit;
+  transition:width .22s ease;}
+.pbrx-mop{background:var(--pbrx-azul);}
+.pbrx-mliq{background:var(--pbrx-laranja);}
+.pbrx-roe{background:var(--pbrx-verde);}
+.pbrx-reading{margin:12px 0 0; padding:8px 10px; background:var(--pbrx-papel);
+  border-radius:7px; font-size:13px; color:var(--pbrx-cinza);}
+.pbrx-reading strong{color:var(--pbrx-tinta);}
+.pbrx-scale{margin:7px 0 0; text-align:right; font-size:10.5px; color:#8b8982;}
+@media (max-width:800px){
+  .pbrx-grid{grid-template-columns:1fr;}
+  .pbrx-prompt{display:none;}
+}
+</style>
+
+<div class="pbrx" id="pbrx" data-testid="petrobras-year-explorer">
+  <div class="pbrx-toolbar">
+    <label for="pbrx-year">Exercício</label>
+    <select id="pbrx-year" aria-label="Escolha o exercício da Petrobras">
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025" selected="">2025</option>
+    </select>
+    <span class="pbrx-prompt">Mude o ano: crescer o ativo basta para elevar o ROE?</span>
+  </div>
+
+  <div class="pbrx-grid">
+    <div class="pbrx-card" data-k="identity" role="img" aria-label="Composição da identidade patrimonial da Petrobras">
+      <h4>Identidade patrimonial · R$ bilhões</h4>
+      <div class="pbrx-equation">
+        <strong><span data-k="a"></span><small>Ativo</small></strong>
+        <span class="pbrx-eqsign">=</span>
+        <strong><span data-k="p"></span><small>Passivo</small></strong>
+        <span class="pbrx-eqsign">+</span>
+        <strong><span data-k="pl"></span><small>PL</small></strong>
+      </div>
+      <div class="pbrx-bars" aria-hidden="true">
+        <div class="pbrx-barline">
+          <span class="pbrx-barlabel">Ativo</span>
+          <div class="pbrx-track"><span class="pbrx-seg pbrx-ativo">100%</span></div>
+        </div>
+        <div class="pbrx-barline">
+          <span class="pbrx-barlabel">P + PL</span>
+          <div class="pbrx-track">
+            <span class="pbrx-seg pbrx-passivo" data-k="pbar"></span>
+            <span class="pbrx-seg pbrx-pl" data-k="plbar"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pbrx-card" aria-live="polite">
+      <h4>Resultado e retorno</h4>
+      <div class="pbrx-metrics">
+        <div>
+          <div class="pbrx-metrichead"><span>Margem operacional</span><strong data-k="mop"></strong></div>
+          <div class="pbrx-metrictrack"><i class="pbrx-metricfill pbrx-mop" data-k="mopbar"></i></div>
+        </div>
+        <div>
+          <div class="pbrx-metrichead"><span>Margem líquida</span><strong data-k="mliq"></strong></div>
+          <div class="pbrx-metrictrack"><i class="pbrx-metricfill pbrx-mliq" data-k="mliqbar"></i></div>
+        </div>
+        <div>
+          <div class="pbrx-metrichead"><span>ROE</span><strong data-k="roe"></strong></div>
+          <div class="pbrx-metrictrack"><i class="pbrx-metricfill pbrx-roe" data-k="roebar"></i></div>
+        </div>
+      </div>
+      <p class="pbrx-scale">escala fixa: 0–55%</p>
+      <p class="pbrx-reading" data-k="reading"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // Valores brutos derivados dos snapshots locais petr4_balanco.csv e petr4_dre.csv.
+  // PL da identidade inclui participação minoritária; ROE usa PL dos acionistas.
+  var DATA={
+    "2022":{a:989828569800,p:620549769000,pl:369278800800,receita:658193617200,op:281654667000,ll:193655099400,plAc:367459797600},
+    "2023":{a:1053469564400,p:670188094400,pl:383281470000,receita:497011358800,op:191570363600,ll:120767028800,plAc:381379015600},
+    "2024":{a:1122729580500,p:755893165500,pl:366836415000,receita:565033154400,op:158793501900,ll:46529815200,plAc:365328275400},
+    "2025":{a:1218228890400,p:802406923200,pl:415821967200,receita:488717244000,op:152091633600,ll:107578612800,plAc:414035748000}
+  };
+  var YEARS=Object.keys(DATA).sort();
+
+  // Autotestes: cobertura do recorte, dados finitos, identidade e razões reproduzíveis.
+  var TESTES_OK=(function selfTest(){
+    var ok=true;
+    function fail(){ok=false;if(typeof console!=="undefined")console.error.apply(console,arguments);}
+    if(YEARS.join(",")!=="2022,2023,2024,2025") fail("[pbrx] recorte inesperado",YEARS);
+    YEARS.forEach(function(y){
+      var d=DATA[y], vals=Object.keys(d).map(function(k){return d[k];});
+      if(!vals.every(function(v){return Number.isFinite(v);}) || d.receita<=0 || d.plAc<=0)
+        fail("[pbrx] dado inválido",y,d);
+      if(Math.abs(d.a-d.p-d.pl)>1) fail("[pbrx] A != P + PL",y,d.a-d.p-d.pl);
+    });
+    var mliq25=DATA["2025"].ll/DATA["2025"].receita;
+    if(Math.abs(mliq25-0.22012444643758058)>1e-12) fail("[pbrx] razão 2025",mliq25);
+    if(ok && typeof console!=="undefined") console.log("[pbrx] autoteste OK (4 testes)");
+    return ok;
+  })();
+
+  if(typeof module!=="undefined" && module.exports){
+    module.exports={DATA:DATA,YEARS:YEARS,TESTES_OK:TESTES_OK};
+    return;
+  }
+
+  var root=document.getElementById("pbrx");
+  if(!root) return;
+  var select=root.querySelector("#pbrx-year");
+  var q=function(k){return root.querySelector('[data-k="'+k+'"]');};
+  var fmtBi=function(v){return (v/1e9).toLocaleString("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1});};
+  var fmtPct=function(v){return (v*100).toLocaleString("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1})+"%";};
+  var fmtSigned=function(v,suffix){return (v>=0?"+":"")+v.toLocaleString("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1})+suffix;};
+  var metricWidth=function(v){return Math.max(0,Math.min(100,v/0.55*100))+"%";};
+
+  function draw(){
+    var y=select.value, d=DATA[y];
+    var pShare=d.p/d.a, plShare=d.pl/d.a;
+    var mop=d.op/d.receita, mliq=d.ll/d.receita, roe=d.ll/d.plAc;
+
+    q("a").textContent=fmtBi(d.a); q("p").textContent=fmtBi(d.p); q("pl").textContent=fmtBi(d.pl);
+    q("pbar").style.width=(pShare*100)+"%"; q("pbar").textContent=fmtPct(pShare);
+    q("plbar").style.width=(plShare*100)+"%"; q("plbar").textContent=fmtPct(plShare);
+    q("mop").textContent=fmtPct(mop); q("mliq").textContent=fmtPct(mliq); q("roe").textContent=fmtPct(roe);
+    q("mopbar").style.width=metricWidth(mop); q("mliqbar").style.width=metricWidth(mliq);
+    q("roebar").style.width=metricWidth(roe);
+    q("identity").setAttribute("aria-label","Em "+y+", ativo de "+fmtBi(d.a)+
+      " bilhões de reais igual a passivo de "+fmtBi(d.p)+" mais patrimônio líquido de "+fmtBi(d.pl)+".");
+
+    var i=YEARS.indexOf(y), reading;
+    if(i===0){
+      reading="Ano inicial do recorte: use-o como base de comparação.";
+    }else{
+      var ant=DATA[YEARS[i-1]], roeAnt=ant.ll/ant.plAc;
+      var crescA=(d.a/ant.a-1)*100, deltaRoe=(roe-roeAnt)*100;
+      reading="Versus "+YEARS[i-1]+": ativo <strong>"+fmtSigned(crescA,"%")+
+        "</strong>; ROE <strong>"+fmtSigned(deltaRoe," p.p.")+"</strong>.";
+    }
+    q("reading").innerHTML=reading+(TESTES_OK?"":" <strong>Autoteste falhou.</strong>");
+  }
+
+  select.addEventListener("change",draw);
+  // Preserva setas/Home/End do seletor: o Reveal não deve trocar de slide enquanto ele tem foco.
+  select.addEventListener("keydown",function(e){e.stopPropagation();});
+  draw();
+})();
+</script>
+<p><span class="fonte">Artefato interativo próprio, offline. Fonte: snapshots locais do Yahoo Finance via <code>yfinance</code> (<code>PETR4.SA</code>); 2021 consta sem observações nos CSVs, por isso o recorte utilizável é 2022–2025.</span></p>
+<!-- PLANNING: alterne 2022 → 2024 → 2025 e peça uma explicação para o
+     descolamento entre crescimento do ativo e ROE antes de mostrar o próximo slide. -->
+</section>
 <section id="análise-dos-resultados-cont.-1" class="slide level2 smaller">
 <h2>Análise dos Resultados (cont.)</h2>
 <p><strong>Retornos contábeis</strong> (diferente do retorno da ação):</p>
@@ -884,7 +1084,7 @@ dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt para a verificação de proveni
 </section>
 <section id="petrobras-índices-principais" class="slide level2 smaller">
 <h2>PETROBRAS — índices principais</h2>
-<div id="407c8648" class="cell" data-execution_count="7">
+<div id="40bb396c" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <style scoped="">
@@ -998,7 +1198,7 @@ dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt para a verificação de proveni
 </section>
 <section id="petrobras-fluxo-de-caixa-atual" class="slide level2 smaller">
 <h2>PETROBRAS — fluxo de caixa atual</h2>
-<div id="104c1642" class="cell" data-execution_count="8">
+<div id="798c48cb" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <style scoped="">
@@ -1254,28 +1454,43 @@ dados/2-analise-demonstrativos/SNAPSHOT_INFO.txt para a verificação de proveni
 <h2>Lucro ≠ caixa: ponte para FCL</h2>
 <div class="columns">
 <div class="column" style="width:46%;">
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-  A[Lucro líquido] --&gt; B["Somar depreciação&lt;br/&gt;e amortização"]
-  B --&gt; C["± Variações de&lt;br/&gt;capital de giro"]
-  C --&gt; D[Caixa operacional]
-  D --&gt; E["− CapEx"]
-  E --&gt; F[Fluxo de caixa livre]
-  style A fill:#0072B2,color:#fff
-  style D fill:#009E73,color:#fff
-  style F fill:#D55E00,color:#fff
-</pre>
+<div class="bridge-flow">
+<div class="bridge-node bridge-blue">
+Lucro líquido
 </div>
-<p></p></figure><p></p>
+<div class="bridge-arrow">
+↓
 </div>
+<div class="bridge-node">
+Somar depreciação<br>e amortização
+</div>
+<div class="bridge-arrow">
+↓
+</div>
+<div class="bridge-node">
+± Variações de<br>capital de giro
+</div>
+<div class="bridge-arrow">
+↓
+</div>
+<div class="bridge-node bridge-green">
+Caixa operacional
+</div>
+<div class="bridge-arrow">
+↓
+</div>
+<div class="bridge-node">
+− CapEx
+</div>
+<div class="bridge-arrow">
+↓
+</div>
+<div class="bridge-node bridge-orange">
+Fluxo de caixa livre
 </div>
 </div>
 </div><div class="column" style="width:54%;">
-<div id="96b017a1" class="cell" data-execution_count="9">
+<div id="070e759e" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <style scoped="">
