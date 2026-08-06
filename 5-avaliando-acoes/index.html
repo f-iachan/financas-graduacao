@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -284,11 +284,14 @@ Felipe Iachan
 <p>Impondo a <span class="destaque">condição de não-bolha</span> <span class="math inline">\(\lim_{t\to\infty} P_t/(1+r_E)^t = 0\)</span>,</p>
 <p><span class="math display">\[P_0 = \sum_{t=1}^{\infty} \frac{Div_t}{(1+r_E)^t}\]</span></p>
 <!-- PLANNING: discutir por que descartar bolhas racionais é a convenção padrão aqui. -->
+<!-- ADICIONADO: série histórica atual da 3M; não está no .lyx-fonte. A série é
+     ajustada por splits para comparabilidade por ação, com o ajuste do spin-off
+     da Solventum desfeito. Ver dados/5-avaliando-acoes/SNAPSHOT_INFO.txt. -->
 </section>
 <section id="como-dividendos-crescem-na-prática" class="slide level2 smaller">
 <h2>Como dividendos crescem, na prática</h2>
 
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: yfinance, histórico de dividendos declarados da 3M.</span></p>
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: yfinance; dividendos por ação ajustados por splits, com o ajuste retroativo da Solventum desfeito.</span></p>
 </section>
 <section id="o-que-o-gráfico-mostra" class="slide level2">
 <h2>O que o gráfico mostra</h2>
@@ -310,6 +313,7 @@ Felipe Iachan
 <p>Da fórmula de crescimento constante,</p>
 <p><span class="math display">\[r_E = \underbrace{\frac{Div_1}{P_0}}_{\text{ret. div. em } t=1} + \, g\]</span></p>
 <p><span class="destaque">Observando preço, dividendo esperado e crescimento, obtemos o custo de capital implícito pelo mercado.</span></p>
+<!-- ADICIONADO: análise de sensibilidade própria; não está no .lyx-fonte. -->
 </section>
 <section id="sensibilidade-à-estimativa-de-g" class="slide level2 smaller">
 <h2>Sensibilidade à estimativa de <span class="math inline">\(g\)</span></h2>

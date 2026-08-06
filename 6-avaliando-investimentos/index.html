@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -187,7 +187,8 @@ Felipe Iachan
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
+flowchart LR
   A[Fluxos de caixa do projeto] --&gt; B[Descontar a r]
   B --&gt; C[VPL]
   C --&gt; D{VPL &gt; 0?}
@@ -263,11 +264,14 @@ Felipe Iachan
 <p>Gitman e Forrester (1977): apenas <strong>~10% das grandes firmas</strong> usavam o VPL como método principal de decisão. A evidência mudou desde então:</p>
 
 <img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Graham e Harvey (2001).</span></p>
+<!-- ADICIONADO: comparação com a atualização de Graham (2022); não está no
+     .lyx-fonte. As duas pesquisas são comparadas dentro das mesmas categorias
+     de porte. Ver dados/6-avaliando-investimentos/SNAPSHOT_INFO.txt. -->
 </section>
 <section id="evidência-mais-recente" class="slide level2 smaller">
 <h2>Evidência mais recente</h2>
 <p>Graham (2022), <em>AFA Presidential Address</em>: atualização com a pesquisa de CFOs de 2022 (Duke CFO Survey), separando firmas grandes e pequenas.</p>
-<div id="098bf9e5" class="cell" data-execution_count="3">
+<div id="3e1934d1" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <table class="caption-top">
 <thead>
@@ -282,26 +286,38 @@ Felipe Iachan
 <tr class="odd">
 <td style="text-align: left;">VPL (NPV)</td>
 <td style="text-align: right;">2001</td>
-<td style="text-align: left;">todas as firmas</td>
-<td style="text-align: right;">75</td>
+<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
+<td style="text-align: right;">84.52</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">VPL (NPV)</td>
+<td style="text-align: right;">2001</td>
+<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
+<td style="text-align: right;">67.92</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">VPL (NPV)</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
 <td style="text-align: right;">77</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">VPL (NPV)</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
 <td style="text-align: right;">40</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">Payback</td>
+<td style="text-align: right;">2001</td>
+<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
+<td style="text-align: right;">45.89</td>
+</tr>
 <tr class="even">
 <td style="text-align: left;">Payback</td>
 <td style="text-align: right;">2001</td>
-<td style="text-align: left;">todas as firmas</td>
-<td style="text-align: right;">57</td>
+<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
+<td style="text-align: right;">64.29</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Payback</td>
@@ -337,7 +353,7 @@ Felipe Iachan
 <p>Dada uma taxa de desconto <span class="math inline">\(r\)</span>:</p>
 <p><span class="math display">\[VPL(r) = -81,6 + \frac{28}{r}\left(1 - \frac{1}{(1+r)^4}\right)\]</span></p>
 <p>Com custo de capital estimado em <span class="math inline">\(r = 10\%\)</span>:</p>
-<div id="1d72522b" class="cell" data-execution_count="4">
+<div id="f61b6753" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[VPL = 7,2 &gt; 0\]</span></p>
 </div>
@@ -350,11 +366,13 @@ Felipe Iachan
 <img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="taxa-interna-de-retorno-tir" class="slide level2">
 <h2>Taxa interna de retorno (TIR)</h2>
+<!-- CORREÇÃO: o .lyx-fonte escreve r*=14 sem a unidade percentual; como r é uma
+     taxa e a raiz recomputada é 13,9904%, o correto é TIR=14%. -->
 <ul>
 <li>A regra do VPL diz: investir sse <span class="math inline">\(VPL(r) &gt; 0\)</span></li>
 <li>A raiz de <span class="math inline">\(VPL(r) = 0\)</span> é a <strong>taxa interna de retorno</strong> (TIR; <em>IRR</em> em inglês)</li>
 </ul>
-<div id="5280a51f" class="cell" data-execution_count="6">
+<div id="6191a65c" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <p><span class="math display">\[VPL(r^*) = 0 \quad\Longrightarrow\quad r^* = TIR = 14\%\]</span></p>
 </div>
@@ -391,9 +409,11 @@ Felipe Iachan
 </section>
 <section id="desvantagens-do-critério-de-payback" class="slide level2">
 <h2>Desvantagens do critério de payback</h2>
+<!-- ADICIONADO: a fonte deixa as perguntas "[Viés?]" em aberto; as respostas
+     econômicas abaixo foram acrescentadas. -->
 <ul>
 <li>Ignora o valor do dinheiro no tempo <em>(viés: não descontar <strong>superestima</strong> fluxos futuros — o payback simples fica mais permissivo que o payback descontado)</em></li>
-<li>Visão de curto prazo: ignora fluxos após a data crítica <em>(viés: rejeita projetos de retorno tardio)</em></li>
+<li>Visão de curto prazo: ignora fluxos após a data crítica <em>(viés: rejeita retornos tardios e pode aceitar custos tardios)</em></li>
 <li>Não é embasado em teoria econômica: maximiza o quê? qual o prazo correto para cada firma?</li>
 </ul>
 </section>
@@ -434,12 +454,12 @@ Felipe Iachan
 </section>
 <section id="análise-a-tir" class="slide level2">
 <h2>Análise: a TIR</h2>
-<div id="017dd589" class="cell" data-execution_count="7">
+<div id="1be697dc" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[0 = 1.000 - \frac{500}{1+TIR} - \frac{500}{(1+TIR)^2} - \frac{500}{(1+TIR)^3} \;\Longrightarrow\; TIR = 23,38\%\]</span></p>
 </div>
 </div>
-<div id="2bfd1cf3" class="cell" data-execution_count="8">
+<div id="8313abb8" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <p>Note que $TIR = 23,38% &gt; 10% = $ custo de capital.</p>
 </div>
@@ -448,7 +468,7 @@ Felipe Iachan
 </section>
 <section id="análise-e-o-vpl" class="slide level2">
 <h2>Análise: e o VPL?</h2>
-<div id="46dd0335" class="cell" data-execution_count="9">
+<div id="631d0abb" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <p><span class="math display">\[VPL = 1.000 - \frac{500}{1{,}1} - \frac{500}{1{,}1^2} - \frac{500}{1{,}1^3} = -R\$243.426 &lt; 0\]</span></p>
 </div>
@@ -469,7 +489,7 @@ Felipe Iachan
 <svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo com pagamento adicional no ano 10, gerando duas trocas de sinal">
 <line class="axis" x1="90" y1="92" x2="1010" y2="92"></line> <line class="tick" x1="90" y1="54" x2="90" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="570" y1="54" x2="570" y2="132"></line> <line class="tick" x1="720" y1="54" x2="720" y2="132"></line> <line class="tick" x1="1010" y1="54" x2="1010" y2="132"></line> <text class="time-label" x="90" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1–3</text> <text class="time-label" x="570" y="42" text-anchor="middle">4–9</text> <text class="time-label" x="720" y="100" text-anchor="middle">…</text> <text class="time-label" x="1010" y="42" text-anchor="middle">10</text> <text class="flow-label inflow" x="90" y="182" text-anchor="middle">+1.000.000</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−500.000</text> <text class="flow-label" x="570" y="182" text-anchor="middle">0</text> <text class="flow-label inflow" x="1010" y="182" text-anchor="middle">+600.000</text>
 </svg>
-<div id="1f04c5ba" class="cell" data-execution_count="11">
+<div id="339be86a" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <p>Há <strong>duas TIRs</strong>: <span class="math inline">\(TIR_1 = 5,79\% &lt; 10\%\)</span> e <span class="math inline">\(TIR_2 = 13,80\% &gt; 10\%\)</span>.</p>
 </div>
@@ -541,7 +561,7 @@ Felipe Iachan
 <div class="column" style="width:48%;">
 <p><strong>Alternativa 1 — sociedade</strong></p>
 <p><span class="math display">\[-10.000 \to +6.000, +6.000, +6.000\]</span></p>
-<div id="22e65b6d" class="cell" data-execution_count="14">
+<div id="ba44fabb" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <p><span class="math inline">\(VPL = 4.411\)</span>, <span class="math inline">\(TIR = 36,3\%\)</span></p>
 </div>
@@ -549,7 +569,7 @@ Felipe Iachan
 </div><div class="column" style="width:48%;">
 <p><strong>Alternativa 2 — entrega (2 drones)</strong></p>
 <p><span class="math display">\[-10.000 \to +5.000, +5.000, +5.000\]</span></p>
-<div id="f24a67cd" class="cell" data-execution_count="15">
+<div id="593e726c" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p><span class="math inline">\(VPL = 2.009\)</span>, <span class="math inline">\(TIR = 23,4\%\)</span></p>
 </div>
@@ -565,12 +585,12 @@ Felipe Iachan
 <h2>Mudança de escala</h2>
 <p>Alternativa 2.b — entrega com <strong>10 drones</strong>: multiplicam-se gastos e receitas por 5.</p>
 <p><span class="math display">\[-50.000 \to +25.000, +25.000, +25.000\]</span></p>
-<div id="c08209b7" class="cell" data-execution_count="17">
+<div id="d6db9409" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math display">\[VPL = -50.000 + \frac{25.000}{1{,}12} + \frac{25.000}{1{,}12^2} + \frac{25.000}{1{,}12^3} = 10.046\]</span></p>
 </div>
 </div>
-<div id="50941be9" class="cell" data-execution_count="18">
+<div id="cb4e15b8" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <ul>
 <li>Menor retorno por real investido — a TIR não muda: <span class="math inline">\(TIR = 23,4\%\)</span> (mesma da alternativa de 2 drones)</li>
@@ -594,7 +614,7 @@ Felipe Iachan
 </ul>
 <p>Compare a alternativa de 10 drones (2.b) com vender o negócio já no ano 1 por R$ 40.000 adicionais (2.c):</p>
 <p><span class="math display">\[-50.000 \to +65.000 \quad (\text{apenas em } t=0,1)\]</span></p>
-<div id="6905da25" class="cell" data-execution_count="20">
+<div id="a33398d1" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <p><span class="math inline">\(TIR_{2.c} = 30\% &gt; TIR_{2.b} = 23,4\%\)</span>. Mas e o VPL? E para taxas distintas?</p>
 </div>
@@ -612,7 +632,7 @@ Felipe Iachan
 <li><strong>Fornecedor A</strong>: mais caro hoje, manutenção menor, serviço por <strong>3 anos</strong></li>
 <li><strong>Fornecedor B</strong>: mais barato hoje, manutenção maior, serviço por <strong>2 anos</strong></li>
 </ul>
-<div id="b97a1b8b" class="cell" data-execution_count="22">
+<div id="d084c469" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <table class="caption-top">
 <thead>
@@ -649,7 +669,7 @@ Felipe Iachan
 </section>
 <section id="como-errar" class="slide level2">
 <h2>Como errar</h2>
-<div id="82565f73" class="cell" data-execution_count="23">
+<div id="2c504e00" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <ul>
 <li>VPL de B (-10,47) é menos negativo que VPL de A (-12,49)</li>
@@ -668,13 +688,13 @@ Felipe Iachan
 <li><strong>Anuidade Equivalente (EAA)</strong> — <em>equivalent annual annuity</em></li>
 </ul>
 <p>Custo de A: primeiro anuitiza o gasto inicial de R$ 10 mi ao longo de 3 anos:</p>
-<div id="55b9d34c" class="cell" data-execution_count="24">
+<div id="0cac68ad" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
 <p><span class="math display">\[10 = \frac{x}{1+r} + \frac{x}{(1+r)^2} + \frac{x}{(1+r)^3} \;\Longrightarrow\; x \approx 4,02\]</span></p>
 </div>
 </div>
 <p>Somando a manutenção de R$ 1 mi/ano:</p>
-<div id="6ea9ceb5" class="cell" data-execution_count="25">
+<div id="82c534ff" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
 <p><span class="math display">\[EAA_A = -5,02\]</span></p>
 </div>
@@ -683,12 +703,12 @@ Felipe Iachan
 <section id="eaa-de-b-e-a-conclusão" class="slide level2">
 <h2>EAA de B, e a conclusão</h2>
 <p>Mesmo procedimento para B (anuitizar R$ 7 mi em 2 anos, <span class="math inline">\(r=10\%\)</span>):</p>
-<div id="28dcdb00" class="cell" data-execution_count="26">
+<div id="ac0b51ca" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
 <p><span class="math display">\[EAA_B = -6,03\]</span></p>
 </div>
 </div>
-<div id="32824fa7" class="cell" data-execution_count="27">
+<div id="ee91fb45" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
 <p><span class="destaque">Fornecedor A é o mais barato por ano</span>, apesar de ter o VPL total mais negativo — porque dura mais.</p>
 </div>

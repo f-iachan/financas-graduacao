@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -203,7 +203,7 @@ Felipe Iachan
 <h2>Payout hoje: quem paga o quê</h2>
 <!-- ADICIONADO: artefato de dados atuais (yfinance), não está na fonte. Ver dados/16-dividendos/SNAPSHOT_INFO.txt para a checagem de qualidade do dado (checagem via soma manual de Ticker.dividends; JSCP; payoutRatio não usado). -->
 
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Snapshot yfinance de 2026-07-27. Yield = trailingAnnualDividendRate / preço; checado (não circular) contra a soma manual dos pagamentos em <code>Ticker.dividends</code> nos últimos 12 meses. <strong>BR*</strong> (marcado no eixo): o yfinance não distingue dividendo comum de <strong>JSCP</strong>, reportado bruto do IRRF de 15%; nesta coleta, todos os quatro tickers brasileiros têm o yield parcialmente concentrado num único pagamento — de 32% do total em 12 meses (PETR4) a 65% (VALE3), passando por 63% (ITUB4) e 57% (WEGE3) — plausivelmente parcelas de JSCP misturadas a dividendos ordinários, mais pronunciado em VALE3. Detalhe completo em <code>dados/16-dividendos/SNAPSHOT_INFO.txt</code>.</span></p>
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Snapshot yfinance de 2026-07-27: <code>trailingAnnualDividendRate / preço</code>. É um indicador do Yahoo, não caixa efetivamente pago em 12 meses: <code>Ticker.dividends</code> usa data ex e mistura dividendos com JSCP nos tickers brasileiros. WEG, por exemplo, inclui dividendo extraordinário com parcelas pagáveis até 2028. Classificação e datas foram conferidas nos RIs; detalhes em <code>dados/16-dividendos/SNAPSHOT_INFO.txt</code>.</span></p>
 </section>
 <section id="tendências-nos-eua" class="slide level2">
 <h2>Tendências nos EUA</h2>

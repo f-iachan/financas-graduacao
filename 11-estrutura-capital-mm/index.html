@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -175,10 +175,10 @@ Felipe Iachan
 <li>A pergunta de hoje: a <strong>combinação</strong> entre eles afeta o valor total?</li>
 </ul>
 </section>
-<section id="variação-empírica-entre-indústrias" class="slide level2 smaller">
-<h2>Variação empírica entre indústrias</h2>
+<section id="painel-ilustrativo-uma-firma-por-setor" class="slide level2 smaller">
+<h2>Painel ilustrativo: uma firma por setor</h2>
 
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Dados reais atuais, um ticker por setor (yfinance, balanços mais recentes disponíveis entre 2025-06 e 2026-01); bancos/seguradoras excluídos — depósitos não são “dívida com juros” comparável. GM (64%) é dominada por dívida da GM Financial (financiamento de veículos a clientes/concessionárias) — também pouco comparável à dívida operacional das demais indústrias.</span></p>
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Painel ilustrativo, não médias setoriais: um ticker por setor. Dívida vem do último balanço disponível (2025-06 a 2026-01) e market cap é corrente, portanto as datas não coincidem. Bancos/seguradoras excluídos; GM inclui dívida da GM Financial. Fonte: yfinance.</span></p>
 </section>
 <section id="variação-empírica-entre-firmas" class="slide level2 smaller">
 <h2>Variação empírica entre firmas</h2>
@@ -413,7 +413,7 @@ V^{E} &amp; =E\left[m\cdot CF_{1}^{E}\right]\\
 <li>Identifica uma empresa <strong>pure-play</strong> de entregas, sem dívida, com <span class="math inline">\(\beta=1{,}1\)</span></li>
 <li><span class="math inline">\(r^f=4\%\)</span>, prêmio de mercado <span class="math inline">\(=5\%\)</span></li>
 </ul>
-<div id="a1c7ef96" class="cell" data-execution_count="4">
+<div id="1dbbf3bb" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[r = r^f + \beta\times(\text{prêmio}) = 4\% + 1,1\times 5\% = 9,5\%\]</span></p>
 </div>
@@ -427,21 +427,29 @@ V^{E} &amp; =E\left[m\cdot CF_{1}^{E}\right]\\
 </section>
 <section id="wacc-em-equilíbrio-derivação" class="slide level2 smaller">
 <h2>WACC em equilíbrio: derivação</h2>
+<!-- CORREÇÃO: a fonte iguala um retorno realizado R^{WACC}(s) a uma razão de
+     valores esperados. Primeiro fazemos a identidade estado a estado; depois
+     tomamos a esperança para obter o custo de capital esperado. -->
 <p><span class="math display">\[
 \begin{align*}
-R^{WACC} &amp; =\left(\frac{V_{0}^{D}}{V_{0}^{F}}\right)R^{D}+\left(\frac{V_{0}^{E}}{V_{0}^{F}}\right)R^{E}\\
-&amp; =\frac{E\left[CF_{1}^{D}(s)\right]+E\left[CF_{1}^{E}(s)\right]}{E\left[m\,CF_{1}^{F}(s)\right]}
-=\frac{E\left[CF_{1}^{F}(s)\right]}{E\left[m\,CF_{1}^{F}(s)\right]}
+R^{WACC}(s)
+&amp;=\left(\frac{V_{0}^{D}}{V_{0}^{F}}\right)R^{D}(s)
++\left(\frac{V_{0}^{E}}{V_{0}^{F}}\right)R^{E}(s)\\
+&amp;=\frac{CF_{1}^{D}(s)+CF_{1}^{E}(s)}{V_0^F}
+=\frac{CF_{1}^{F}(s)}{V_0^F},\\[2pt]
+1+r^{WACC}
+&amp;=\mathbb{E}[R^{WACC}(s)]
+=\frac{\mathbb{E}[CF_{1}^{F}(s)]}{\mathbb{E}[m\,CF_{1}^{F}(s)]}.
 \end{align*}
 \]</span></p>
 </section>
 <section id="wacc-em-equilíbrio-retorno-desalavancado" class="slide level2 smaller">
 <h2>WACC em equilíbrio = retorno desalavancado</h2>
 <ul>
-<li><span class="math inline">\(R^{WACC}\)</span> é exatamente o retorno da firma <strong>desalavancada</strong> (<span class="math inline">\(CF_1^E=CF_1^F\)</span>) — chamamos de <span class="math inline">\(R^u\)</span></li>
+<li><span class="math inline">\(R^{WACC}(s)\)</span> é exatamente o retorno da firma <strong>desalavancada</strong> — chamamos de <span class="math inline">\(R^u(s)\)</span></li>
 <li>Sob as mesmas condições, no CAPM:</li>
 </ul>
-<p><span class="math display">\[R^{u}=R^{f}+\beta_{R^u,R^*}\left\{E[R^*]-R^f\right\}\]</span></p>
+<p><span class="math display">\[\mathbb{E}[R^{u}]=R^{f}+\beta_{R^u,R^*}\left\{\mathbb{E}[R^*]-R^f\right\}\]</span></p>
 <p>em que <span class="math inline">\(R^*\)</span> é o retorno do portfólio de mercado.</p>
 </section>
 <section id="wacc-não-muda-com-alavancagem-sem-impostos" class="slide level2 smaller">

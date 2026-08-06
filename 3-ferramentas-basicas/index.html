@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -225,8 +225,185 @@ Felipe Iachan
 </section>
 <section id="vpl-e-taxa-de-desconto" class="slide level2 smaller">
 <h2>VPL e taxa de desconto</h2>
+<style>
+.vplx{
+  --vplx-azul:#6a9bcc; --vplx-laranja:#d97757; --vplx-verde:#788c5d;
+  --vplx-tinta:#141413; --vplx-papel:#faf9f5; --vplx-linha:#e8e6dc;
+  --vplx-cinza:#5f5e5a;
+  max-width:1160px; margin:0 auto; color:var(--vplx-tinta);
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:16px; line-height:1.3; text-align:left;
+}
+.vplx *{box-sizing:border-box;}
+.vplx-top{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px;
+  align-items:center; padding:9px 14px; border:1px solid var(--vplx-linha);
+  border-radius:10px; background:var(--vplx-papel);}
+.vplx-field label{display:flex; justify-content:space-between; gap:16px; margin-bottom:3px;
+  color:var(--vplx-cinza); font-size:13px; font-weight:600;}
+.vplx-field output{color:var(--vplx-tinta); font-size:16px; font-weight:700;
+  font-variant-numeric:tabular-nums;}
+.vplx-field input[type=range]{width:100%; margin:0; accent-color:var(--vplx-azul); cursor:pointer;}
+.vplx-hint{color:var(--vplx-cinza); font-size:12px; white-space:nowrap;}
+.vplx-grid{display:grid; grid-template-columns:minmax(0,1.65fr) minmax(250px,.75fr);
+  gap:16px; margin-top:12px;}
+.vplx-chart{border:1px solid var(--vplx-linha); border-radius:10px; padding:3px 7px 0;}
+.vplx-chart svg{display:block; width:100%; height:auto;}
+.vplx-panel{display:flex; flex-direction:column; gap:10px;}
+.vplx-card{border:1px solid var(--vplx-linha); border-radius:10px; padding:11px 14px;}
+.vplx-kicker{color:var(--vplx-cinza); font-size:13px; font-weight:600;}
+.vplx-big{margin:2px 0 7px; font-size:31px; font-weight:700; line-height:1.05;
+  font-variant-numeric:tabular-nums;}
+.vplx-card dl{display:grid; grid-template-columns:auto auto; gap:5px 10px; margin:0;
+  font-variant-numeric:tabular-nums;}
+.vplx-card dt{color:var(--vplx-cinza); font-size:13px;}
+.vplx-card dd{margin:0; text-align:right; font-size:14px; font-weight:700;}
+.vplx-decision{display:flex; justify-content:space-between; align-items:center; gap:10px;
+  margin-bottom:5px;}
+.vplx-decision strong{font-size:21px; letter-spacing:.02em;}
+.vplx-accept{color:var(--vplx-verde);}
+.vplx-reject{color:var(--vplx-laranja);}
+.vplx-neutral{color:var(--vplx-cinza);}
+.vplx-rule{margin:0; color:var(--vplx-cinza); font-size:13px;}
+.vplx-foot{margin-top:7px; color:var(--vplx-cinza); font-size:12px; text-align:center;}
+@media(max-width:760px){
+  .vplx-top,.vplx-grid{grid-template-columns:1fr;}
+  .vplx-hint{display:none;}
+}
+</style>
 
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Quanto maior a taxa de desconto, menor o valor presente dos fluxos futuros.</span></p>
+<div class="vplx">
+  <div class="vplx-top">
+    <div class="vplx-field">
+      <label for="vplx-r"><span>Taxa de desconto <i>r</i></span><output id="vplx-r-out" for="vplx-r">10,0% a.a.</output></label>
+      <input id="vplx-r" type="range" min="0" max="40" step="0.1" value="10" aria-describedby="vplx-help">
+    </div>
+    <span class="vplx-hint" id="vplx-help">Use ← → para ajustar</span>
+  </div>
+
+  <div class="vplx-grid">
+    <div class="vplx-chart">
+      <svg id="vplx-svg" viewbox="0 0 760 350" role="img" aria-label="Curva do VPL em função da taxa de desconto, com a TIR e a taxa escolhida"></svg>
+    </div>
+    <div class="vplx-panel">
+      <div class="vplx-card">
+        <div class="vplx-kicker">VPL na taxa escolhida</div>
+        <div class="vplx-big" id="vplx-value">R$ 329</div>
+        <dl>
+          <dt>Investimento inicial</dt><dd>−R$ 1.000</dd>
+          <dt>Fluxos, anos 1–5</dt><dd>300; 400; 400; 350; 300</dd>
+          <dt>TIR</dt><dd id="vplx-irr">22,18% a.a.</dd>
+        </dl>
+      </div>
+      <div class="vplx-card" role="status" aria-live="polite" aria-atomic="true">
+        <div class="vplx-decision">
+          <span class="vplx-kicker">Regra do VPL</span>
+          <strong class="vplx-accept" id="vplx-decision">ACEITAR</strong>
+        </div>
+        <p class="vplx-rule" id="vplx-rule">r &lt; TIR e VPL &gt; 0.</p>
+      </div>
+    </div>
+  </div>
+  <div class="vplx-foot">Arraste a taxa: o ponto percorre a curva e cruza VPL = 0 exatamente na TIR.</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var C0=-1000, CF=[300,400,400,350,300];
+  var elR=document.getElementById("vplx-r"), elROut=document.getElementById("vplx-r-out");
+  var elValue=document.getElementById("vplx-value"), elIrr=document.getElementById("vplx-irr");
+  var elDecision=document.getElementById("vplx-decision"), elRule=document.getElementById("vplx-rule");
+  var svg=document.getElementById("vplx-svg");
+  if(!elR || !svg) return;
+
+  function npv(r){
+    return CF.reduce(function(sum,cf,t){ return sum+cf/Math.pow(1+r,t+1); },C0);
+  }
+  function irr(){
+    var lo=0, hi=.40, mid, i;
+    for(i=0;i<80;i++){
+      mid=(lo+hi)/2;
+      if(npv(mid)>0) lo=mid; else hi=mid;
+    }
+    return (lo+hi)/2;
+  }
+  function br(x,d){ return x.toFixed(d).replace(".",","); }
+  function money(x){
+    var arredondado=Math.round(x);
+    return (arredondado<0?"−R$ ":"R$ ")+Math.abs(arredondado).toLocaleString("pt-BR");
+  }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  var RIRR=irr(), W=760, H=350, m={l:72,r:22,t:31,b:52};
+  var xmin=0, xmax=.40, ymin=-350, ymax=800;
+  function sx(r){ return m.l+(r-xmin)/(xmax-xmin)*(W-m.l-m.r); }
+  function sy(v){ return m.t+(ymax-v)/(ymax-ymin)*(H-m.t-m.b); }
+  function line(x1,y1,x2,y2,attrs){
+    return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" '+attrs+'/>';
+  }
+  function textAt(x,y,s,attrs){ return '<text x="'+x+'" y="'+y+'" '+attrs+'>'+esc(s)+'</text>'; }
+
+  function draw(r){
+    var v=npv(r), xirr=sx(RIRR), y0=sy(0), x=sx(r), y=sy(v), parts=[], i, rr;
+    parts.push('<rect x="'+m.l+'" y="'+m.t+'" width="'+(xirr-m.l)+'" height="'+(H-m.t-m.b)+'" fill="#788c5d" opacity=".11"/>');
+    parts.push('<rect x="'+xirr+'" y="'+m.t+'" width="'+(W-m.r-xirr)+'" height="'+(H-m.t-m.b)+'" fill="#d97757" opacity=".10"/>');
+    parts.push(textAt(m.l+14,m.t+22,"ACEITAR · VPL > 0",'fill="#788c5d" font-size="13" font-weight="700"'));
+    parts.push(textAt(W-m.r-14,m.t+22,"REJEITAR · VPL < 0",'fill="#d97757" font-size="13" font-weight="700" text-anchor="end"'));
+
+    [0,.10,.20,.30,.40].forEach(function(t){
+      parts.push(line(sx(t),m.t,sx(t),H-m.b,'stroke="#e8e6dc" stroke-width="1"'));
+      parts.push(textAt(sx(t),H-m.b+21,Math.round(t*100)+'%','fill="#5f5e5a" font-size="12" text-anchor="middle"'));
+    });
+    [-300,0,300,600].forEach(function(t){
+      parts.push(line(m.l,sy(t),W-m.r,sy(t),t===0?'stroke="#5f5e5a" stroke-width="1.4"':'stroke="#e8e6dc" stroke-width="1"'));
+      parts.push(textAt(m.l-10,sy(t)+4,String(t),'fill="#5f5e5a" font-size="12" text-anchor="end"'));
+    });
+    parts.push(line(xirr,m.t,xirr,H-m.b,'stroke="#d97757" stroke-width="2" stroke-dasharray="6 5"'));
+    parts.push(textAt(xirr+7,y0-9,'TIR = '+br(RIRR*100,2)+'%','fill="#d97757" font-size="13" font-weight="700"'));
+
+    var d="";
+    for(i=0;i<=160;i++){
+      rr=xmin+(xmax-xmin)*i/160;
+      d+=(i?"L":"M")+sx(rr).toFixed(2)+" "+sy(npv(rr)).toFixed(2)+" ";
+    }
+    parts.push('<path d="'+d+'" fill="none" stroke="#6a9bcc" stroke-width="3"/>');
+    parts.push(line(x,m.t,x,y,'stroke="#6a9bcc" stroke-width="1.4" stroke-dasharray="4 4"'));
+    parts.push(line(m.l,y,x,y,'stroke="#6a9bcc" stroke-width="1.4" stroke-dasharray="4 4"'));
+    parts.push('<circle cx="'+x+'" cy="'+y+'" r="7" fill="'+(Math.abs(v)<.5?'#5f5e5a':v>0?'#788c5d':'#d97757')+'" stroke="#fff" stroke-width="2"/>');
+    parts.push(textAt((m.l+W-m.r)/2,H-9,'taxa de desconto r (% a.a.)','fill="#5f5e5a" font-size="13" text-anchor="middle"'));
+    parts.push('<text x="16" y="'+((m.t+H-m.b)/2)+'" fill="#5f5e5a" font-size="13" text-anchor="middle" transform="rotate(-90 16 '+((m.t+H-m.b)/2)+')">VPL (R$)</text>');
+    svg.innerHTML=parts.join("");
+
+    elROut.value=br(r*100,1)+"% a.a.";
+    elValue.textContent=money(v);
+    elIrr.textContent=br(RIRR*100,2)+"% a.a.";
+    elDecision.className="";
+    if(Math.abs(v)<.5){
+      elDecision.textContent="INDIFERENTE"; elDecision.classList.add("vplx-neutral");
+      elRule.textContent="r ≈ TIR e VPL ≈ 0.";
+    }else if(v>0){
+      elDecision.textContent="ACEITAR"; elDecision.classList.add("vplx-accept");
+      elRule.textContent="r < TIR e VPL > 0.";
+    }else{
+      elDecision.textContent="REJEITAR"; elDecision.classList.add("vplx-reject");
+      elRule.textContent="r > TIR e VPL < 0.";
+    }
+  }
+
+  // Autotestes: identidade no ponto zero, raiz e sinal em torno da TIR.
+  (function selfTest(){
+    var ok=Math.abs(npv(0)-750)<1e-9 && Math.abs(npv(RIRR))<1e-8 &&
+      npv(RIRR-.001)>0 && npv(RIRR+.001)<0;
+    if(!ok && typeof console!=="undefined") console.error("[vplx] falha nos autotestes numéricos");
+  }());
+
+  elR.addEventListener("input",function(){ draw(Number(elR.value)/100); });
+  // Mantém as setas/Home/End no controle: o Reveal não deve trocar de slide com o slider em foco.
+  elR.addEventListener("keydown",function(e){ e.stopPropagation(); });
+  draw(Number(elR.value)/100);
+}());
+</script>
 </section>
 <section id="um-problema-simples" class="slide level2">
 <h2>Um problema simples</h2>
@@ -318,7 +495,7 @@ Felipe Iachan
 <section id="anuidade-perpetuidade-e-taxa-de-desconto" class="slide level2 smaller">
 <h2>Anuidade, perpetuidade e taxa de desconto</h2>
 
-<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Com <span class="math inline">\(C=100\)</span> e <span class="math inline">\(r=10\%\)</span>, uma anuidade de 30 anos vale $942,69; a perpetuidade vale $1.000.</p>
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Com <span class="math inline">\(C=100\)</span> e <span class="math inline">\(r=10\%\)</span>, uma anuidade de 30 anos vale $942,69; a perpetuidade vale $1.000.</p>
 </section>
 <section id="perpetuidade-com-crescimento" class="slide level2">
 <h2>Perpetuidade com crescimento</h2>
@@ -376,7 +553,7 @@ Felipe Iachan
 <section id="juros-simples-compostos-e-contínuos" class="slide level2 smaller">
 <h2>Juros simples, compostos e contínuos</h2>
 
-<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Em 30 anos: $1 vira $4,00 com juros simples, $17,45 com composição anual e $20,09 com composição contínua.</p>
+<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Em 30 anos: $1 vira $4,00 com juros simples, $17,45 com composição anual e $20,09 com composição contínua.</p>
 </section>
 <section id="taxas-anuais-efetivas-para-apr-de-6" class="slide level2">
 <h2>Taxas anuais efetivas para APR de 6%</h2>
@@ -428,12 +605,12 @@ Felipe Iachan
 <section id="financiamento-price-sac" class="slide level2 smaller">
 <h2>Financiamento: Price × SAC</h2>
 
-<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Price tem parcela fixa; SAC começa mais alto e cai ao longo do tempo.</p>
+<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Price tem parcela fixa; SAC começa mais alto e cai ao longo do tempo.</p>
 </section>
 <section id="price-sac-primeiros-anos" class="slide level2 smaller">
 <h2>Price × SAC: primeiros anos</h2>
-<div id="aa7c1926" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="7473744a" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -533,7 +710,7 @@ Felipe Iachan
 <section id="brasil-taxa-nominal-inflação-e-juro-real" class="slide level2 smaller">
 <h2>Brasil: taxa nominal, inflação e juro real</h2>
 
-<img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Fisher exato: 9,34%; aproximação <span class="math inline">\(r_{nom}-\pi\)</span>: 9,78%.</p>
+<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Fisher exato: 9,34%; aproximação <span class="math inline">\(r_{nom}-\pi\)</span>: 9,78%.</p>
 <p><span class="fonte">Dados locais: Selic em 17/06/2026; IPCA 12m divulgado em 01/05/2026.</span></p>
 </section>
 <section id="taxas-de-juros-1" class="slide level2">
@@ -541,7 +718,7 @@ Felipe Iachan
 <p><span class="math display">\[\left(1+r_{real}\right)=\frac{1+r_{nom}}{1+\pi}\implies r_{real}\approx r_{nom}-\pi\]</span></p>
 <!-- CORREÇÃO: figura BDM 5.1 (recorte do livro-texto) substituída por série própria com dados reais do FRED, mesmo conceito (juro nominal x inflação ao longo do tempo), horizonte estendido até o presente -->
 
-<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (séries GS1, CPIAUCSL), dados mensais de 1953 a 06/2026. Inflação: variação do CPI em 12 meses.</span></p>
+<img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (séries GS1, CPIAUCSL), dados mensais de 1953 a 06/2026. Inflação: variação do CPI em 12 meses.</span></p>
 </section>
 <section id="curvas-de-juros" class="slide level2">
 <h2>Curvas de juros</h2>
@@ -557,13 +734,13 @@ Felipe Iachan
 <section id="curva-de-juros" class="slide level2 smaller">
 <h2>Curva de juros</h2>
 
-<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>^IRX</code>, <code>^FVX</code>, <code>^TNX</code>, <code>^TYX</code>), dados de 17/06/2026.</span></p>
+<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>^IRX</code>, <code>^FVX</code>, <code>^TNX</code>, <code>^TYX</code>), dados de 17/06/2026.</span></p>
 </section>
 <section id="formatos-da-curva-de-juros" class="slide level2 smaller">
 <h2>Formatos da curva de juros</h2>
 <!-- ADICIONADO: reconstrução ilustrativa (não pixel a pixel) da Figura 5.4 de Berk & DeMarzo — apenas os valores da curva íngreme (2% no curto prazo, 7% no longo prazo) são texto legível na fonte; os formatos normal e invertido preservam só o padrão qualitativo -->
 
-<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Reconstrução ilustrativa dos três formatos-padrão (Berk &amp; DeMarzo, Figura 5.4). Apenas os valores da curva íngreme (curto prazo 2%, longo prazo 7%) são texto legível na fonte; normal e invertida mostram o padrão qualitativo, sem reproduzir números do gráfico original.</span></p>
+<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Reconstrução ilustrativa dos três formatos-padrão (Berk &amp; DeMarzo, Figura 5.4). Apenas os valores da curva íngreme (curto prazo 2%, longo prazo 7%) são texto legível na fonte; normal e invertida mostram o padrão qualitativo, sem reproduzir números do gráfico original.</span></p>
 <ul>
 <li>Política monetária, classicamente, mira taxas de curto prazo.</li>
 <li>Por que a curva costuma ser tipicamente inclinada positivamente?</li>
@@ -576,7 +753,7 @@ Felipe Iachan
 </ul>
 <!-- CORREÇÃO: figura BDM 5.5 (recorte do livro-texto, até 2010) substituída por série própria com dados reais do FRED, mesmo conceito (juros curto x longo prazo e recessões), horizonte estendido até o presente -->
 
-<img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (GS1, GS10, indicador de recessão USREC do NBER), dados mensais de 1953 a 06/2026. Cinza: recessões; verde: curva normal (10a ≥ 1a); laranja: curva invertida.</span></p>
+<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (GS1, GS10, indicador de recessão USREC do NBER), dados mensais de 1953 a 06/2026. Cinza: recessões; verde: curva normal (10a ≥ 1a); laranja: curva invertida.</span></p>
 </section>
 <section id="custo-de-oportunidade-do-capital" class="slide level2">
 <h2>Custo de oportunidade do capital</h2>

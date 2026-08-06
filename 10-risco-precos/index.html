@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-3e89b6b34aa081418f807e8d14f63023.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -179,7 +179,8 @@ Felipe Iachan
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
+flowchart LR
   A["1 agente:&lt;br/&gt;equação de Euler (TMS)"] --&gt; B{"TMS é abstrata,&lt;br/&gt;não observável..."}
   B --&gt; C["Papel dos&lt;br/&gt;mercados financeiros"]
   C --&gt; D["Mercados completos:&lt;br/&gt;todos os agentes concordam"]
@@ -391,7 +392,7 @@ Felipe Iachan
 </section>
 <section id="fator-estocástico-de-desconto-definição" class="slide level2">
 <h2>Fator estocástico de desconto: definição</h2>
-<!-- PLANNING (log de deslizes de notação do .lyx-fonte, uniformizados silenciosamente neste deck):
+<!-- CORREÇÃO (log de deslizes de notação do .lyx-fonte):
      (1) l.1700 escreve "preços de estado {p_s}" mas a fórmula logo em seguida já usa q_s
          (p^j é preço de ATIVO no resto do arquivo) — mantivemos q_s aqui.
      (2) l.3601 escreve m_s=a+Σ b_{n,s} f_{n,s} (carga com índice de estado s) — mantivemos
@@ -423,7 +424,7 @@ Felipe Iachan
 <section id="exemplo-economia-com-dois-estados" class="slide level2 smaller">
 <h2>Exemplo: economia com dois estados</h2>
 <p>Duas datas, dois estados em <span class="math inline">\(t=1\)</span> (<span class="math inline">\(s_1, s_2\)</span>). Ativo livre de risco paga 1 em ambos; ativo arriscado (a) paga 3/2 em <span class="math inline">\(s_1\)</span> e 1/2 em <span class="math inline">\(s_2\)</span>; ambos custam 1.</p>
-<div id="9eb8651e" class="cell" data-execution_count="2">
+<div id="873148f9" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <table class="caption-top">
 <thead>
@@ -457,8 +458,11 @@ Felipe Iachan
 </section>
 <section id="é-um-mercado-completo" class="slide level2 smaller">
 <h2>É um mercado completo?</h2>
+<!-- CORREÇÃO: a fonte escreve Imagem(X)=#S, igualando um subespaço a um número.
+     Mercado completo exige que a imagem seja todo o espaço de payoffs, ou,
+     equivalentemente, que X tenha posto igual ao número de estados. -->
 <ul>
-<li>Definição formal: <span class="math inline">\(\text{Imagem}\left(X\right)=\#S\)</span></li>
+<li>Definição formal: <span class="math inline">\(\operatorname{Im}(X)=\mathbb{R}^{\#S}\)</span>, ou <span class="math inline">\(\operatorname{rank}(X)=\#S\)</span></li>
 <li>Ou seja: variando os portfólios <span class="math inline">\(z\in\mathbb{R}^{\#J}\)</span>, conseguimos descrever qualquer payoff que quisermos em <span class="math inline">\(\mathbb{R}^{\#S}\)</span>?</li>
 <li>Quais os preços de estado <span class="math inline">\(q_1, q_2\)</span>?</li>
 </ul>
@@ -468,7 +472,7 @@ Felipe Iachan
 <h2>Resolvendo os preços de estado</h2>
 <!-- ADICIONADO: não está na fonte (o .lyx só formula a pergunta). Ver dados/10-risco-precos/SNAPSHOT_INFO.txt. -->
 <p>Aplicando <span class="math inline">\(p^{j}=\sum_s q_s x_s^j\)</span> a cada ativo:</p>
-<div id="e57a4fba" class="cell" data-execution_count="3">
+<div id="fa5060c1" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p><span class="math display">\[1 = q_1 + q_2 \qquad 1 = 1{,}5\,q_1 + 0{,}5\,q_2\]</span></p>
 <p><span class="math display">\[\implies q_1 = 0,5,\quad q_2 = 0,5\]</span></p>
@@ -478,7 +482,7 @@ Felipe Iachan
 </section>
 <section id="mercados-incompletos-três-variações" class="slide level2 smaller">
 <h2>Mercados incompletos: três variações</h2>
-<!-- ADICIONADO: o .lyx-fonte só apresenta as 3 matrizes lado a lado ("E os casos abaixo?"), sem veredito de completude em texto. A coluna "É completo?" aplica o critério Imagem(X)=#S do slide anterior — não está na fonte. -->
+<!-- ADICIONADO: o .lyx-fonte só apresenta as 3 matrizes lado a lado ("E os casos abaixo?"), sem veredito de completude em texto. A coluna "É completo?" aplica o critério rank(X)=#S do slide anterior — não está na fonte. -->
 <table class="caption-top">
 <colgroup>
 <col style="width: 20%">
@@ -547,7 +551,8 @@ Felipe Iachan
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
+flowchart LR
   A["Ausência de&lt;br/&gt;arbitragem"] --&gt; B["Apreçamento linear&lt;br/&gt;COM preços de estado&lt;br/&gt;estritamente positivos (q ≫ 0)"]
   B --&gt; A
 </pre>
@@ -672,7 +677,7 @@ Felipe Iachan
 <p><span class="math display">\[ \mathbb{E}\left[R_{z}\right]-R^{f}=\beta_{R^{z},R^{m}}\,\mathbb{E}\left[R^{m}-R^{f}\right] \]</span></p>
 <p>logo, somando <span class="math inline">\(R^f\)</span> de volta,</p>
 <p><span class="math display">\[ 1+r^{*}=\mathbb{E}\left[R_{z}\right]=R^{f}+\beta_{R^{z},R^{m}}\,\mathbb{E}\left[R^{m}-R^{f}\right] \]</span></p>
-<!-- PLANNING: a fonte escreve "1+r*=E[Rz]-Rf=β·E[Rm-Rf]", equiparando 1+r* (retorno bruto) a um retorno em EXCESSO — inconsistente com a definição de r* dada duas fórmulas atrás (1+r*=E[Rz]). R^f aqui é retorno bruto (R^f=1/E[m]), não a taxa líquida r_f; o erro da fonte não é um "-1" faltando, é ter deixado de somar R^f de volta. Conferência: R^f=1,04, β=1, prêmio=6% ⇒ r*=10% (não 6%). Corrigido somando R^f de volta, equivalente à forma usual de finanças corporativas r*=r_f+β(E[r^m]-r_f). -->
+<!-- CORREÇÃO: a fonte escreve "1+r*=E[Rz]-Rf=β·E[Rm-Rf]", equiparando 1+r* (retorno bruto) a um retorno em EXCESSO — inconsistente com a definição de r* dada duas fórmulas atrás (1+r*=E[Rz]). R^f aqui é retorno bruto (R^f=1/E[m]), não a taxa líquida r_f; o erro da fonte não é um "-1" faltando, é ter deixado de somar R^f de volta. Conferência: R^f=1,04, β=1, prêmio=6% ⇒ r*=10% (não 6%). Corrigido somando R^f de volta, equivalente à forma usual de finanças corporativas r*=r_f+β(E[r^m]-r_f). -->
 <ul>
 <li>Basta saber o beta do portfólio replicante <span class="math inline">\(\beta_{R^z,R^m}\)</span>: investimento com o mesmo padrão de risco de <span class="math inline">\(CF_1\)</span></li>
 <li>Proxies: ativo da firma, firmas comparáveis, <em>educated guesses</em></li>
