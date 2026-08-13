@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt"><head>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/tabby.min.js"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-ebc22d1efb10b48ab26dfda692002621.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -123,9 +123,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-  
-  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
   <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="quarto-light">
@@ -148,16 +145,16 @@ Felipe Iachan
 <section id="o-valor-do-dinheiro-no-tempo" class="slide level2">
 <h2>O valor do dinheiro no tempo</h2>
 <ul>
-<li>Se uma firma gasta R$100 e recebe US$50 no mesmo dia, qual o resultado apurado? Houve ganho financeiro?
+<li>Se uma firma gasta <strong>R$ 540 milhões hoje</strong> e recebe <strong>US$ 100 milhões daqui a um mês</strong>, houve ganho financeiro?
 <ul>
-<li>Naturalmente, para responder, é necessário saber a taxa de câmbio entre as duas moedas.</li>
-<li>O mesmo vale para decisões intertemporais.</li>
-<li>Taxa de juros faz o papel dessa taxa de conversão.</li>
-<li>Para depois: No caso de incerteza, preços de estado ou taxa ajustada para risco.</li>
+<li>Precisamos fazer duas conversões: entre moedas e entre datas.</li>
+<li>A taxa de câmbio traduz dólares em reais numa mesma data.</li>
+<li>A taxa de juros traduz valores entre datas.</li>
+<li>Para depois: com incerteza, o risco também afeta o valor.</li>
 </ul></li>
 </ul>
 </section>
-<section id="diagrama-de-fluxo-de-caixa" class="slide level2">
+<section id="diagrama-fluxo-caixa" class="slide level2">
 <h2>Diagrama de Fluxo de Caixa</h2>
 <ul>
 <li>Um diagrama de fluxo de caixa é uma representação linear da cronologia dos fluxos de caixa esperados.</li>
@@ -165,8 +162,11 @@ Felipe Iachan
 <li>Suponha que você esteja emprestando $10.000 hoje e que você será pago em duas parcelas anuais de $6.000.</li>
 </ul>
 <svg class="cashflow-svg wide" viewbox="0 0 1080 270" role="img" aria-label="Linha do tempo: desembolso de 10.000 na data zero e recebimentos de 6.000 nos anos 1 e 2">
-<rect class="period-fill-light" x="320" y="8" width="320" height="46"></rect> <rect class="period-fill-dark" x="640" y="8" width="320" height="46"></rect> <line class="axis" x1="320" y1="132" x2="960" y2="132"></line> <line class="tick" x1="320" y1="92" x2="320" y2="174"></line> <line class="tick" x1="640" y1="92" x2="640" y2="174"></line> <line class="tick" x1="960" y1="92" x2="960" y2="174"></line> <text class="time-label" x="480" y="39" text-anchor="middle">Ano 1</text> <text class="time-label period-label-inverted" x="800" y="39" text-anchor="middle">Ano 2</text> <text class="time-label" x="82" y="115">Data</text> <text class="time-label" x="320" y="84" text-anchor="middle">0</text> <text class="time-label" x="640" y="84" text-anchor="middle">1</text> <text class="time-label" x="960" y="84" text-anchor="middle">2</text> <text class="time-label" x="12" y="218">Fluxo de caixa</text> <text class="money-label outflow" x="320" y="224" text-anchor="middle">−$10.000</text> <text class="money-label inflow" x="640" y="224" text-anchor="middle">$6.000</text> <text class="money-label inflow" x="960" y="224" text-anchor="middle">$6.000</text>
+<rect class="period-fill-light" x="320" y="8" width="320" height="46"></rect> <rect class="period-fill-dark" x="640" y="8" width="320" height="46"></rect> <line class="axis" x1="320" y1="132" x2="960" y2="132"></line> <line class="tick" x1="320" y1="92" x2="320" y2="174"></line> <line class="tick" x1="640" y1="92" x2="640" y2="174"></line> <line class="tick" x1="960" y1="92" x2="960" y2="174"></line> <text class="time-label" x="480" y="39" text-anchor="middle">Ano 1</text> <text class="time-label period-label-inverted" x="800" y="39" text-anchor="middle">Ano 2</text> <text class="time-label" x="82" y="115">Data</text> <text class="time-label" x="320" y="84" text-anchor="middle">0</text> <text class="time-label" x="640" y="84" text-anchor="middle">1</text> <text class="time-label" x="960" y="84" text-anchor="middle">2</text> <text class="time-label" x="12" y="218">Fluxo de caixa</text> <text class="money-label outflow" x="320" y="224" text-anchor="middle">−$10.000</text> <text class="money-label inflow" x="640" y="224" text-anchor="middle">+$6.000</text> <text class="money-label inflow" x="960" y="224" text-anchor="middle">+$6.000</text>
 </svg>
+<div class="fonte">
+<p><a href="#/apendice-convencoes-fluxo">Apêndice: convenções alternativas</a></p>
+</div>
 </section>
 <section id="regras-básicas" class="slide level2">
 <h2>Regras Básicas</h2>
@@ -410,15 +410,14 @@ Felipe Iachan
 <p><strong>Suponha que planejemos aplicar $1.000 hoje e $1.000 no final de cada um dos dois próximos anos. Se obtivermos uma taxa de juros de 10% sobre nossa aplicação, quanto teremos daqui a três anos?</strong></p>
 <p>Diagrama:</p>
 <svg class="cashflow-svg" viewbox="0 0 980 230" role="img" aria-label="Linha do tempo com aplicações de 1.000 nas datas 0, 1 e 2 e valor futuro desconhecido na data 3">
-<line class="axis" x1="105" y1="95" x2="875" y2="95"></line> <line class="tick" x1="105" y1="58" x2="105" y2="132"></line> <line class="tick" x1="362" y1="58" x2="362" y2="132"></line> <line class="tick" x1="618" y1="58" x2="618" y2="132"></line> <line class="tick" x1="875" y1="58" x2="875" y2="132"></line> <text class="time-label" x="105" y="43" text-anchor="middle">0</text> <text class="time-label" x="362" y="43" text-anchor="middle">1</text> <text class="time-label" x="618" y="43" text-anchor="middle">2</text> <text class="time-label" x="875" y="43" text-anchor="middle">3</text> <text class="money-label inflow" x="105" y="188" text-anchor="middle">$1.000</text> <text class="money-label inflow" x="362" y="188" text-anchor="middle">$1.000</text> <text class="money-label inflow" x="618" y="188" text-anchor="middle">$1.000</text> <text class="money-label outflow" x="875" y="188" text-anchor="middle">?</text>
+<line class="axis" x1="105" y1="95" x2="875" y2="95"></line> <line class="tick" x1="105" y1="58" x2="105" y2="132"></line> <line class="tick" x1="362" y1="58" x2="362" y2="132"></line> <line class="tick" x1="618" y1="58" x2="618" y2="132"></line> <line class="tick" x1="875" y1="58" x2="875" y2="132"></line> <text class="time-label" x="105" y="43" text-anchor="middle">0</text> <text class="time-label" x="362" y="43" text-anchor="middle">1</text> <text class="time-label" x="618" y="43" text-anchor="middle">2</text> <text class="time-label" x="875" y="43" text-anchor="middle">3</text> <text class="money-label outflow" x="105" y="188" text-anchor="middle">−$1.000</text> <text class="money-label outflow" x="362" y="188" text-anchor="middle">−$1.000</text> <text class="money-label outflow" x="618" y="188" text-anchor="middle">−$1.000</text> <text class="money-label inflow" x="875" y="188" text-anchor="middle">+?</text>
 </svg>
 </section>
 <section id="um-problema-simples-solução" class="slide level2">
-<h2>Um problema simples [solução]</h2>
-<p><strong>Suponha que planejemos aplicar $1.000 hoje e $1.000 no final de cada um dos dois próximos anos. Se obtivermos uma taxa de juros de 10% sobre nossa aplicação, quanto teremos daqui a três anos?</strong></p>
-<p>Solução:</p>
+<h2>Um problema simples — solução</h2>
+<p><strong>Cada aplicação é uma saída; o saldo acumulado no ano 3 é uma entrada.</strong></p>
 <svg class="cashflow-svg wide" viewbox="0 0 1120 430" role="img" aria-label="Solução do valor futuro: três aplicações de 1.000 acumuladas a 10 por cento até o ano 3">
-<defs> <marker id="a3-fv-arrow" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#8e8b83"></path> </marker> </defs> <line class="axis" x1="110" y1="72" x2="900" y2="72"></line> <line class="tick" x1="110" y1="34" x2="110" y2="108"></line> <line class="tick" x1="373" y1="34" x2="373" y2="108"></line> <line class="tick" x1="637" y1="34" x2="637" y2="108"></line> <line class="tick" x1="900" y1="34" x2="900" y2="108"></line> <text class="time-label" x="110" y="24" text-anchor="middle">0</text> <text class="time-label" x="373" y="24" text-anchor="middle">1</text> <text class="time-label" x="637" y="24" text-anchor="middle">2</text> <text class="time-label" x="900" y="24" text-anchor="middle">3</text> <line class="future-arrow" x1="154" y1="150" x2="850" y2="150" marker-end="url(#a3-fv-arrow)"></line> <line class="future-arrow" x1="420" y1="245" x2="850" y2="245" marker-end="url(#a3-fv-arrow)"></line> <line class="future-arrow" x1="680" y1="330" x2="850" y2="330" marker-end="url(#a3-fv-arrow)"></line> <text class="money-label inflow" x="75" y="158">$1.000</text> <text class="money-label inflow" x="338" y="253">$1.000</text> <text class="money-label inflow" x="602" y="338">$1.000</text> <text class="factor-label" x="300" y="185" text-anchor="middle">× 1,10</text> <text class="factor-label" x="505" y="185" text-anchor="middle">× 1,10</text> <text class="factor-label" x="715" y="185" text-anchor="middle">× 1,10</text> <text class="factor-label" x="555" y="280" text-anchor="middle">× 1,10</text> <text class="factor-label" x="735" y="280" text-anchor="middle">× 1,10</text> <text class="factor-label" x="765" y="365" text-anchor="middle">× 1,10</text> <text class="money-label" x="920" y="158">$1.331</text> <text class="money-label" x="920" y="253">$1.210</text> <text class="money-label" x="920" y="338">$1.100</text> <line class="total-line" x1="920" y1="352" x2="1035" y2="352"></line> <text class="money-label" x="920" y="397">$3.641</text>
+<defs> <marker id="a3-fv-arrow" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#8e8b83"></path> </marker> </defs> <line class="axis" x1="110" y1="72" x2="900" y2="72"></line> <line class="tick" x1="110" y1="34" x2="110" y2="108"></line> <line class="tick" x1="373" y1="34" x2="373" y2="108"></line> <line class="tick" x1="637" y1="34" x2="637" y2="108"></line> <line class="tick" x1="900" y1="34" x2="900" y2="108"></line> <text class="time-label" x="110" y="24" text-anchor="middle">0</text> <text class="time-label" x="373" y="24" text-anchor="middle">1</text> <text class="time-label" x="637" y="24" text-anchor="middle">2</text> <text class="time-label" x="900" y="24" text-anchor="middle">3</text> <line class="future-arrow" x1="170" y1="150" x2="865" y2="150" marker-end="url(#a3-fv-arrow)"></line> <line class="future-arrow" x1="434" y1="245" x2="865" y2="245" marker-end="url(#a3-fv-arrow)"></line> <line class="future-arrow" x1="698" y1="330" x2="865" y2="330" marker-end="url(#a3-fv-arrow)"></line> <text class="money-label outflow" x="150" y="150" text-anchor="end" dominant-baseline="middle">−$1.000</text> <text class="money-label outflow" x="414" y="245" text-anchor="end" dominant-baseline="middle">−$1.000</text> <text class="money-label outflow" x="678" y="330" text-anchor="end" dominant-baseline="middle">−$1.000</text> <text class="factor-label" x="300" y="185" text-anchor="middle">× 1,10</text> <text class="factor-label" x="505" y="185" text-anchor="middle">× 1,10</text> <text class="factor-label" x="715" y="185" text-anchor="middle">× 1,10</text> <text class="factor-label" x="555" y="280" text-anchor="middle">× 1,10</text> <text class="factor-label" x="735" y="280" text-anchor="middle">× 1,10</text> <text class="factor-label" x="765" y="365" text-anchor="middle">× 1,10</text> <text class="money-label inflow" x="920" y="150" dominant-baseline="middle">+$1.331</text> <text class="money-label inflow" x="920" y="245" dominant-baseline="middle">+$1.210</text> <text class="money-label inflow" x="920" y="330" dominant-baseline="middle">+$1.100</text> <line class="total-line" x1="920" y1="352" x2="1035" y2="352"></line> <text class="money-label inflow" x="920" y="397">+$3.641</text>
 </svg>
 </section>
 <section id="linearidade-do-vp-e-fv" class="slide level2">
@@ -484,13 +483,75 @@ Felipe Iachan
 <p>Logo,</p>
 <p><span class="math display">\[PV_{anuid.}=\frac{C-C\left(1+r\right)^{-N}}{\left(1+r\right)-1}=\frac{C}{r}-\frac{C}{r\left(1+r\right)^{N}}\]</span></p>
 </section>
+<section id="anuidade-perpetuidade-cauda" class="slide level2 smaller">
+<h2>Anuidade = perpetuidade − cauda</h2>
+<p>Estenda os pagamentos para sempre — depois retire a cauda que começa em <span class="math inline">\(N+1\)</span>.</p>
+<svg class="cashflow-svg wide" style="max-height:43vh;margin-top:.25em" viewbox="0 0 1120 390" role="img" aria-label="A anuidade resulta de uma perpetuidade imediata menos uma perpetuidade diferida que começa em N mais 1">
+  <rect x="830" y="48" width="282" height="330" rx="10" fill="#d97757" opacity=".06"></rect>
+  <line x1="830" y1="42" x2="830" y2="378" stroke="#d97757" stroke-width="2" stroke-dasharray="6 6" opacity=".65"></line>
+  <text class="factor-label" x="971" y="68" text-anchor="middle">cauda</text>
+
+  <text class="time-label" x="350" y="34" text-anchor="middle">1</text>
+  <text class="time-label" x="500" y="34" text-anchor="middle">2</text>
+  <text class="time-label" x="650" y="34" text-anchor="middle">…</text>
+  <text class="time-label" x="770" y="34" text-anchor="middle">N</text>
+  <text class="time-label" x="890" y="34" text-anchor="middle">N+1</text>
+  <text class="time-label" x="1010" y="34" text-anchor="middle">N+2</text>
+  <text class="time-label" x="1090" y="34" text-anchor="middle">…</text>
+
+  <text class="time-label" x="12" y="98">Perpetuidade</text>
+  <line class="axis" x1="300" y1="90" x2="1110" y2="90"></line>
+  <line class="tick" x1="350" y1="76" x2="350" y2="104"></line>
+  <line class="tick" x1="500" y1="76" x2="500" y2="104"></line>
+  <line class="tick" x1="770" y1="76" x2="770" y2="104"></line>
+  <line class="tick" x1="890" y1="76" x2="890" y2="104"></line>
+  <line class="tick" x1="1010" y1="76" x2="1010" y2="104"></line>
+  <text class="flow-label inflow" x="350" y="142" text-anchor="middle">+C</text>
+  <text class="flow-label inflow" x="500" y="142" text-anchor="middle">+C</text>
+  <text class="flow-label inflow" x="770" y="142" text-anchor="middle">+C</text>
+  <text class="flow-label inflow" x="890" y="142" text-anchor="middle">+C</text>
+  <text class="flow-label inflow" x="1010" y="142" text-anchor="middle">+C</text>
+
+  <g class="fragment" data-fragment-index="1">
+    <text class="time-label" x="12" y="218">menos a cauda</text>
+    <line class="axis" x1="300" y1="210" x2="1110" y2="210"></line>
+    <line class="tick" x1="350" y1="196" x2="350" y2="224"></line>
+    <line class="tick" x1="500" y1="196" x2="500" y2="224"></line>
+    <line class="tick" x1="770" y1="196" x2="770" y2="224"></line>
+    <line class="tick" x1="890" y1="196" x2="890" y2="224"></line>
+    <line class="tick" x1="1010" y1="196" x2="1010" y2="224"></line>
+    <text class="factor-label" x="350" y="262" text-anchor="middle">0</text>
+    <text class="factor-label" x="500" y="262" text-anchor="middle">0</text>
+    <text class="factor-label" x="770" y="262" text-anchor="middle">0</text>
+    <text class="flow-label outflow" x="890" y="262" text-anchor="middle">−C</text>
+    <text class="flow-label outflow" x="1010" y="262" text-anchor="middle">−C</text>
+  </g>
+
+  <g class="fragment" data-fragment-index="2">
+    <text class="time-label" x="12" y="338">Anuidade</text>
+    <line class="axis" x1="300" y1="330" x2="1110" y2="330"></line>
+    <line class="tick" x1="350" y1="316" x2="350" y2="344"></line>
+    <line class="tick" x1="500" y1="316" x2="500" y2="344"></line>
+    <line class="tick" x1="770" y1="316" x2="770" y2="344"></line>
+    <line class="tick" x1="890" y1="316" x2="890" y2="344"></line>
+    <line class="tick" x1="1010" y1="316" x2="1010" y2="344"></line>
+    <text class="flow-label inflow" x="350" y="382" text-anchor="middle">+C</text>
+    <text class="flow-label inflow" x="500" y="382" text-anchor="middle">+C</text>
+    <text class="flow-label inflow" x="770" y="382" text-anchor="middle">+C</text>
+    <text class="factor-label" x="890" y="382" text-anchor="middle">0</text>
+    <text class="factor-label" x="1010" y="382" text-anchor="middle">0</text>
+  </g>
+</svg>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[PV_{anuid.}=\frac{C}{r}-\frac{C/r}{(1+r)^N}=\frac{C}{r}\left[1-(1+r)^{-N}\right]\]</span></p>
+</div>
+</section>
 <section id="cálculo-cont." class="slide level2">
 <h2>Cálculo (cont.)</h2>
 <p><span class="math display">\[PV_{anuid.}=\frac{C-C\left(1+r\right)^{-N}}{\left(1+r\right)-1}=\frac{C}{r}-\frac{C}{r\left(1+r\right)^{N}}\]</span></p>
 <p>Para perpetuidade, basta tomar <span class="math inline">\(N\rightarrow\infty\)</span>,</p>
 <p><span class="math display">\[PV_{perp.}=\frac{C}{r}\]</span></p>
-<p>Outro truque, lembrando a fórmula da perpetuidade, a anuidade pode ser escrita como a diferença de duas perpetuidades.</p>
-<p>Perpetuidade pode ser rara na prática, mas é útil como ferramentas para maturidades longas e possivelmente incertas.</p>
+<p>Perpetuidade pode ser rara na prática, mas é útil como ferramenta para maturidades longas e possivelmente incertas.</p>
 </section>
 <section id="anuidade-perpetuidade-e-taxa-de-desconto" class="slide level2 smaller">
 <h2>Anuidade, perpetuidade e taxa de desconto</h2>
@@ -602,98 +663,6 @@ Felipe Iachan
 <p><span class="math display">\[(1+0{,}01)^{12}-1=12{,}68\%.\]</span></p>
 <p><a href="https://epx.com.br/ctb/hp12c.php">Link Calculadora.</a> * fator na primeira linha foi aproximado para 8,055</p>
 </section>
-<section id="financiamento-price-sac" class="slide level2 smaller">
-<h2>Financiamento: Price × SAC</h2>
-
-<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Price tem parcela fixa; SAC começa mais alto e cai ao longo do tempo.</p>
-</section>
-<section id="price-sac-primeiros-anos" class="slide level2 smaller">
-<h2>Price × SAC: primeiros anos</h2>
-<div id="7473744a" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Ano</th>
-<th data-quarto-table-cell-role="th">Parcela Price</th>
-<th data-quarto-table-cell-role="th">Parcela SAC</th>
-<th data-quarto-table-cell-role="th">Saldo Price</th>
-<th data-quarto-table-cell-role="th">Saldo SAC</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>1</td>
-<td>R$ 40.359</td>
-<td>R$ 50.833</td>
-<td>R$ 239.641</td>
-<td>R$ 229.167</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>2</td>
-<td>R$ 40.359</td>
-<td>R$ 48.333</td>
-<td>R$ 228.038</td>
-<td>R$ 208.333</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>3</td>
-<td>R$ 40.359</td>
-<td>R$ 45.833</td>
-<td>R$ 215.044</td>
-<td>R$ 187.500</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>4</td>
-<td>R$ 40.359</td>
-<td>R$ 43.333</td>
-<td>R$ 200.490</td>
-<td>R$ 166.667</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>5</td>
-<td>R$ 40.359</td>
-<td>R$ 40.833</td>
-<td>R$ 184.190</td>
-<td>R$ 145.833</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">5</th>
-<td>6</td>
-<td>R$ 40.359</td>
-<td>R$ 38.333</td>
-<td>R$ 165.933</td>
-<td>R$ 125.000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>Juros totais no exemplo: Price R$ 234.310; SAC R$ 195.000.</p>
-</section>
 <section id="taxas-de-juros" class="slide level2">
 <h2>Taxas de juros</h2>
 <ul>
@@ -710,7 +679,8 @@ Felipe Iachan
 <section id="brasil-taxa-nominal-inflação-e-juro-real" class="slide level2 smaller">
 <h2>Brasil: taxa nominal, inflação e juro real</h2>
 
-<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Fisher exato: 9,34%; aproximação <span class="math inline">\(r_{nom}-\pi\)</span>: 9,78%.</p>
+<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Cálculo exato: <span class="math inline">\(\dfrac{1+r_{nom}}{1+\pi}-1 =\)</span> 9,34%.</p>
+<p>O atalho <span class="math inline">\(r_{nom}-\pi\)</span> dá 9,78%, ou 0,44 p.p. acima do valor exato.</p>
 <p><span class="fonte">Dados locais: Selic em 17/06/2026; IPCA 12m divulgado em 01/05/2026.</span></p>
 </section>
 <section id="taxas-de-juros-1" class="slide level2">
@@ -718,7 +688,7 @@ Felipe Iachan
 <p><span class="math display">\[\left(1+r_{real}\right)=\frac{1+r_{nom}}{1+\pi}\implies r_{real}\approx r_{nom}-\pi\]</span></p>
 <!-- CORREÇÃO: figura BDM 5.1 (recorte do livro-texto) substituída por série própria com dados reais do FRED, mesmo conceito (juro nominal x inflação ao longo do tempo), horizonte estendido até o presente -->
 
-<img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (séries GS1, CPIAUCSL), dados mensais de 1953 a 06/2026. Inflação: variação do CPI em 12 meses.</span></p>
+<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (séries GS1, CPIAUCSL), dados mensais de 1953 a 06/2026. Inflação: variação do CPI em 12 meses.</span></p>
 </section>
 <section id="curvas-de-juros" class="slide level2">
 <h2>Curvas de juros</h2>
@@ -731,20 +701,30 @@ Felipe Iachan
 <li>No entanto, dependência da taxa de desconto no período de pagamento pode ser bastante importante em alguns momentos no tempo e aplicações particulares</li>
 </ul>
 </section>
-<section id="curva-de-juros" class="slide level2 smaller">
-<h2>Curva de juros</h2>
+<section id="a-curva-muda-com-o-tempo" class="slide level2 smaller">
+<h2>A curva muda com o tempo</h2>
 
-<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Yahoo Finance via <code>yfinance</code> (<code>^IRX</code>, <code>^FVX</code>, <code>^TNX</code>, <code>^TYX</code>), dados de 17/06/2026.</span></p>
+<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">A taxa depende do prazo — e do momento.</span></p>
+<p><span class="fonte">Fonte: U.S. Treasury, CMTs de 30/11/2006, 30/11/2007 e 28/11/2008. Reconstrução da Figura 5.3 de Berk &amp; DeMarzo com curvas par oficiais.</span></p>
 </section>
-<section id="formatos-da-curva-de-juros" class="slide level2 smaller">
-<h2>Formatos da curva de juros</h2>
-<!-- ADICIONADO: reconstrução ilustrativa (não pixel a pixel) da Figura 5.4 de Berk & DeMarzo — apenas os valores da curva íngreme (2% no curto prazo, 7% no longo prazo) são texto legível na fonte; os formatos normal e invertido preservam só o padrão qualitativo -->
-
-<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Reconstrução ilustrativa dos três formatos-padrão (Berk &amp; DeMarzo, Figura 5.4). Apenas os valores da curva íngreme (curto prazo 2%, longo prazo 7%) são texto legível na fonte; normal e invertida mostram o padrão qualitativo, sem reproduzir números do gráfico original.</span></p>
-<ul>
-<li>Política monetária, classicamente, mira taxas de curto prazo.</li>
-<li>Por que a curva costuma ser tipicamente inclinada positivamente?</li>
-</ul>
+<section id="curvas-diferentes-perguntas-diferentes" class="slide level2 smaller">
+<h2>Curvas diferentes, perguntas diferentes</h2>
+<style>
+.curvas-faixa{display:grid;grid-template-columns:repeat(4,1fr);margin:2.15em 0 1.75em;
+  border-top:1.5px solid rgba(95,94,90,.45);border-bottom:1.5px solid rgba(95,94,90,.45);}
+.curvas-faixa>div{padding:1.2em 1em 1.1em;min-height:145px;text-align:center;}
+.curvas-faixa>div+div{border-left:1.5px solid rgba(95,94,90,.45);}
+.curvas-faixa h3{font-family:"Poppins",Arial,sans-serif;font-size:.78em !important;
+  line-height:1.12;margin:0 0 .75em;}
+.curvas-faixa p{font-size:.78em;line-height:1.25;margin:0;color:#5f5e5a;}
+</style>
+<div class="curvas-faixa">
+  <div><h3>Títulos de referência</h3><p>YTM de títulos selecionados</p></div>
+  <div><h3>Curva par</h3><p>cupom que faz <i>P</i> = 100</p></div>
+  <div><h3>Curva zero</h3><p>desconto de um pagamento</p></div>
+  <div><h3>Curva forward</h3><p>taxa futura implícita</p></div>
+</div>
+<p><span class="destaque">Aqui, usamos a curva par.</span></p>
 </section>
 <section id="curva-invertida" class="slide level2 smaller">
 <h2>Curva invertida</h2>
@@ -753,7 +733,7 @@ Felipe Iachan
 </ul>
 <!-- CORREÇÃO: figura BDM 5.5 (recorte do livro-texto, até 2010) substituída por série própria com dados reais do FRED, mesmo conceito (juros curto x longo prazo e recessões), horizonte estendido até o presente -->
 
-<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (GS1, GS10, indicador de recessão USREC do NBER), dados mensais de 1953 a 06/2026. Cinza: recessões; verde: curva normal (10a ≥ 1a); laranja: curva invertida.</span></p>
+<img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: FRED (GS1, GS10, indicador de recessão USREC do NBER), dados mensais de 1953 a 06/2026. Cinza: recessões; verde: curva normal (10a ≥ 1a); laranja: curva invertida.</span></p>
 </section>
 <section id="custo-de-oportunidade-do-capital" class="slide level2">
 <h2>Custo de oportunidade do capital</h2>
@@ -761,6 +741,56 @@ Felipe Iachan
 <li>Curva descreve oportunidades alternativas de investimento.</li>
 <li>E risco?</li>
 </ul>
+</section>
+<section id="apendice-convencoes-fluxo" class="slide level2 smaller">
+<h2>Apêndice: convenções de fluxo de caixa</h2>
+<p><strong>Primeiro, fixe a perspectiva:</strong> fluxos da firma, do investidor ou do projeto?</p>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 340" role="img" aria-label="Três convenções para diagramas de fluxo de caixa: posição acima e abaixo da linha, direção das setas e convenção adotada no curso com sinais explícitos">
+  <defs>
+    <marker id="a3-conv-in" markerwidth="10" markerheight="10" refx="8" refy="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#788c5d"></path>
+    </marker>
+    <marker id="a3-conv-out" markerwidth="10" markerheight="10" refx="8" refy="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#d97757"></path>
+    </marker>
+  </defs>
+
+  <rect x="8" y="8" width="350" height="310" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
+  <text class="time-label" x="183" y="48" text-anchor="middle">1 · Seta vertical</text>
+  <line class="axis" x1="48" y1="155" x2="318" y2="155"></line>
+  <line x1="125" y1="153" x2="125" y2="82" stroke="#788c5d" stroke-width="3" marker-end="url(#a3-conv-in)"></line>
+  <line x1="240" y1="157" x2="240" y2="228" stroke="#d97757" stroke-width="3" marker-end="url(#a3-conv-out)"></line>
+  <text class="money-label inflow" x="125" y="72" text-anchor="middle">+R$ 100</text>
+  <text class="money-label outflow" x="240" y="268" text-anchor="middle">−R$ 80</text>
+  <text x="183" y="298" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">para cima = + · para baixo = −</text>
+
+  <rect x="385" y="8" width="350" height="310" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
+  <text class="time-label" x="560" y="48" text-anchor="middle">2 · Dentro / fora</text>
+  <rect x="490" y="110" width="140" height="90" rx="8" fill="#faf9f5" stroke="#141413" stroke-width="2"></rect>
+  <text class="time-label" x="560" y="164" text-anchor="middle">firma</text>
+  <line x1="414" y1="155" x2="480" y2="155" stroke="#788c5d" stroke-width="3" marker-end="url(#a3-conv-in)"></line>
+  <line x1="640" y1="155" x2="706" y2="155" stroke="#d97757" stroke-width="3" marker-end="url(#a3-conv-out)"></line>
+  <text class="flow-label inflow" x="447" y="238" text-anchor="middle">entrada (+)</text>
+  <text class="flow-label outflow" x="673" y="238" text-anchor="middle">saída (−)</text>
+  <text x="560" y="298" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">requer uma fronteira explícita</text>
+
+  <rect x="762" y="8" width="350" height="310" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
+  <text class="time-label" x="937" y="48" text-anchor="middle">3 · Neste curso</text>
+  <line class="axis" x1="802" y1="155" x2="1072" y2="155"></line>
+  <line class="tick" x1="857" y1="137" x2="857" y2="173"></line>
+  <line class="tick" x1="1017" y1="137" x2="1017" y2="173"></line>
+  <text class="time-label" x="857" y="118" text-anchor="middle">0</text>
+  <text class="time-label" x="1017" y="118" text-anchor="middle">1</text>
+  <text class="money-label outflow" x="857" y="218" text-anchor="middle">−R$ 80</text>
+  <text class="money-label inflow" x="1017" y="218" text-anchor="middle">+R$ 100</text>
+  <text x="937" y="268" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">sinal explícito decide</text>
+  <text x="937" y="294" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">cor pode reforçar</text>
+</svg>
+<p><span class="destaque">Neste curso, o sinal explícito manda.</span> Posição, cor e setas são redundância visual.</p>
+<p>Setas entrando ou saindo da <strong>linha do tempo</strong> são ambíguas: a linha marca datas, não o caixa.</p>
+<div class="fonte">
+<p><a href="#/diagrama-fluxo-caixa">Voltar ao diagrama de fluxo de caixa</a></p>
+</div>
 </section>
 <section id="apendice-lhopital-ear" class="slide level2 smaller">
 <h2>Apêndice: demonstração por L’Hôpital</h2>
