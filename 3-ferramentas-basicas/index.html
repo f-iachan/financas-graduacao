@@ -652,16 +652,87 @@ Felipe Iachan
 <h2>Exemplo para discussão</h2>
 <ul>
 <li>Lembre-se de que, para tomar emprestado $250.000 com uma hipoteca de 30 anos a 12% a.a., o pagamento anual é de $31.037.</li>
-<li>Suponha que o agente de crédito agora sugira a você que, ao invés de pagar uma taxa anual composta de 12%, seria mais conveniente e barato para você ter uma taxa mensal de 1%.</li>
-<li>Como haverá 360 pagamentos, o pagamento mensal da hipoteca será de:</li>
+<li>O agente oferece 1% a.m., com 360 pagamentos:</li>
 </ul>
 <p><span class="math display">\[\frac{\$250.000}{\dfrac{1}{0{,}01}-\dfrac{1}{0{,}01(1+0{,}01)^{360}}}=\$2.572\]</span></p>
 <ul>
-<li>O vendedor indica que seus pagamentos anuais seriam reduzidos de $31.037 para 12 × $2.572 = $30.864.</li>
-<li>Isto é estranho, já que a taxa composta anual equivalente a 1% é:</li>
+<li>O vendedor afirma: <span class="math inline">\(12\times \$2.572=\$30.864&lt;\$31.037\)</span>.</li>
+<li>Mas 1% a.m. equivale a:</li>
 </ul>
 <p><span class="math display">\[(1+0{,}01)^{12}-1=12{,}68\%.\]</span></p>
-<p><a href="https://epx.com.br/ctb/hp12c.php">Link Calculadora.</a> * fator na primeira linha foi aproximado para 8,055</p>
+<p><span class="destaque">Como uma taxa maior pode custar menos?</span></p>
+</section>
+<section id="onde-está-o-truque" class="slide level2 smaller">
+<h2>Onde está o truque?</h2>
+<p><strong>Regra 1:</strong> só podemos somar valores na mesma data.</p>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 285" role="img" aria-label="Doze pagamentos mensais de 2.572 reais em datas diferentes">
+  <defs>
+    <marker id="a3-hip-out" markerwidth="9" markerheight="9" refx="7" refy="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#d97757"></path>
+    </marker>
+  </defs>
+  <line class="axis" x1="70" y1="115" x2="1050" y2="115"></line>
+  <text x="560" y="47" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">período mensal</text>
+  <g class="time-label" text-anchor="middle" style="font-size:18px">
+    <text x="105" y="87">1</text><text x="188" y="87">2</text>
+    <text x="271" y="87">3</text><text x="354" y="87">4</text>
+    <text x="437" y="87">5</text><text x="520" y="87">6</text>
+    <text x="603" y="87">7</text><text x="686" y="87">8</text>
+    <text x="769" y="87">9</text><text x="852" y="87">10</text>
+    <text x="935" y="87">11</text><text x="1018" y="87">12</text>
+  </g>
+  <g stroke="#d97757" stroke-width="3" marker-end="url(#a3-hip-out)">
+    <line x1="105" y1="117" x2="105" y2="180"></line><line x1="188" y1="117" x2="188" y2="180"></line>
+    <line x1="271" y1="117" x2="271" y2="180"></line><line x1="354" y1="117" x2="354" y2="180"></line>
+    <line x1="437" y1="117" x2="437" y2="180"></line><line x1="520" y1="117" x2="520" y2="180"></line>
+    <line x1="603" y1="117" x2="603" y2="180"></line><line x1="686" y1="117" x2="686" y2="180"></line>
+    <line x1="769" y1="117" x2="769" y2="180"></line><line x1="852" y1="117" x2="852" y2="180"></line>
+    <line x1="935" y1="117" x2="935" y2="180"></line><line x1="1018" y1="117" x2="1018" y2="180"></line>
+  </g>
+  <text class="money-label outflow" x="560" y="225" text-anchor="middle">12 saídas de −R$ 2.572</text>
+  <rect x="330" y="244" width="460" height="35" rx="17" fill="#f2f0e9"></rect>
+  <text x="560" y="268" text-anchor="middle" style="font-size:19px;font-weight:600;fill:#5f5e5a">12 × R$ 2.572 = R$ 30.864 · soma nominal</text>
+</svg>
+<p><span class="destaque">Os pagamentos estão em datas diferentes.</span> R$ 30.864 não é um pagamento anual equivalente.</p>
+</section>
+<section id="compare-na-mesma-data" class="slide level2 smaller">
+<h2>Compare na mesma data</h2>
+<p>Leve cada pagamento mensal ao fim do ano:</p>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 230" role="img" aria-label="Pagamentos mensais transportados até o mês 12 para comparação numa mesma data">
+  <defs>
+    <marker id="a3-hip-move" markerwidth="9" markerheight="9" refx="7" refy="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#8c8a83"></path>
+    </marker>
+    <marker id="a3-hip-out2" markerwidth="9" markerheight="9" refx="7" refy="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#d97757"></path>
+    </marker>
+  </defs>
+  <line class="axis" x1="95" y1="118" x2="1025" y2="118"></line>
+  <g class="tick">
+    <line x1="130" y1="100" x2="130" y2="136"></line>
+    <line x1="535" y1="100" x2="535" y2="136"></line>
+    <line x1="990" y1="93" x2="990" y2="143"></line>
+  </g>
+  <g class="time-label" text-anchor="middle">
+    <text x="130" y="91">mês 1</text><text x="535" y="91">mês 6</text><text x="990" y="82">mês 12</text>
+  </g>
+  <g stroke="#d97757" stroke-width="3" marker-end="url(#a3-hip-out2)">
+    <line x1="130" y1="120" x2="130" y2="186"></line>
+    <line x1="535" y1="120" x2="535" y2="186"></line>
+    <line x1="990" y1="120" x2="990" y2="186"></line>
+  </g>
+  <g fill="none" stroke="#8c8a83" stroke-width="2.5" marker-end="url(#a3-hip-move)">
+    <path d="M130,57 C350,10 730,10 935,57"></path>
+    <path d="M535,70 C670,42 815,42 935,70"></path>
+  </g>
+  <text x="553" y="28" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">compor até o mês 12</text>
+  <text class="money-label outflow" x="130" y="218" text-anchor="middle">−2.572</text>
+  <text class="money-label outflow" x="535" y="218" text-anchor="middle">−2.572</text>
+  <text class="money-label outflow" x="990" y="218" text-anchor="middle">−2.572</text>
+</svg>
+<p><span class="math display">\[2.572\sum_{j=0}^{11}(1{,}01)^j \approx \text{R\$ }32.619
+\;&gt;\; \text{R\$ }31.037.\]</span></p>
+<p><span class="destaque">Comparado corretamente, o plano de 1% a.m. custa mais.</span></p>
 </section>
 <section id="taxas-de-juros" class="slide level2">
 <h2>Taxas de juros</h2>
@@ -705,7 +776,7 @@ Felipe Iachan
 <h2>A curva muda com o tempo</h2>
 
 <img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">A taxa depende do prazo — e do momento.</span></p>
-<p><span class="fonte">Fonte: U.S. Treasury, CMTs de 30/11/2006, 30/11/2007 e 28/11/2008. Reconstrução da Figura 5.3 de Berk &amp; DeMarzo com curvas par oficiais.</span></p>
+<p><span class="fonte">Fonte: U.S. Treasury, CMTs de 12/08/2022, 12/08/2024 e 12/08/2026.</span></p>
 </section>
 <section id="curvas-diferentes-perguntas-diferentes" class="slide level2 smaller">
 <h2>Curvas diferentes, perguntas diferentes</h2>
@@ -743,51 +814,60 @@ Felipe Iachan
 </ul>
 </section>
 <section id="apendice-convencoes-fluxo" class="slide level2 smaller">
-<h2>Apêndice: convenções de fluxo de caixa</h2>
+<h2>Apêndice: convenções</h2>
 <p><strong>Primeiro, fixe a perspectiva:</strong> fluxos da firma, do investidor ou do projeto?</p>
-<svg class="cashflow-svg wide" viewbox="0 0 1120 340" role="img" aria-label="Três convenções para diagramas de fluxo de caixa: posição acima e abaixo da linha, direção das setas e convenção adotada no curso com sinais explícitos">
+<svg class="cashflow-svg wide" viewbox="0 0 1120 390" role="img" aria-label="Duas convenções alternativas e a convenção do curso, todas desenhadas sobre linhas do tempo">
   <defs>
-    <marker id="a3-conv-in" markerwidth="10" markerheight="10" refx="8" refy="5" orient="auto">
+    <marker id="a3-conv-green" markerwidth="10" markerheight="10" refx="8" refy="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#788c5d"></path>
     </marker>
-    <marker id="a3-conv-out" markerwidth="10" markerheight="10" refx="8" refy="5" orient="auto">
+    <marker id="a3-conv-red" markerwidth="10" markerheight="10" refx="8" refy="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#d97757"></path>
     </marker>
   </defs>
 
-  <rect x="8" y="8" width="350" height="310" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
-  <text class="time-label" x="183" y="48" text-anchor="middle">1 · Seta vertical</text>
-  <line class="axis" x1="48" y1="155" x2="318" y2="155"></line>
-  <line x1="125" y1="153" x2="125" y2="82" stroke="#788c5d" stroke-width="3" marker-end="url(#a3-conv-in)"></line>
-  <line x1="240" y1="157" x2="240" y2="228" stroke="#d97757" stroke-width="3" marker-end="url(#a3-conv-out)"></line>
-  <text class="money-label inflow" x="125" y="72" text-anchor="middle">+R$ 100</text>
-  <text class="money-label outflow" x="240" y="268" text-anchor="middle">−R$ 80</text>
-  <text x="183" y="298" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">para cima = + · para baixo = −</text>
+  <rect x="12" y="8" width="535" height="215" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
+  <text class="time-label" x="279" y="42" text-anchor="middle">1 · Posição em relação à linha</text>
+  <line class="axis" x1="55" y1="126" x2="505" y2="126"></line>
+  <line class="tick" x1="165" y1="109" x2="165" y2="143"></line>
+  <line class="tick" x1="395" y1="109" x2="395" y2="143"></line>
+  <text class="time-label" x="165" y="101" text-anchor="middle">0</text>
+  <text class="time-label" x="395" y="101" text-anchor="middle">1</text>
+  <line x1="165" y1="128" x2="165" y2="181" stroke="#d97757" stroke-width="3" marker-end="url(#a3-conv-red)"></line>
+  <line x1="395" y1="124" x2="395" y2="69" stroke="#788c5d" stroke-width="3" marker-end="url(#a3-conv-green)"></line>
+  <text x="165" y="187" text-anchor="middle" style="font-size:17px;font-weight:700;fill:#d97757">saída</text>
+  <text x="395" y="64" text-anchor="middle" style="font-size:17px;font-weight:700;fill:#788c5d">entrada</text>
+  <text x="279" y="211" text-anchor="middle" style="font-size:16px;fill:#5f5e5a">acima = entrada · abaixo = saída</text>
 
-  <rect x="385" y="8" width="350" height="310" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
-  <text class="time-label" x="560" y="48" text-anchor="middle">2 · Dentro / fora</text>
-  <rect x="490" y="110" width="140" height="90" rx="8" fill="#faf9f5" stroke="#141413" stroke-width="2"></rect>
-  <text class="time-label" x="560" y="164" text-anchor="middle">firma</text>
-  <line x1="414" y1="155" x2="480" y2="155" stroke="#788c5d" stroke-width="3" marker-end="url(#a3-conv-in)"></line>
-  <line x1="640" y1="155" x2="706" y2="155" stroke="#d97757" stroke-width="3" marker-end="url(#a3-conv-out)"></line>
-  <text class="flow-label inflow" x="447" y="238" text-anchor="middle">entrada (+)</text>
-  <text class="flow-label outflow" x="673" y="238" text-anchor="middle">saída (−)</text>
-  <text x="560" y="298" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">requer uma fronteira explícita</text>
+  <rect x="573" y="8" width="535" height="215" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
+  <text class="time-label" x="840" y="42" text-anchor="middle">2 · Direção da ponta da seta</text>
+  <line class="axis" x1="616" y1="126" x2="1066" y2="126"></line>
+  <line class="tick" x1="726" y1="109" x2="726" y2="143"></line>
+  <line class="tick" x1="956" y1="109" x2="956" y2="143"></line>
+  <text class="time-label" x="726" y="101" text-anchor="middle">0</text>
+  <text class="time-label" x="956" y="101" text-anchor="middle">1</text>
+  <line x1="726" y1="128" x2="726" y2="181" stroke="#d97757" stroke-width="3" marker-end="url(#a3-conv-red)"></line>
+  <line x1="956" y1="69" x2="956" y2="119" stroke="#788c5d" stroke-width="3" marker-end="url(#a3-conv-green)"></line>
+  <text x="726" y="187" text-anchor="middle" style="font-size:17px;font-weight:700;fill:#d97757">para fora</text>
+  <text x="956" y="64" text-anchor="middle" style="font-size:17px;font-weight:700;fill:#788c5d">para a linha</text>
+  <text x="840" y="211" text-anchor="middle" style="font-size:16px;fill:#5f5e5a">para a linha = entrada · para fora = saída</text>
 
-  <rect x="762" y="8" width="350" height="310" rx="12" fill="#f2f0e9" stroke="#e8e6dc"></rect>
-  <text class="time-label" x="937" y="48" text-anchor="middle">3 · Neste curso</text>
-  <line class="axis" x1="802" y1="155" x2="1072" y2="155"></line>
-  <line class="tick" x1="857" y1="137" x2="857" y2="173"></line>
-  <line class="tick" x1="1017" y1="137" x2="1017" y2="173"></line>
-  <text class="time-label" x="857" y="118" text-anchor="middle">0</text>
-  <text class="time-label" x="1017" y="118" text-anchor="middle">1</text>
-  <text class="money-label outflow" x="857" y="218" text-anchor="middle">−R$ 80</text>
-  <text class="money-label inflow" x="1017" y="218" text-anchor="middle">+R$ 100</text>
-  <text x="937" y="268" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">sinal explícito decide</text>
-  <text x="937" y="294" text-anchor="middle" style="font-size:18px;fill:#5f5e5a">cor pode reforçar</text>
+  <rect x="12" y="240" width="1096" height="155" rx="12" fill="#faf9f5" stroke="#d97757" stroke-width="2"></rect>
+  <text class="time-label" x="60" y="276">Neste curso</text>
+  <line class="axis" x1="315" y1="326" x2="1015" y2="326"></line>
+  <line class="tick" x1="510" y1="309" x2="510" y2="343"></line>
+  <line class="tick" x1="825" y1="309" x2="825" y2="343"></line>
+  <text class="time-label" x="510" y="302" text-anchor="middle">0</text>
+  <text class="time-label" x="825" y="302" text-anchor="middle">1</text>
+  <line x1="510" y1="328" x2="510" y2="367" stroke="#d97757" stroke-width="3" marker-end="url(#a3-conv-red)"></line>
+  <line x1="825" y1="324" x2="825" y2="283" stroke="#788c5d" stroke-width="3" marker-end="url(#a3-conv-green)"></line>
+  <text class="money-label outflow" x="510" y="389" text-anchor="middle">−R$ 80</text>
+  <text class="money-label inflow" x="825" y="278" text-anchor="middle">+R$ 100</text>
+  <text x="60" y="310" style="font-size:18px;font-weight:700;fill:#d97757">o sinal decide</text>
+  <text x="60" y="338" style="font-size:17px;fill:#5f5e5a">seta, posição e cor</text>
+  <text x="60" y="361" style="font-size:17px;fill:#5f5e5a">apenas reforçam</text>
 </svg>
-<p><span class="destaque">Neste curso, o sinal explícito manda.</span> Posição, cor e setas são redundância visual.</p>
-<p>Setas entrando ou saindo da <strong>linha do tempo</strong> são ambíguas: a linha marca datas, não o caixa.</p>
+<p><span class="destaque">Convenções variam entre autores.</span> Sem sinal ou legenda, não adivinhe.</p>
 <div class="fonte">
 <p><a href="#/diagrama-fluxo-caixa">Voltar ao diagrama de fluxo de caixa</a></p>
 </div>
