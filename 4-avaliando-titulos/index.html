@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-ebc22d1efb10b48ab26dfda692002621.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -373,14 +373,231 @@ Felipe Iachan
 <p><span class="math display">\[\left(1+r\right) = \frac{c + F}{p_t} = \left(\frac{c}{F} + 1\right)\frac{F}{p_t}\]</span></p>
 <p>Logo, <span class="math inline">\(\dfrac{c}{F} &lt; r \iff F &gt; p_t\)</span>.</p>
 </section>
-<section id="intuição-precificação-em-tempo-contínuo" class="slide level2">
+<section id="intuição-precificação-em-tempo-contínuo" class="slide level2 smaller">
 <h2>Intuição: Precificação em Tempo Contínuo</h2>
 <p>Em tempo contínuo, o preço do título satisfaz:</p>
 <p><span class="math display">\[p(t) = F e^{-r(T-t)} + \int_t^T e^{-r(s-t)} c \, ds\]</span></p>
 <p>Logo:</p>
 <p><span class="math display">\[p(t) = F e^{-r(T-t)} + \frac{c}{r} - \frac{c}{r} e^{-r(T-t)}\]</span></p>
-<p>Derivando:</p>
-<p><span class="math display">\[\dot p(t) = (rF-c)e^{-r(T-t)} = r p(t) - c\]</span></p>
+</section>
+<section id="ágio-ou-deságio-em-tempo-contínuo" class="slide level2 smaller">
+<h2>Ágio ou deságio em tempo contínuo</h2>
+<p>Dividindo a última expressão por <span class="math inline">\(F\)</span>,</p>
+<p><span class="math display">\[
+\frac{p(t)}{F}
+=e^{-r(T-t)}+\frac{c/F}{r}\left[1-e^{-r(T-t)}\right].
+\]</span></p>
+<p>Subtraindo <span class="math inline">\(1\)</span> e reorganizando os termos,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{p(t)}{F}-1
+&amp;=e^{-r(T-t)}-1
+  +\frac{c/F}{r}\left[1-e^{-r(T-t)}\right] \\
+&amp;=\left(\frac{c/F}{r}-1\right)
+  \left[1-e^{-r(T-t)}\right].
+\end{aligned}
+\]</span></p>
+<p>Como <span class="math inline">\(1-e^{-r(T-t)}&gt;0\)</span> antes do vencimento,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{p(t)}{F}&gt;1
+\iff \frac{c/F}{r}&gt;1
+\iff \frac cF&gt;r.
+}
+\]</span></p>
+</section>
+<section id="o-caminho-até-o-valor-de-face" class="slide level2 smaller">
+<h2>O caminho até o valor de face</h2>
+<p>Derivando e colocando <span class="math inline">\(F\)</span> em evidência,</p>
+<p><span class="math display">\[
+\dot p(t)=(rF-c)e^{-r(T-t)}
+=F\left(r-\frac cF\right)e^{-r(T-t)}
+=rp(t)-c
+\]</span></p>
+<p>Como <span class="math inline">\(F&gt;0\)</span> e <span class="math inline">\(e^{-r(T-t)}&gt;0\)</span>,</p>
+<p><span class="math display">\[\boxed{\dot p(t)&gt;0\iff \frac cF&lt;r.}\]</span></p>
+<ul>
+<li>Cupom baixo: o preço sobe — ganho de capital</li>
+<li>Cupom igual ao yield: o preço fica constante</li>
+<li>Cupom alto: o preço cai — perda de capital</li>
+</ul>
+<div class="fonte" style="text-align: center;">
+<p><a href="#/apendice-cupom-yield">Apêndice: derivação em tempo discreto →</a></p>
+</div>
+</section>
+<section id="cupom-vs.-yield-em-tempo-contínuo" class="slide level2 smaller">
+<h2>Cupom vs.&nbsp;yield em tempo contínuo</h2>
+<style>
+.ctv{
+  --ctv-azul:#6a9bcc; --ctv-laranja:#d97757; --ctv-verde:#788c5d;
+  --ctv-tinta:#141413; --ctv-papel:#faf9f5; --ctv-linha:#e8e6dc;
+  --ctv-cinza:#5f5e5a; --ctv-cinza-claro:#b0aea5;
+  max-width:1160px; margin:0 auto; color:var(--ctv-tinta);
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:15px; line-height:1.35; text-align:left;
+}
+.ctv *{box-sizing:border-box;}
+.ctv-controls{display:grid; grid-template-columns:1fr 1fr; gap:30px;
+  padding:10px 16px; border:1px solid var(--ctv-linha); border-radius:10px;
+  background:var(--ctv-papel);}
+.ctv-field label{display:flex; justify-content:space-between; gap:12px;
+  color:var(--ctv-cinza); font-size:14px; font-weight:600;}
+.ctv-field output{color:var(--ctv-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.ctv-field input[type=range]{width:100%; margin:4px 0 0; accent-color:var(--ctv-azul); cursor:pointer;}
+.ctv-grid{display:grid; grid-template-columns:2.05fr .75fr; gap:16px; margin-top:12px;}
+.ctv-chart{border:1px solid var(--ctv-linha); border-radius:10px; padding:4px 6px;}
+.ctv-chart svg{display:block; width:100%; height:auto;}
+.ctv-card{border:1px solid var(--ctv-linha); border-radius:10px; padding:16px 17px;
+  display:flex; flex-direction:column; justify-content:center; min-height:100%;}
+.ctv-kicker{color:var(--ctv-cinza); font-size:13px; font-weight:600;}
+.ctv-state{font-size:30px; line-height:1.05; font-weight:700; margin:3px 0 8px;}
+.ctv-relation{font-size:18px; font-weight:700; margin-bottom:14px; font-variant-numeric:tabular-nums;}
+.ctv-card dl{display:grid; grid-template-columns:auto auto; gap:7px 12px; margin:0;}
+.ctv-card dt{color:var(--ctv-cinza); font-size:13px;}
+.ctv-card dd{margin:0; text-align:right; font-size:13px; font-weight:700; font-variant-numeric:tabular-nums;}
+.ctv-message{margin-top:15px; padding-top:12px; border-top:1px solid var(--ctv-linha);
+  color:var(--ctv-cinza); font-size:13px; line-height:1.4;}
+.ctv-foot{margin-top:7px; color:var(--ctv-cinza); font-size:12.5px; text-align:center;}
+</style>
+
+<div class="ctv">
+  <div class="ctv-controls">
+    <div class="ctv-field">
+      <label for="ctv-cupom"><span>Taxa de cupom, <i>c/F</i></span><output id="ctv-lbl-cupom">3,0%</output></label>
+      <input type="range" id="ctv-cupom" min="0" max="12" step="0.25" value="3">
+    </div>
+    <div class="ctv-field">
+      <label for="ctv-yield"><span>Yield constante, <i>r</i></span><output id="ctv-lbl-yield">5,0%</output></label>
+      <input type="range" id="ctv-yield" min="1" max="10" step="0.25" value="5">
+    </div>
+  </div>
+
+  <div class="ctv-grid">
+    <div class="ctv-chart">
+      <svg id="ctv-svg" viewbox="0 0 820 370" role="img" aria-label="Trajetória contínua do preço do título até o valor de face"></svg>
+    </div>
+    <div class="ctv-card" aria-live="polite">
+      <div class="ctv-kicker">Preço em relação ao valor de face</div>
+      <div class="ctv-state" id="ctv-state"></div>
+      <div class="ctv-relation" id="ctv-relation"></div>
+      <dl>
+        <dt>preço na emissão</dt><dd id="ctv-p0"></dd>
+        <dt>caminho do preço</dt><dd id="ctv-direction"></dd>
+        <dt>ganho de capital</dt><dd id="ctv-capital"></dd>
+      </dl>
+      <div class="ctv-message" id="ctv-message"></div>
+    </div>
+  </div>
+
+  <div class="ctv-foot">
+    Fluxo de cupom contínuo, <i>T</i> = 30 anos e <i>F</i> = 100. Sem saltos: o serrilhado surge apenas com cupons em datas discretas.
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var T=30;
+  var inCupom=document.getElementById("ctv-cupom");
+  var inYield=document.getElementById("ctv-yield");
+  var svg=document.getElementById("ctv-svg");
+  if(!inCupom || !inYield || !svg) return;
+
+  var W=820,H=370,m={l:72,r:18,t:22,b:48};
+  var COR={azul:"#6a9bcc",laranja:"#d97757",verde:"#788c5d",
+           cinza:"#5f5e5a",cinzaClaro:"#b0aea5",grade:"#ece9e0"};
+  var E=function(tag,attrs){
+    var el=document.createElementNS("http://www.w3.org/2000/svg",tag);
+    Object.keys(attrs).forEach(function(k){ el.setAttribute(k,attrs[k]); });
+    return el;
+  };
+  var txt=function(x,y,value,attrs){
+    attrs=attrs||{}; attrs.x=x; attrs.y=y;
+    var el=E("text",attrs); el.textContent=value; svg.appendChild(el); return el;
+  };
+  var pct=function(v,d){ return v.toLocaleString("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d})+"%"; };
+  var priceRatio=function(t,coupon,yieldRate){
+    var discount=Math.exp(-yieldRate*(T-t));
+    return discount+(coupon/yieldRate)*(1-discount);
+  };
+  var pathFrom=function(points,sx,sy){
+    return points.map(function(p,i){ return (i?"L":"M")+sx(p[0]).toFixed(1)+" "+sy(p[1]).toFixed(1); }).join(" ");
+  };
+
+  function draw(){
+    var coupon=+inCupom.value/100, yieldRate=+inYield.value/100;
+    var gap=coupon-yieldRate, eps=1e-10;
+    var state=gap>eps?"Ágio":(gap<-eps?"Deságio":"Ao par");
+    var color=gap>eps?COR.laranja:(gap<-eps?COR.verde:COR.azul);
+    var symbol=gap>eps?">":(gap<-eps?"<":"=");
+    var selected=[],zero=[];
+    for(var i=0;i<=150;i++){
+      var t=T*i/150;
+      selected.push([t,100*priceRatio(t,coupon,yieldRate)]);
+      zero.push([t,100*Math.exp(-yieldRate*(T-t))]);
+    }
+    var p0=selected[0][1];
+    var minValue=Math.min(zero[0][1],p0,100);
+    var maxValue=Math.max(p0,100);
+    var ymin=Math.max(0,Math.floor((minValue-8)/20)*20);
+    var ymax=Math.max(120,Math.ceil((maxValue+12)/20)*20);
+    if(ymax-ymin<80) ymax=ymin+80;
+    var sx=function(t){ return m.l+(W-m.l-m.r)*t/T; };
+    var sy=function(p){ return H-m.b-(H-m.t-m.b)*(p-ymin)/(ymax-ymin); };
+
+    svg.innerHTML="";
+    for(var g=0;g<=4;g++){
+      var value=ymin+(ymax-ymin)*g/4, yy=sy(value);
+      svg.appendChild(E("line",{x1:m.l,y1:yy,x2:W-m.r,y2:yy,stroke:COR.grade,"stroke-width":1}));
+      txt(m.l-9,yy+5,pct(value,0),{"text-anchor":"end","font-size":13,fill:COR.cinza});
+    }
+    for(var year=0;year<=T;year+=5){
+      var xx=sx(year);
+      svg.appendChild(E("line",{x1:xx,y1:H-m.b,x2:xx,y2:H-m.b+6,stroke:COR.cinzaClaro,"stroke-width":1}));
+      txt(xx,H-m.b+22,String(year),{"text-anchor":"middle","font-size":13,fill:COR.cinza});
+    }
+    svg.appendChild(E("line",{x1:m.l,y1:H-m.b,x2:W-m.r,y2:H-m.b,stroke:COR.cinzaClaro,"stroke-width":1.2}));
+    svg.appendChild(E("line",{x1:m.l,y1:m.t,x2:m.l,y2:H-m.b,stroke:COR.cinzaClaro,"stroke-width":1.2}));
+    svg.appendChild(E("line",{x1:m.l,y1:sy(100),x2:W-m.r,y2:sy(100),stroke:COR.cinzaClaro,
+                              "stroke-width":1.4,"stroke-dasharray":"6 5"}));
+    svg.appendChild(E("path",{d:pathFrom(zero,sx,sy),fill:"none",stroke:COR.cinza,"stroke-width":2.3}));
+    svg.appendChild(E("path",{d:pathFrom(selected,sx,sy),fill:"none",stroke:color,"stroke-width":3.4,"stroke-linecap":"round"}));
+    svg.appendChild(E("circle",{cx:sx(0),cy:sy(p0),r:5,fill:color}));
+    svg.appendChild(E("circle",{cx:sx(T),cy:sy(100),r:5,fill:color}));
+
+    txt((m.l+W-m.r)/2,H-7,"anos desde a emissão",{"text-anchor":"middle","font-size":14,fill:COR.cinza});
+    var ylab=txt(17,(m.t+H-m.b)/2,"preço (% do valor de face)",{"text-anchor":"middle","font-size":14,fill:COR.cinza});
+    ylab.setAttribute("transform","rotate(-90 17 "+((m.t+H-m.b)/2)+")");
+
+    var lx=W-216,ly=34;
+    svg.appendChild(E("line",{x1:lx,y1:ly,x2:lx+28,y2:ly,stroke:color,"stroke-width":3.4}));
+    txt(lx+36,ly+5,"título selecionado",{"font-size":12.5,fill:COR.cinza});
+    svg.appendChild(E("line",{x1:lx,y1:ly+22,x2:lx+28,y2:ly+22,stroke:COR.cinza,"stroke-width":2.3}));
+    txt(lx+36,ly+27,"zero-cupom",{"font-size":12.5,fill:COR.cinza});
+    svg.appendChild(E("line",{x1:lx,y1:ly+44,x2:lx+28,y2:ly+44,stroke:COR.cinzaClaro,"stroke-width":1.4,"stroke-dasharray":"6 5"}));
+    txt(lx+36,ly+49,"valor de face",{"font-size":12.5,fill:COR.cinza});
+
+    document.getElementById("ctv-lbl-cupom").textContent=pct(+inCupom.value,2);
+    document.getElementById("ctv-lbl-yield").textContent=pct(+inYield.value,2);
+    var stateEl=document.getElementById("ctv-state");
+    stateEl.textContent=state; stateEl.style.color=color;
+    document.getElementById("ctv-relation").textContent="c/F "+symbol+" r";
+    document.getElementById("ctv-p0").textContent=pct(p0,1)+" de F";
+    document.getElementById("ctv-direction").textContent=gap>eps?"cai até F":(gap<-eps?"sobe até F":"permanece em F");
+    document.getElementById("ctv-capital").textContent=gap>eps?"negativo":(gap<-eps?"positivo":"zero");
+    document.getElementById("ctv-message").textContent=gap>eps
+      ? "O cupom alto é compensado por perda de capital; o retorno total continua sendo r."
+      : (gap<-eps
+        ? "O cupom baixo é complementado por ganho de capital; o retorno total continua sendo r."
+        : "Com taxa de cupom igual ao yield, o título permanece ao par.");
+  }
+
+  inCupom.addEventListener("input",draw);
+  inYield.addEventListener("input",draw);
+  [inCupom,inYield].forEach(function(el){ el.addEventListener("keydown",function(ev){ ev.stopPropagation(); }); });
+  draw();
+})();
+</script>
 </section>
 <section id="estrutura-dos-pagamentos-no-tempo" class="slide level2">
 <h2>Estrutura dos Pagamentos no Tempo</h2>
@@ -423,7 +640,7 @@ Felipe Iachan
 </section>
 <section id="exemplo-treasury-de-10-anos" class="slide level2 smaller">
 <h2>Exemplo: Treasury de 10 anos</h2>
-<div id="850bc54c" class="cell" data-execution_count="9">
+<div id="00bf0ada" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <table class="caption-top">
 <thead>
@@ -526,7 +743,7 @@ Felipe Iachan
   font-variant-numeric:tabular-nums;}
 .ntn-card dt{color:var(--ntn-cinza); font-size:14px;}
 .ntn-card dd{margin:0; text-align:right; font-weight:600; font-size:14px;}
-.ntn-approx{font-size:13px; color:var(--ntn-cinza); margin-top:8px; line-height:1.5;}
+.ntn-approx{font-size:12.5px; color:var(--ntn-cinza); margin-top:7px; line-height:1.4;}
 .ntn-approx b{color:var(--ntn-tinta);}
 .ntn-foot{font-size:12.5px; color:var(--ntn-cinza); line-height:1.45;}
 .ntn-foot b{color:var(--ntn-tinta);}
@@ -583,7 +800,7 @@ Felipe Iachan
         <dl>
           <dt>duration (Macaulay)</dt><dd id="ntn-dmac"></dd>
           <dt>duration modificada</dt><dd id="ntn-dmod"></dd>
-          <dt>convexidade</dt><dd id="ntn-conv"></dd>
+          <dt>convexidade (anos²)</dt><dd id="ntn-conv"></dd>
         </dl>
         <div class="ntn-approx" id="ntn-approx"></div>
       </div>
@@ -759,12 +976,15 @@ Felipe Iachan
     $("ntn-dmod").textContent=num(r0.mod,2);
     $("ntn-conv").textContent=num(r0.conv,1);
 
-    var aproxD=-r0.mod*dy, aproxDC=-r0.mod*dy + 0.5*r0.conv*dy*dy;
+    var aproxD=-r0.mod*dy;
+    var corrC=0.5*r0.conv*dy*dy;
+    var aproxDC=aproxD+corrC;
     $("ntn-approx").innerHTML=
       "Choque de "+(dy>=0?"+":"")+num(dy*100,2)+" p.p. — variação do preço:<br>"+
-      "só duration: <b>"+num(aproxD*100,2)+"%</b> · "+
-      "+ convexidade: <b>"+num(aproxDC*100,2)+"%</b> · "+
-      "exato: <b>"+num(dPct,2)+"%</b>";
+      "1ª ordem (duration): <b>"+num(aproxD*100,2)+"%</b> · "+
+      "correção da convexidade: <b>"+(corrC>=0?"+":"")+num(corrC*100,2)+" p.p.</b><br>"+
+      "aproximação de 2ª ordem: <b>"+num(aproxDC*100,2)+"%</b> · "+
+      "variação exata: <b>"+num(dPct,2)+"%</b>";
 
     drawCurve(cf,y,yS,r0.P,pS,spec);
 
@@ -777,8 +997,7 @@ Felipe Iachan
       " · "+(spec.real?"taxa = juro real (o principal é corrigido pelo IPCA)":"taxa nominal")+
       "<br><b>Convenção 252 dias úteis</b> (Tesouro Direto / ANBIMA): "+
       "PU = Σ fluxo ÷ (1+taxa)<sup>du/252</sup>, com <i>du</i> = dias úteis até cada fluxo "+
-      "(cupons a cada 126 d.u.). Duration e convexidade calculadas na mesma base. "+
-      (TESTES_OK?"Autoteste embutido: OK.":"Autoteste embutido: FALHOU (ver console).");
+      "(cupons a cada 126 d.u.). Duration e convexidade calculadas na mesma base.";
   }
 
   function drawCurve(cf,y,yS,P0,pS,spec){
@@ -856,7 +1075,6 @@ Felipe Iachan
   draw();
 })();
 </script>
-<p><span class="fonte">Artefato interativo próprio (sem dependências, sem rede). Convenção de 252 dias úteis; cupons semestrais efetivos <span class="math inline">\((1+c)^{1/2}-1\)</span>. Detalhes e verificação em <code>dados/4-avaliando-titulos/SNAPSHOT_INFO.txt</code>.</span></p>
 <!-- PLANNING: peça a um aluno para abrir o site do Tesouro Direto, escolher um
      título e reproduzir o PU aqui — basta digitar os dias úteis até o vencimento. -->
 </section>
@@ -870,60 +1088,82 @@ Felipe Iachan
 </section>
 <section id="spreads-corporativos" class="slide level2 smaller">
 <h2>Spreads corporativos</h2>
+<!-- SNAPSHOT 17/08/2026. Títulos: J&J 4,90% Jun/31; Abbott 4,00% Mar/31;
+     Kraft Heinz 4,25% Mar/31; Carnival 5,875% Jun/31; Paramount 4,95% Jan/31;
+     Goodyear 5,25% Jul/31. YTW e ratings S&P: TradingView/ICE Data Services. -->
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column" style="width:52%;">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th>Tomador</th>
-<th style="text-align: right;">Taxa</th>
+<th style="text-align: center;">Rating</th>
+<th style="text-align: right;">YTW</th>
 <th style="text-align: right;">Spread</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Governo dos EUA (Treasury Notes)</td>
-<td style="text-align: right;">2,41%</td>
+<td>Governo dos EUA</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">4,38%</td>
 <td style="text-align: right;">0,00 p.p.</td>
 </tr>
 <tr class="even">
+<td>Johnson &amp; Johnson</td>
+<td style="text-align: center;">AAA</td>
+<td style="text-align: right;">4,56%</td>
+<td style="text-align: right;">0,18 p.p.</td>
+</tr>
+<tr class="odd">
 <td>Abbott Laboratories</td>
-<td style="text-align: right;">2,65%</td>
-<td style="text-align: right;">0,24 p.p.</td>
-</tr>
-<tr class="odd">
-<td>Kraft Foods, Inc.</td>
-<td style="text-align: right;">3,46%</td>
-<td style="text-align: right;">1,05 p.p.</td>
+<td style="text-align: center;">A+</td>
+<td style="text-align: right;">4,78%</td>
+<td style="text-align: right;">0,40 p.p.</td>
 </tr>
 <tr class="even">
-<td>Time Warner, Inc.</td>
-<td style="text-align: right;">4,39%</td>
-<td style="text-align: right;">1,98 p.p.</td>
+<td>Kraft Heinz</td>
+<td style="text-align: center;">BBB</td>
+<td style="text-align: right;">4,94%</td>
+<td style="text-align: right;">0,56 p.p.</td>
 </tr>
 <tr class="odd">
-<td>RadioShack Corp.</td>
-<td style="text-align: right;">5,84%</td>
-<td style="text-align: right;">3,43 p.p.</td>
+<td>Carnival</td>
+<td style="text-align: center;">BBB−</td>
+<td style="text-align: right;">5,56%</td>
+<td style="text-align: right;">1,18 p.p.</td>
 </tr>
 <tr class="even">
-<td>Goodyear Tire and Rubber Co.</td>
-<td style="text-align: right;">8,58%</td>
-<td style="text-align: right;">6,17 p.p.</td>
+<td>Paramount Global</td>
+<td style="text-align: center;">BB+</td>
+<td style="text-align: right;">6,81%</td>
+<td style="text-align: right;">2,43 p.p.</td>
+</tr>
+<tr class="odd">
+<td>Goodyear</td>
+<td style="text-align: center;">B+</td>
+<td style="text-align: right;">8,09%</td>
+<td style="text-align: right;">3,71 p.p.</td>
 </tr>
 </tbody>
 </table>
-</div><div class="column" style="width:50%;">
-<svg class="cashflow-svg wide" viewbox="0 0 760 420" role="img" aria-label="Spreads de crédito em pontos percentuais para títulos de cinco anos em março de 2010">
-<text x="260" y="28" style="font-size: 23px; font-weight: 700;">Spread de crédito (p.p.)</text> <line class="axis" x1="260" y1="350" x2="630" y2="350"></line> <line class="tick" x1="260" y1="342" x2="260" y2="358"></line> <line class="tick" x1="317" y1="342" x2="317" y2="358"></line> <line class="tick" x1="374" y1="342" x2="374" y2="358"></line> <line class="tick" x1="431" y1="342" x2="431" y2="358"></line> <line class="tick" x1="488" y1="342" x2="488" y2="358"></line> <line class="tick" x1="545" y1="342" x2="545" y2="358"></line> <line class="tick" x1="602" y1="342" x2="602" y2="358"></line> <text x="260" y="388" text-anchor="middle" style="font-size: 20px;">0</text> <text x="317" y="388" text-anchor="middle" style="font-size: 20px;">1</text> <text x="374" y="388" text-anchor="middle" style="font-size: 20px;">2</text> <text x="431" y="388" text-anchor="middle" style="font-size: 20px;">3</text> <text x="488" y="388" text-anchor="middle" style="font-size: 20px;">4</text> <text x="545" y="388" text-anchor="middle" style="font-size: 20px;">5</text> <text x="602" y="388" text-anchor="middle" style="font-size: 20px;">6</text> <text x="245" y="74" text-anchor="end" style="font-size: 19px;">Treasury</text> <text x="245" y="119" text-anchor="end" style="font-size: 19px;">Abbott</text> <text x="245" y="164" text-anchor="end" style="font-size: 19px;">Kraft</text> <text x="245" y="209" text-anchor="end" style="font-size: 19px;">Time Warner</text> <text x="245" y="254" text-anchor="end" style="font-size: 19px;">RadioShack</text> <text x="245" y="299" text-anchor="end" style="font-size: 19px;">Goodyear</text> <text x="268" y="74" style="font-size: 19px;">0,00</text> <rect x="260" y="98" width="14" height="28" fill="#d97757"></rect> <rect x="260" y="143" width="60" height="28" fill="#d97757"></rect> <rect x="260" y="188" width="110" height="28" fill="#d97757"></rect> <rect x="260" y="233" width="195" height="28" fill="#d97757"></rect> <rect x="260" y="278" width="352" height="28" fill="#d97757"></rect> <text x="282" y="119" style="font-size: 19px;">0,24</text> <text x="328" y="164" style="font-size: 19px;">1,05</text> <text x="378" y="209" style="font-size: 19px;">1,98</text> <text x="463" y="254" style="font-size: 19px;">3,43</text> <text x="620" y="299" style="font-size: 19px;">6,17</text>
-</svg>
+</div><div class="column" style="width:46%;">
+<div id="947fafea" class="cell" data-fig-height="4.3" data-fig-width="6.4" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
 </div></div>
-<p><span class="fonte">Taxas de títulos de 5 anos em março de 2010. Parte da taxa corporativa remunera menor liquidez.</span></p>
+<p><span class="fonte">Títulos em USD com vencimento em 2031. YTW; spread vs.&nbsp;Treasury CMT 5 anos = 4,38% (17/08/2026). Fontes: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&amp;type=daily_treasury_yield_curve">U.S. Treasury</a> e <a href="https://www.tradingview.com/symbols/NYSE-JNJ/bonds/">TradingView/ICE</a>.</span></p>
 </section>
 <section id="crise-soberana-europeia-yields-de-10-anos" class="slide level2 smaller">
 <h2>Crise soberana europeia: yields de 10 anos</h2>
 
-<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="fonte">
+<img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="fonte">
 <p>Eventos: 1 Euro (01/1999); 2 Lehman (15/09/2008); 3 SMP (10/05/2010); 4 LTROs (21/12/2011 e 29/02/2012); 5 Draghi (26/07/2012); 6 OMT (06/09/2012).</p>
 </div>
 <div class="fonte">
@@ -959,6 +1199,81 @@ Felipe Iachan
 </tbody>
 </table>
 <p>Ratings resumem risco de crédito, mas não substituem preço, spread e análise própria.</p>
+</section>
+<section id="apendice-cupom-yield" class="slide level2 smaller">
+<h2>Apêndice: cupom vs.&nbsp;yield</h2>
+<p>Nos instantes logo após cada pagamento de cupom, defina <span class="math inline">\(q\equiv c/F\)</span> e <span class="math inline">\(n\equiv T-t\)</span>. Com <span class="math inline">\(r\)</span> constante,</p>
+<p><span class="math display">\[
+p_t
+=c\frac{1-(1+r)^{-n}}{r}+F(1+r)^{-n}
+=F\left[\frac qr+\left(1-\frac qr\right)(1+r)^{-n}\right].
+\]</span></p>
+<p>Colocar <span class="math inline">\(F\)</span> em evidência deixa a comparação entre <span class="destaque">taxa de cupom e yield</span> diretamente visível.</p>
+</section>
+<section id="ágio-ou-deságio" class="slide level2 smaller">
+<h2>Ágio ou deságio?</h2>
+<p>Subtraindo o valor de face,</p>
+<p><span class="math display">\[
+p_t-F
+=F\left(\frac qr-1\right)\left[1-(1+r)^{-n}\right].
+\]</span></p>
+<p>Como o segundo termo entre colchetes é positivo,</p>
+<p><span class="math display">\[
+\boxed{q&gt;r\iff p_t&gt;F,\qquad q&lt;r\iff p_t&lt;F.}
+\]</span></p>
+<p><span class="destaque">Cupom acima do yield implica ágio; cupom abaixo do yield implica deságio.</span></p>
+</section>
+<section id="o-preço-caminha-para-o-valor-de-face" class="slide level2 smaller">
+<h2>O preço caminha para o valor de face</h2>
+<p>De uma data de cupom para a seguinte,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Delta p_t
+&amp;\equiv p_{t+1}-p_t \\
+&amp;=\left(F-\frac cr\right)
+  \left[(1+r)^{-(n-1)}-(1+r)^{-n}\right] \\
+&amp;=\boxed{\frac{F}{(1+r)^n}\left(r-\frac cF\right)}.
+\end{aligned}
+\]</span></p>
+<p>Portanto, <span class="math inline">\(\Delta p_t&gt;0\iff c/F&lt;r\)</span>: o deságio diminui com o tempo; no ágio, ocorre o inverso.</p>
+<div class="fonte">
+<p><span class="math inline">\(\Delta p_t\)</span> compara preços ex-cupom, logo após pagamentos consecutivos.</p>
+</div>
+</section>
+<section id="retorno-total-cupom-ganho-de-capital" class="slide level2 smaller">
+<h2>Retorno total: cupom + ganho de capital</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Taxa de cupom <span class="math inline">\(c/F\)</span> vs.&nbsp;yield <span class="math inline">\(r\)</span></th>
+<th>Preço</th>
+<th>Caminho até <span class="math inline">\(F\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(c/F&lt;r\)</span></td>
+<td>deságio: <span class="math inline">\(p_t&lt;F\)</span></td>
+<td><span class="secundario">sobe</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(c/F=r\)</span></td>
+<td>ao par</td>
+<td>constante</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(c/F&gt;r\)</span></td>
+<td>ágio: <span class="math inline">\(p_t&gt;F\)</span></td>
+<td><span class="destaque">cai</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[1+r=\frac{c+p_{t+1}}{p_t}\]</span></p>
+<ul>
+<li>Cupom baixo: parte do retorno vem do ganho de capital</li>
+<li>Cupom alto: parte do cupom é compensada por perda de capital</li>
+</ul>
+<p>O gráfico serrilhado inclui a acumulação entre pagamentos e a queda no pagamento do cupom; a tabela compara apenas datas ex-cupom.</p>
 
 </section>
     </div>
