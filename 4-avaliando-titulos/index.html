@@ -640,7 +640,7 @@ Felipe Iachan
 </section>
 <section id="exemplo-treasury-de-10-anos" class="slide level2 smaller">
 <h2>Exemplo: Treasury de 10 anos</h2>
-<div id="00bf0ada" class="cell" data-execution_count="9">
+<div id="387376ec" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <table class="caption-top">
 <thead>
@@ -1148,7 +1148,7 @@ Felipe Iachan
 </tbody>
 </table>
 </div><div class="column" style="width:46%;">
-<div id="947fafea" class="cell" data-fig-height="4.3" data-fig-width="6.4" data-execution_count="10">
+<div id="c804a6c5" class="cell" data-fig-height="4.3" data-fig-width="6.4" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1199,6 +1199,27 @@ Felipe Iachan
 </tbody>
 </table>
 <p>Ratings resumem risco de crédito, mas não substituem preço, spread e análise própria.</p>
+</section>
+<section id="apêndice-convexidade" class="slide level2 smaller">
+<h2>Apêndice: convexidade</h2>
+<p>Com <span class="math inline">\(t_i=du_i/252\)</span> e taxa efetiva anual <span class="math inline">\(y\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+C
+&amp;\equiv \frac{1}{P}\frac{\partial^2 P}{\partial y^2}
+=\frac{1}{P}\sum_i
+\frac{t_i(t_i+1)CF_i}{(1+y)^{t_i+2}}, \\[0.6em]
+\frac{\Delta P}{P}
+&amp;\approx -D_{Mod}\,\Delta y
++\frac{1}{2}C(\Delta y)^2.
+\end{aligned}
+\]</span></p>
+<ul>
+<li>Duration: inclinação local da curva preço–yield</li>
+<li>Convexidade: curvatura; importa mais para choques grandes</li>
+<li>O termo quadrático é igual para <span class="math inline">\(+\Delta y\)</span> e <span class="math inline">\(-\Delta y\)</span></li>
+</ul>
+<p><span class="destaque">A variação total não é simétrica: o termo de duration muda de sinal.</span></p>
 </section>
 <section id="apendice-cupom-yield" class="slide level2 smaller">
 <h2>Apêndice: cupom vs.&nbsp;yield</h2>
