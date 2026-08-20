@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-ebc22d1efb10b48ab26dfda692002621.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -141,8 +141,8 @@ Felipe Iachan
 </div>
 
 </section>
-<section id="recall-da-aula-4-para-hoje" class="slide level2">
-<h2>Recall: da Aula 4 para hoje</h2>
+<section id="lembrando-da-aula-4-para-hoje" class="slide level2">
+<h2>Lembrando: da Aula 4 para hoje</h2>
 <p>Títulos de dívida: fluxos <span class="destaque">prometidos</span>, contratuais.</p>
 <p><span class="math display">\[P = \sum_{t=1}^{T} \frac{CF_t}{(1+r_t)^t}\]</span></p>
 <p>Ações: fluxos <span class="destaque">residuais</span>, incertos — o que sobra depois de pagar credores.</p>
@@ -215,7 +215,7 @@ Felipe Iachan
 <h2>Modelo do Dividendo Descontado</h2>
 <p>Investidor pretende reter a ação por um ano, entre <span class="math inline">\(t=0\)</span> e <span class="math inline">\(t=1\)</span>.</p>
 <ul>
-<li>Custo de capital <span class="math inline">\(r_E\)</span>: retorno de oportunidade em ativos de mesmo risco.</li>
+<li>Custo de capital <span class="math inline">\(r_E\)</span>: custo de oportunidade de investimento alternativo em ativos de mesmo risco.</li>
 <li>Em <span class="math inline">\(t=1\)</span>, duas fontes de renda:
 <ul>
 <li>dividendo <span class="math inline">\(D_1\)</span></li>
@@ -284,22 +284,20 @@ Felipe Iachan
 <p>Impondo a <span class="destaque">condição de não-bolha</span> <span class="math inline">\(\lim_{t\to\infty} P_t/(1+r_E)^t = 0\)</span>,</p>
 <p><span class="math display">\[P_0 = \sum_{t=1}^{\infty} \frac{Div_t}{(1+r_E)^t}\]</span></p>
 <!-- PLANNING: discutir por que descartar bolhas racionais é a convenção padrão aqui. -->
-<!-- ADICIONADO: série histórica atual da 3M; não está no .lyx-fonte. A série é
-     ajustada por splits para comparabilidade por ação, com o ajuste do spin-off
-     da Solventum desfeito. Ver dados/5-avaliando-acoes/SNAPSHOT_INFO.txt. -->
+<!-- ADICIONADO: séries históricas atuais de Microsoft e 3M; não estão no
+     .lyx-fonte. Ver dados/5-avaliando-acoes/SNAPSHOT_INFO.txt. -->
 </section>
-<section id="como-dividendos-crescem-na-prática" class="slide level2 smaller">
-<h2>Como dividendos crescem, na prática</h2>
+<section id="crescimento-percentual-constante-na-prática" class="slide level2 smaller">
+<h2>Crescimento percentual constante, na prática</h2>
 
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: yfinance; dividendos por ação ajustados por splits, com o ajuste retroativo da Solventum desfeito.</span></p>
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Na escala log, crescimento percentual constante vira uma reta: <span class="math inline">\(D_t \approx D_0(1+g)^t\)</span>.</span></p>
+<p><span class="fonte">Fonte: Microsoft Investor Relations; dividendos por ação, anos fiscais 2006–2025.</span></p>
 </section>
-<section id="o-que-o-gráfico-mostra" class="slide level2">
-<h2>O que o gráfico mostra</h2>
-<ul>
-<li>Crescimento persistente por mais de uma década.</li>
-<li><span class="destaque">Crescimento constante é aproximação</span>, não lei da natureza.</li>
-<li>Eventos da firma (aqui, um spin-off) quebram a tendência.</li>
-</ul>
+<section id="crescimento-constante-é-uma-aproximação" class="slide level2 smaller">
+<h2>Crescimento constante é uma aproximação</h2>
+
+<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">O modelo descreve o crescimento esperado de longo prazo — não uma lei mecânica anual.</span></p>
+<p><span class="fonte">Fonte: yfinance; série ajustada por splits, com o ajuste retroativo da Solventum desfeito.</span></p>
 </section>
 <section id="crescimento-constante" class="slide level2">
 <h2>Crescimento constante</h2>
@@ -318,7 +316,7 @@ Felipe Iachan
 <section id="sensibilidade-à-estimativa-de-g" class="slide level2 smaller">
 <h2>Sensibilidade à estimativa de <span class="math inline">\(g\)</span></h2>
 
-<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Pequenos erros na estimativa de <span class="math inline">\(g\)</span> geram grandes erros de preço — sobretudo perto de <span class="math inline">\(r_E\)</span>.</p>
+<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Pequenos erros na estimativa de <span class="math inline">\(g\)</span> geram grandes erros de preço — sobretudo perto de <span class="math inline">\(r_E\)</span>.</p>
 </section>
 <section id="extensões-crescimento-não-é-constante" class="slide level2">
 <h2>Extensões: crescimento não é constante</h2>
