@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-ebc22d1efb10b48ab26dfda692002621.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -264,78 +264,16 @@ flowchart LR
 <p>Gitman e Forrester (1977): apenas <strong>~10% das grandes firmas</strong> usavam o VPL como método principal de decisão. A evidência mudou desde então:</p>
 
 <img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Graham e Harvey (2001).</span></p>
-<!-- ADICIONADO: comparação com a atualização de Graham (2022); não está no
-     .lyx-fonte. As duas pesquisas são comparadas dentro das mesmas categorias
-     de porte. Ver dados/6-avaliando-investimentos/SNAPSHOT_INFO.txt. -->
+<!-- ATUALIZADO: recriação compacta da Figura 2 de Graham (2022), usando os
+     valores exatos da Tabela I e mantendo porte constante na comparação. -->
 </section>
 <section id="evidência-mais-recente" class="slide level2 smaller">
 <h2>Evidência mais recente</h2>
-<p>Graham (2022), <em>AFA Presidential Address</em>: atualização com a pesquisa de CFOs de 2022 (Duke CFO Survey), separando firmas grandes e pequenas.</p>
-<div id="3e1934d1" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Método</th>
-<th style="text-align: right;">Ano</th>
-<th style="text-align: left;">Porte</th>
-<th style="text-align: right;">% que usa</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">VPL (NPV)</td>
-<td style="text-align: right;">2001</td>
-<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
-<td style="text-align: right;">84.52</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">VPL (NPV)</td>
-<td style="text-align: right;">2001</td>
-<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
-<td style="text-align: right;">67.92</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">VPL (NPV)</td>
-<td style="text-align: right;">2022</td>
-<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
-<td style="text-align: right;">77</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">VPL (NPV)</td>
-<td style="text-align: right;">2022</td>
-<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
-<td style="text-align: right;">40</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Payback</td>
-<td style="text-align: right;">2001</td>
-<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
-<td style="text-align: right;">45.89</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Payback</td>
-<td style="text-align: right;">2001</td>
-<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
-<td style="text-align: right;">64.29</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Payback</td>
-<td style="text-align: right;">2022</td>
-<td style="text-align: left;">grandes (receita &gt; US$ 1 bi)</td>
-<td style="text-align: right;">64</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Payback</td>
-<td style="text-align: right;">2022</td>
-<td style="text-align: left;">pequenas (receita &lt; US$ 1 bi)</td>
-<td style="text-align: right;">66</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><span class="fonte">VPL e TIR/hurdle rate seguem como os métodos mais usados por firmas grandes; payback continua popular, sobretudo em firmas pequenas.</span></p>
+<p>Percentual de CFOs que usam cada regra <strong>sempre ou quase sempre</strong>:</p>
+
+<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="r-stretch"><p><span class="destaque">Em 2022: grandes usam sobretudo VPL e TIR/hurdle rate; pequenas, payback.</span></p>
+<p><strong>Hurdle rate:</strong> taxa mínima de retorno exigida; veremos mais adiante como estimá-la.</p>
+<p><span class="fonte">Fonte: Graham (2022), Tabela I.</span></p>
 </section>
 <section id="exemplo-acme-s.a." class="slide level2">
 <h2>Exemplo: Acme S.A.</h2>
@@ -353,7 +291,7 @@ flowchart LR
 <p>Dada uma taxa de desconto <span class="math inline">\(r\)</span>:</p>
 <p><span class="math display">\[VPL(r) = -81,6 + \frac{28}{r}\left(1 - \frac{1}{(1+r)^4}\right)\]</span></p>
 <p>Com custo de capital estimado em <span class="math inline">\(r = 10\%\)</span>:</p>
-<div id="f61b6753" class="cell" data-execution_count="4">
+<div id="bde372c7" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[VPL = 7,2 &gt; 0\]</span></p>
 </div>
@@ -372,7 +310,7 @@ flowchart LR
 <li>A regra do VPL diz: investir sse <span class="math inline">\(VPL(r) &gt; 0\)</span></li>
 <li>A raiz de <span class="math inline">\(VPL(r) = 0\)</span> é a <strong>taxa interna de retorno</strong> (TIR; <em>IRR</em> em inglês)</li>
 </ul>
-<div id="6191a65c" class="cell" data-execution_count="6">
+<div id="d1b261de" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <p><span class="math display">\[VPL(r^*) = 0 \quad\Longrightarrow\quad r^* = TIR = 14\%\]</span></p>
 </div>
@@ -402,7 +340,7 @@ flowchart LR
 <p>Voltando à Acme, com limite de <strong>2 anos</strong>:</p>
 <ul>
 <li>Investimento inicial: R$ 81,6 mi</li>
-<li>Recuperado em 2 anos: $2 = $ R$ 56 mi</li>
+<li>Recuperado em 2 anos: <span class="math inline">\(2 \times 28 = 56\)</span> milhões de reais</li>
 <li><span class="math inline">\(56 &lt; 81{,}6\)</span>: <span class="destaque">o critério falha</span> e o investimento <strong>não é feito</strong></li>
 </ul>
 <p>Custo do erro: o VPL de R$ 7,2 mi é perdido.</p>
@@ -420,8 +358,8 @@ flowchart LR
 <section id="critério-da-tir" class="slide level2">
 <h2>Critério da TIR</h2>
 <ul>
-<li>Regra: investir sse $TIR &gt; $ custo de capital</li>
-<li>No exemplo Acme: $TIR = 14% &gt; 10% = $ custo de capital <span class="math inline">\(\Rightarrow\)</span> investir</li>
+<li>Regra: investir sse <span class="math inline">\(\mathrm{TIR} &gt; r\)</span>, em que <span class="math inline">\(r\)</span> é a taxa mínima exigida</li>
+<li>No exemplo Acme: <span class="math inline">\(\mathrm{TIR} = 14\% &gt; r = 10\% \Rightarrow\)</span> investir</li>
 </ul>
 <p>TIR funciona bem (coincide com o VPL) quando o projeto é <strong>simples</strong>:</p>
 <ul>
@@ -440,37 +378,37 @@ flowchart LR
 <section id="dificuldades-com-a-tir" class="slide level2 smaller">
 <h2>Dificuldades com a TIR</h2>
 <div class="r-fit-text">
-<p>Benefício hoje, custo depois</p>
+<p>Depois de uma vitória por 8 a 0…</p>
 </div>
 <ul>
-<li>Fluxos do ponto de vista do técnico: o contrato atual lhe rende <strong>R$ 750 mil/ano, por 3 anos</strong></li>
-<li>Proposta de rescisão do clube: R$ 1 mi hoje + 3 parcelas de R$ 250 mil (em vez do contrato)</li>
+<li>Contrato hipotético de Filipe Luís com o Flamengo: <strong>R$ 24 mi/ano, por 3 anos</strong></li>
+<li>Proposta de rescisão: <strong>R$ 32 mi hoje + 3 parcelas anuais de R$ 8 mi</strong></li>
 <li>Custo de capital: <span class="math inline">\(r = 10\%\)</span></li>
 </ul>
-<svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo líquido da rescisão: recebimento de 1 milhão hoje e pagamentos de 500 mil nos três anos seguintes">
-<line class="axis" x1="105" y1="92" x2="1005" y2="92"></line> <line class="tick" x1="105" y1="54" x2="105" y2="132"></line> <line class="tick" x1="405" y1="54" x2="405" y2="132"></line> <line class="tick" x1="705" y1="54" x2="705" y2="132"></line> <line class="tick" x1="1005" y1="54" x2="1005" y2="132"></line> <text class="time-label" x="105" y="42" text-anchor="middle">0</text> <text class="time-label" x="405" y="42" text-anchor="middle">1</text> <text class="time-label" x="705" y="42" text-anchor="middle">2</text> <text class="time-label" x="1005" y="42" text-anchor="middle">3</text> <text class="flow-label inflow" x="105" y="182" text-anchor="middle">+R$ 1.000.000</text> <text class="flow-label outflow" x="405" y="182" text-anchor="middle">−R$ 500.000</text> <text class="flow-label outflow" x="705" y="182" text-anchor="middle">−R$ 500.000</text> <text class="flow-label outflow" x="1005" y="182" text-anchor="middle">−R$ 500.000</text>
+<svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo líquido da rescisão: recebimento de 32 milhões hoje e pagamentos de 16 milhões nos três anos seguintes">
+<line class="axis" x1="105" y1="92" x2="1005" y2="92"></line> <line class="tick" x1="105" y1="54" x2="105" y2="132"></line> <line class="tick" x1="405" y1="54" x2="405" y2="132"></line> <line class="tick" x1="705" y1="54" x2="705" y2="132"></line> <line class="tick" x1="1005" y1="54" x2="1005" y2="132"></line> <text class="time-label" x="105" y="42" text-anchor="middle">0</text> <text class="time-label" x="405" y="42" text-anchor="middle">1</text> <text class="time-label" x="705" y="42" text-anchor="middle">2</text> <text class="time-label" x="1005" y="42" text-anchor="middle">3</text> <text class="flow-label inflow" x="105" y="182" text-anchor="middle">+R$ 32 mi</text> <text class="flow-label outflow" x="405" y="182" text-anchor="middle">−R$ 16 mi</text> <text class="flow-label outflow" x="705" y="182" text-anchor="middle">−R$ 16 mi</text> <text class="flow-label outflow" x="1005" y="182" text-anchor="middle">−R$ 16 mi</text>
 </svg>
-<p>Fluxo líquido: benefício <strong>hoje</strong>, custo <strong>depois</strong>.</p>
+<p>Fluxo líquido: benefício <strong>hoje</strong>, custo <strong>depois</strong>. <span class="fonte">Valores e prazos hipotéticos.</span></p>
 </section>
 <section id="análise-a-tir" class="slide level2">
 <h2>Análise: a TIR</h2>
-<div id="1be697dc" class="cell" data-execution_count="7">
+<div id="83a87264" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
-<p><span class="math display">\[0 = 1.000 - \frac{500}{1+TIR} - \frac{500}{(1+TIR)^2} - \frac{500}{(1+TIR)^3} \;\Longrightarrow\; TIR = 23,38\%\]</span></p>
+<p><span class="math display">\[0 = 32 - \frac{16}{1+TIR} - \frac{16}{(1+TIR)^2} - \frac{16}{(1+TIR)^3} \;\Longrightarrow\; TIR = 23,38\%\]</span></p>
 </div>
 </div>
-<div id="8313abb8" class="cell" data-execution_count="8">
+<div id="459dbd09" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
-<p>Note que $TIR = 23,38% &gt; 10% = $ custo de capital.</p>
+<p>Note que <span class="math inline">\(\mathrm{TIR} = 23,38\% &gt; r = 10\%\)</span>.</p>
 </div>
 </div>
 <p>Pela regra da TIR: aceitar.</p>
 </section>
 <section id="análise-e-o-vpl" class="slide level2">
 <h2>Análise: e o VPL?</h2>
-<div id="631d0abb" class="cell" data-execution_count="9">
+<div id="8d6499bf" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
-<p><span class="math display">\[VPL = 1.000 - \frac{500}{1{,}1} - \frac{500}{1{,}1^2} - \frac{500}{1{,}1^3} = -R\$243.426 &lt; 0\]</span></p>
+<p><span class="math display">\[VPL = 32 - \frac{16}{1{,}1} - \frac{16}{1{,}1^2} - \frac{16}{1{,}1^3} = -R\$7,79\text{ mi} &lt; 0\]</span></p>
 </div>
 </div>
 <p><span class="destaque">A regra da TIR e a regra do VPL discordam!</span> Qual foi o problema?</p>
@@ -485,11 +423,12 @@ flowchart LR
 <div class="r-fit-text">
 <p>Trocas de sinal</p>
 </div>
-<p>Suponha que a rescisão envolvesse também um pagamento de R$ 600 mil ao final do ano 10:</p>
+<p>Suponha que a rescisão de Filipe Luís envolvesse também um pagamento de R$ 19,2 mi ao final do ano 10:</p>
 <svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo com pagamento adicional no ano 10, gerando duas trocas de sinal">
-<line class="axis" x1="90" y1="92" x2="1010" y2="92"></line> <line class="tick" x1="90" y1="54" x2="90" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="570" y1="54" x2="570" y2="132"></line> <line class="tick" x1="720" y1="54" x2="720" y2="132"></line> <line class="tick" x1="1010" y1="54" x2="1010" y2="132"></line> <text class="time-label" x="90" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1–3</text> <text class="time-label" x="570" y="42" text-anchor="middle">4–9</text> <text class="time-label" x="720" y="100" text-anchor="middle">…</text> <text class="time-label" x="1010" y="42" text-anchor="middle">10</text> <text class="flow-label inflow" x="90" y="182" text-anchor="middle">+1.000.000</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−500.000</text> <text class="flow-label" x="570" y="182" text-anchor="middle">0</text> <text class="flow-label inflow" x="1010" y="182" text-anchor="middle">+600.000</text>
+<line class="axis" x1="90" y1="92" x2="1010" y2="92"></line> <line class="tick" x1="90" y1="54" x2="90" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="570" y1="54" x2="570" y2="132"></line> <line class="tick" x1="720" y1="54" x2="720" y2="132"></line> <line class="tick" x1="1010" y1="54" x2="1010" y2="132"></line> <text class="time-label" x="90" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1–3</text> <text class="time-label" x="570" y="42" text-anchor="middle">4–9</text> <text class="time-label" x="720" y="100" text-anchor="middle">…</text> <text class="time-label" x="1010" y="42" text-anchor="middle">10</text> <text class="flow-label inflow" x="90" y="182" text-anchor="middle">+32 mi</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−16 mi</text> <text class="flow-label" x="570" y="182" text-anchor="middle">0</text> <text class="flow-label inflow" x="1010" y="182" text-anchor="middle">+19,2 mi</text>
 </svg>
-<div id="339be86a" class="cell" data-execution_count="11">
+<p><span class="fonte">Valores em R$ milhões.</span></p>
+<div id="2c69706c" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <p>Há <strong>duas TIRs</strong>: <span class="math inline">\(TIR_1 = 5,79\% &lt; 10\%\)</span> e <span class="math inline">\(TIR_2 = 13,80\% &gt; 10\%\)</span>.</p>
 </div>
@@ -511,15 +450,15 @@ flowchart LR
 </section>
 <section id="inexistência-de-raiz" class="slide level2 smaller">
 <h2>Inexistência de raiz</h2>
-<p>Suponha, em vez dos acordos anteriores, que a proposta fosse: R$ 750 mil imediatamente, R$ 250 mil nos anos 1 a 3, e R$ 1 mi ao final do ano 4.</p>
+<p>Suponha, em vez dos acordos anteriores, que a proposta fosse: R$ 24 mi imediatamente, R$ 8 mi nos anos 1 a 3, e R$ 32 mi ao final do ano 4.</p>
 <ul>
-<li>Fluxo <strong>líquido</strong> = proposta menos o contrato de R$ 750 mil/ano que se deixa de receber</li>
-<li>Em cada um dos anos 1–3: <span class="math inline">\(250 - 750 = -500\)</span> (mil) — <span class="destaque">duas trocas de sinal</span> no fluxo líquido</li>
+<li>Fluxo <strong>líquido</strong> = proposta menos o contrato de R$ 24 mi/ano que se deixa de receber</li>
+<li>Em cada um dos anos 1–3: <span class="math inline">\(8 - 24 = -16\)</span> (R$ mi) — <span class="destaque">duas trocas de sinal</span> no fluxo líquido</li>
 </ul>
 <svg class="cashflow-svg wide" viewbox="0 0 1120 240" role="img" aria-label="Fluxo líquido com duas trocas de sinal: recebimento em t=0, pagamentos líquidos nos anos 1 a 3, recebimento no ano 4">
-<line class="axis" x1="105" y1="92" x2="1005" y2="92"></line> <line class="tick" x1="105" y1="54" x2="105" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="555" y1="54" x2="555" y2="132"></line> <line class="tick" x1="780" y1="54" x2="780" y2="132"></line> <line class="tick" x1="1005" y1="54" x2="1005" y2="132"></line> <text class="time-label" x="105" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1</text> <text class="time-label" x="555" y="42" text-anchor="middle">2</text> <text class="time-label" x="780" y="42" text-anchor="middle">3</text> <text class="time-label" x="1005" y="42" text-anchor="middle">4</text> <text class="flow-label inflow" x="105" y="182" text-anchor="middle">+750</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−500</text> <text class="flow-label outflow" x="555" y="182" text-anchor="middle">−500</text> <text class="flow-label outflow" x="780" y="182" text-anchor="middle">−500</text> <text class="flow-label inflow" x="1005" y="182" text-anchor="middle">+1.000</text>
+<line class="axis" x1="105" y1="92" x2="1005" y2="92"></line> <line class="tick" x1="105" y1="54" x2="105" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="555" y1="54" x2="555" y2="132"></line> <line class="tick" x1="780" y1="54" x2="780" y2="132"></line> <line class="tick" x1="1005" y1="54" x2="1005" y2="132"></line> <text class="time-label" x="105" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1</text> <text class="time-label" x="555" y="42" text-anchor="middle">2</text> <text class="time-label" x="780" y="42" text-anchor="middle">3</text> <text class="time-label" x="1005" y="42" text-anchor="middle">4</text> <text class="flow-label inflow" x="105" y="182" text-anchor="middle">+24</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−16</text> <text class="flow-label outflow" x="555" y="182" text-anchor="middle">−16</text> <text class="flow-label outflow" x="780" y="182" text-anchor="middle">−16</text> <text class="flow-label inflow" x="1005" y="182" text-anchor="middle">+32</text>
 </svg>
-<p><span class="fonte">Valores em R$ mil.</span></p>
+<p><span class="fonte">Valores em R$ milhões.</span></p>
 </section>
 <section id="gráfico-duas-trocas-de-sinal-sem-raiz" class="slide level2 smaller">
 <h2>Gráfico: duas trocas de sinal, sem raiz</h2>
@@ -561,7 +500,7 @@ flowchart LR
 <div class="column" style="width:48%;">
 <p><strong>Alternativa 1 — sociedade</strong></p>
 <p><span class="math display">\[-10.000 \to +6.000, +6.000, +6.000\]</span></p>
-<div id="ba44fabb" class="cell" data-execution_count="14">
+<div id="ede61028" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <p><span class="math inline">\(VPL = 4.411\)</span>, <span class="math inline">\(TIR = 36,3\%\)</span></p>
 </div>
@@ -569,7 +508,7 @@ flowchart LR
 </div><div class="column" style="width:48%;">
 <p><strong>Alternativa 2 — entrega (2 drones)</strong></p>
 <p><span class="math display">\[-10.000 \to +5.000, +5.000, +5.000\]</span></p>
-<div id="593e726c" class="cell" data-execution_count="15">
+<div id="0567ff8a" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p><span class="math inline">\(VPL = 2.009\)</span>, <span class="math inline">\(TIR = 23,4\%\)</span></p>
 </div>
@@ -585,12 +524,12 @@ flowchart LR
 <h2>Mudança de escala</h2>
 <p>Alternativa 2.b — entrega com <strong>10 drones</strong>: multiplicam-se gastos e receitas por 5.</p>
 <p><span class="math display">\[-50.000 \to +25.000, +25.000, +25.000\]</span></p>
-<div id="d6db9409" class="cell" data-execution_count="17">
+<div id="0f639d61" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math display">\[VPL = -50.000 + \frac{25.000}{1{,}12} + \frac{25.000}{1{,}12^2} + \frac{25.000}{1{,}12^3} = 10.046\]</span></p>
 </div>
 </div>
-<div id="cb4e15b8" class="cell" data-execution_count="18">
+<div id="e843c5dd" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <ul>
 <li>Menor retorno por real investido — a TIR não muda: <span class="math inline">\(TIR = 23,4\%\)</span> (mesma da alternativa de 2 drones)</li>
@@ -614,7 +553,7 @@ flowchart LR
 </ul>
 <p>Compare a alternativa de 10 drones (2.b) com vender o negócio já no ano 1 por R$ 40.000 adicionais (2.c):</p>
 <p><span class="math display">\[-50.000 \to +65.000 \quad (\text{apenas em } t=0,1)\]</span></p>
-<div id="a33398d1" class="cell" data-execution_count="20">
+<div id="963b9919" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <p><span class="math inline">\(TIR_{2.c} = 30\% &gt; TIR_{2.b} = 23,4\%\)</span>. Mas e o VPL? E para taxas distintas?</p>
 </div>
@@ -632,7 +571,7 @@ flowchart LR
 <li><strong>Fornecedor A</strong>: mais caro hoje, manutenção menor, serviço por <strong>3 anos</strong></li>
 <li><strong>Fornecedor B</strong>: mais barato hoje, manutenção maior, serviço por <strong>2 anos</strong></li>
 </ul>
-<div id="d084c469" class="cell" data-execution_count="22">
+<div id="7934642b" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <table class="caption-top">
 <thead>
@@ -669,7 +608,7 @@ flowchart LR
 </section>
 <section id="como-errar" class="slide level2">
 <h2>Como errar</h2>
-<div id="2c504e00" class="cell" data-execution_count="23">
+<div id="cb6c1c3a" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <ul>
 <li>VPL de B (-10,47) é menos negativo que VPL de A (-12,49)</li>
@@ -688,13 +627,13 @@ flowchart LR
 <li><strong>Anuidade Equivalente (EAA)</strong> — <em>equivalent annual annuity</em></li>
 </ul>
 <p>Custo de A: primeiro anuitiza o gasto inicial de R$ 10 mi ao longo de 3 anos:</p>
-<div id="0cac68ad" class="cell" data-execution_count="24">
+<div id="df9014ae" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
 <p><span class="math display">\[10 = \frac{x}{1+r} + \frac{x}{(1+r)^2} + \frac{x}{(1+r)^3} \;\Longrightarrow\; x \approx 4,02\]</span></p>
 </div>
 </div>
 <p>Somando a manutenção de R$ 1 mi/ano:</p>
-<div id="82c534ff" class="cell" data-execution_count="25">
+<div id="717d7cbf" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
 <p><span class="math display">\[EAA_A = -5,02\]</span></p>
 </div>
@@ -703,12 +642,12 @@ flowchart LR
 <section id="eaa-de-b-e-a-conclusão" class="slide level2">
 <h2>EAA de B, e a conclusão</h2>
 <p>Mesmo procedimento para B (anuitizar R$ 7 mi em 2 anos, <span class="math inline">\(r=10\%\)</span>):</p>
-<div id="ac0b51ca" class="cell" data-execution_count="26">
+<div id="9b5d9149" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
 <p><span class="math display">\[EAA_B = -6,03\]</span></p>
 </div>
 </div>
-<div id="ee91fb45" class="cell" data-execution_count="27">
+<div id="3de32b25" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
 <p><span class="destaque">Fornecedor A é o mais barato por ano</span>, apesar de ter o VPL total mais negativo — porque dura mais.</p>
 </div>
