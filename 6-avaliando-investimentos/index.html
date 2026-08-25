@@ -144,6 +144,109 @@ Felipe Iachan
 </div>
 
 </section>
+<section class="slide level2">
+
+<!-- ADICIONADO: dois gráficos interativos (JavaScript puro, sem servidor — abrem
+     com duplo clique no HTML) para os slides "Nascimento e morte das TIRs" e
+     "Laboratório do VPL(r)", mais adiante. Não estão no .lyx-fonte. -->
+<style>
+.vpl-controles { margin: 0.6em 0 0.3em; font-size: 1rem; }
+.vpl-controles label { display: inline-flex; align-items: center; gap: 0.5em; }
+.vpl-controles select { font-size: 1rem; padding: 3px 8px; }
+.vpl-controles input[type=range] { width: 380px; vertical-align: middle; }
+.vpl-valor { display: inline-block; min-width: 3.5em; font-variant-numeric: tabular-nums; }
+.vpl-resumo { font-size: 1.05em; margin-top: 0.5em; }
+.vpl-svg { width: 100%; height: auto; }
+</style>
+<script>
+// Script clássico (sem type="module"): roda em file://, http:// e no HTML
+// publicado sem diferença — evita a restrição de módulos ES do OJS/Observable.
+const AZUL_JS = "#6a9bcc", LARANJA_JS = "#d97757", VERDE_JS = "#788c5d",
+      CINZA_JS = "#5f5e5a", CINZA_CLARO_JS = "#b0aea5";
+
+function fmtBRjs(x, casas) {
+  casas = casas === undefined ? 2 : casas;
+  return x.toLocaleString("pt-BR", {minimumFractionDigits: casas, maximumFractionDigits: casas});
+}
+
+function vpnJs(fluxos, r) {
+  return fluxos.reduce((s, f, t) => s + f / Math.pow(1 + r, t), 0);
+}
+
+function acharRaizesJs(f, a, b, n) {
+  n = n || 3000;
+  const raizes = [];
+  let x0 = a, f0 = f(a);
+  for (let i = 1; i <= n; i++) {
+    const x1 = a + (b - a) * i / n, f1 = f(x1);
+    if (f0 * f1 < 0) {
+      let lo = x0, hi = x1;
+      for (let k = 0; k < 60; k++) {
+        const m = (lo + hi) / 2;
+        if (f(lo) * f(m) <= 0) hi = m; else lo = m;
+      }
+      raizes.push((lo + hi) / 2);
+    }
+    x0 = x1; f0 = f1;
+  }
+  return raizes;
+}
+
+function niceTicksJs(min, max, count) {
+  const range = max - min || 1;
+  const rawStep = range / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(rawStep)));
+  const norm = rawStep / mag;
+  const step = norm < 1.5 ? mag : norm < 3 ? 2 * mag : norm < 7 ? 5 * mag : 10 * mag;
+  const start = Math.ceil(min / step) * step;
+  const ticks = [];
+  for (let v = start; v <= max + 1e-9; v += step) ticks.push(Math.round(v / step) * step);
+  return ticks;
+}
+
+// Desenha um gráfico de linha simples direto em SVG (sem biblioteca externa).
+function drawChartJs(svg, opts) {
+  const W = 1000, H = 380, mL = 60, mR = 20, mT = 15, mB = 55;
+  const plotW = W - mL - mR, plotH = H - mT - mB;
+  const [x0, x1] = opts.xDomain, [y0, y1] = opts.yDomain;
+  const sx = x => mL + (x - x0) / (x1 - x0) * plotW;
+  const sy = y => mT + (1 - (y - y0) / (y1 - y0)) * plotH;
+
+  let s = "";
+  niceTicksJs(y0, y1, 8).forEach(t => {
+    s += `<line x1="${mL}" y1="${sy(t)}" x2="${W - mR}" y2="${sy(t)}" stroke="${CINZA_CLARO_JS}" stroke-width="0.6" opacity="0.35"/>`;
+    s += `<text x="${mL - 10}" y="${sy(t) + 4}" text-anchor="end" font-size="13" fill="${CINZA_JS}">${fmtBRjs(t, 0)}</text>`;
+  });
+  niceTicksJs(x0, x1, 10).forEach(t => {
+    s += `<line x1="${sx(t)}" y1="${H - mB}" x2="${sx(t)}" y2="${H - mB + 5}" stroke="${CINZA_JS}" stroke-width="1"/>`;
+    s += `<text x="${sx(t)}" y="${H - mB + 20}" text-anchor="middle" font-size="13" fill="${CINZA_JS}">${fmtBRjs(t, 0)}</text>`;
+  });
+  if (y0 <= 0 && y1 >= 0) {
+    s += `<line x1="${mL}" y1="${sy(0)}" x2="${W - mR}" y2="${sy(0)}" stroke="${CINZA_JS}" stroke-width="1.2"/>`;
+  }
+  if (opts.vRule != null) {
+    s += `<line x1="${sx(opts.vRule)}" y1="${mT}" x2="${sx(opts.vRule)}" y2="${H - mB}" stroke="${CINZA_CLARO_JS}" stroke-width="1.5" stroke-dasharray="5,4"/>`;
+  }
+  s += `<text x="${mL + plotW / 2}" y="${H - 6}" text-anchor="middle" font-size="14" fill="${CINZA_JS}">${opts.xLabel}</text>`;
+  s += `<text x="16" y="${mT + plotH / 2}" text-anchor="middle" font-size="14" fill="${CINZA_JS}" transform="rotate(-90 16 ${mT + plotH / 2})">${opts.yLabel}</text>`;
+
+  (opts.series || []).forEach(series => {
+    const d = series.points.map((p, i) => `${i === 0 ? "M" : "L"} ${sx(p.x).toFixed(2)} ${sy(p.y).toFixed(2)}`).join(" ");
+    s += `<path d="${d}" fill="none" stroke="${series.color}" stroke-width="3"/>`;
+  });
+  (opts.roots || []).forEach(r => {
+    s += `<circle cx="${sx(r.x)}" cy="${sy(r.y)}" r="6.5" fill="${LARANJA_JS}"/>`;
+    if (r.label) s += `<text x="${sx(r.x)}" y="${sy(r.y) - 14}" text-anchor="middle" font-size="13" fill="${LARANJA_JS}">${r.label}</text>`;
+  });
+  (opts.points || []).forEach(p => {
+    s += `<circle cx="${sx(p.x)}" cy="${sy(p.y)}" r="7.5" fill="${p.color}"/>`;
+  });
+
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.innerHTML = s;
+}
+</script>
+</section>
 <section id="onde-estamos" class="slide level2">
 <h2>Onde estamos</h2>
 <ul>
@@ -291,7 +394,7 @@ flowchart LR
 <p>Dada uma taxa de desconto <span class="math inline">\(r\)</span>:</p>
 <p><span class="math display">\[VPL(r) = -81,6 + \frac{28}{r}\left(1 - \frac{1}{(1+r)^4}\right)\]</span></p>
 <p>Com custo de capital estimado em <span class="math inline">\(r = 10\%\)</span>:</p>
-<div id="bde372c7" class="cell" data-execution_count="4">
+<div id="17118078" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[VPL = 7,2 &gt; 0\]</span></p>
 </div>
@@ -310,7 +413,7 @@ flowchart LR
 <li>A regra do VPL diz: investir sse <span class="math inline">\(VPL(r) &gt; 0\)</span></li>
 <li>A raiz de <span class="math inline">\(VPL(r) = 0\)</span> é a <strong>taxa interna de retorno</strong> (TIR; <em>IRR</em> em inglês)</li>
 </ul>
-<div id="d1b261de" class="cell" data-execution_count="6">
+<div id="8ebe5036" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <p><span class="math display">\[VPL(r^*) = 0 \quad\Longrightarrow\quad r^* = TIR = 14\%\]</span></p>
 </div>
@@ -392,12 +495,12 @@ flowchart LR
 </section>
 <section id="análise-a-tir" class="slide level2">
 <h2>Análise: a TIR</h2>
-<div id="83a87264" class="cell" data-execution_count="7">
+<div id="595fac8a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[0 = 32 - \frac{16}{1+TIR} - \frac{16}{(1+TIR)^2} - \frac{16}{(1+TIR)^3} \;\Longrightarrow\; TIR = 23,38\%\]</span></p>
 </div>
 </div>
-<div id="459dbd09" class="cell" data-execution_count="8">
+<div id="cabac86c" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <p>Note que <span class="math inline">\(\mathrm{TIR} = 23,38\% &gt; r = 10\%\)</span>.</p>
 </div>
@@ -406,7 +509,7 @@ flowchart LR
 </section>
 <section id="análise-e-o-vpl" class="slide level2">
 <h2>Análise: e o VPL?</h2>
-<div id="8d6499bf" class="cell" data-execution_count="9">
+<div id="ea0f5b0c" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <p><span class="math display">\[VPL = 32 - \frac{16}{1{,}1} - \frac{16}{1{,}1^2} - \frac{16}{1{,}1^3} = -R\$7,79\text{ mi} &lt; 0\]</span></p>
 </div>
@@ -428,7 +531,7 @@ flowchart LR
 <line class="axis" x1="90" y1="92" x2="1010" y2="92"></line> <line class="tick" x1="90" y1="54" x2="90" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="570" y1="54" x2="570" y2="132"></line> <line class="tick" x1="720" y1="54" x2="720" y2="132"></line> <line class="tick" x1="1010" y1="54" x2="1010" y2="132"></line> <text class="time-label" x="90" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1–3</text> <text class="time-label" x="570" y="42" text-anchor="middle">4–9</text> <text class="time-label" x="720" y="100" text-anchor="middle">…</text> <text class="time-label" x="1010" y="42" text-anchor="middle">10</text> <text class="flow-label inflow" x="90" y="182" text-anchor="middle">+32 mi</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−16 mi</text> <text class="flow-label" x="570" y="182" text-anchor="middle">0</text> <text class="flow-label inflow" x="1010" y="182" text-anchor="middle">+19,2 mi</text>
 </svg>
 <p><span class="fonte">Valores em R$ milhões.</span></p>
-<div id="2c69706c" class="cell" data-execution_count="11">
+<div id="47c4fb11" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <p>Há <strong>duas TIRs</strong>: <span class="math inline">\(TIR_1 = 5,79\% &lt; 10\%\)</span> e <span class="math inline">\(TIR_2 = 13,80\% &gt; 10\%\)</span>.</p>
 </div>
@@ -439,6 +542,61 @@ flowchart LR
 <h2>O gráfico: duas raízes</h2>
 
 <img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Ao custo de capital de 10% (entre as duas raízes), o VPL é <strong>negativo</strong>.</p>
+<!-- ADICIONADO: gráfico interativo; não está no .lyx-fonte. -->
+</section>
+<section id="nascimento-e-morte-das-tirs" class="slide level2 smaller">
+<h2>Nascimento e morte das TIRs</h2>
+<p>Mesma rescisão: <span class="math inline">\(+32\)</span> hoje, <span class="math inline">\(-16\)</span> nos anos 1–3, e um pagamento extra de <span class="math inline">\(F\)</span> no ano 10. <span class="destaque">Varie <span class="math inline">\(F\)</span>:</span></p>
+<div class="vpl-controles">
+<p><label>F (R$ mi) <input id="vplMorteSlider" type="range" min="0" max="32" step="0.1" value="19.2"> <span id="vplMorteValor" class="vpl-valor">19,2</span> </label></p>
+</div>
+<svg id="vplMorteSvg" class="vpl-svg" role="img" aria-label="Gráfico do VPL em função da taxa de desconto, com pagamento final variável">
+</svg>
+<div id="vplMorteResumo" class="vpl-resumo">
+
+</div>
+<script>
+(function () {
+  const svg = document.getElementById("vplMorteSvg");
+  const slider = document.getElementById("vplMorteSlider");
+  const valorEl = document.getElementById("vplMorteValor");
+  const resumo = document.getElementById("vplMorteResumo");
+
+  function render() {
+    const F = parseFloat(slider.value);
+    valorEl.textContent = fmtBRjs(F, 1);
+    const fluxos = [32, -16, -16, -16, 0, 0, 0, 0, 0, 0, F];
+    const rMax = 0.30, N = 400;
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const r = 0.0005 + (rMax - 0.0005) * i / (N - 1);
+      pts.push({x: r * 100, y: vpnJs(fluxos, r)});
+    }
+    const raizes = acharRaizesJs(r => vpnJs(fluxos, r), 0.0005, 1.5).filter(r => r <= rMax);
+    const vpl10 = vpnJs(fluxos, 0.10);
+
+    drawChartJs(svg, {
+      xDomain: [0, rMax * 100], yDomain: [-8, 12],
+      xLabel: "taxa de desconto r (% a.a.)", yLabel: "VPL (R$ mi)",
+      vRule: 10,
+      series: [{color: AZUL_JS, points: pts}],
+      roots: raizes.map(r => ({x: r * 100, y: 0, label: `${fmtBRjs(r * 100, 1)}%`}))
+    });
+
+    const corVpl = vpl10 > 0 ? VERDE_JS : LARANJA_JS;
+    const qtdTxt = raizes.length === 0 ? `<b style="color:${LARANJA_JS}">nenhuma TIR</b>`
+      : raizes.length === 1 ? `<b>1 TIR</b>`
+      : `<b style="color:${LARANJA_JS}">${raizes.length} TIRs</b>`;
+    resumo.innerHTML = `Este contrato tem ${qtdTxt}. VPL(10%) = <b style="color:${corVpl}">${fmtBRjs(vpl10, 1)}</b> &mdash; a regra do VPL nunca se perde.`;
+  }
+
+  slider.addEventListener("input", render);
+  render();
+})();
+</script>
+<p><span class="destaque">Um slider muda o número de TIRs de 1 para 2 e depois para nenhuma</span> — o VPL(10%) permanece sempre bem definido.</p>
+<!-- PLANNING: roteiro ao vivo — começar em F=0 (1 TIR), subir até 19,2 (2 TIRs),
+     seguir até ~26+ (nenhuma). As raízes se aproximam, se fundem e desaparecem. -->
 </section>
 <section id="ainda-mais-complicações" class="slide level2">
 <h2>Ainda mais complicações</h2>
@@ -464,6 +622,67 @@ flowchart LR
 <h2>Gráfico: duas trocas de sinal, sem raiz</h2>
 
 <img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Mesmo com duas trocas de sinal, pode não existir TIR</span>: o VPL nunca cruza zero — o oposto do caso anterior (ali, duas trocas de sinal geraram duas raízes).</p>
+<!-- ADICIONADO: gráfico interativo de revisão; não está no .lyx-fonte. -->
+</section>
+<section id="laboratório-do-vplr" class="slide level2 smaller">
+<h2>Laboratório do VPL(r)</h2>
+<p>Revendo os quatro casos desta aula, num só gráfico. Linha tracejada: custo de capital, <span class="math inline">\(r = 10\%\)</span>.</p>
+<div class="vpl-controles">
+<p><label>Caso <select id="vplLabCaso"> <option value="acme" selected="">Acme: investe hoje, recebe depois</option> <option value="resc">Rescisão: recebe hoje, paga depois</option> <option value="resc10">Rescisão + pagamento no ano 10 (duas TIRs)</option> <option value="semRaiz">Proposta sem TIR (VPL sempre positivo)</option> </select> </label></p>
+</div>
+<svg id="vplLabSvg" class="vpl-svg" role="img" aria-label="Gráfico do VPL em função da taxa de desconto, para o caso selecionado">
+</svg>
+<div id="vplLabResumo" class="vpl-resumo">
+
+</div>
+<script>
+(function () {
+  const svg = document.getElementById("vplLabSvg");
+  const select = document.getElementById("vplLabCaso");
+  const resumo = document.getElementById("vplLabResumo");
+  const casos = {
+    acme:    [-81.6, 28, 28, 28, 28],
+    resc:    [32, -16, -16, -16],
+    resc10:  [32, -16, -16, -16, 0, 0, 0, 0, 0, 0, 19.2],
+    semRaiz: [24, -16, -16, -16, 32]
+  };
+
+  function render() {
+    const fluxos = casos[select.value];
+    const rMax = 0.60, N = 400;
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const r = 0.0005 + (rMax - 0.0005) * i / (N - 1);
+      pts.push({x: r * 100, y: vpnJs(fluxos, r)});
+    }
+    const raizes = acharRaizesJs(r => vpnJs(fluxos, r), 0.0005, 1.5).filter(r => r <= rMax);
+    const vpl10 = vpnJs(fluxos, 0.10);
+    const ys = pts.map(p => p.y);
+    const yMin = Math.min(...ys, 0), yMax = Math.max(...ys, 0);
+    const pad = (yMax - yMin) * 0.08 || 1;
+
+    drawChartJs(svg, {
+      xDomain: [0, rMax * 100], yDomain: [yMin - pad, yMax + pad],
+      xLabel: "taxa de desconto r (% a.a.)", yLabel: "VPL (R$ mi)",
+      vRule: 10,
+      series: [{color: AZUL_JS, points: pts}],
+      roots: raizes.map(r => ({x: r * 100, y: 0, label: `TIR = ${fmtBRjs(r * 100, 1)}%`})),
+      points: [{x: 10, y: vpl10, color: vpl10 > 0 ? VERDE_JS : LARANJA_JS}]
+    });
+
+    const corVpl = vpl10 > 0 ? VERDE_JS : LARANJA_JS;
+    const decisao = vpl10 > 0 ? "aceitar" : "rejeitar";
+    const tirTxt = raizes.length === 0 ? "não existe TIR"
+      : raizes.length === 1 ? `TIR única = ${fmtBRjs(raizes[0] * 100, 1)}%`
+      : `${raizes.length} TIRs: ${raizes.map(r => fmtBRjs(r * 100, 1) + "%").join(" e ")}`;
+    resumo.innerHTML = `Regra do VPL: VPL(10%) = <b style="color:${corVpl}">${fmtBRjs(vpl10, 1)}</b> &rarr; <b style="color:${corVpl}">${decisao}</b>. &nbsp; Regra da TIR: ${tirTxt}.`;
+  }
+
+  select.addEventListener("change", render);
+  render();
+})();
+</script>
+<!-- PLANNING: pedir para a turma prever a forma da curva ANTES de trocar o caso no menu. -->
 </section>
 <section id="cuidados-com-a-regra-do-vpl" class="slide level2">
 <h2>Cuidados com a regra do VPL</h2>
@@ -500,7 +719,7 @@ flowchart LR
 <div class="column" style="width:48%;">
 <p><strong>Alternativa 1 — sociedade</strong></p>
 <p><span class="math display">\[-10.000 \to +6.000, +6.000, +6.000\]</span></p>
-<div id="ede61028" class="cell" data-execution_count="14">
+<div id="51894bdc" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <p><span class="math inline">\(VPL = 4.411\)</span>, <span class="math inline">\(TIR = 36,3\%\)</span></p>
 </div>
@@ -508,7 +727,7 @@ flowchart LR
 </div><div class="column" style="width:48%;">
 <p><strong>Alternativa 2 — entrega (2 drones)</strong></p>
 <p><span class="math display">\[-10.000 \to +5.000, +5.000, +5.000\]</span></p>
-<div id="0567ff8a" class="cell" data-execution_count="15">
+<div id="3427b267" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p><span class="math inline">\(VPL = 2.009\)</span>, <span class="math inline">\(TIR = 23,4\%\)</span></p>
 </div>
@@ -524,12 +743,12 @@ flowchart LR
 <h2>Mudança de escala</h2>
 <p>Alternativa 2.b — entrega com <strong>10 drones</strong>: multiplicam-se gastos e receitas por 5.</p>
 <p><span class="math display">\[-50.000 \to +25.000, +25.000, +25.000\]</span></p>
-<div id="0f639d61" class="cell" data-execution_count="17">
+<div id="e0f68586" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math display">\[VPL = -50.000 + \frac{25.000}{1{,}12} + \frac{25.000}{1{,}12^2} + \frac{25.000}{1{,}12^3} = 10.046\]</span></p>
 </div>
 </div>
-<div id="e843c5dd" class="cell" data-execution_count="18">
+<div id="f43ba2a5" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <ul>
 <li>Menor retorno por real investido — a TIR não muda: <span class="math inline">\(TIR = 23,4\%\)</span> (mesma da alternativa de 2 drones)</li>
@@ -553,7 +772,7 @@ flowchart LR
 </ul>
 <p>Compare a alternativa de 10 drones (2.b) com vender o negócio já no ano 1 por R$ 40.000 adicionais (2.c):</p>
 <p><span class="math display">\[-50.000 \to +65.000 \quad (\text{apenas em } t=0,1)\]</span></p>
-<div id="963b9919" class="cell" data-execution_count="20">
+<div id="6a5f9cc2" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <p><span class="math inline">\(TIR_{2.c} = 30\% &gt; TIR_{2.b} = 23,4\%\)</span>. Mas e o VPL? E para taxas distintas?</p>
 </div>
@@ -571,7 +790,7 @@ flowchart LR
 <li><strong>Fornecedor A</strong>: mais caro hoje, manutenção menor, serviço por <strong>3 anos</strong></li>
 <li><strong>Fornecedor B</strong>: mais barato hoje, manutenção maior, serviço por <strong>2 anos</strong></li>
 </ul>
-<div id="7934642b" class="cell" data-execution_count="22">
+<div id="0456b517" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <table class="caption-top">
 <thead>
@@ -608,7 +827,7 @@ flowchart LR
 </section>
 <section id="como-errar" class="slide level2">
 <h2>Como errar</h2>
-<div id="cb6c1c3a" class="cell" data-execution_count="23">
+<div id="2f30ac72" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <ul>
 <li>VPL de B (-10,47) é menos negativo que VPL de A (-12,49)</li>
@@ -627,13 +846,13 @@ flowchart LR
 <li><strong>Anuidade Equivalente (EAA)</strong> — <em>equivalent annual annuity</em></li>
 </ul>
 <p>Custo de A: primeiro anuitiza o gasto inicial de R$ 10 mi ao longo de 3 anos:</p>
-<div id="df9014ae" class="cell" data-execution_count="24">
+<div id="f025cdca" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
 <p><span class="math display">\[10 = \frac{x}{1+r} + \frac{x}{(1+r)^2} + \frac{x}{(1+r)^3} \;\Longrightarrow\; x \approx 4,02\]</span></p>
 </div>
 </div>
 <p>Somando a manutenção de R$ 1 mi/ano:</p>
-<div id="717d7cbf" class="cell" data-execution_count="25">
+<div id="12111f19" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
 <p><span class="math display">\[EAA_A = -5,02\]</span></p>
 </div>
@@ -642,12 +861,12 @@ flowchart LR
 <section id="eaa-de-b-e-a-conclusão" class="slide level2">
 <h2>EAA de B, e a conclusão</h2>
 <p>Mesmo procedimento para B (anuitizar R$ 7 mi em 2 anos, <span class="math inline">\(r=10\%\)</span>):</p>
-<div id="9b5d9149" class="cell" data-execution_count="26">
+<div id="079d371b" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
 <p><span class="math display">\[EAA_B = -6,03\]</span></p>
 </div>
 </div>
-<div id="3de32b25" class="cell" data-execution_count="27">
+<div id="5857ae18" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
 <p><span class="destaque">Fornecedor A é o mais barato por ano</span>, apesar de ter o VPL total mais negativo — porque dura mais.</p>
 </div>
