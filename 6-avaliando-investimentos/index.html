@@ -374,9 +374,9 @@ flowchart LR
 <h2>Evidência mais recente</h2>
 <p>Percentual de CFOs que usam cada regra <strong>sempre ou quase sempre</strong>:</p>
 
-<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="r-stretch"><p><span class="destaque">Em 2022: grandes usam sobretudo VPL e TIR/hurdle rate; pequenas, payback.</span></p>
+<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="r-stretch"><p><span class="destaque">Pesquisa de 2022 (onda de mar./2020): grandes usam sobretudo VPL e TIR/hurdle rate; pequenas, payback.</span></p>
 <p><strong>Hurdle rate:</strong> taxa mínima de retorno exigida; veremos mais adiante como estimá-la.</p>
-<p><span class="fonte">Fonte: Graham (2022), Tabela I.</span></p>
+<p><span class="fonte">Fonte: Graham (2022), Figura 2 e Tabela I.</span></p>
 </section>
 <section id="exemplo-acme-s.a." class="slide level2">
 <h2>Exemplo: Acme S.A.</h2>
@@ -394,7 +394,7 @@ flowchart LR
 <p>Dada uma taxa de desconto <span class="math inline">\(r\)</span>:</p>
 <p><span class="math display">\[VPL(r) = -81,6 + \frac{28}{r}\left(1 - \frac{1}{(1+r)^4}\right)\]</span></p>
 <p>Com custo de capital estimado em <span class="math inline">\(r = 10\%\)</span>:</p>
-<div id="17118078" class="cell" data-execution_count="4">
+<div id="1b2a84c0" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[VPL = 7,2 &gt; 0\]</span></p>
 </div>
@@ -413,7 +413,7 @@ flowchart LR
 <li>A regra do VPL diz: investir sse <span class="math inline">\(VPL(r) &gt; 0\)</span></li>
 <li>A raiz de <span class="math inline">\(VPL(r) = 0\)</span> é a <strong>taxa interna de retorno</strong> (TIR; <em>IRR</em> em inglês)</li>
 </ul>
-<div id="8ebe5036" class="cell" data-execution_count="6">
+<div id="e9d1614f" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <p><span class="math display">\[VPL(r^*) = 0 \quad\Longrightarrow\quad r^* = TIR = 14\%\]</span></p>
 </div>
@@ -495,12 +495,12 @@ flowchart LR
 </section>
 <section id="análise-a-tir" class="slide level2">
 <h2>Análise: a TIR</h2>
-<div id="595fac8a" class="cell" data-execution_count="7">
+<div id="16c1e4ee" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[0 = 32 - \frac{16}{1+TIR} - \frac{16}{(1+TIR)^2} - \frac{16}{(1+TIR)^3} \;\Longrightarrow\; TIR = 23,38\%\]</span></p>
 </div>
 </div>
-<div id="cabac86c" class="cell" data-execution_count="8">
+<div id="1f6e87b2" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <p>Note que <span class="math inline">\(\mathrm{TIR} = 23,38\% &gt; r = 10\%\)</span>.</p>
 </div>
@@ -509,7 +509,7 @@ flowchart LR
 </section>
 <section id="análise-e-o-vpl" class="slide level2">
 <h2>Análise: e o VPL?</h2>
-<div id="ea0f5b0c" class="cell" data-execution_count="9">
+<div id="3dba0440" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <p><span class="math display">\[VPL = 32 - \frac{16}{1{,}1} - \frac{16}{1{,}1^2} - \frac{16}{1{,}1^3} = -R\$7,79\text{ mi} &lt; 0\]</span></p>
 </div>
@@ -531,7 +531,7 @@ flowchart LR
 <line class="axis" x1="90" y1="92" x2="1010" y2="92"></line> <line class="tick" x1="90" y1="54" x2="90" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="570" y1="54" x2="570" y2="132"></line> <line class="tick" x1="720" y1="54" x2="720" y2="132"></line> <line class="tick" x1="1010" y1="54" x2="1010" y2="132"></line> <text class="time-label" x="90" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1–3</text> <text class="time-label" x="570" y="42" text-anchor="middle">4–9</text> <text class="time-label" x="720" y="100" text-anchor="middle">…</text> <text class="time-label" x="1010" y="42" text-anchor="middle">10</text> <text class="flow-label inflow" x="90" y="182" text-anchor="middle">+32 mi</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−16 mi</text> <text class="flow-label" x="570" y="182" text-anchor="middle">0</text> <text class="flow-label inflow" x="1010" y="182" text-anchor="middle">+19,2 mi</text>
 </svg>
 <p><span class="fonte">Valores em R$ milhões.</span></p>
-<div id="47c4fb11" class="cell" data-execution_count="11">
+<div id="d0380816" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <p>Há <strong>duas TIRs</strong>: <span class="math inline">\(TIR_1 = 5,79\% &lt; 10\%\)</span> e <span class="math inline">\(TIR_2 = 13,80\% &gt; 10\%\)</span>.</p>
 </div>
@@ -718,16 +718,20 @@ flowchart LR
 <div class="columns">
 <div class="column" style="width:48%;">
 <p><strong>Alternativa 1 — sociedade</strong></p>
-<p><span class="math display">\[-10.000 \to +6.000, +6.000, +6.000\]</span></p>
-<div id="51894bdc" class="cell" data-execution_count="14">
+<svg class="cashflow-svg" viewbox="0 0 520 180" role="img" aria-label="Fluxo de caixa da sociedade: investimento de 10 mil reais hoje e entradas de 6 mil reais nos anos 1, 2 e 3">
+<line class="axis" x1="55" y1="70" x2="465" y2="70"></line> <line class="tick" x1="55" y1="46" x2="55" y2="96"></line> <line class="tick" x1="192" y1="46" x2="192" y2="96"></line> <line class="tick" x1="328" y1="46" x2="328" y2="96"></line> <line class="tick" x1="465" y1="46" x2="465" y2="96"></line> <text class="time-label" x="55" y="36" text-anchor="middle">0</text> <text class="time-label" x="192" y="36" text-anchor="middle">1</text> <text class="time-label" x="328" y="36" text-anchor="middle">2</text> <text class="time-label" x="465" y="36" text-anchor="middle">3</text> <text class="flow-label outflow" x="55" y="142" text-anchor="middle">−10.000</text> <text class="flow-label inflow" x="192" y="142" text-anchor="middle">+6.000</text> <text class="flow-label inflow" x="328" y="142" text-anchor="middle">+6.000</text> <text class="flow-label inflow" x="465" y="142" text-anchor="middle">+6.000</text>
+</svg>
+<div id="5c89ec0d" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <p><span class="math inline">\(VPL = 4.411\)</span>, <span class="math inline">\(TIR = 36,3\%\)</span></p>
 </div>
 </div>
 </div><div class="column" style="width:48%;">
 <p><strong>Alternativa 2 — entrega (2 drones)</strong></p>
-<p><span class="math display">\[-10.000 \to +5.000, +5.000, +5.000\]</span></p>
-<div id="3427b267" class="cell" data-execution_count="15">
+<svg class="cashflow-svg" viewbox="0 0 520 180" role="img" aria-label="Fluxo de caixa da entrega com dois drones: investimento de 10 mil reais hoje e entradas de 5 mil reais nos anos 1, 2 e 3">
+<line class="axis" x1="55" y1="70" x2="465" y2="70"></line> <line class="tick" x1="55" y1="46" x2="55" y2="96"></line> <line class="tick" x1="192" y1="46" x2="192" y2="96"></line> <line class="tick" x1="328" y1="46" x2="328" y2="96"></line> <line class="tick" x1="465" y1="46" x2="465" y2="96"></line> <text class="time-label" x="55" y="36" text-anchor="middle">0</text> <text class="time-label" x="192" y="36" text-anchor="middle">1</text> <text class="time-label" x="328" y="36" text-anchor="middle">2</text> <text class="time-label" x="465" y="36" text-anchor="middle">3</text> <text class="flow-label outflow" x="55" y="142" text-anchor="middle">−10.000</text> <text class="flow-label inflow" x="192" y="142" text-anchor="middle">+5.000</text> <text class="flow-label inflow" x="328" y="142" text-anchor="middle">+5.000</text> <text class="flow-label inflow" x="465" y="142" text-anchor="middle">+5.000</text>
+</svg>
+<div id="8f3cca2c" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p><span class="math inline">\(VPL = 2.009\)</span>, <span class="math inline">\(TIR = 23,4\%\)</span></p>
 </div>
@@ -743,12 +747,12 @@ flowchart LR
 <h2>Mudança de escala</h2>
 <p>Alternativa 2.b — entrega com <strong>10 drones</strong>: multiplicam-se gastos e receitas por 5.</p>
 <p><span class="math display">\[-50.000 \to +25.000, +25.000, +25.000\]</span></p>
-<div id="e0f68586" class="cell" data-execution_count="17">
+<div id="b45bdfc1" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math display">\[VPL = -50.000 + \frac{25.000}{1{,}12} + \frac{25.000}{1{,}12^2} + \frac{25.000}{1{,}12^3} = 10.046\]</span></p>
 </div>
 </div>
-<div id="f43ba2a5" class="cell" data-execution_count="18">
+<div id="41dc49a4" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <ul>
 <li>Menor retorno por real investido — a TIR não muda: <span class="math inline">\(TIR = 23,4\%\)</span> (mesma da alternativa de 2 drones)</li>
@@ -772,7 +776,7 @@ flowchart LR
 </ul>
 <p>Compare a alternativa de 10 drones (2.b) com vender o negócio já no ano 1 por R$ 40.000 adicionais (2.c):</p>
 <p><span class="math display">\[-50.000 \to +65.000 \quad (\text{apenas em } t=0,1)\]</span></p>
-<div id="6a5f9cc2" class="cell" data-execution_count="20">
+<div id="4ac0c785" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <p><span class="math inline">\(TIR_{2.c} = 30\% &gt; TIR_{2.b} = 23,4\%\)</span>. Mas e o VPL? E para taxas distintas?</p>
 </div>
@@ -790,7 +794,7 @@ flowchart LR
 <li><strong>Fornecedor A</strong>: mais caro hoje, manutenção menor, serviço por <strong>3 anos</strong></li>
 <li><strong>Fornecedor B</strong>: mais barato hoje, manutenção maior, serviço por <strong>2 anos</strong></li>
 </ul>
-<div id="0456b517" class="cell" data-execution_count="22">
+<div id="85bc43be" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <table class="caption-top">
 <thead>
@@ -827,7 +831,7 @@ flowchart LR
 </section>
 <section id="como-errar" class="slide level2">
 <h2>Como errar</h2>
-<div id="2f30ac72" class="cell" data-execution_count="23">
+<div id="1b250727" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <ul>
 <li>VPL de B (-10,47) é menos negativo que VPL de A (-12,49)</li>
@@ -846,13 +850,13 @@ flowchart LR
 <li><strong>Anuidade Equivalente (EAA)</strong> — <em>equivalent annual annuity</em></li>
 </ul>
 <p>Custo de A: primeiro anuitiza o gasto inicial de R$ 10 mi ao longo de 3 anos:</p>
-<div id="f025cdca" class="cell" data-execution_count="24">
+<div id="7722d03b" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
 <p><span class="math display">\[10 = \frac{x}{1+r} + \frac{x}{(1+r)^2} + \frac{x}{(1+r)^3} \;\Longrightarrow\; x \approx 4,02\]</span></p>
 </div>
 </div>
 <p>Somando a manutenção de R$ 1 mi/ano:</p>
-<div id="12111f19" class="cell" data-execution_count="25">
+<div id="367ac367" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
 <p><span class="math display">\[EAA_A = -5,02\]</span></p>
 </div>
@@ -861,12 +865,12 @@ flowchart LR
 <section id="eaa-de-b-e-a-conclusão" class="slide level2">
 <h2>EAA de B, e a conclusão</h2>
 <p>Mesmo procedimento para B (anuitizar R$ 7 mi em 2 anos, <span class="math inline">\(r=10\%\)</span>):</p>
-<div id="079d371b" class="cell" data-execution_count="26">
+<div id="994513f4" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
 <p><span class="math display">\[EAA_B = -6,03\]</span></p>
 </div>
 </div>
-<div id="5857ae18" class="cell" data-execution_count="27">
+<div id="1a9a03ce" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
 <p><span class="destaque">Fornecedor A é o mais barato por ano</span>, apesar de ter o VPL total mais negativo — porque dura mais.</p>
 </div>
