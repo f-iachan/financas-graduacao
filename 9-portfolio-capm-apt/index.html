@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Felipe Iachan">
-  <title>Revisão: Portfólio, CAPM e APT</title>
+  <title>Revisão: Portfólio e CAPM</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-ebc22d1efb10b48ab26dfda692002621.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -130,7 +130,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Revisão: Portfólio, CAPM e APT</h1>
+  <h1 class="title">Revisão: Portfólio e CAPM</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -344,48 +344,67 @@ Felipe Iachan
 <li>Investidores não gostam de risco</li>
 </ul>
 </section>
-<section id="medindo-o-retorno-uma-variável-aleatória" class="slide level2 smaller">
-<h2>Medindo o retorno: uma variável aleatória</h2>
+<section id="retorno-do-portfólio-uma-identidade" class="slide level2 smaller">
+<h2>Retorno do portfólio: uma identidade</h2>
 <ul>
-<li>A remuneração de um investimento é normalmente medida pelo seu retorno</li>
-<li>E se os retornos forem desconhecidos? Assume-se que possuem uma <strong>distribuição de probabilidade</strong></li>
-<li>Medidas centrais: média e mediana</li>
-<li>Medidas de posição: 3º quartil (separa os 75% menores dos 25% maiores), 5º percentil (os 5% menores)</li>
+<li>Em <strong>cada</strong> estado da natureza <span class="math inline">\(s\)</span>, a riqueza final é <span class="math inline">\(W_{0}\sum_{i}x_{i}\left(1+R_{i}(s)\right)\)</span></li>
+<li>Logo, estado a estado: <span class="math inline">\(R_{p}(s)=\sum_{i}x_{i}R_{i}(s)\)</span></li>
+<li><span class="destaque">É uma identidade entre variáveis aleatórias — vale realização por realização, sem usar nenhuma probabilidade.</span></li>
 </ul>
-
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Distribuição normal padrão, ilustrativa — não são dados de um ativo real.</span></p>
+<div id="28147a34" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Estado</th>
+<th style="text-align: left;">πₛ</th>
+<th style="text-align: left;">R₁(s)</th>
+<th style="text-align: left;">R₂(s)</th>
+<th style="text-align: left;">Rp(s), x₁=0,6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">0,3</td>
+<td style="text-align: left;">15,0%</td>
+<td style="text-align: left;">-5,0%</td>
+<td style="text-align: left;">7,0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">0,5</td>
+<td style="text-align: left;">5,0%</td>
+<td style="text-align: left;">15,0%</td>
+<td style="text-align: left;">9,0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">0,2</td>
+<td style="text-align: left;">-10,0%</td>
+<td style="text-align: left;">25,0%</td>
+<td style="text-align: left;">4,0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="medindo-o-retorno-esperado" class="slide level2">
-<h2>Medindo o retorno esperado</h2>
-<p>O retorno esperado de um portfólio é a média ponderada dos retornos esperados:</p>
-<p><span class="math display">\[ E\left[R_{p}\right]=\sum_{i}x_{i}E\left[R_{i}\right] \]</span></p>
-<p><span class="destaque">Note a linearidade.</span></p>
-</section>
-<section id="exemplo-intel-e-atp-oil-and-gas" class="slide level2 smaller">
-<h2>Exemplo: Intel e ATP Oil and Gas</h2>
-<p>Problema. Seu portfólio consiste em R$ 25.000 em ações da Intel e R$ 35.000 em ações da ATP Oil and Gas. O retorno esperado é 18% para a Intel e 25% para a ATP. Qual o retorno esperado da carteira?</p>
-</section>
-<section id="solução" class="slide level2 smaller">
-<h2>Solução</h2>
-<div id="3500fa3a" class="cell" data-execution_count="3">
+<section id="retorno-esperado-a-linearidade-é-uma-consequência" class="slide level2 smaller">
+<h2>Retorno esperado: a linearidade é uma consequência</h2>
+<p><span class="math display">\[ E\left[R_{p}\right]=\sum_{s}\pi_{s}R_{p}(s)=\sum_{s}\pi_{s}\sum_{i}x_{i}R_{i}(s)=\sum_{i}x_{i}\sum_{s}\pi_{s}R_{i}(s)=\sum_{i}x_{i}E\left[R_{i}\right] \]</span></p>
+<p><span class="destaque">A troca da ordem das somas é o único passo: <span class="math inline">\(E[\cdot]\)</span> é linear porque é uma soma ponderada.</span></p>
+<div id="79d235ef" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
-<ul>
-<li>Valor total: R$ 60.000</li>
-<li>Pesos: Intel = 41,67%, ATP = 58,33%</li>
-</ul>
+<p>No exemplo: <span class="math inline">\(E[R_1]=5\%\)</span>, <span class="math inline">\(E[R_2]=11\%\)</span>, <span class="math inline">\(E[R_p]=0{,}6\times5\%+0{,}4\times11\%=7,4\%\)</span> — confere com a tabela anterior.</p>
+</div>
+</div>
+<p>Exemplo de uma linha: R$ 25 mil a 18% e R$ 35 mil a 25%:</p>
+<div id="97f5f346" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[E[R_p] = 0,4167\times 0{,}18 + 0,5833\times 0{,}25 = 22,1\%\]</span></p>
 </div>
 </div>
-</section>
-<section id="medindo-risco" class="slide level2 smaller">
-<h2>Medindo risco</h2>
-<ul>
-<li>Uma medida possível: probabilidade de perda (retorno negativo)</li>
-<li>Mas uma perda também pode surgir de um retorno <strong>positivo</strong> — por exemplo, numa posição vendida</li>
-<li>Preferimos medidas simétricas de dispersão: <strong>variância</strong> e <strong>desvio-padrão</strong></li>
-</ul>
-
-<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">A distribuição mais dispersa produz resultados extremos com maior probabilidade.</span></p>
 </section>
 <section id="covariância" class="slide level2 smaller">
 <h2>Covariância</h2>
@@ -405,15 +424,22 @@ Felipe Iachan
 <p><span class="math display">\[ Corr\left(R_{i},R_{j}\right)=\dfrac{Cov\left(R_{i},R_{j}\right)}{SD\left(R_{i}\right)SD\left(R_{j}\right)} \]</span></p>
 
 <img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="variância-de-um-portfólio-geral" class="slide level2">
-<h2>Variância de um portfólio geral</h2>
-<p>Para <span class="math inline">\(n\geq2\)</span> ativos, a variância é a covariância média ponderada de cada par:</p>
-<p><span class="math display">\[ Var\left(R_{p}\right)=\sum_{i}\sum_{j}x_{i}x_{j}Cov\left(R_{i},R_{j}\right) \]</span></p>
+<section id="variância-do-portfólio-também-uma-identidade" class="slide level2 smaller">
+<h2>Variância do portfólio: também uma identidade</h2>
+<p>Centrando a mesma identidade de retornos:</p>
+<p><span class="math display">\[ R_{p}-E\left[R_{p}\right]=\sum_{i}x_{i}\left(R_{i}-\mu_{i}\right) \]</span></p>
+<p><span class="math display">\[ Var\left(R_{p}\right)=E\left[\left(\sum_{i}x_{i}(R_{i}-\mu_{i})\right)^{2}\right]=\sum_{i}\sum_{j}x_{i}x_{j}\,E\left[(R_{i}-\mu_{i})(R_{j}-\mu_{j})\right]=\sum_{i}\sum_{j}x_{i}x_{j}\sigma_{ij} \]</span></p>
 <ul>
-<li>É a soma ponderada dos elementos da matriz de variância-covariância</li>
-<li>Forma quadrática <span class="math inline">\(x'\Sigma x\)</span>, com <span class="math inline">\(\Sigma\)</span> positiva semidefinida</li>
+<li>É uma <strong>forma quadrática</strong> nos pesos — ao contrário da média, que é linear</li>
+<li><span class="math inline">\(Var(R_{p})\geq0\)</span> para todo <span class="math inline">\(x\)</span> porque é uma variância: é exatamente dizer que a matriz <span class="math inline">\(\left[\sigma_{ij}\right]\)</span> é semidefinida positiva</li>
 </ul>
 </section>
+<section id="média-é-reta-variância-é-parábola" class="slide level2 smaller">
+<h2>Média é reta, variância é parábola</h2>
+<p><span class="math display">\[ SD\left(R_{p}\right)\leq\sum_{i}\left|x_{i}\right|\sigma_{i} \]</span></p>
+<p><span class="destaque">Desigualdade triangular para desvios-padrão — vale com igualdade se e só se todos os pares têm <span class="math inline">\(\rho_{ij}=1\)</span>.</span></p>
+
+<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="caso-especial-pesos-iguais" class="slide level2 smaller">
 <h2>Caso especial: pesos iguais</h2>
 <p>Com <span class="math inline">\(x_i = 1/n\)</span> para todos os ativos:</p>
@@ -424,17 +450,201 @@ Felipe Iachan
 <section id="exemplo-numérico-pesos-iguais" class="slide level2 smaller">
 <h2>Exemplo numérico: pesos iguais</h2>
 <p>Desvio-padrão médio das ações: 10% a.m.; correlação média: 0,40. Investindo o mesmo montante em cada ação, qual a variância do portfólio quando <span class="math inline">\(n\to\infty\)</span>? E se a correlação fosse 0? E 1?</p>
-<div id="fa714e87" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
+<div id="009ddcd3" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[Cov\left(R_i,R_j\right) = 0{,}40\times0{,}10\times0{,}10 = 0,004\]</span></p>
 <p><span class="math display">\[\sigma_p \underset{n\to\infty}{\approx} \sqrt{0,004} = 6,3\%\]</span></p>
 </div>
 </div>
 </section>
-<section id="gráfico-diversificação-e-número-de-ações" class="slide level2 smaller">
-<h2>Gráfico: diversificação e número de ações</h2>
+<section id="artefato-diversificação-e-número-de-ações" class="slide level2 smaller">
+<h2>Artefato: diversificação e número de ações</h2>
+<style>
+/* ---- estilos compartilhados dos artefatos interativos da Aula 9 (prefixo a9p) ---- */
+.a9p{
+  --a9p-azul:#6a9bcc; --a9p-laranja:#d97757; --a9p-verde:#788c5d;
+  --a9p-tinta:#141413; --a9p-papel:#faf9f5; --a9p-linha:#e8e6dc;
+  --a9p-cinza:#5f5e5a; --a9p-cinza-claro:#b0aea5;
+  width:100%; max-width:1180px; margin:0 auto; color:var(--a9p-tinta);
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:14px; line-height:1.3; text-align:left;
+}
+.a9p *{box-sizing:border-box;}
+.a9p-controls{display:grid; gap:8px 22px; padding:8px 14px;
+  border:1px solid var(--a9p-linha); border-radius:10px; background:var(--a9p-papel);}
+.a9p-field label{display:flex; justify-content:space-between; gap:10px;
+  color:var(--a9p-cinza); font-size:13px; font-weight:600;}
+.a9p-field output{color:var(--a9p-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a9p-field input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--a9p-azul); cursor:pointer;}
+.a9p-toggle{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--a9p-cinza);}
+.a9p-toggle input{accent-color:var(--a9p-azul); cursor:pointer;}
+.a9p-grid{display:grid; grid-template-columns:2fr .9fr; gap:14px; margin-top:10px;}
+.a9p-chart{border:1px solid var(--a9p-linha); border-radius:10px; padding:4px 6px;}
+.a9p-chart svg{display:block; width:100%; height:auto;}
+.a9p-card{border:1px solid var(--a9p-linha); border-radius:10px; padding:12px 14px;
+  display:flex; flex-direction:column; justify-content:flex-start;}
+.a9p-kicker{color:var(--a9p-cinza); font-size:12.5px; font-weight:600;}
+.a9p-big{font-size:24px; line-height:1.15; font-weight:700; margin:2px 0 4px;
+  font-variant-numeric:tabular-nums;}
+.a9p-badge{font-size:14px; font-weight:700; margin-bottom:6px;}
+.a9p-card dl{display:grid; grid-template-columns:auto auto; gap:5px 10px; margin:0;}
+.a9p-card dt{color:var(--a9p-cinza); font-size:12.5px;}
+.a9p-card dd{margin:0; text-align:right; font-size:12.5px; font-weight:700;
+  font-variant-numeric:tabular-nums;}
+.a9p-message{margin-top:9px; padding-top:8px; border-top:1px solid var(--a9p-linha);
+  color:var(--a9p-cinza); font-size:12px; line-height:1.35;}
+.a9p-btn{font:inherit; font-size:13px; font-weight:600; color:var(--a9p-tinta);
+  background:var(--a9p-papel); border:1px solid var(--a9p-cinza-claro); border-radius:8px;
+  padding:5px 12px; cursor:pointer;}
+.a9p-btn:hover{border-color:var(--a9p-cinza);}
+.a9p-btn.a9p-on{border-color:var(--a9p-laranja); color:var(--a9p-laranja);}
+</style>
 
-<img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<script>
+"use strict";
+var A9P_AZUL="#6a9bcc", A9P_LARANJA="#d97757", A9P_VERDE="#788c5d",
+    A9P_CINZA="#5f5e5a", A9P_CINZA_CLARO="#b0aea5", A9P_GRADE="#ece9e0";
+
+function a9pFmt(x, casas){
+  casas = casas === undefined ? 1 : casas;
+  return x.toLocaleString("pt-BR", {minimumFractionDigits: casas, maximumFractionDigits: casas});
+}
+function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
+</script>
+
+<div class="a9p" id="a9pd-root">
+  <div class="a9p-controls" style="grid-template-columns:1fr 1fr;">
+    <div class="a9p-field">
+      <label for="a9pd-sbar"><span>SD média das ações (σ̄)</span><output id="a9pd-lbl-sbar">10%</output></label>
+      <input type="range" id="a9pd-sbar" min="5" max="30" step="1" value="10">
+    </div>
+    <div class="a9p-field">
+      <label for="a9pd-rbar"><span>correlação média (ρ̄)</span><output id="a9pd-lbl-rbar">0,40</output></label>
+      <input type="range" id="a9pd-rbar" min="0" max="1" step="0.05" value="0.40">
+    </div>
+  </div>
+
+  <div class="a9p-grid">
+    <div class="a9p-chart">
+      <svg id="a9pd-svg" viewbox="0 0 720 380" role="img" aria-label="SD do portfólio com pesos iguais, em função do número de ações"></svg>
+    </div>
+    <div class="a9p-card" aria-live="polite">
+      <div class="a9p-kicker">SD do portfólio</div>
+      <dl>
+        <dt>n = 1</dt><dd id="a9pd-n1"></dd>
+        <dt>n = 10</dt><dd id="a9pd-n10"></dd>
+        <dt>n = 30</dt><dd id="a9pd-n30"></dd>
+        <dt>n = 100</dt><dd id="a9pd-n100"></dd>
+        <dt>n → ∞ (limite)</dt><dd id="a9pd-lim"></dd>
+      </dl>
+      <div class="a9p-message" id="a9pd-msg"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var svg = document.getElementById("a9pd-svg");
+  if (!svg) return;
+
+  var inpS = document.getElementById("a9pd-sbar");
+  var lblS = document.getElementById("a9pd-lbl-sbar");
+  var inpR = document.getElementById("a9pd-rbar");
+  var lblR = document.getElementById("a9pd-lbl-rbar");
+  var elN1 = document.getElementById("a9pd-n1");
+  var elN10 = document.getElementById("a9pd-n10");
+  var elN30 = document.getElementById("a9pd-n30");
+  var elN100 = document.getElementById("a9pd-n100");
+  var elLim = document.getElementById("a9pd-lim");
+  var elMsg = document.getElementById("a9pd-msg");
+
+  function sigmaP(n, sbar, rbar){
+    return Math.sqrt(sbar*sbar/n + (1 - 1/n)*rbar*sbar*sbar);
+  }
+
+  var W = 720, H = 380, m = {l:58, r:20, t:16, b:44};
+  var NMAX = 100;
+  function sx(n){ return m.l + (W-m.l-m.r)*(n-1)/(NMAX-1); }
+
+  function render(){
+    var sbar = +inpS.value/100, rbar = +inpR.value;
+    lblS.textContent = a9pFmt(sbar*100,0) + "%";
+    lblR.textContent = a9pFmt(rbar,2);
+
+    var Y1 = Math.ceil(sbar*100/5)*5 + 2;
+    function sy(v){ return H-m.b - (H-m.t-m.b)*v/Y1; }
+
+    elN1.textContent = a9pPct(sigmaP(1, sbar, rbar), 1);
+    elN10.textContent = a9pPct(sigmaP(10, sbar, rbar), 1);
+    elN30.textContent = a9pPct(sigmaP(30, sbar, rbar), 1);
+    elN100.textContent = a9pPct(sigmaP(100, sbar, rbar), 1);
+    var lim = sbar*Math.sqrt(rbar);
+    elLim.textContent = a9pPct(lim, 1);
+    if (rbar < 1e-9){
+      elMsg.textContent = "Com ρ̄ = 0, o limite é zero: risco totalmente diversificável.";
+    } else if (Math.abs(rbar-1) < 1e-9){
+      elMsg.textContent = "Com ρ̄ = 1, a curva é plana: nenhuma diversificação reduz o risco.";
+    } else {
+      elMsg.textContent = "A curva converge para σ̄·√ρ̄ (risco sistemático), a linha tracejada.";
+    }
+
+    var s = "";
+    for (var gx=0; gx<=NMAX; gx+=20){
+      var xx = Math.max(gx,1);
+      s += '<line x1="'+sx(xx)+'" y1="'+m.t+'" x2="'+sx(xx)+'" y2="'+(H-m.b)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+sx(xx)+'" y="'+(H-m.b+16)+'" text-anchor="middle" font-size="11" fill="'+A9P_CINZA+'">'+xx+'</text>';
+    }
+    var gyStep = Y1 > 20 ? 10 : 5;
+    for (var gy=0; gy<=Y1; gy+=gyStep){
+      s += '<line x1="'+m.l+'" y1="'+sy(gy)+'" x2="'+(W-m.r)+'" y2="'+sy(gy)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+(m.l-8)+'" y="'+(sy(gy)+4)+'" text-anchor="end" font-size="11" fill="'+A9P_CINZA+'">'+gy+'</text>';
+    }
+    s += '<text x="'+(m.l+(W-m.l-m.r)/2)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12" fill="'+A9P_CINZA+'">número de ações (n)</text>';
+    s += '<text x="14" y="'+(m.t+(H-m.t-m.b)/2)+'" text-anchor="middle" font-size="12" fill="'+A9P_CINZA+'" transform="rotate(-90 14 '+(m.t+(H-m.t-m.b)/2)+')">SD do portfólio (%)</text>';
+
+    // assíntota
+    s += '<line x1="'+m.l+'" y1="'+sy(lim*100)+'" x2="'+(W-m.r)+'" y2="'+sy(lim*100)+
+         '" stroke="'+A9P_CINZA_CLARO+'" stroke-width="1.6" stroke-dasharray="5,4"/>';
+
+    // curva
+    var p = "";
+    for (var n=1; n<=NMAX; n++){
+      var v = sigmaP(n, sbar, rbar)*100;
+      p += (n===1?"M ":"L ") + sx(n) + " " + sy(v) + " ";
+    }
+    s += '<path d="'+p+'" fill="none" stroke="'+A9P_AZUL+'" stroke-width="2.6"/>';
+
+    [1,10,30,100].forEach(function(n){
+      var v = sigmaP(n, sbar, rbar)*100;
+      s += '<circle cx="'+sx(n)+'" cy="'+sy(v)+'" r="4.5" fill="'+A9P_LARANJA+'"/>';
+    });
+
+    svg.innerHTML = s;
+  }
+
+  inpS.addEventListener("input", render);
+  inpR.addEventListener("input", render);
+  [inpS, inpR].forEach(function(el){
+    el.addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  });
+
+  (function selfTest(){
+    var falhas = [];
+    function approx(nome, obtido, alvo, tol){
+      if (!(Math.abs(obtido-alvo) <= tol)) falhas.push(nome+": "+obtido+" != "+alvo);
+    }
+    approx("sigmaP(1,.,.) = sbar", sigmaP(1, 0.1, 0.4), 0.1, 1e-9);
+    approx("limite rho=0", 0.1*Math.sqrt(0), 0, 1e-9);
+    approx("limite rho=1", 0.1*Math.sqrt(1), 0.1, 1e-9);
+    approx("exemplo da aula (cov=0,004)", sigmaP(100000, 0.1, 0.4), Math.sqrt(0.004), 1e-4);
+    if (falhas.length) console.error("Autoteste (Aula 9, artefato ii) FALHOU:\n"+falhas.join("\n"));
+  })();
+
+  render();
+})();
+</script>
+</section>
 <section id="benefício-da-diversificação" class="slide level2 smaller">
 <h2>Benefício da diversificação</h2>
 <p>Quando <span class="math inline">\(n\to\infty\)</span>, o benefício da diversificação alcança um limite:</p>
@@ -486,89 +696,171 @@ Felipe Iachan
 </table>
 <!-- Valores em texto (tabela LyX nativa) no arquivo-fonte, Port.lyx. -->
 </section>
-<section id="retorno-x-volatilidade-das-combinações" class="slide level2 smaller">
-<h2>Retorno x volatilidade das combinações</h2>
-<div id="e3fc75a4" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">x (Intel)</th>
-<th style="text-align: right;">x (Coca-Cola)</th>
-<th style="text-align: left;">E[Rp]</th>
-<th style="text-align: left;">SD[Rp]</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">26,0%</td>
-<td style="text-align: left;">50,0%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.8</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">22,0%</td>
-<td style="text-align: left;">40,3%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.6</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">18,0%</td>
-<td style="text-align: left;">31,6%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.4</td>
-<td style="text-align: right;">0.6</td>
-<td style="text-align: left;">14,0%</td>
-<td style="text-align: left;">25,0%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">0.8</td>
-<td style="text-align: left;">10,0%</td>
-<td style="text-align: left;">22,4%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">6,0%</td>
-<td style="text-align: left;">25,0%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="gráfico-fronteira-de-dois-ativos" class="slide level2 smaller">
-<h2>Gráfico: fronteira de dois ativos</h2>
-
-<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="portfólio-eficiente-vs.-ineficiente" class="slide level2 smaller">
-<h2>Portfólio eficiente vs.&nbsp;ineficiente</h2>
-<!-- CORREÇÃO: a fonte inverte a definição; corrigido intencionalmente -->
+<section id="dois-ativos-fórmulas-fechadas" class="slide level2 smaller">
+<h2>Dois ativos: fórmulas fechadas</h2>
+<p><span class="math display">\[ \mu_{p}=x\mu_{1}+(1-x)\mu_{2} \]</span></p>
+<p><span class="math display">\[ \sigma_{p}^{2}=x^{2}\sigma_{1}^{2}+(1-x)^{2}\sigma_{2}^{2}+2x(1-x)\rho\,\sigma_{1}\sigma_{2} \]</span></p>
 <ul>
-<li>Um <strong>portfólio eficiente</strong> é aquele em que não há como reduzir a volatilidade sem reduzir o retorno esperado</li>
-<li>Num <strong>portfólio ineficiente</strong>, existe outra carteira melhor nos dois sentidos</li>
+<li><span class="math inline">\(\rho=1\)</span>: <span class="math inline">\(\sigma_{p}=\left|x\sigma_{1}+(1-x)\sigma_{2}\right|\)</span> — a fronteira vira uma <strong>reta</strong></li>
+<li><span class="math inline">\(\rho=-1\)</span>: existe <span class="math inline">\(x\)</span> que zera a variância, em <span class="math inline">\(x=\dfrac{\sigma_{2}}{\sigma_{1}+\sigma_{2}}\)</span></li>
+<li>Mínimo de variância em geral: <span class="math inline">\(x^{*}=\dfrac{\sigma_{2}^{2}-\rho\,\sigma_{1}\sigma_{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}-2\rho\,\sigma_{1}\sigma_{2}}\)</span></li>
 </ul>
-<div id="db3e575f" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
-<p>100% em Coca-Cola: <span class="math inline">\(E[R_p]=6,0\%\)</span>, <span class="math inline">\(SD=25,0\%\)</span>. Com 20% Intel / 80% Coca-Cola: <span class="math inline">\(E[R_p]=10,0\%\)</span> (<span class="destaque">maior</span>) e <span class="math inline">\(SD=22,4\%\)</span> (<span class="destaque">menor</span>).</p>
-</div>
-</div>
-<p><span class="destaque">Logo, investir 100% em Coca-Cola é ineficiente.</span></p>
+<!-- CORREÇÃO: a fonte inverte a definição de eficiente/ineficiente; corrigido intencionalmente -->
+<p><span class="destaque">Um <strong>portfólio eficiente</strong> é aquele em que não há como reduzir a volatilidade sem reduzir o retorno esperado.</span></p>
 </section>
-<section id="o-efeito-da-correlação" class="slide level2 smaller">
-<h2>O efeito da correlação</h2>
-<p>A correlação não afeta o retorno esperado, mas muda bastante a volatilidade da carteira.</p>
+<section id="artefato-correlação-e-fronteira-de-dois-ativos" class="slide level2 smaller">
+<h2>Artefato: correlação e fronteira de dois ativos</h2>
+<div class="a9p" id="a9pi-root">
+  <div class="a9p-controls" style="grid-template-columns:2fr 1fr;">
+    <div class="a9p-field">
+      <label for="a9pi-rho"><span>correlação ρ (Intel, Coca-Cola)</span><output id="a9pi-lbl-rho">0,00</output></label>
+      <input type="range" id="a9pi-rho" min="-1" max="1" step="0.05" value="0">
+    </div>
+    <label class="a9p-toggle"><input type="checkbox" id="a9pi-short"> permitir vendas a descoberto</label>
+  </div>
 
-<img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="vendas-a-descoberto-short-sales" class="slide level2 smaller">
-<h2>Vendas a descoberto (short sales)</h2>
-<p>Pesos fora do intervalo <span class="math inline">\([0,1]\)</span> estendem a fronteira além dos dois ativos.</p>
+  <div class="a9p-grid">
+    <div class="a9p-chart">
+      <svg id="a9pi-svg" viewbox="0 0 720 380" role="img" aria-label="Fronteira de combinações de Intel e Coca-Cola no plano risco-retorno"></svg>
+    </div>
+    <div class="a9p-card" aria-live="polite">
+      <div class="a9p-kicker">carteira de variância mínima</div>
+      <div class="a9p-big" id="a9pi-xstar"></div>
+      <dl>
+        <dt>SD nesse ponto</dt><dd id="a9pi-sdstar"></dd>
+        <dt>E[Rp] nesse ponto</dt><dd id="a9pi-estar"></dd>
+      </dl>
+      <div class="a9p-message" id="a9pi-msg"></div>
+    </div>
+  </div>
+</div>
 
-<img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<script>
+(function(){
+  "use strict";
+  var svg = document.getElementById("a9pi-svg");
+  if (!svg) return;
+  var MU1 = 0.26, MU2 = 0.06, S1 = 0.50, S2 = 0.25; // Intel, Coca-Cola
+
+  var inpRho = document.getElementById("a9pi-rho");
+  var lblRho = document.getElementById("a9pi-lbl-rho");
+  var chkShort = document.getElementById("a9pi-short");
+  var elXstar = document.getElementById("a9pi-xstar");
+  var elSDstar = document.getElementById("a9pi-sdstar");
+  var elEstar = document.getElementById("a9pi-estar");
+  var elMsg = document.getElementById("a9pi-msg");
+
+  function carteira(x, rho){
+    var xc = 1 - x;
+    var Ep = x*MU1 + xc*MU2;
+    var Var = x*x*S1*S1 + xc*xc*S2*S2 + 2*x*xc*rho*S1*S2;
+    return {E: Ep, SD: Math.sqrt(Math.max(Var,0))};
+  }
+
+  var W = 720, H = 380, m = {l:58, r:20, t:16, b:44};
+
+  function render(){
+    var rho = +inpRho.value;
+    lblRho.textContent = a9pFmt(rho, 2).replace("-", "−");
+    var short = chkShort.checked;
+    var xlo = short ? -0.5 : 0, xhi = short ? 1.5 : 1;
+    var n = 220;
+    var xs = [];
+    for (var k=0;k<=n;k++) xs.push(xlo + (xhi-xlo)*k/n);
+
+    var X0 = 0, X1 = short ? 90 : 60, Y0 = short ? -10 : 0, Y1 = short ? 42 : 30;
+    function sx(v){ return m.l + (W-m.l-m.r)*(v-X0)/(X1-X0); }
+    function sy(v){ return H-m.b - (H-m.t-m.b)*(v-Y0)/(Y1-Y0); }
+
+    // x* de mínima variância (fórmula fechada)
+    var den = S1*S1 + S2*S2 - 2*rho*S1*S2;
+    var xstar = den !== 0 ? (S2*S2 - rho*S1*S2)/den : 0.5;
+    var cstar = carteira(xstar, rho);
+
+    elXstar.textContent = a9pFmt(xstar*100,1) + "% Intel / " + a9pFmt((1-xstar)*100,1) + "% Coca-Cola";
+    elSDstar.textContent = a9pPct(cstar.SD,1);
+    elEstar.textContent = a9pPct(cstar.E,1);
+    if (Math.abs(rho+1) < 1e-9){
+      var xzero = S2/(S1+S2);
+      elMsg.textContent = "Com ρ = −1 a variância zera em x = " + a9pFmt(xzero*100,1) + "% (Intel).";
+    } else {
+      elMsg.textContent = "Ponto laranja: x = 20% Intel domina 100% Coca-Cola (mesma vol. quando ρ = 0, retorno maior).";
+    }
+
+    var s = "";
+    var gxStep = short ? 15 : 10, gyStep = short ? 10 : 10;
+    for (var gx=Math.ceil(X0/gxStep)*gxStep; gx<=X1; gx+=gxStep){
+      s += '<line x1="'+sx(gx)+'" y1="'+m.t+'" x2="'+sx(gx)+'" y2="'+(H-m.b)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+sx(gx)+'" y="'+(H-m.b+16)+'" text-anchor="middle" font-size="11" fill="'+A9P_CINZA+'">'+gx+'</text>';
+    }
+    for (var gy=Math.ceil(Y0/gyStep)*gyStep; gy<=Y1; gy+=gyStep){
+      s += '<line x1="'+m.l+'" y1="'+sy(gy)+'" x2="'+(W-m.r)+'" y2="'+sy(gy)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+(m.l-8)+'" y="'+(sy(gy)+4)+'" text-anchor="end" font-size="11" fill="'+A9P_CINZA+'">'+gy+'</text>';
+    }
+    if (Y0 < 0){
+      s += '<line x1="'+m.l+'" y1="'+sy(0)+'" x2="'+(W-m.r)+'" y2="'+sy(0)+'" stroke="'+A9P_CINZA+'" stroke-width="1.2"/>';
+    }
+    s += '<text x="'+(m.l+(W-m.l-m.r)/2)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12" fill="'+A9P_CINZA+'">volatilidade (%)</text>';
+    s += '<text x="14" y="'+(m.t+(H-m.t-m.b)/2)+'" text-anchor="middle" font-size="12" fill="'+A9P_CINZA+'" transform="rotate(-90 14 '+(m.t+(H-m.t-m.b)/2)+')">retorno esperado (%)</text>';
+
+    // referência fixa: rho = 1 (reta), tracejada
+    var pref = "";
+    for (var i=0;i<xs.length;i++){
+      var c1 = carteira(xs[i], 1);
+      pref += (i===0?"M ":"L ") + sx(c1.SD*100) + " " + sy(c1.E*100) + " ";
+    }
+    s += '<path d="'+pref+'" fill="none" stroke="'+A9P_CINZA_CLARO+'" stroke-width="1.6" stroke-dasharray="5,4"/>';
+
+    // curva atual
+    var pcur = "";
+    for (var j=0;j<xs.length;j++){
+      var c = carteira(xs[j], rho);
+      pcur += (j===0?"M ":"L ") + sx(c.SD*100) + " " + sy(c.E*100) + " ";
+    }
+    s += '<path d="'+pcur+'" fill="none" stroke="'+A9P_AZUL+'" stroke-width="2.6"/>';
+
+    // ativos
+    s += '<circle cx="'+sx(S1*100)+'" cy="'+sy(MU1*100)+'" r="5" fill="#141413"/>';
+    s += '<text x="'+(sx(S1*100)-8)+'" y="'+(sy(MU1*100)-8)+'" text-anchor="end" font-size="12" fill="#141413">Intel</text>';
+    s += '<circle cx="'+sx(S2*100)+'" cy="'+sy(MU2*100)+'" r="5" fill="#141413"/>';
+    s += '<text x="'+(sx(S2*100)+8)+'" y="'+(sy(MU2*100)-8)+'" font-size="12" fill="#141413">Coca-Cola</text>';
+
+    // ponto de variância mínima
+    s += '<circle cx="'+sx(cstar.SD*100)+'" cy="'+sy(cstar.E*100)+'" r="6" fill="'+A9P_VERDE+'" stroke="#fff" stroke-width="1.4"/>';
+
+    // marcador x = 0,2 (eficiente vs. ineficiente), quando rho = 0
+    if (Math.abs(rho) < 1e-9){
+      var c02 = carteira(0.2, 0);
+      s += '<circle cx="'+sx(c02.SD*100)+'" cy="'+sy(c02.E*100)+'" r="5" fill="'+A9P_LARANJA+'"/>';
+      s += '<text x="'+(sx(c02.SD*100)+8)+'" y="'+(sy(c02.E*100)+4)+'" font-size="11" fill="'+A9P_LARANJA+'">x=20% Intel</text>';
+    }
+
+    svg.innerHTML = s;
+  }
+
+  inpRho.addEventListener("input", render);
+  inpRho.addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  chkShort.addEventListener("change", render);
+
+  (function selfTest(){
+    var falhas = [];
+    function approx(nome, obtido, alvo, tol){
+      if (!(Math.abs(obtido-alvo) <= tol)) falhas.push(nome+": "+obtido+" != "+alvo);
+    }
+    var c02 = carteira(0.2, 0);
+    approx("E[Rp] x=0,2,rho=0", c02.E, 0.10, 1e-9);
+    approx("SD[Rp] x=0,2,rho=0", c02.SD, Math.sqrt(0.05), 1e-9);
+    approx("x* rho=0", (S2*S2)/(S1*S1+S2*S2), 0.2, 1e-9);
+    var xz = S2/(S1+S2);
+    var cz = carteira(xz, -1);
+    approx("SD=0 em rho=-1", cz.SD, 0, 1e-9);
+    if (falhas.length) console.error("Autoteste (Aula 9, artefato i) FALHOU:\n"+falhas.join("\n"));
+  })();
+
+  render();
+})();
+</script>
+</section>
 <section id="exemplo-2-adicionando-uma-terceira-ação" class="slide level2 smaller">
 <h2>Exemplo 2: adicionando uma terceira ação</h2>
 <p>Considere acrescentar a Bore Industries ao portfólio anterior:</p>
@@ -619,17 +911,17 @@ Felipe Iachan
 <section id="gráfico-combinando-duas-em-duas" class="slide level2 smaller">
 <h2>Gráfico: combinando duas em duas</h2>
 
-<img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="fronteira-eficiente-com-três-ativos" class="slide level2 smaller">
 <h2>Fronteira eficiente com três ativos</h2>
 
-<img data-src="index_files/figure-revealjs/cell-15-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Com venda a descoberto permitida, nenhuma ação isolada está na fronteira eficiente.</span></p>
+<img data-src="index_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Com venda a descoberto permitida, nenhuma ação isolada está na fronteira eficiente.</span></p>
 </section>
 <section id="mais-ações-expandem-a-fronteira" class="slide level2 smaller">
 <h2>Mais ações expandem a fronteira</h2>
 <p>Cada ativo adicional, se não perfeitamente correlacionado com os demais, amplia as possibilidades de diversificação.</p>
 
-<img data-src="index_files/figure-revealjs/cell-16-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Construção ilustrativa: comparamos a fronteira do nosso próprio exemplo com 2 vs.&nbsp;3 ativos — não é a figura do livro-texto (que ilustra o mesmo ponto com 10 ações reais).</span></p>
+<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Construção ilustrativa: comparamos a fronteira do nosso próprio exemplo com 2 vs.&nbsp;3 ativos — não é a figura do livro-texto (que ilustra o mesmo ponto com 10 ações reais).</span></p>
 </section>
 <section id="fronteira-eficiente-definição" class="slide level2">
 <h2>Fronteira eficiente: definição</h2>
@@ -658,7 +950,7 @@ Felipe Iachan
 <!-- ADICIONADO: exemplo numérico com r_f=1% e carteira igualmente ponderada;
      a fonte apresenta o resultado simbolicamente, sem esse parâmetro. -->
 
-<img data-src="index_files/figure-revealjs/cell-17-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte"><span class="math inline">\(P\)</span> é um portfólio arriscado qualquer — ainda não necessariamente o melhor. <span class="math inline">\(r_f\)</span> aqui é um valor ilustrativo (1% a.a.), não um dado do material-fonte.</span></p>
+<img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte"><span class="math inline">\(P\)</span> é um portfólio arriscado qualquer — ainda não necessariamente o melhor. <span class="math inline">\(r_f\)</span> aqui é um valor ilustrativo (1% a.a.), não um dado do material-fonte.</span></p>
 </section>
 <section id="identificando-a-carteira-tangente" class="slide level2">
 <h2>Identificando a carteira tangente</h2>
@@ -669,14 +961,260 @@ Felipe Iachan
 <p><span class="destaque">A <strong>carteira tangente</strong> é a de maior índice de Sharpe possível: onde a reta com o ativo livre de risco tangencia a fronteira eficiente.</span></p>
 </div>
 </section>
-<section id="gráfico-a-carteira-tangente" class="slide level2 smaller">
-<h2>Gráfico: a carteira tangente</h2>
+<section id="artefato-carteira-tangente-e-cml" class="slide level2 smaller">
+<h2>Artefato: carteira tangente e CML</h2>
+<div class="a9p" id="a9pt-root">
+  <div class="a9p-controls" style="grid-template-columns:2fr 1fr;">
+    <div class="a9p-field">
+      <label for="a9pt-rf"><span>taxa livre de risco (r_f)</span><output id="a9pt-lbl-rf">1,00%</output></label>
+      <input type="range" id="a9pt-rf" min="0" max="5" step="0.25" value="1">
+    </div>
+    <label class="a9p-toggle"><input type="checkbox" id="a9pt-short" checked=""> permitir vendas a descoberto</label>
+  </div>
 
-<img data-src="index_files/figure-revealjs/cell-18-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div id="d32748e1" class="cell" data-execution_count="18">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
-<p>Carteira tangente aqui: Intel: 51,0%, Coca-Cola: 40,8%, Bore Industries: 8,2%.</p>
+  <div class="a9p-grid">
+    <div class="a9p-chart">
+      <svg id="a9pt-svg" viewbox="0 0 720 380" role="img" aria-label="Fronteira de mínima variância, carteira tangente e linha do mercado de capitais (CML) no plano risco-retorno"></svg>
+    </div>
+    <div class="a9p-card" aria-live="polite">
+      <div class="a9p-kicker">carteira tangente (M)</div>
+      <div class="a9p-big" id="a9pt-sharpe"></div>
+      <dl>
+        <dt>Intel</dt><dd id="a9pt-w1"></dd>
+        <dt>Coca-Cola</dt><dd id="a9pt-w2"></dd>
+        <dt>Bore Industries</dt><dd id="a9pt-w3"></dd>
+        <dt>E[R_M]</dt><dd id="a9pt-e"></dd>
+        <dt>SD(R_M)</dt><dd id="a9pt-sd"></dd>
+      </dl>
+      <div class="a9p-message" id="a9pt-msg"></div>
+    </div>
+  </div>
 </div>
-</div>
+
+<script>
+(function(){
+  "use strict";
+  var svg = document.getElementById("a9pt-svg");
+  if (!svg) return;
+
+  var MU = [0.26, 0.06, 0.02];
+  var SIG = [0.50, 0.25, 0.25];
+  var SIG2 = [SIG[0]*SIG[0], SIG[1]*SIG[1], SIG[2]*SIG[2]];
+  var NOMES = ["Intel", "Coca-Cola", "Bore"];
+
+  var inpRf = document.getElementById("a9pt-rf");
+  var lblRf = document.getElementById("a9pt-lbl-rf");
+  var chkShort = document.getElementById("a9pt-short");
+  var elW1 = document.getElementById("a9pt-w1");
+  var elW2 = document.getElementById("a9pt-w2");
+  var elW3 = document.getElementById("a9pt-w3");
+  var elE = document.getElementById("a9pt-e");
+  var elSD = document.getElementById("a9pt-sd");
+  var elSharpe = document.getElementById("a9pt-sharpe");
+  var elMsg = document.getElementById("a9pt-msg");
+
+  elMsg.textContent = "Com r_f = 1% (posição padrão do controle), a carteira tangente reproduz o exemplo do livro-texto: 51,0% Intel / 40,8% Coca-Cola / 8,2% Bore, E[R_M] = 15,9%, SD(R_M) = 27,6%.";
+
+  // ---- pré-cálculos fechados (Sigma diagonal: correlações nulas) ----
+  var A = 0, B = 0, C = 0, i;
+  for (i = 0; i < 3; i++) {
+    A += 1 / SIG2[i];
+    B += MU[i] / SIG2[i];
+    C += (MU[i] * MU[i]) / SIG2[i];
+  }
+  var D = A * C - B * B;
+  var mStar = B / A;
+
+  function fronteiraVar(m) { return (A * m * m - 2 * B * m + C) / D; }
+
+  function statsFromWeights(w) {
+    var E = w[0] * MU[0] + w[1] * MU[1] + w[2] * MU[2];
+    var v = w[0] * w[0] * SIG2[0] + w[1] * w[1] * SIG2[1] + w[2] * w[2] * SIG2[2];
+    return { E: E, SD: Math.sqrt(Math.max(v, 0)) };
+  }
+
+  // tangente COM venda a descoberto (fórmula fechada, Sigma diagonal)
+  function tangenciaShort(rf) {
+    var num = [0, 0, 0], den = 0, k;
+    for (k = 0; k < 3; k++) { num[k] = (MU[k] - rf) / SIG2[k]; den += num[k]; }
+    var w = [num[0] / den, num[1] / den, num[2] / den];
+    var st = statsFromWeights(w);
+    return { w: w, E: st.E, SD: st.SD, sharpe: (st.E - rf) / st.SD };
+  }
+
+  // tangente SEM venda a descoberto: busca em grade no simplex (passo 1%)
+  function tangenciaGrid(rf) {
+    var best = null, k1, k2, w1, w2, w3, st, sh;
+    for (k1 = 0; k1 <= 100; k1++) {
+      w1 = k1 / 100;
+      for (k2 = 0; k2 <= 100 - k1; k2++) {
+        w2 = k2 / 100; w3 = 1 - w1 - w2;
+        st = statsFromWeights([w1, w2, w3]);
+        if (st.SD < 1e-9) continue;
+        sh = (st.E - rf) / st.SD;
+        if (!best || sh > best.sharpe) best = { w: [w1, w2, w3], E: st.E, SD: st.SD, sharpe: sh };
+      }
+    }
+    return best;
+  }
+
+  // fronteira SEM venda a descoberto: envoltória da grade (bucket de 0,5% em E, SD mínima)
+  function fronteiraGridNS() {
+    var buckets = {}, k1, k2, w1, w2, w3, st, key;
+    for (k1 = 0; k1 <= 100; k1++) {
+      w1 = k1 / 100;
+      for (k2 = 0; k2 <= 100 - k1; k2++) {
+        w2 = k2 / 100; w3 = 1 - w1 - w2;
+        st = statsFromWeights([w1, w2, w3]);
+        key = Math.round(st.E * 200); // buckets de 0,5%
+        if (buckets[key] === undefined || st.SD < buckets[key]) buckets[key] = st.SD;
+      }
+    }
+    var keys = [], kk;
+    for (kk in buckets) { if (buckets.hasOwnProperty(kk)) keys.push(+kk); }
+    keys.sort(function (a, b) { return a - b; });
+    var pts = [];
+    for (var idx = 0; idx < keys.length; idx++) pts.push({ E: keys[idx] / 200, SD: buckets[keys[idx]] });
+    return pts;
+  }
+
+  var FRONT_GRID_NS = fronteiraGridNS();
+  var vertexNS = FRONT_GRID_NS[0].E;
+  (function () {
+    var minSD = FRONT_GRID_NS[0].SD, minE = FRONT_GRID_NS[0].E;
+    for (var idx = 1; idx < FRONT_GRID_NS.length; idx++) {
+      if (FRONT_GRID_NS[idx].SD < minSD) { minSD = FRONT_GRID_NS[idx].SD; minE = FRONT_GRID_NS[idx].E; }
+    }
+    vertexNS = minE;
+  })();
+
+  function fmtSigned(x, casas) { return a9pFmt(x, casas).replace("-", "−"); }
+
+  var W = 720, H = 380, m = { l: 58, r: 20, t: 16, b: 44 };
+  var X0 = 0, X1 = 90, Y0 = -5, Y1 = 45;
+  function sx(val) { return m.l + (W - m.l - m.r) * (val - X0) / (X1 - X0); }
+  function sy(val) { return H - m.b - (H - m.t - m.b) * (val - Y0) / (Y1 - Y0); }
+
+  function buildPath(pts) {
+    var p = "", j;
+    for (j = 0; j < pts.length; j++) p += (j === 0 ? "M " : "L ") + sx(pts[j].SD * 100) + " " + sy(pts[j].E * 100) + " ";
+    return p;
+  }
+
+  function render() {
+    var rfPct = +inpRf.value;
+    var rf = rfPct / 100;
+    lblRf.textContent = a9pFmt(rfPct, 2) + "%";
+    var short = chkShort.checked;
+
+    var tan, frontierPts, vertexE;
+    if (short) {
+      tan = tangenciaShort(rf);
+      frontierPts = [];
+      var mLo = -0.05, mHi = 0.45, n = 300, k, mm, v;
+      for (k = 0; k <= n; k++) {
+        mm = mLo + (mHi - mLo) * k / n;
+        v = fronteiraVar(mm);
+        if (v < 0) continue;
+        frontierPts.push({ E: mm, SD: Math.sqrt(v) });
+      }
+      vertexE = mStar;
+    } else {
+      tan = tangenciaGrid(rf);
+      frontierPts = FRONT_GRID_NS;
+      vertexE = vertexNS;
+    }
+
+    elW1.textContent = fmtSigned(tan.w[0] * 100, 1) + "%";
+    elW2.textContent = fmtSigned(tan.w[1] * 100, 1) + "%";
+    elW3.textContent = fmtSigned(tan.w[2] * 100, 1) + "%";
+    elE.textContent = a9pPct(tan.E, 1);
+    elSD.textContent = a9pPct(tan.SD, 1);
+    elSharpe.textContent = "índice de Sharpe = " + a9pFmt(tan.sharpe, 2);
+
+    var s = "";
+    var gx, gy;
+    for (gx = Math.ceil(X0 / 10) * 10; gx <= X1; gx += 10) {
+      s += '<line x1="' + sx(gx) + '" y1="' + m.t + '" x2="' + sx(gx) + '" y2="' + (H - m.b) + '" stroke="' + A9P_GRADE + '"/>';
+      s += '<text x="' + sx(gx) + '" y="' + (H - m.b + 16) + '" text-anchor="middle" font-size="11" fill="' + A9P_CINZA + '">' + gx + '</text>';
+    }
+    for (gy = Math.ceil(Y0 / 10) * 10; gy <= Y1; gy += 10) {
+      s += '<line x1="' + m.l + '" y1="' + sy(gy) + '" x2="' + (W - m.r) + '" y2="' + sy(gy) + '" stroke="' + A9P_GRADE + '"/>';
+      s += '<text x="' + (m.l - 8) + '" y="' + (sy(gy) + 4) + '" text-anchor="end" font-size="11" fill="' + A9P_CINZA + '">' + gy + '</text>';
+    }
+    s += '<line x1="' + m.l + '" y1="' + sy(0) + '" x2="' + (W - m.r) + '" y2="' + sy(0) + '" stroke="' + A9P_CINZA + '" stroke-width="1.2"/>';
+    s += '<text x="' + (m.l + (W - m.l - m.r) / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="12" fill="' + A9P_CINZA + '">volatilidade (%)</text>';
+    s += '<text x="14" y="' + (m.t + (H - m.t - m.b) / 2) + '" text-anchor="middle" font-size="12" fill="' + A9P_CINZA + '" transform="rotate(-90 14 ' + (m.t + (H - m.t - m.b) / 2) + ')">retorno esperado (%)</text>';
+
+    var ineffPts = [], effPts = [], idx2;
+    for (idx2 = 0; idx2 < frontierPts.length; idx2++) {
+      if (frontierPts[idx2].E <= vertexE) ineffPts.push(frontierPts[idx2]);
+      if (frontierPts[idx2].E >= vertexE) effPts.push(frontierPts[idx2]);
+    }
+    if (ineffPts.length > 1) s += '<path d="' + buildPath(ineffPts) + '" fill="none" stroke="' + A9P_CINZA_CLARO + '" stroke-width="1.6" stroke-dasharray="5,4"/>';
+    if (effPts.length > 1) s += '<path d="' + buildPath(effPts) + '" fill="none" stroke="' + A9P_LARANJA + '" stroke-width="2.6"/>';
+
+    // CML: de (0, rf) passando pela tangente, estendida até 1,3x SD_tan
+    var sdEnd = tan.SD * 1.3;
+    var eEnd = rf + 1.3 * (tan.E - rf);
+    s += '<line x1="' + sx(0) + '" y1="' + sy(rf * 100) + '" x2="' + sx(sdEnd * 100) + '" y2="' + sy(eEnd * 100) + '" stroke="' + A9P_AZUL + '" stroke-width="2.6"/>';
+
+    // ativo livre de risco
+    s += '<circle cx="' + sx(0) + '" cy="' + sy(rf * 100) + '" r="4.5" fill="' + A9P_CINZA + '"/>';
+    s += '<text x="' + (sx(0) + 8) + '" y="' + (sy(rf * 100) - 8) + '" font-size="11" fill="' + A9P_CINZA + '">livre de risco</text>';
+
+    // ativos individuais
+    for (i = 0; i < 3; i++) {
+      var cx = sx(SIG[i] * 100), cy = sy(MU[i] * 100);
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="5" fill="#141413"/>';
+      s += '<text x="' + (cx + 8) + '" y="' + (cy - 8) + '" font-size="12" fill="#141413">' + NOMES[i] + '</text>';
+    }
+
+    // carteira tangente M
+    var tx = sx(tan.SD * 100), ty = sy(tan.E * 100);
+    s += '<circle cx="' + tx + '" cy="' + ty + '" r="6.5" fill="' + A9P_VERDE + '" stroke="#fff" stroke-width="1.6"/>';
+    s += '<text x="' + (tx + 9) + '" y="' + (ty + 4) + '" font-size="12" font-weight="700" fill="' + A9P_VERDE + '">M</text>';
+
+    svg.innerHTML = s;
+  }
+
+  inpRf.addEventListener("input", render);
+  inpRf.addEventListener("keydown", function (ev) { ev.stopPropagation(); });
+  chkShort.addEventListener("change", render);
+
+  (function selfTest() {
+    var falhas = [];
+    function approx(nome, obtido, alvo, tol) {
+      if (!(Math.abs(obtido - alvo) <= tol)) falhas.push(nome + ": " + obtido + " != " + alvo);
+    }
+
+    var t1 = tangenciaShort(0.01);
+    approx("w1 (rf=1%)", t1.w[0] * 100, 51.0204, 0.01);
+    approx("w2 (rf=1%)", t1.w[1] * 100, 40.8163, 0.01);
+    approx("w3 (rf=1%)", t1.w[2] * 100, 8.1633, 0.01);
+    approx("E_tan (rf=1%)", t1.E * 100, 15.8776, 0.01);
+    approx("SD_tan (rf=1%)", t1.SD * 100, 27.5510, 0.01);
+    approx("Sharpe (rf=1%)", t1.sharpe, 0.54, 0.005);
+
+    var SD2 = t1.SD * t1.SD;
+    var betas = [t1.w[0] * SIG2[0] / SD2, t1.w[1] * SIG2[1] / SD2, t1.w[2] * SIG2[2] / SD2];
+    var somaWB = t1.w[0] * betas[0] + t1.w[1] * betas[1] + t1.w[2] * betas[2];
+    approx("soma w_k*beta_k", somaWB, 1, 1e-6);
+
+    var t0 = tangenciaShort(0), t2 = tangenciaShort(0.02);
+    var maxDiff = Math.max(
+      Math.abs(t0.w[0] - t2.w[0]),
+      Math.abs(t0.w[1] - t2.w[1]),
+      Math.abs(t0.w[2] - t2.w[2])
+    ) * 100;
+    if (!(maxDiff > 1)) falhas.push("pesos da tangente deveriam mudar com r_f (diff max = " + maxDiff + " p.p.)");
+
+    if (falhas.length) console.error("Autoteste (Aula 9, artefato iii) FALHOU:\n" + falhas.join("\n"));
+  })();
+
+  render();
+})();
+</script>
 </section>
 <section id="na-presença-de-um-ativo-livre-de-risco" class="slide level2 smaller">
 <h2>Na presença de um ativo livre de risco</h2>
@@ -696,8 +1234,8 @@ Felipe Iachan
 </ul>
 <!-- PLANNING: fim da revisão de teoria de portfólio (Port.lyx). A partir daqui, CAPM (Port_CAPM_APT.lyx). -->
 </section>
-<section id="recall-o-que-vimos-até-aqui" class="slide level2 smaller">
-<h2>Recall: o que vimos até aqui</h2>
+<section id="lembrando-o-que-vimos-até-aqui" class="slide level2 smaller">
+<h2>Lembrando: o que vimos até aqui</h2>
 <ul>
 <li>Análise média-variância: o risco de um portfólio depende essencialmente das <strong>covariâncias</strong>, pouco das volatilidades individuais</li>
 <li>Diversificação reduz risco — mas não o <span class="destaque">risco sistemático</span></li>
@@ -705,40 +1243,315 @@ Felipe Iachan
 <li>Carteira tangente <span class="math inline">\(M\)</span>: maior retorno esperado por unidade de risco; todo investidor aplica uma parcela nela</li>
 </ul>
 </section>
-<section id="aumentando-o-índice-de-sharpe-de-um-portfólio-p" class="slide level2 smaller">
-<h2>Aumentando o índice de Sharpe de um portfólio <span class="math inline">\(P\)</span></h2>
-<p>Um investidor com portfólio arriscado <span class="math inline">\(P\)</span> considera tomar emprestado (vender o ativo livre de risco) para investir mais num ativo <span class="math inline">\(i\)</span>. Duas consequências:</p>
-<ol type="1">
-<li><strong>Retorno esperado</strong> sobe pelo excesso de retorno <span class="math inline">\(E[R_i] - r_f\)</span></li>
-<li><strong>Volatilidade</strong> sobe apenas pelo risco de <span class="math inline">\(i\)</span> comum a <span class="math inline">\(P\)</span>: <span class="math inline">\(SD(R_i)\times Corr(R_i, R_P)\)</span> — o resto é diversificado</li>
-</ol>
+<section id="aumentando-o-sharpe-de-p-uma-perturbação" class="slide level2 smaller">
+<h2>Aumentando o Sharpe de <span class="math inline">\(P\)</span>: uma perturbação</h2>
+<p>Um investidor com portfólio arriscado <span class="math inline">\(P\)</span> toma <span class="math inline">\(\varepsilon\)</span> emprestado à taxa <span class="math inline">\(r_{f}\)</span> e investe em <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[ R(\varepsilon)=R_{P}+\varepsilon\left(R_{i}-r_{f}\right) \]</span></p>
+<p><span class="math display">\[ \mu(\varepsilon)=\mu_{P}+\varepsilon\left(\mu_{i}-r_{f}\right)\quad\Rightarrow\quad \dfrac{d\mu}{d\varepsilon}=\mu_{i}-r_{f} \]</span></p>
+<p><span class="math display">\[ \sigma^{2}(\varepsilon)=\sigma_{P}^{2}+2\varepsilon\,Cov\left(R_{i},R_{P}\right)+\varepsilon^{2}\sigma_{i}^{2}\quad\Rightarrow\quad \left.\dfrac{d\sigma}{d\varepsilon}\right|_{\varepsilon=0}=\dfrac{Cov\left(R_{i},R_{P}\right)}{\sigma_{P}}=\sigma_{i}\rho_{iP} \]</span></p>
+<p><span class="destaque">Essa derivada prova o que usamos a seguir: perto de <span class="math inline">\(\varepsilon=0\)</span>, a volatilidade sobe apenas pelo risco de <span class="math inline">\(i\)</span> comum a <span class="math inline">\(P\)</span> — o resto é diversificado.</span></p>
 </section>
-<section id="quando-vale-a-pena-adicionar-i" class="slide level2 smaller">
-<h2>Quando vale a pena adicionar <span class="math inline">\(i\)</span>?</h2>
-<p>Aumenta o índice de Sharpe de <span class="math inline">\(P\)</span> se:</p>
-<p><span class="math display">\[ Sharpe_{mg}=\frac{E\left[R_{i}\right]-r_{f}}{SD\left(R_{i}\right)\times Corr\left(R_{i},R_{P}\right)}&gt;\frac{E\left[R_{P}\right]-r_{f}}{SD\left(R_{P}\right)}=Sharpe_{P} \]</span></p>
-<p>Rearranjando:</p>
-<p><span class="math display">\[ \underset{\text{retorno incremental}}{\underbrace{E\left[R_{i}\right]-r_{f}}}&gt;\underset{\text{vol. incremental}}{\underbrace{SD\left(R_{i}\right)\times Corr\left(R_{i},R_{P}\right)}}\times Sharpe_{P} \]</span></p>
+<section id="sharpe-marginal" class="slide level2 smaller">
+<h2>Sharpe marginal</h2>
+<p><span class="math display">\[ S(\varepsilon)=\dfrac{\mu(\varepsilon)-r_{f}}{\sigma(\varepsilon)}\qquad\Rightarrow\qquad S'(0)=\dfrac{\left(\mu_{i}-r_{f}\right)-S_{P}\cdot\sigma_{i}\rho_{iP}}{\sigma_{P}} \]</span></p>
+<ul>
+<li><span class="math inline">\(S'(0)&gt;0 \iff \mu_{i}-r_{f}&gt;S_{P}\cdot\sigma_{i}\rho_{iP}\)</span></li>
+<li><span class="destaque">O “Sharpe marginal” de <span class="math inline">\(i\)</span> supera o de <span class="math inline">\(P\)</span>: aumentar <span class="math inline">\(\varepsilon\)</span> a partir de zero melhora o Sharpe de <span class="math inline">\(P\)</span>.</span></li>
+</ul>
 </section>
-<section id="beta-de-i-em-relação-a-p" class="slide level2 smaller">
-<h2>Beta de <span class="math inline">\(i\)</span> em relação a <span class="math inline">\(P\)</span></h2>
-<p><span class="math display">\[ \beta_{i}^{P}\equiv\dfrac{SD\left(R_{i}\right)\times Corr\left(R_{i},R_{P}\right)}{SD\left(R_{P}\right)} \]</span></p>
-<p>Adicionar <span class="math inline">\(i\)</span> aumenta o Sharpe de <span class="math inline">\(P\)</span> se e somente se:</p>
-<p><span class="math display">\[ E\left[R_{i}\right] &gt; r_{f}+\beta_{i}^{P}\left(E\left[R_{P}\right]-r_{f}\right) \]</span></p>
+<section id="beta-e-a-condição-de-sharpe-máximo" class="slide level2 smaller">
+<h2>Beta e a condição de Sharpe máximo</h2>
+<p>Como <span class="math inline">\(\varepsilon\)</span> pode ser negativo (vender <span class="math inline">\(i\)</span>), <span class="math inline">\(P\)</span> só tem Sharpe máximo se <span class="math inline">\(S'(0)=0\)</span> <strong>para todo</strong> <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[ \mu_{i}-r_{f}=\beta_{i}^{P}\left(\mu_{P}-r_{f}\right),\qquad \beta_{i}^{P}\equiv\dfrac{Cov\left(R_{i},R_{P}\right)}{\sigma_{P}^{2}}=\dfrac{\sigma_{i}\rho_{iP}}{\sigma_{P}} \]</span></p>
+<ul>
+<li>Checagens de consistência: <span class="math inline">\(\beta_{P}^{P}=1\)</span>; <span class="math inline">\(\sum_{i}x_{i}\beta_{i}^{P}=1\)</span> (bilinearidade da covariância)</li>
+</ul>
 <p><span class="destaque">O lado direito é o <strong>retorno exigido</strong>: o retorno necessário para compensar o risco que <span class="math inline">\(i\)</span> acrescenta a <span class="math inline">\(P\)</span>.</span></p>
+</section>
+<section id="artefato-sharpe-marginal-e-sml" class="slide level2 smaller">
+<h2>Artefato: Sharpe marginal e SML</h2>
+<style>
+#a9ps-root .a9ps-charts{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:10px;}
+#a9ps-root .a9ps-card{margin-top:12px;}
+@media (max-width: 700px){ #a9ps-root .a9ps-charts{grid-template-columns:1fr;} }
+</style>
+
+<div class="a9p" id="a9ps-root">
+  <div class="a9p-controls" style="grid-template-columns:1fr 1fr 1fr;">
+    <div class="a9p-field">
+      <label for="a9ps-mu"><span>μ<sub>i</sub> (retorno esperado)</span><output id="a9ps-lbl-mu">20%</output></label>
+      <input type="range" id="a9ps-mu" min="0" max="30" step="1" value="20">
+    </div>
+    <div class="a9p-field">
+      <label for="a9ps-sigma"><span>σ<sub>i</sub> (volatilidade)</span><output id="a9ps-lbl-sigma">30%</output></label>
+      <input type="range" id="a9ps-sigma" min="10" max="60" step="1" value="30">
+    </div>
+    <div class="a9p-field">
+      <label for="a9ps-rho"><span>ρ<sub>iP</sub> (correlação com P)</span><output id="a9ps-lbl-rho">0,30</output></label>
+      <input type="range" id="a9ps-rho" min="-1" max="1" step="0.05" value="0.30">
+    </div>
+  </div>
+
+  <div class="a9ps-charts">
+    <div class="a9p-chart">
+      <svg id="a9ps-svg-left" viewbox="0 0 460 320" role="img" aria-label="Índice de Sharpe S(ε) ao comprar ε unidades de i, com reta tangente em ε=0"></svg>
+    </div>
+    <div class="a9p-chart">
+      <svg id="a9ps-svg-right" viewbox="0 0 460 320" role="img" aria-label="Linha de mercado de títulos (SML) em relação à carteira P, com os três ativos reais e o ativo hipotético i"></svg>
+    </div>
+  </div>
+
+  <div class="a9p-card" id="a9ps-card" aria-live="polite">
+    <div class="a9p-badge" id="a9ps-badge"></div>
+    <dl>
+      <dt>β<sub>i</sub> (em relação a P)</dt><dd id="a9ps-beta"></dd>
+      <dt>α<sub>i</sub></dt><dd id="a9ps-alpha"></dd>
+      <dt>S'(0)</dt><dd id="a9ps-sprime"></dd>
+    </dl>
+    <div class="a9p-message">α<sub>i</sub> &gt; 0 ⇔ S'(0) &gt; 0 ⇔ vale comprar i; α<sub>i</sub> = 0 coloca i exatamente na SML e a tangente em ε=0 fica horizontal.</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var svgL = document.getElementById("a9ps-svg-left");
+  var svgR = document.getElementById("a9ps-svg-right");
+  if (!svgL || !svgR) return;
+
+  var RF = 0.01;
+  var MU = [0.26, 0.06, 0.02];
+  var SIG = [0.50, 0.25, 0.25];
+  var NOMES = ["Intel", "Coca-Cola", "Bore"];
+
+  var inpMu = document.getElementById("a9ps-mu");
+  var lblMu = document.getElementById("a9ps-lbl-mu");
+  var inpSigma = document.getElementById("a9ps-sigma");
+  var lblSigma = document.getElementById("a9ps-lbl-sigma");
+  var inpRho = document.getElementById("a9ps-rho");
+  var lblRho = document.getElementById("a9ps-lbl-rho");
+  var elBadge = document.getElementById("a9ps-badge");
+  var elBeta = document.getElementById("a9ps-beta");
+  var elAlpha = document.getElementById("a9ps-alpha");
+  var elSprime = document.getElementById("a9ps-sprime");
+
+  // ---- carteira tangente P (Intel, Coca-Cola, Bore; correlações todas zero) ----
+  function carteiraP(){
+    var rawW = MU.map(function(m, k){ return (m - RF) / (SIG[k]*SIG[k]); });
+    var soma = rawW.reduce(function(a,b){ return a+b; }, 0);
+    var w = rawW.map(function(x){ return x/soma; });
+    var E_P = 0;
+    for (var k=0; k<3; k++) E_P += w[k]*MU[k];
+    var Var_P = 0;
+    for (var j=0; j<3; j++) Var_P += w[j]*w[j]*SIG[j]*SIG[j];
+    var SD_P = Math.sqrt(Var_P);
+    var S_P = (E_P - RF) / SD_P;
+    var betas = w.map(function(wk, k){ return wk*SIG[k]*SIG[k]/Var_P; });
+    return {w:w, E_P:E_P, Var_P:Var_P, SD_P:SD_P, S_P:S_P, betas:betas};
+  }
+  var P = carteiraP();
+
+  // ---- ativo hipotético i em relação a P ----
+  function betaI(sigma_i, rho){ return sigma_i*rho/P.SD_P; }
+  function alphaI(mu_i, sigma_i, rho){
+    var b = betaI(sigma_i, rho);
+    return mu_i - (RF + b*(P.E_P - RF));
+  }
+  function sprime0(mu_i, sigma_i, rho){
+    return ((mu_i - RF) - P.S_P*sigma_i*rho) / P.SD_P;
+  }
+  function sharpeEps(eps, mu_i, sigma_i, rho){
+    var num = P.E_P + eps*(mu_i - RF) - RF;
+    var varE = P.Var_P + 2*eps*sigma_i*rho*P.SD_P + eps*eps*sigma_i*sigma_i;
+    return num / Math.sqrt(Math.max(varE, 1e-12));
+  }
+  function classify(s){
+    if (s > 1e-3) return {color:A9P_VERDE, texto:"S'(0) > 0: vale comprar i"};
+    if (s < -1e-3) return {color:A9P_LARANJA, texto:"S'(0) < 0: não vale comprar i"};
+    return {color:A9P_CINZA, texto:"S'(0) ≈ 0: indiferente"};
+  }
+
+  // ---- gráfico esquerdo: S(ε) ----
+  var WL=460, HL=320, mL={l:46, r:14, t:14, b:36};
+  var EPS0=-0.5, EPS1=0.5;
+  function sxL(e){ return mL.l + (WL-mL.l-mL.r)*(e-EPS0)/(EPS1-EPS0); }
+
+  function renderLeft(mu_i, sigma_i, rho, cl){
+    var n = 200, pontos = [];
+    for (var k=0; k<=n; k++){
+      var eps = EPS0 + (EPS1-EPS0)*k/n;
+      pontos.push({e:eps, s:sharpeEps(eps, mu_i, sigma_i, rho)});
+    }
+    var sp0 = sprime0(mu_i, sigma_i, rho);
+    var tanA = P.S_P + sp0*(-0.15), tanB = P.S_P + sp0*(0.15);
+    var yVals = pontos.map(function(p){ return p.s; }).concat([tanA, tanB]);
+    var yMin = Math.min.apply(null, yVals), yMax = Math.max.apply(null, yVals);
+    var pad = (yMax-yMin)*0.15; if (pad < 1e-6) pad = 0.05;
+    yMin -= pad; yMax += pad;
+    function syL(v){ return HL-mL.b - (HL-mL.t-mL.b)*(v-yMin)/(yMax-yMin); }
+
+    var s = "";
+    var xTicks = [-0.5, -0.25, 0, 0.25, 0.5];
+    xTicks.forEach(function(e){
+      s += '<line x1="'+sxL(e)+'" y1="'+mL.t+'" x2="'+sxL(e)+'" y2="'+(HL-mL.b)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+sxL(e)+'" y="'+(HL-mL.b+16)+'" text-anchor="middle" font-size="10.5" fill="'+A9P_CINZA+'">'+a9pFmt(e,2).replace("-","−")+'</text>';
+    });
+    for (var g=0; g<=4; g++){
+      var v = yMin + (yMax-yMin)*g/4;
+      s += '<line x1="'+mL.l+'" y1="'+syL(v)+'" x2="'+(WL-mL.r)+'" y2="'+syL(v)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+(mL.l-6)+'" y="'+(syL(v)+4)+'" text-anchor="end" font-size="10.5" fill="'+A9P_CINZA+'">'+a9pFmt(v,2).replace("-","−")+'</text>';
+    }
+    // eixo ε = 0
+    s += '<line x1="'+sxL(0)+'" y1="'+mL.t+'" x2="'+sxL(0)+'" y2="'+(HL-mL.b)+'" stroke="'+A9P_CINZA+'" stroke-width="1.1"/>';
+    s += '<text x="'+(mL.l+(WL-mL.l-mL.r)/2)+'" y="'+(HL-6)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'">ε (unidades de i compradas com empréstimo)</text>';
+    s += '<text x="12" y="'+(mL.t+(HL-mL.t-mL.b)/2)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'" transform="rotate(-90 12 '+(mL.t+(HL-mL.t-mL.b)/2)+')">S(ε)</text>';
+
+    // curva S(ε)
+    var d = "";
+    pontos.forEach(function(p, idx){
+      d += (idx===0?"M ":"L ") + sxL(p.e) + " " + syL(p.s) + " ";
+    });
+    s += '<path d="'+d+'" fill="none" stroke="'+A9P_AZUL+'" stroke-width="2.6"/>';
+
+    // tangente em ε=0
+    s += '<line x1="'+sxL(-0.15)+'" y1="'+syL(tanA)+'" x2="'+sxL(0.15)+'" y2="'+syL(tanB)+
+         '" stroke="'+cl.color+'" stroke-width="2.4" stroke-dasharray="5,4"/>';
+
+    // ponto ε=0
+    s += '<circle cx="'+sxL(0)+'" cy="'+syL(P.S_P)+'" r="4.5" fill="#141413"/>';
+    s += '<text x="'+(sxL(0)+7)+'" y="'+(syL(P.S_P)-8)+'" font-size="10.5" fill="#141413">ε=0 (S<tspan baseline-shift="sub" font-size="8">P</tspan>='+a9pFmt(P.S_P,2)+')</text>';
+
+    svgL.innerHTML = s;
+  }
+
+  // ---- gráfico direito: SML ----
+  var WR=460, HR=320, mR={l:46, r:14, t:14, b:36};
+  var BETA0=-0.5, BETA1=2.2, RET0=-10, RET1=35;
+  function sxR(b){ return mR.l + (WR-mR.l-mR.r)*(b-BETA0)/(BETA1-BETA0); }
+  function syR(v){ return HR-mR.b - (HR-mR.t-mR.b)*(v-RET0)/(RET1-RET0); }
+  function smlPct(beta){ return (RF + beta*(P.E_P-RF))*100; }
+
+  function renderRight(mu_i, sigma_i, rho, cl){
+    var bi = betaI(sigma_i, rho);
+    var s = "";
+    var xTicks = [-0.5, 0, 0.5, 1, 1.5, 2];
+    xTicks.forEach(function(b){
+      s += '<line x1="'+sxR(b)+'" y1="'+mR.t+'" x2="'+sxR(b)+'" y2="'+(HR-mR.b)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+sxR(b)+'" y="'+(HR-mR.b+16)+'" text-anchor="middle" font-size="10.5" fill="'+A9P_CINZA+'">'+a9pFmt(b,1).replace("-","−")+'</text>';
+    });
+    var yTicks = [-10, 0, 10, 20, 30];
+    yTicks.forEach(function(v){
+      s += '<line x1="'+mR.l+'" y1="'+syR(v)+'" x2="'+(WR-mR.r)+'" y2="'+syR(v)+'" stroke="'+A9P_GRADE+'"/>';
+      s += '<text x="'+(mR.l-6)+'" y="'+(syR(v)+4)+'" text-anchor="end" font-size="10.5" fill="'+A9P_CINZA+'">'+v+'%</text>';
+    });
+    s += '<text x="'+(mR.l+(WR-mR.l-mR.r)/2)+'" y="'+(HR-6)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'">β (em relação a P)</text>';
+    s += '<text x="12" y="'+(mR.t+(HR-mR.t-mR.b)/2)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'" transform="rotate(-90 12 '+(mR.t+(HR-mR.t-mR.b)/2)+')">retorno esperado (%)</text>';
+
+    // SML
+    s += '<line x1="'+sxR(BETA0)+'" y1="'+syR(smlPct(BETA0))+'" x2="'+sxR(BETA1)+'" y2="'+syR(smlPct(BETA1))+
+         '" stroke="'+A9P_AZUL+'" stroke-width="2.6"/>';
+    s += '<text x="'+(sxR(BETA1)-4)+'" y="'+(syR(smlPct(BETA1))-8)+'" text-anchor="end" font-size="11" fill="'+A9P_AZUL+'">SML</text>';
+
+    // três ativos reais (exatamente sobre a SML)
+    for (var k=0; k<3; k++){
+      var bx = sxR(P.betas[k]), by = syR(MU[k]*100);
+      s += '<circle cx="'+bx+'" cy="'+by+'" r="5" fill="#141413"/>';
+      s += '<text x="'+(bx+7)+'" y="'+(by-8)+'" font-size="10.5" fill="#141413">'+NOMES[k]+'</text>';
+    }
+
+    // ativo hipotético i
+    var bxI = sxR(bi), byI = syR(mu_i*100), byLinha = syR(smlPct(bi));
+    s += '<line x1="'+bxI+'" y1="'+byI+'" x2="'+bxI+'" y2="'+byLinha+'" stroke="'+A9P_CINZA_CLARO+'" stroke-width="1.6" stroke-dasharray="4,3"/>';
+    s += '<circle cx="'+bxI+'" cy="'+byI+'" r="6" fill="'+cl.color+'" stroke="#fff" stroke-width="1.4"/>';
+    s += '<text x="'+(bxI+8)+'" y="'+(byI+4)+'" font-size="10.5" fill="'+cl.color+'">i</text>';
+
+    svgR.innerHTML = s;
+  }
+
+  function render(){
+    var mu_i = +inpMu.value/100;
+    var sigma_i = +inpSigma.value/100;
+    var rho = +inpRho.value;
+    lblMu.textContent = a9pFmt(mu_i*100, 0) + "%";
+    lblSigma.textContent = a9pFmt(sigma_i*100, 0) + "%";
+    lblRho.textContent = a9pFmt(rho, 2).replace("-", "−");
+
+    var bi = betaI(sigma_i, rho);
+    var ai = alphaI(mu_i, sigma_i, rho);
+    var sp0 = sprime0(mu_i, sigma_i, rho);
+    var cl = classify(sp0);
+
+    elBeta.textContent = a9pFmt(bi, 2);
+    elAlpha.textContent = a9pPct(ai, 2).replace("-", "−");
+    elSprime.textContent = a9pFmt(sp0, 3).replace("-", "−");
+    elBadge.textContent = cl.texto;
+    elBadge.style.color = cl.color;
+
+    renderLeft(mu_i, sigma_i, rho, cl);
+    renderRight(mu_i, sigma_i, rho, cl);
+  }
+
+  [inpMu, inpSigma, inpRho].forEach(function(el){
+    el.addEventListener("input", render);
+    el.addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  });
+
+  (function selfTest(){
+    var falhas = [];
+    function approx(nome, obtido, alvo, tol){
+      if (!(Math.abs(obtido-alvo) <= tol)) falhas.push(nome+": "+obtido+" != "+alvo);
+    }
+
+    // (1) carteira tangente P
+    approx("w1", P.w[0], 0.510204, 1e-4);
+    approx("w2", P.w[1], 0.408163, 1e-4);
+    approx("w3", P.w[2], 0.081633, 1e-4);
+    approx("E_P", P.E_P, 0.158775510204, 1e-6);
+    approx("SD_P", P.SD_P, 0.275510204082, 1e-6);
+    approx("S_P", P.S_P, 0.54, 1e-6);
+    approx("beta1 (Intel)", P.betas[0], 1.680384, 1e-3);
+    approx("beta2 (Coca-Cola)", P.betas[1], 0.336077, 1e-3);
+    approx("beta3 (Bore)", P.betas[2], 0.067215, 1e-3);
+    var somaWBeta = P.w[0]*P.betas[0] + P.w[1]*P.betas[1] + P.w[2]*P.betas[2];
+    approx("soma x_k beta_k = 1 (bilinearidade)", somaWBeta, 1, 1e-3);
+
+    // (2) i idêntico a P: beta=1, S'(0)=0
+    approx("beta_i quando i=P", betaI(P.SD_P, 1), 1, 1e-6);
+    approx("S'(0) quando i=P", sprime0(P.E_P, P.SD_P, 1), 0, 1e-6);
+    approx("alpha_i quando i=P", alphaI(P.E_P, P.SD_P, 1), 0, 1e-6);
+
+    // (3) i exatamente sobre a SML: alpha=0 e S'(0)=0
+    var mu_test = 0.15, sigma_test = 0.30;
+    var rho_sml = (mu_test - RF) / (P.S_P * sigma_test);
+    approx("alpha_i sobre a SML", alphaI(mu_test, sigma_test, rho_sml), 0, 1e-6);
+    approx("S'(0) sobre a SML", sprime0(mu_test, sigma_test, rho_sml), 0, 1e-6);
+
+    // (4) identidade algébrica S'(0) = alpha_i / SD_P, para valores genéricos
+    var mu_g = 0.22, sigma_g = 0.35, rho_g = -0.4;
+    approx("S'(0) = alpha_i/SD_P (genérico)", sprime0(mu_g, sigma_g, rho_g), alphaI(mu_g, sigma_g, rho_g)/P.SD_P, 1e-9);
+
+    if (falhas.length) console.error("Autoteste (Aula 9, artefato iv) FALHOU:\n"+falhas.join("\n"));
+  })();
+
+  render();
+})();
+</script>
 </section>
 <section id="portfólio-eficiente-e-retorno-exigido" class="slide level2 smaller">
 <h2>Portfólio eficiente e retorno exigido</h2>
 <p>Sem restrições à negociação: um portfólio é eficiente <strong>se e somente se</strong> o retorno esperado de cada título disponível é igual ao seu retorno exigido.</p>
 <p><span class="math display">\[ E\left[R_{i}\right]=r_{i}\equiv r_{f}+\beta_{i}^{eff}\left(E\left[R_{eff}\right]-r_{f}\right) \]</span></p>
-<p><span class="destaque">Resultado: o prêmio de risco de qualquer investimento vem do seu beta em relação ao portfólio eficiente.</span></p>
+<p><span class="destaque">Resultado: o prêmio de risco de qualquer investimento vem do seu beta em relação ao portfólio eficiente. A demonstração de que essa condição vale para todos os <span class="math inline">\(i\)</span> <strong>simultaneamente</strong> está no <a href="#/apendice-tangente">apêndice</a>.</span></p>
 </section>
 <section id="o-portfólio-eficiente-como-benchmark-de-risco-sistemático" class="slide level2 smaller">
 <h2>O portfólio eficiente como benchmark de risco sistemático</h2>
 <p>O portfólio eficiente (tangente) é o padrão que separa, em qualquer ativo, o risco sistemático do idiossincrático:</p>
-<p><span class="math display">\[ SD(R_i)^2 = \underbrace{\left(\beta_i^{eff}\right)^2 SD(R_{eff})^2}_{\text{risco sistemático}} + \underbrace{\text{risco idiossincrático (diversificável)}}_{} \]</span></p>
+<p><span class="math display">\[ SD(R_i)^2 = \underbrace{\left(\beta_i^{eff}\right)^2 SD(R_{eff})^2}_{\text{risco sistemático}} + \text{risco idiossincrático (diversificável)} \]</span></p>
+</section>
+<section id="decomposição-da-volatilidade-sistemático-vs.-idiossincrático" class="slide level2 smaller">
+<h2>Decomposição da volatilidade: sistemático vs.&nbsp;idiossincrático</h2>
 
-<img data-src="index_files/figure-revealjs/cell-20-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Só o risco correlacionado com o portfólio eficiente é precificado; o resto pode ser diversificado.</span></p>
+<img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Só o risco correlacionado com o portfólio eficiente é precificado; o resto pode ser diversificado.</span></p>
 </section>
 <section id="capm-motivação" class="slide level2 smaller">
 <h2>CAPM: motivação</h2>
@@ -787,7 +1600,7 @@ Felipe Iachan
 <li>A escolha ótima se restringe à CML; a posição na reta reflete a aversão a risco</li>
 </ul>
 
-<img data-src="index_files/figure-revealjs/cell-21-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="determinando-o-prêmio-de-risco" class="slide level2 smaller">
 <h2>Determinando o prêmio de risco</h2>
 <p>Dado um portfólio de mercado eficiente, o retorno esperado de qualquer investimento é:</p>
@@ -800,8 +1613,8 @@ Felipe Iachan
 <!-- ADICIONADO: extensão numérica do exemplo de três ativos, tratando a
      carteira tangente calculada acima como mercado ilustrativo. -->
 <p>Tratando a carteira tangente como carteira de mercado (<span class="math inline">\(r_f=\)</span> 1,0\\\\%):</p>
-<div id="02360b6a" class="cell" data-execution_count="21">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
+<div id="38ce9380" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -830,8 +1643,8 @@ Felipe Iachan
 </table>
 </div>
 </div>
-<div id="87e8c31d" class="cell" data-execution_count="22">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
+<div id="ac9c875c" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p>Carteira de mercado: <span class="math inline">\(E[R_M] = 15,9\%\)</span>, <span class="math inline">\(SD(R_M) = 27,6\%\)</span>.</p>
 </div>
 </div>
@@ -839,7 +1652,7 @@ Felipe Iachan
 <section id="gráfico-a-linha-de-mercado-de-títulos-sml" class="slide level2 smaller">
 <h2>Gráfico: a Linha de Mercado de Títulos (SML)</h2>
 
-<img data-src="index_files/figure-revealjs/cell-24-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Sob as hipóteses do CAPM, todo ativo cai exatamente sobre a SML.</span></p>
+<img data-src="index_files/figure-revealjs/cell-17-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Sob as hipóteses do CAPM, todo ativo cai exatamente sobre a SML.</span></p>
 </section>
 <section id="linha-de-mercado-de-títulos-casos-especiais" class="slide level2">
 <h2>Linha de Mercado de Títulos: casos especiais</h2>
@@ -869,6 +1682,25 @@ Felipe Iachan
 <li>Fronteira eficiente + ativo livre de risco <span class="math inline">\(\Rightarrow\)</span> CML: toda carteira ótima combina o ativo livre de risco com a carteira tangente</li>
 <li>No CAPM, a carteira tangente é o <strong>portfólio de mercado</strong>; o beta mede o risco que importa, e a SML dá o retorno exigido</li>
 <li>Próxima aula: <span class="secundario">de onde vem o prêmio de risco</span> — risco e preços em finanças</li>
+</ul>
+</section>
+<section id="apendice-tangente" class="slide level2 smaller">
+<h2>Apêndice: carteira tangente via Lagrangeano</h2>
+<p>Problema: maximizar <span class="math inline">\(\sum_{i}w_{i}\left(\mu_{i}-r_{f}\right)\)</span> sujeito a <span class="math inline">\(\sum_{i}\sum_{j}w_{i}w_{j}\sigma_{ij}=\bar\sigma^{2}\)</span>.</p>
+<p><span class="math display">\[ L=\sum_{i}w_{i}\left(\mu_{i}-r_{f}\right)-\dfrac{\lambda}{2}\left(\sum_{i}\sum_{j}w_{i}w_{j}\sigma_{ij}-\bar\sigma^{2}\right) \]</span></p>
+<p>CPO para cada <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[ \mu_{k}-r_{f}=\lambda\sum_{j}\sigma_{kj}w_{j}=\lambda\,Cov\left(R_{k},R_{w}\right) \]</span></p>
+</section>
+<section id="apêndice-da-cpo-ao-beta" class="slide level2 smaller">
+<h2>Apêndice: da CPO ao beta</h2>
+<p>Multiplicando por <span class="math inline">\(w_{k}\)</span> e somando em <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[ \mu_{w}-r_{f}=\lambda\sigma_{w}^{2}\quad\Rightarrow\quad \lambda=\dfrac{\mu_{w}-r_{f}}{\sigma_{w}^{2}} \]</span></p>
+<p>Substituindo de volta, para todo <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[ \mu_{k}-r_{f}=\dfrac{Cov\left(R_{k},R_{w}\right)}{\sigma_{w}^{2}}\left(\mu_{w}-r_{f}\right)=\beta_{k}^{w}\left(\mu_{w}-r_{f}\right) \]</span></p>
+<ul>
+<li>A CPO é um sistema linear, <span class="math inline">\(\sum_{j}\sigma_{kj}w_{j}\propto\mu_{k}-r_{f}\)</span> — é assim que o artefato da carteira tangente resolve e normaliza os pesos</li>
+<li>No exemplo da aula as correlações são nulas, logo <span class="math inline">\(w_{i}\propto\left(\mu_{i}-r_{f}\right)/\sigma_{i}^{2}\)</span>, o que dá 51,0% / 40,8% / 8,2% com <span class="math inline">\(r_{f}=1\%\)</span></li>
+<li>A mesma condição sai de maximizar o Sharpe diretamente, pois o Sharpe é homogêneo de grau zero em <span class="math inline">\(w\)</span></li>
 </ul>
 
 </section>
