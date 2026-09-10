@@ -344,43 +344,69 @@ Felipe Iachan
 <li>Investidores não gostam de risco</li>
 </ul>
 </section>
+<section id="retorno-dividendo-e-revenda" class="slide level2">
+<h2>Retorno: dividendo e revenda</h2>
+<p>Hoje, o ativo <span class="math inline">\(i\)</span> custa <span class="math inline">\(P_{i,t}\)</span>. No estado <span class="math inline">\(s\)</span>, ele paga <span class="math inline">\(D_{i,t+1}(s)\)</span> e pode ser revendido por <span class="math inline">\(P_{i,t+1}(s)\)</span>.</p>
+<p><span class="math display">\[ 1+R_i(s)=\frac{D_{i,t+1}(s)+P_{i,t+1}(s)}{P_{i,t}} \]</span></p>
+<p><span class="destaque">O retorno bruto soma dividendo e preço de revenda, por real investido.</span></p>
+</section>
+<section id="uma-carteira-começa-com-quantidades" class="slide level2 smaller">
+<h2>Uma carteira começa com quantidades</h2>
+<p>Compre <span class="math inline">\(q_i\)</span> unidades de cada ativo:</p>
+<p><span class="math display">\[
+\begin{aligned}
+W_t &amp;= \sum_i q_iP_{i,t} &amp;&amp; \text{(riqueza inicial investida)} \\
+W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \text{(riqueza final)}
+\end{aligned}
+\]</span></p>
+<p>Os pesos são as frações da riqueza inicial em cada ativo:</p>
+<p><span class="math display">\[ x_i\equiv\frac{q_iP_{i,t}}{W_t} \qquad\Rightarrow\qquad \sum_i x_i=1 \]</span></p>
+</section>
 <section id="retorno-do-portfólio-uma-identidade" class="slide level2 smaller">
 <h2>Retorno do portfólio: uma identidade</h2>
-<ul>
-<li>Em <strong>cada</strong> estado da natureza <span class="math inline">\(s\)</span>, a riqueza final é <span class="math inline">\(W_{0}\sum_{i}x_{i}\left(1+R_{i}(s)\right)\)</span></li>
-<li>Logo, estado a estado: <span class="math inline">\(R_{p}(s)=\sum_{i}x_{i}R_{i}(s)\)</span></li>
-<li><span class="destaque">É uma identidade entre variáveis aleatórias — vale realização por realização, sem usar nenhuma probabilidade.</span></li>
-</ul>
-<div id="28147a34" class="cell" data-execution_count="2">
+<p>Em qualquer estado <span class="math inline">\(s\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1+R_p(s)
+&amp;=\frac{W_{t+1}(s)}{W_t}
+=\frac{\sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right]}{W_t} \\
+&amp;=\sum_i \underbrace{\frac{q_iP_{i,t}}{W_t}}_{x_i}
+\underbrace{\frac{D_{i,t+1}(s)+P_{i,t+1}(s)}{P_{i,t}}}_{1+R_i(s)}
+=\sum_i x_i\left(1+R_i(s)\right) \\
+&amp;\Longrightarrow\quad R_p(s)=\sum_i x_iR_i(s).
+\end{aligned}
+\]</span></p>
+<p><span class="destaque">É uma identidade: vale realização por realização, sem usar nenhuma probabilidade.</span></p>
+</section>
+<section id="a-mesma-regra-em-todo-estado" class="slide level2 smaller">
+<h2>A mesma regra em todo estado</h2>
+<p>Para <span class="math inline">\(x_1=0{,}6\)</span> e <span class="math inline">\(x_2=0{,}4\)</span>:</p>
+<div id="4681aba7" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: right;">Estado</th>
-<th style="text-align: left;">πₛ</th>
 <th style="text-align: left;">R₁(s)</th>
 <th style="text-align: left;">R₂(s)</th>
-<th style="text-align: left;">Rp(s), x₁=0,6</th>
+<th style="text-align: left;">Rₚ(s) = 0,6R₁(s) + 0,4R₂(s)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">0,3</td>
 <td style="text-align: left;">15,0%</td>
 <td style="text-align: left;">-5,0%</td>
 <td style="text-align: left;">7,0%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">0,5</td>
 <td style="text-align: left;">5,0%</td>
 <td style="text-align: left;">15,0%</td>
 <td style="text-align: left;">9,0%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">0,2</td>
 <td style="text-align: left;">-10,0%</td>
 <td style="text-align: left;">25,0%</td>
 <td style="text-align: left;">4,0%</td>
@@ -389,18 +415,19 @@ Felipe Iachan
 </table>
 </div>
 </div>
+<p><span class="destaque">Nenhuma probabilidade entra nesta conta.</span></p>
 </section>
 <section id="retorno-esperado-a-linearidade-é-uma-consequência" class="slide level2 smaller">
 <h2>Retorno esperado: a linearidade é uma consequência</h2>
 <p><span class="math display">\[ E\left[R_{p}\right]=\sum_{s}\pi_{s}R_{p}(s)=\sum_{s}\pi_{s}\sum_{i}x_{i}R_{i}(s)=\sum_{i}x_{i}\sum_{s}\pi_{s}R_{i}(s)=\sum_{i}x_{i}E\left[R_{i}\right] \]</span></p>
 <p><span class="destaque">A troca da ordem das somas é o único passo: <span class="math inline">\(E[\cdot]\)</span> é linear porque é uma soma ponderada.</span></p>
-<div id="79d235ef" class="cell" data-execution_count="3">
+<div id="7c687103" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p>No exemplo: <span class="math inline">\(E[R_1]=5\%\)</span>, <span class="math inline">\(E[R_2]=11\%\)</span>, <span class="math inline">\(E[R_p]=0{,}6\times5\%+0{,}4\times11\%=7,4\%\)</span> — confere com a tabela anterior.</p>
 </div>
 </div>
 <p>Exemplo de uma linha: R$ 25 mil a 18% e R$ 35 mil a 25%:</p>
-<div id="97f5f346" class="cell" data-execution_count="4">
+<div id="15ac0752" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[E[R_p] = 0,4167\times 0{,}18 + 0,5833\times 0{,}25 = 22,1\%\]</span></p>
 </div>
@@ -450,7 +477,7 @@ Felipe Iachan
 <section id="exemplo-numérico-pesos-iguais" class="slide level2 smaller">
 <h2>Exemplo numérico: pesos iguais</h2>
 <p>Desvio-padrão médio das ações: 10% a.m.; correlação média: 0,40. Investindo o mesmo montante em cada ação, qual a variância do portfólio quando <span class="math inline">\(n\to\infty\)</span>? E se a correlação fosse 0? E 1?</p>
-<div id="009ddcd3" class="cell" data-execution_count="7">
+<div id="4d3b47b6" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[Cov\left(R_i,R_j\right) = 0{,}40\times0{,}10\times0{,}10 = 0,004\]</span></p>
 <p><span class="math display">\[\sigma_p \underset{n\to\infty}{\approx} \sqrt{0,004} = 6,3\%\]</span></p>
@@ -1612,8 +1639,8 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 <h2>Exemplo: beta no nosso exemplo</h2>
 <!-- ADICIONADO: extensão numérica do exemplo de três ativos, tratando a
      carteira tangente calculada acima como mercado ilustrativo. -->
-<p>Tratando a carteira tangente como carteira de mercado (<span class="math inline">\(r_f=\)</span> 1,0\\\\%):</p>
-<div id="38ce9380" class="cell" data-execution_count="14">
+<p>Tratando a carteira tangente como carteira de mercado (<span class="math inline">\(r_f=\)</span> 1,0%):</p>
+<div id="5d6df4e7" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <table class="caption-top">
 <thead>
@@ -1643,7 +1670,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 </table>
 </div>
 </div>
-<div id="ac9c875c" class="cell" data-execution_count="15">
+<div id="f470a272" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p>Carteira de mercado: <span class="math inline">\(E[R_M] = 15,9\%\)</span>, <span class="math inline">\(SD(R_M) = 27,6\%\)</span>.</p>
 </div>
