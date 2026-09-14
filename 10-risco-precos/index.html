@@ -159,6 +159,14 @@ Felipe Iachan
 <p>De onde vêm os <span class="destaque">preços</span> que usamos para descontar fluxos arriscados — o custo de capital, o VPL de um projeto?</p>
 </div>
 </section>
+<section id="mesmo-fluxo-esperado.-mesmo-valor" class="slide level2 smaller">
+<h2>Mesmo fluxo esperado. Mesmo valor?</h2>
+<p>Dois projetos custam o mesmo hoje e têm o mesmo fluxo esperado amanhã:</p>
+
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Com <span class="math inline">\(\pi_{exp}=\pi_{rec}=1/2\)</span>, ambos têm <span class="math inline">\(\mathbb{E}[CF]=100\)</span>.</p>
+<p><span class="destaque">Se a recessão é o estado ruim, ainda assim os dois projetos valem o mesmo?</span></p>
+<!-- PLANNING: pergunte antes de revelar a última linha. Não responda ainda: a aula vai construir a resposta. -->
+</section>
 <section id="de-onde-vêm-os-preços" class="slide level2 smaller">
 <h2>De onde vêm os preços?</h2>
 <p>Precisamos de preços para:</p>
@@ -238,7 +246,7 @@ flowchart LR
 <section id="a-lógica-da-otimalidade" class="slide level2">
 <h2>A lógica da otimalidade</h2>
 <p>Efeito líquido na utilidade:</p>
-<p><span class="math display">\[ dU=\left[{\color{#d97757}-u^{'}\left(c_{0}^{*}\right)p^{j}+\beta\sum_{s}\pi_{s}u^{'}\left(c_{s}^{*}\right)x_{s}^{j}}\right]d\epsilon \]</span></p>
+<p><span class="math display">\[ dU=\color{#d97757}{\left[-u^{'}\left(c_{0}^{*}\right)p^{j}+\beta\sum_{s}\pi_{s}u^{'}\left(c_{s}^{*}\right)x_{s}^{j}\right]}d\epsilon \]</span></p>
 <p>Se o termo em <span class="destaque">laranja</span>:</p>
 <ul>
 <li>é maior que zero, comprar (<span class="math inline">\(d\epsilon&gt;0\)</span>) gera ganho de utilidade</li>
@@ -285,6 +293,21 @@ flowchart LR
 <ul>
 <li>Qual o impacto sobre sua utilidade? Vale a pena fazer esse investimento?</li>
 </ul>
+</section>
+<section id="valuation-pela-tms-uma-intervenção-local" class="slide level2 smaller">
+<h2>Valuation pela TMS: uma intervenção local</h2>
+<ul>
+<li>Partimos da carteira que o agente já escolheu otimamente</li>
+<li>Acrescentamos apenas <span class="math inline">\(\epsilon\)</span> unidades de um projeto, com <span class="math inline">\(\epsilon\)</span> pequeno</li>
+<li>Pergunta: esse acréscimo melhora ou piora a utilidade?</li>
+</ul>
+<p><span class="math display">\[ \Delta U^{i}=u_0^{'i}\!\left(c_0^{i,*}\right)\,\epsilon\,NPV^i+o\left(\epsilon\right) \]</span></p>
+<ul>
+<li>O termo de primeira ordem decide para onde mover <span class="math inline">\(\epsilon\)</span></li>
+<li>Para um projeto grande, o consumo — e a própria TMS — mudam</li>
+</ul>
+<p><span class="destaque">Não é o valor de uma firma inteira pela utilidade de uma pessoa: é uma comparação local.</span></p>
+<!-- PLANNING: enfatizar que esta é a única hora em que "na margem" entra. A expansão do envelope do slide seguinte formaliza a frase. -->
 </section>
 <section id="aproximação-linear-via-teorema-do-envelope" class="slide level2">
 <h2>Aproximação linear via Teorema do Envelope</h2>
@@ -343,13 +366,15 @@ flowchart LR
 <p><span class="math display">\[ p_{k}=\frac{\beta^{i}\pi_{k}^{i}u_{k}^{i'}\left(c_{k}^{i,*}\right)}{u^{'}\left(c_{0}^{i,*}\right)}=TMS_{0,k}^{i} \]</span></p>
 </div></div>
 </section>
-<section id="mercados-completos-todos-concordam" class="slide level2 smaller">
-<h2>Mercados completos: todos concordam</h2>
-<p>Lado esquerdo de <span class="math inline">\(p_k = TMS_{0,k}^i\)</span> não depende de <span class="math inline">\(i\)</span> — logo o lado direito também não pode depender, em equilíbrio.</p>
-<ul>
-<li>Todos os agentes <span class="destaque">concordam</span> sobre o preço desse ativo!</li>
-<li>Mesmo com discordâncias sobre desconto, preferências ou probabilidades</li>
+<section id="mesma-inclinação-escolhas-diferentes" class="slide level2 smaller">
+<h2>Mesma inclinação, escolhas diferentes</h2>
+<p>Cada painel fixa o consumo nos outros estados e olha apenas para <span class="math inline">\((c_0,c_s)\)</span>.</p>
+
+<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><ul>
+<li>As retas podem ter interceptos diferentes; o que é comum é a inclinação <span class="math inline">\(-1/q_s\)</span></li>
+<li>Repetindo o corte para cada estado, <span class="math inline">\(TMS_{0,s}^{i}=q_s\)</span> para todo agente <span class="math inline">\(i\)</span></li>
 </ul>
+<!-- PLANNING: insistir que não desenhamos toda a economia. É um corte 2D: os demais c's ficam fixos. -->
 </section>
 <section id="mercados-completos-concordância-geral" class="slide level2 smaller">
 <h2>Mercados completos: concordância geral</h2>
@@ -402,6 +427,7 @@ flowchart LR
 <p>Com preços de estado <span class="math inline">\(\left\{ q_{s}\right\}\)</span>, escrevemos</p>
 <p><span class="math display">\[ q_{s}=\pi_{s}m_{s}\qquad\text{ou}\qquad m_{s}=\frac{q_{s}}{\pi_{s}} \]</span></p>
 <p>definindo um <span class="destaque">fator estocástico de desconto</span> <span class="math inline">\(m_{s}\)</span> — uma variável aleatória, cuja realização é descoberta em <span class="math inline">\(t=1\)</span>.</p>
+<p><a href="#/apendice-probabilidades-neutras" class="fonte">Apêndice: probabilidades neutras ao risco →</a></p>
 </section>
 <section id="sdf-e-apreçamento" class="slide level2">
 <h2>SDF e apreçamento</h2>
@@ -409,23 +435,11 @@ flowchart LR
 <p><span class="math display">\[ p^{j}=\sum_{s}\pi_{s}m_{s}x_{s}^{j}\implies p^{j}=\mathbb{E}\left[mx^{j}\right]\quad\text{ou}\quad1=\mathbb{E}\left[mR^{j}\right] \]</span></p>
 <p><span class="fonte">Uso: produtos cruzados, covariâncias, <span class="math inline">\(\beta\)</span>.</span></p>
 </section>
-<section id="probabilidades-neutras-ao-risco" class="slide level2 smaller">
-<h2>Probabilidades neutras ao risco</h2>
-<p>Com outra mudança de variáveis, definimos</p>
-<p><span class="math display">\[ \hat{\pi}_{s}=\frac{q_{s}}{\sum_{s}q_{s}}=\frac{\pi_{s}m_{s}}{\mathbb{E}\left[m\right]} \]</span></p>
-<!-- CORREÇÃO: a fonte escreve Σq_s=1; o correto é Σπ̂_s=1 (l.1854 do .lyx). Em geral Σq_s=1/R^f≠1 — só os pesos normalizados π̂_s somam 1. -->
-<ul>
-<li><span class="math inline">\(q_s\geq0\implies\hat\pi_s\geq0\)</span>; <span class="math inline">\(\sum_{s}q_{s}=1/R^{f}\)</span></li>
-<li><span class="math inline">\(\sum_{s}\hat\pi_{s}=1\)</span>: é uma <span class="destaque">medida de probabilidade</span> (frequência de estados distorcida pelos preços)</li>
-<li>Sob essa medida, <span class="math inline">\(\hat{\mathbb{E}}\left[R^{j}\right]=\dfrac{1}{\sum_{s}q_{s}}=R^{f}\)</span> para todo <span class="math inline">\(j\in J\)</span></li>
-<li>Todos os ativos têm o <strong>mesmo</strong> retorno esperado nessa medida (mas não na medida física)</li>
-</ul>
-</section>
 <section id="exemplo-economia-com-dois-estados" class="slide level2 smaller">
 <h2>Exemplo: economia com dois estados</h2>
 <p>Duas datas, dois estados em <span class="math inline">\(t=1\)</span> (<span class="math inline">\(s_1, s_2\)</span>). Ativo livre de risco paga 1 em ambos; ativo arriscado (a) paga 3/2 em <span class="math inline">\(s_1\)</span> e 1/2 em <span class="math inline">\(s_2\)</span>; ambos custam 1.</p>
-<div id="47b80106" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<div id="700a0899" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -472,8 +486,8 @@ flowchart LR
 <h2>Resolvendo os preços de estado</h2>
 <!-- ADICIONADO: não está na fonte (o .lyx só formula a pergunta). Ver dados/10-risco-precos/SNAPSHOT_INFO.txt. -->
 <p>Aplicando <span class="math inline">\(p^{j}=\sum_s q_s x_s^j\)</span> a cada ativo:</p>
-<div id="bf0d1b6d" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<div id="f242031d" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <p><span class="math display">\[1 = q_1 + q_2 \qquad 1 = 1{,}5\,q_1 + 0{,}5\,q_2\]</span></p>
 <p><span class="math display">\[\implies q_1 = 0,5,\quad q_2 = 0,5\]</span></p>
 </div>
@@ -649,7 +663,7 @@ flowchart LR
 <p>Derivações do CAPM mostram (com algum trabalho) que o SDF é <strong>linear no retorno de mercado</strong>:</p>
 <p><span class="math display">\[ m_{s}=a-bR_{s}^{m} \]</span></p>
 
-<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="r-stretch quarto-figure-center"><p class="caption">SDF linear no retorno de mercado (a = 1,05, b = 0,5 — valores ILUSTRATIVOS, não constam do arquivo-fonte)</p><p><span class="destaque">Sinal trocado: quando o mercado vai mal, o consumo vale mais (é mais escasso).</span></p>
+<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="r-stretch quarto-figure-center"><p class="caption">SDF linear no retorno de mercado (a = 1,05, b = 0,5 — valores ILUSTRATIVOS, não constam do arquivo-fonte)</p><p><span class="destaque">Sinal trocado: quando o mercado vai mal, o consumo vale mais (é mais escasso).</span></p>
 </section>
 <section id="o-capm-portfólio-de-mercado" class="slide level2 smaller">
 <h2>O CAPM: portfólio de mercado</h2>
@@ -704,6 +718,18 @@ flowchart LR
 <li>Preço = valor esperado + prêmio de risco: <span class="math inline">\(p^{j}=\mathbb{E}[x^j]/R^f + Cov(m,x^j)\)</span></li>
 <li>O CAPM é o caso especial em que <span class="math inline">\(m\)</span> é linear no retorno de mercado; modelos de fatores generalizam</li>
 <li>Próxima aula: <span class="secundario">estrutura de capital</span> — como dívida e equity dividem o valor da firma</li>
+</ul>
+</section>
+<section id="apendice-probabilidades-neutras" class="slide level2 smaller">
+<h2>Apêndice: probabilidades neutras ao risco</h2>
+<p>Com outra mudança de variáveis, definimos</p>
+<p><span class="math display">\[ \widehat{\pi}_{s}=\frac{q_{s}}{\sum_{s}q_{s}}=\frac{\pi_{s}m_{s}}{\mathbb{E}\left[m\right]} \]</span></p>
+<!-- CORREÇÃO: a fonte escreve Σq_s=1; o correto é Σπ̂_s=1 (l.1854 do .lyx). Em geral Σq_s=1/R^f≠1 — só os pesos normalizados π̂_s somam 1. -->
+<ul>
+<li><span class="math inline">\(q_s\geq0\implies\widehat{\pi}_s\geq0\)</span>; <span class="math inline">\(\sum_{s}q_{s}=1/R^{f}\)</span></li>
+<li><span class="math inline">\(\sum_{s}\widehat{\pi}_{s}=1\)</span>: é uma <span class="destaque">medida de probabilidade</span> (frequência de estados distorcida pelos preços)</li>
+<li>Sob essa medida, <span class="math inline">\(\hat{\mathbb{E}}\left[R^{j}\right]=\dfrac{1}{\sum_{s}q_{s}}=R^{f}\)</span> para todo <span class="math inline">\(j\in J\)</span></li>
+<li>Todos os ativos têm o <strong>mesmo</strong> retorno esperado nessa medida (mas não na medida física)</li>
 </ul>
 
 </section>
