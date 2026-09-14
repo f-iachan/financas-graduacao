@@ -123,9 +123,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="quarto-light">
@@ -144,28 +141,36 @@ Felipe Iachan
 </div>
 
 </section>
+<section class="slide level2">
+
+<!-- PLANNING: CANDIDATA ALFA (14/09/2026). Esta pasta é temporária e constitui a exceção declarada
+     à regra "fonte canônica única" do CLAUDE.md. Quando o professor decidir, ou este arquivo
+     substitui slides/10-risco-precos/index.qmd (e a versão atual vai para
+     slides/10-risco-precos/archive/), ou a pasta -alfa é apagada inteira.
+     Especificação: HANDOFF-ALFA.md. Mapa slide a slide: CHANGELOG.md. Números: notebooks/aula10_verificacao.py. -->
+</section>
 <section id="onde-estamos" class="slide level2">
 <h2>Onde estamos</h2>
 <ul>
 <li>Na Aula 9, revisamos <span class="secundario">portfólio e CAPM</span>: fronteira eficiente, carteira de mercado, SML</li>
-<li>O CAPM nos deu uma fórmula para o retorno exigido — mas de onde ela vem, afinal?</li>
-<li>Hoje: uma teoria mais geral de <strong>apreçamento de ativos</strong>, da qual o CAPM é um caso especial</li>
+<li>O CAPM nos deu uma fórmula para o retorno exigido. De onde ela vem?</li>
+<li>Nestas aulas: uma teoria mais geral de <strong>apreçamento de ativos</strong>, da qual o CAPM é um caso especial</li>
 </ul>
-<!-- PLANNING: aula essencialmente teórica (sem tabelas/figuras no .lyx-fonte) — ritmo de quadro, poucos exemplos numéricos. -->
+<!-- PLANNING: aula de teoria, ritmo de quadro. A alfa acrescenta uma economia numérica fixa (a mesma da Aula 11) para ancorar cada passo. -->
 </section>
 <section id="a-pergunta" class="slide level2 center">
 <h2>A pergunta</h2>
 <div class="r-fit-text">
-<p>De onde vêm os <span class="destaque">preços</span> que usamos para descontar fluxos arriscados — o custo de capital, o VPL de um projeto?</p>
+<p>De onde vêm os <span class="destaque">preços</span> que usamos para descontar fluxos arriscados: o custo de capital, o VPL de um projeto?</p>
 </div>
 </section>
 <section id="mesmo-fluxo-esperado.-mesmo-valor" class="slide level2 smaller">
 <h2>Mesmo fluxo esperado. Mesmo valor?</h2>
-<p>Dois projetos custam o mesmo hoje e têm o mesmo fluxo esperado amanhã:</p>
+<!-- ADICIONADO: não está na fonte. Os dois fluxos são os da economia numérica da aula, para o retorno a esta pergunta no slide "Preços e risco". -->
+<p>Dois fluxos amanhã, com as mesmas probabilidades de cada estado:</p>
 
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Com <span class="math inline">\(\pi_{exp}=\pi_{rec}=1/2\)</span>, ambos têm <span class="math inline">\(\mathbb{E}[CF]=100\)</span>.</p>
-<p><span class="destaque">Se a recessão é o estado ruim, ainda assim os dois projetos valem o mesmo?</span></p>
-<!-- PLANNING: pergunte antes de revelar a última linha. Não responda ainda: a aula vai construir a resposta. -->
+<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Se a recessão é o estado ruim, os dois fluxos valem o mesmo hoje?</span></p>
+<!-- PLANNING: pergunte ao ar e não responda. A resposta numérica (5 e 6) vem em "Preços e risco". -->
 </section>
 <section id="de-onde-vêm-os-preços" class="slide level2 smaller">
 <h2>De onde vêm os preços?</h2>
@@ -176,32 +181,31 @@ Felipe Iachan
 </ul>
 <p>Dois ingredientes de qualquer preço:</p>
 <ul>
-<li><strong>Dinheiro no tempo</strong> (já vimos: juros, desconto)</li>
-<li><strong>Preço do risco</strong> — mas risco de quê, exatamente?</li>
+<li><strong>Dinheiro no tempo</strong>: juros, desconto (já vimos)</li>
+<li><strong>Preço do risco</strong>: risco de quê, exatamente?</li>
 </ul>
 </section>
-<section id="o-roteiro-de-hoje" class="slide level2">
-<h2>O roteiro de hoje</h2>
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
-flowchart LR
-  A["1 agente:&lt;br/&gt;equação de Euler (TMS)"] --&gt; B{"TMS é abstrata,&lt;br/&gt;não observável..."}
-  B --&gt; C["Papel dos&lt;br/&gt;mercados financeiros"]
-  C --&gt; D["Mercados completos:&lt;br/&gt;todos os agentes concordam"]
-  D --&gt; E["Ausência de arbitragem:&lt;br/&gt;preços de estado / SDF"]
-  E --&gt; F["CAPM:&lt;br/&gt;caso especial linear"]
-  F --&gt; G["Modelos de fatores:&lt;br/&gt;generalização"]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p><span class="fonte">Começamos pelo problema de um único agente — e mostramos por que ele não basta.</span></p>
+<section id="o-roteiro-seis-passos" class="slide level2 smaller">
+<h2>O roteiro: seis passos</h2>
+<!-- ADICIONADO: não está na fonte. Substitui o diagrama mermaid da versão atual. Reaparece no início de cada parte com o passo corrente em destaque. -->
+<ol type="1">
+<li><span class="destaque">Um investidor sozinho: o preço é a soma dos pagamentos vezes a TMS</span></li>
+<li>Isso não basta: a TMS não se observa, muda com o tamanho e difere entre pessoas</li>
+<li>Mercados resolvem: o preço de R$1 em cada estado é o mesmo para todos</li>
+<li>Sem arbitragem, ativos negociados e fluxos replicáveis valem <span class="math inline">\(\sum_s q_s x_s\)</span>, com <span class="math inline">\(q_s&gt;0\)</span></li>
+<li>Preço = média descontada + covariância com <span class="math inline">\(m\)</span>. Só o risco que anda com <span class="math inline">\(m\)</span> tem preço</li>
+<li>CAPM: o caso em que <span class="math inline">\(m\)</span> é uma reta no retorno de mercado</li>
+</ol>
+<p><span class="fonte">Temos: a pergunta. Falta: tudo. Começamos por um investidor sozinho.</span></p>
+</section>
+<section id="ao-fim-destas-aulas-vocês-devem-saber-responder" class="slide level2 smaller">
+<h2>Ao fim destas aulas, vocês devem saber responder</h2>
+<!-- ADICIONADO: não está na fonte (contrato com a turma; "O que aprendemos" responde as três). -->
+<ol type="1">
+<li>Dois fluxos com a <strong>mesma média</strong> e a mesma taxa livre de risco: por que valem diferente? Qual o sinal do ajuste?</li>
+<li>O que garante um fator de desconto sobre o qual <strong>todos concordam</strong>? O que se perde sem mercado completo?</li>
+<li>De onde vem o <span class="math inline">\(r^*\)</span> dos livros de finanças corporativas? O que o <strong>CAPM</strong> acrescenta?</li>
+</ol>
 </section>
 <section id="o-problema-de-portfólio-de-um-agente" class="slide level2 smaller">
 <h2>O problema de portfólio de um agente</h2>
@@ -216,17 +220,83 @@ flowchart LR
 </ul></li>
 </ul>
 </section>
+<section id="nossa-economia" class="slide level2 smaller">
+<h2>Nossa economia</h2>
+<!-- ADICIONADO: não está na fonte. Economia numérica fixa, a mesma com que a Aula 11 abre (fluxo (6, 5, 3), valor 5). -->
+<p>Três estados amanhã. Um investidor com utilidade <span class="math inline">\(\log\)</span>, sem desconto (<span class="math inline">\(\beta = 1\)</span>), consome 5 hoje e, amanhã, o que a firma paga.</p>
+<div class="columns">
+<div class="column" style="width:46%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>estado <span class="math inline">\(s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\pi_s\)</span></th>
+<th style="text-align: right;">consumo <span class="math inline">\(c_s\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 expansão</td>
+<td style="text-align: right;">0,60</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td>2 normal</td>
+<td style="text-align: right;">0,25</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td>3 recessão</td>
+<td style="text-align: right;">0,15</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Hoje: <span class="math inline">\(c_0 = 5\)</span>.</span></p>
+</div><div class="column" style="width:52%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>ativo</th>
+<th>paga em <span class="math inline">\((s_1, s_2, s_3)\)</span></th>
+<th style="text-align: right;">preço</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>título</td>
+<td>(1, 1, 1)</td>
+<td style="text-align: right;">?</td>
+</tr>
+<tr class="even">
+<td>ação (a firma)</td>
+<td>(6, 5, 3)</td>
+<td style="text-align: right;">?</td>
+</tr>
+<tr class="odd">
+<td>seguro contra recessão</td>
+<td>(0, 0, 1)</td>
+<td style="text-align: right;">?</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><span class="destaque">Os preços virão da teoria. Voltaremos a esta tabela a cada passo.</span></p>
+<!-- PLANNING: os preços virão da teoria; não revelar ainda (título 1, ação 5, seguro 0,25). -->
+</section>
 <section id="crenças-e-preferências" class="slide level2">
 <h2>Crenças e preferências</h2>
 <p>Agente tem <span class="destaque">crenças</span> <span class="math inline">\(\left\{ \pi_{s}\right\} _{s\in S}\)</span> sobre a probabilidade dos estados (<span class="math inline">\(\pi_s&gt;0\)</span>, <span class="math inline">\(\sum_{s\in S}\pi_{s}=1\)</span>).</p>
-<p>Agente tem <span class="destaque">dotações</span> <span class="math inline">\(e=\left(e_{0},\left\{ e_{s}\right\} _{s\in S}\right)\)</span> e <span class="destaque">preferências</span> representadas pela utilidade</p>
+<p>Agente tem <strong>dotações</strong> <span class="math inline">\(e=\left(e_{0},\left\{ e_{s}\right\} _{s\in S}\right)\)</span> e <strong>preferências</strong> representadas pela utilidade</p>
 <p><span class="math display">\[ U\left(C\right)=u_{0}\left(c_{0}\right)+\beta\underset{\mathbb{E}\left[u_{1}\left(c_{1}\right)\right]}{\underbrace{\sum_{s}\pi_{s}u_{s}\left(c_{s}\right)}} \]</span></p>
+<p><span class="fonte">Lê-se: <span class="math inline">\(e\)</span> é a dotação (o que o agente tem antes de negociar); <span class="math inline">\(\beta\)</span> é o desconto do futuro. O ativo de Arrow, adiante, é chamado <span class="math inline">\(A_k\)</span> para não colidir com a dotação.</span></p>
 </section>
 <section id="restrições-orçamentárias" class="slide level2">
 <h2>Restrições orçamentárias</h2>
 <p>Agente escolhe portfólio (quantidades <span class="math inline">\(z^{j}\)</span> dos ativos) e consome (otimamente):</p>
 <p><span class="math display">\[ c_{0}=e_{0}-\sum_{j}p^{j}z^{j} \]</span></p>
 <p><span class="math display">\[ c_{s}=e_{s}+\sum_{j}x_{s}^{j}z^{j} \]</span></p>
+<p><span class="fonte">Lê-se: <span class="math inline">\(z^j\)</span> é quanto compra do ativo <span class="math inline">\(j\)</span> (negativo se vende).</span></p>
 </section>
 <section id="um-argumento-de-perturbação" class="slide level2">
 <h2>Um argumento de perturbação</h2>
@@ -252,42 +322,90 @@ flowchart LR
 <li>é maior que zero, comprar (<span class="math inline">\(d\epsilon&gt;0\)</span>) gera ganho de utilidade</li>
 <li>é menor que zero, vender (<span class="math inline">\(d\epsilon&lt;0\)</span>) gera ganho de utilidade</li>
 </ul>
-<p>Ambos contradizem otimalidade — logo o termo é <strong>zero</strong>.</p>
+<p>Ambos contradizem otimalidade. Logo o termo é <strong>zero</strong>.</p>
+<aside class="notes">
+<p>O colchete é um número. Se fosse positivo, eu compraria um pouco mais e a utilidade subiria. Se fosse negativo, eu venderia um pouco e a utilidade subiria. Mas parti de um ótimo: nada pode subir. Sobra zero. Só funciona porque posso ir nas duas direções, comprar ou vender.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="equação-de-euler-e-tms" class="slide level2 smaller">
 <h2>Equação de Euler e TMS</h2>
-<p>Para o ativo <span class="math inline">\(j\)</span>, vale a <span class="destaque">Equação de Euler</span>:</p>
+<p>Para o ativo <span class="math inline">\(j\)</span>, vale a <span class="destaque">Equação de Euler</span>, que reescrevemos com a TMS:</p>
 <p><span class="math display">\[ u^{'}\left(c_{0}^{*}\right)p^{j}=\beta\sum_{s}\pi_{s}u^{'}\left(c_{s}^{*}\right)x_{s}^{j} \]</span></p>
-<p>ou, escrita de outra forma,</p>
 <p><span class="math display">\[ p^{j}=\sum_{s}TMS_{0,s}\,x_{s}^{j},\qquad TMS_{0,s}=\beta\frac{\pi_{s}u^{'}\left(c_{s}^{*}\right)}{u^{'}\left(c_{0}^{*}\right)} \]</span></p>
 <ul>
-<li>Preço do ativo é valor presente usando a TMS para desconto</li>
-<li>Incerteza levada em conta</li>
+<li>Lê-se: <span class="math inline">\(TMS_{0,s}\)</span> é a taxa marginal de substituição entre consumo hoje e consumo no estado <span class="math inline">\(s\)</span></li>
+<li>O preço é um valor presente: a soma percorre os estados, cada um entra com a própria TMS</li>
+<li>Com multiplicadores de Lagrange, <span class="math inline">\(\lambda_s/\lambda_0 = TMS_{0,s}\)</span> (<a href="#/apendice-lagrange">apêndice</a>)</li>
 </ul>
+<p><span class="fonte">Ganho: o preço de qualquer ativo saiu de uma única condição de otimalidade do investidor.</span></p>
 </section>
-<section id="o-problema-do-agente" class="slide level2 smaller">
-<h2>O problema do agente</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p>Agente <span class="math inline">\(i\)</span> resolve:</p>
-<p><span class="math display">\[ \max_{Z^{i},C^{i}}u_{0}^{i}\left(c_{0}^{i}\right)+\beta^{i}\sum_{s}\pi_{s}^{i}u_{s}^{i}\left(c_{s}^{i}\right) \]</span></p>
-<p>s.a. <span class="math inline">\(c_{0}^{i}+\sum_{j}p^{j}z^{i,j}\leq e_{0}^{i}\)</span></p>
-<p>e, para cada <span class="math inline">\(s\in S\)</span> de <span class="math inline">\(t=1\)</span>,</p>
-<p><span class="math display">\[ c_{s}^{i}\leq e_{s}^{i}+\sum_{j}x_{s}^{j}z^{i,j} \]</span></p>
-</div><div class="column" style="width:45%;">
-<p>CPOs:</p>
-<p><span class="math display">\[ \frac{\partial u_{0}^{i}}{\partial c_{0}^{i}}=\lambda_{0}^{i} \]</span></p>
-<p><span class="math display">\[ \beta^{i}\pi_{s}^{i}\frac{\partial u_{s}^{i}}{\partial c_{s}^{i}}=\lambda_{s}^{i} \]</span></p>
-<p><span class="math display">\[ \lambda_{0}^{i}p^{j}=\sum_{s}\lambda_{s}^{i}x_{s}^{j} \]</span></p>
-</div></div>
-<p>Solução gera demanda por ativos <span class="math inline">\(\left\{ z^{j}\left(p\right)\right\}\)</span> e consumo <span class="math inline">\(\left\{ c_{0}\left(p\right),\left\{ c_{s}\left(p\right)\right\} _{s}\right\}\)</span>.</p>
+<section id="tms-com-números" class="slide level2 smaller">
+<h2>TMS com números</h2>
+<!-- ADICIONADO: não está na fonte. Primeira volta à economia da aula. -->
+<p>Na nossa economia, <span class="math inline">\(u(c)=\log c\)</span> e <span class="math inline">\(\beta=1\)</span>, logo <span class="math inline">\(u'(c)=1/c\)</span> e <span class="math inline">\(u'(c_0)=1/5\)</span>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>estado <span class="math inline">\(s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\pi_s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(c_s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(u'(c_s)=1/c_s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(TMS_{0,s}=\pi_s\,\dfrac{u'(c_s)}{u'(c_0)}=\pi_s\cdot\dfrac{5}{c_s}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 expansão</td>
+<td style="text-align: right;">0,60</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1/6</td>
+<td style="text-align: right;">0,50</td>
+</tr>
+<tr class="even">
+<td>2 normal</td>
+<td style="text-align: right;">0,25</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1/5</td>
+<td style="text-align: right;">0,25</td>
+</tr>
+<tr class="odd">
+<td>3 recessão</td>
+<td style="text-align: right;">0,15</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1/3</td>
+<td style="text-align: right;">?</td>
+</tr>
+</tbody>
+</table>
+<p>Quanto é a TMS da recessão?</p>
+<div class="fragment">
+<p><span class="math inline">\(TMS_{0,3}=0{,}15\times 5/3=\)</span> <span class="destaque">0,25</span>. Estado raro, mas consumo baixo: os dois efeitos se compensam e empata com o estado normal.</p>
+<!-- PLANNING: pergunta ao ar; resposta no clique. A ordem (0,50; 0,25; 0,25) é exatamente o q da Aula 11. -->
+</div>
 </section>
 <section id="tms-e-apreçamento-duas-perguntas" class="slide level2 smaller">
 <h2>TMS e apreçamento: duas perguntas</h2>
 <p>Com base na <span class="math inline">\(TMS^{i}\)</span>, podemos responder:</p>
 <ul>
 <li><span class="destaque">Por quanto</span> um indivíduo estaria disposto a comprar um ativo arbitrário?</li>
-<li><span class="destaque">Vale a pena investir</span> em um projeto determinado?</li>
+<li><strong>Vale a pena investir</strong> em um projeto determinado?</li>
 </ul>
 <p>Suponha que o indivíduo <span class="math inline">\(i\)</span> possa investir em um projeto pequeno, <strong>fora do mercado</strong>: custo <span class="math inline">\(-x_{0}^{p}\epsilon\)</span> e payoffs <span class="math inline">\(x_{s}^{p}\epsilon\)</span>.</p>
 <ul>
@@ -304,67 +422,86 @@ flowchart LR
 <p><span class="math display">\[ \Delta U^{i}=u_0^{'i}\!\left(c_0^{i,*}\right)\,\epsilon\,NPV^i+o\left(\epsilon\right) \]</span></p>
 <ul>
 <li>O termo de primeira ordem decide para onde mover <span class="math inline">\(\epsilon\)</span></li>
-<li>Para um projeto grande, o consumo — e a própria TMS — mudam</li>
+<li>Para um projeto grande, o consumo muda. A própria TMS muda</li>
 </ul>
 <p><span class="destaque">Não é o valor de uma firma inteira pela utilidade de uma pessoa: é uma comparação local.</span></p>
-<!-- PLANNING: enfatizar que esta é a única hora em que "na margem" entra. A expansão do envelope do slide seguinte formaliza a frase. -->
+<!-- PLANNING: enfatizar que esta é a única hora em que "na margem" entra. A expansão do slide seguinte formaliza a frase. -->
 </section>
-<section id="aproximação-linear-via-teorema-do-envelope" class="slide level2">
-<h2>Aproximação linear via Teorema do Envelope</h2>
+<section id="a-expansão-em-torno-do-ótimo" class="slide level2 smaller">
+<h2>A expansão em torno do ótimo</h2>
+<!-- Funde "Aproximação linear via Teorema do Envelope" com a primeira metade de "Quando vale a pena investir?". -->
+<p>Aproximação linear em torno do ótimo (Teorema do Envelope): só entram derivadas de primeira ordem.</p>
 <p><span class="math display">\[ U^{i}\left(C^{i}\right)=U^{i}\left(C^{i*}\right)+u_{0}^{'i}\left(c_{0}^{i*}\right)\left(-x_{0}^{p}\epsilon\right)+\beta^{i}\sum_{s}\pi_{s}^{i}u^{'}\left(c_{s}^{i*}\right)\left(x_{s}^{p}\epsilon\right) \]</span></p>
-<p><span class="fonte">Aproximação em torno do ótimo</span> — só precisamos das derivadas de primeira ordem.</p>
+<p>Dividindo por <span class="math inline">\(u_{0}^{'i}\left(c_{0}^{i*}\right)\epsilon&gt;0\)</span>, o ganho de utilidade tem o sinal de</p>
+<p><span class="math display">\[ NPV^{i}\equiv-x_{0}^{p}+\sum_{s}{\color{#d97757}TMS_{0,s}^{i}}\,x_{s}^{p} \]</span></p>
+<p><span class="fonte">Ganho: a decisão de investir virou um VPL, com a TMS no lugar do fator de desconto.</span></p>
 </section>
-<section id="quando-vale-a-pena-investir" class="slide level2">
-<h2>Quando vale a pena investir?</h2>
-<p>Há ganho de utilidade se, e só se,</p>
-<p><span class="math display">\[ U^{i}\left(C^{i}\right)-U^{i}\left(C^{i*}\right)\geq0 \]</span></p>
-<p><span class="math display">\[ \iff NPV^{i}\equiv-x_{0}^{p}+\sum_{s}{\color{#d97757}TMS_{0,s}^{i}}\,x_{s}^{p}\geq0 \]</span></p>
-</section>
-<section id="tms-como-fator-de-desconto-na-margem" class="slide level2 smaller">
-<h2>TMS como fator de desconto, na margem</h2>
-<p><span class="math display">\[ NPV^{i}\equiv-x_{0}^{p}+\sum_{s}{\color{#d97757}TMS_{0,s}^{i}}\,x_{s}^{p}\geq0 \]</span></p>
-<p>A taxa marginal de substituição serve como <span class="destaque">fator de desconto, na margem</span>.</p>
+<section id="a-tms-é-o-fator-de-desconto-na-margem" class="slide level2 smaller">
+<h2>A TMS é o fator de desconto, na margem</h2>
+<!-- Funde a segunda metade de "Quando vale a pena investir?" com "TMS como fator de desconto, na margem". -->
+<p><span class="math display">\[ \text{Vale investir}\iff NPV^{i}=-x_{0}^{p}+\sum_{s}{\color{#d97757}TMS_{0,s}^{i}}\,x_{s}^{p}\geq0 \]</span></p>
 <ul>
-<li>Investimento cria valor excedente? Ganho de utilidade na margem: <span class="math inline">\(u^{'}\left(c_{0}^{i*}\right)NPV^{i}\)</span></li>
-<li>Podemos também usar essa abordagem para <em>valuation</em></li>
+<li>A taxa marginal de substituição serve como <span class="destaque">fator de desconto, na margem</span>. E só na margem</li>
+<li>Ganho de utilidade do projeto: <span class="math inline">\(u^{'}\left(c_{0}^{i*}\right)NPV^{i}\)</span></li>
+<li>A mesma conta serve para <em>valuation</em>: quanto o agente <span class="math inline">\(i\)</span> pagaria por um fluxo pequeno</li>
 </ul>
+<p><span class="fonte">Ganho: temos uma regra de investimento completa para um investidor. Passo 1 fechado.</span></p>
 </section>
-<section id="problemas-com-o-apreçamento-via-tms" class="slide level2 smaller">
-<h2>Problemas com o apreçamento via TMS</h2>
-<p>Apreçamento com TMS <span class="destaque">soa abstrato</span> demais.</p>
+<section id="da-tms-ao-mercado" class="slide level2 smaller">
+<h2>Da TMS ao mercado</h2>
+<!-- Funde "Problemas com o apreçamento via TMS" e "A solução: mercados financeiros". -->
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>Três problemas para usar a TMS na prática</strong></p>
+<ul>
+<li>A TMS não é observável</li>
+<li>Só vale para projeto pequeno: em projeto grande o consumo muda, a TMS muda</li>
+<li>A TMS pode diferir entre agentes</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>O que o mercado resolve</strong></p>
+<ul>
+<li>O preço é observável</li>
+<li>O preço é o mesmo para todos</li>
+<li>O preço vale em qualquer escala</li>
+</ul>
+</div></div>
 <div class="fragment">
-<ul>
-<li>TMS não é observável</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Deixa de ser válido para projeto <strong>grande</strong>: consumo varia, TMS varia (efeitos de ordem superior importam)</li>
-<li>TMS pode ser diferente entre agentes</li>
-</ul>
+<p><span class="destaque">Preços revelam preferências. Mercados oferecem diversificação: o projeto deixa de ser comparável ao consumo de um agente isolado. Mercados completos, em particular, simplificam muito.</span></p>
+<!-- PLANNING: ponto natural de parada. Passo 2 fechado: sabemos o que falta. -->
 </div>
 </section>
-<section id="a-solução-mercados-financeiros" class="slide level2 smaller">
-<h2>A solução: mercados financeiros</h2>
-<p>A solução está em olhar com mais cuidado para o papel dos mercados financeiros.</p>
-<ul>
-<li>Preços revelam informação sobre preferências, e mercados oferecem <span class="destaque">diversificação</span> (o projeto deixa de ser comparável ao consumo de um agente isolado)</li>
-<li><strong>Mercados completos</strong>, em particular, simplificam muito</li>
-</ul>
+<section id="o-roteiro-passo-3" class="slide level2 smaller">
+<h2>O roteiro: passo 3</h2>
+<!-- ADICIONADO: não está na fonte (mapa reexibido). -->
+<ol type="1">
+<li>Um investidor sozinho: o preço é a soma dos pagamentos vezes a TMS</li>
+<li>Isso não basta: a TMS não se observa, muda com o tamanho e difere entre pessoas</li>
+<li><span class="destaque">Mercados resolvem: o preço de R$1 em cada estado é o mesmo para todos</span></li>
+<li>Sem arbitragem, ativos negociados e fluxos replicáveis valem <span class="math inline">\(\sum_s q_s x_s\)</span>, com <span class="math inline">\(q_s&gt;0\)</span></li>
+<li>Preço = média descontada + covariância com <span class="math inline">\(m\)</span>. Só o risco que anda com <span class="math inline">\(m\)</span> tem preço</li>
+<li>CAPM: o caso em que <span class="math inline">\(m\)</span> é uma reta no retorno de mercado</li>
+</ol>
+<p><span class="fonte">Temos: o preço pela TMS de um investidor e três razões para não parar aí. Falta: um preço que todos vejam.</span></p>
 </section>
 <section id="mercados-completos-ativos-de-arrow" class="slide level2 smaller">
 <h2>Mercados completos: ativos de Arrow</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
-<p>Suponha que existe um ativo <span class="math inline">\(e_{k}\)</span> com</p>
-<p><span class="math display">\[ x_{s}^{e_{k}}=\begin{cases} 1, &amp; s=k\\ 0, &amp; \text{c.c.} \end{cases} \]</span></p>
-<p>Isto é: paga <span class="math inline">\(1\)</span> no estado <span class="math inline">\(k\)</span> e <span class="math inline">\(0\)</span> nos demais. Seu preço é <span class="math inline">\(p_{k}\)</span>.</p>
+<p>Suponha que existe um ativo <span class="math inline">\(A_{k}\)</span> com</p>
+<p><span class="math display">\[ x_{s}^{A_{k}}=\begin{cases} 1, &amp; s=k\\ 0, &amp; \text{c.c.} \end{cases} \]</span></p>
+<p>Isto é: paga <span class="math inline">\(1\)</span> no estado <span class="math inline">\(k\)</span> e <span class="math inline">\(0\)</span> nos demais. Seu preço é <span class="math inline">\(q_{k}\)</span>, o <span class="destaque">preço de estado</span> de <span class="math inline">\(k\)</span>.</p>
 </div><div class="column" style="width:55%;">
 <p>CPO para um agente <span class="math inline">\(i\)</span>:</p>
-<p><span class="math display">\[ u_{0}^{i'}\left(c_{0}^{i,*}\right)p_{k}=\beta^{i}\pi_{k}^{i}u_{k}^{i'}\left(c_{k}^{i,*}\right) \]</span></p>
+<p><span class="math display">\[ u_{0}^{i'}\left(c_{0}^{i,*}\right)q_{k}=\beta^{i}\pi_{k}^{i}u_{k}^{i'}\left(c_{k}^{i,*}\right) \]</span></p>
 <p>Logo,</p>
-<p><span class="math display">\[ p_{k}=\frac{\beta^{i}\pi_{k}^{i}u_{k}^{i'}\left(c_{k}^{i,*}\right)}{u^{'}\left(c_{0}^{i,*}\right)}=TMS_{0,k}^{i} \]</span></p>
+<p><span class="math display">\[ q_{k}=\frac{\beta^{i}\pi_{k}^{i}u_{k}^{i'}\left(c_{k}^{i,*}\right)}{u^{'}\left(c_{0}^{i,*}\right)}=TMS_{0,k}^{i} \]</span></p>
 </div></div>
+<ul>
+<li>O lado esquerdo não depende de <span class="math inline">\(i\)</span>. Logo o direito também não, em equilíbrio</li>
+<li>Todos concordam sobre <span class="math inline">\(q_k\)</span>, mesmo com desconto, preferências ou probabilidades diferentes</li>
+</ul>
+<p><span class="fonte">Na nossa economia, o seguro é o ativo de Arrow da recessão. Seu preço é a TMS: 0,25.</span></p>
 </section>
 <section id="mesma-inclinação-escolhas-diferentes" class="slide level2 smaller">
 <h2>Mesma inclinação, escolhas diferentes</h2>
@@ -379,96 +516,59 @@ flowchart LR
 <section id="mercados-completos-concordância-geral" class="slide level2 smaller">
 <h2>Mercados completos: concordância geral</h2>
 <ul>
-<li>A mesma <span class="destaque">concordância</span> vale para <strong>qualquer ativo</strong> <span class="math inline">\(j\in J\)</span> em equilíbrio competitivo — e para qualquer portfólio (combinação linear) destes</li>
 <li>Com estrutura completa de ativos de Arrow, preços <span class="math inline">\(q_{s}\)</span>: todos os agentes igualam <span class="math inline">\(TMS_{0,s}^{i}=q_{s}\)</span></li>
 <li>Todos concordam que um fluxo <span class="math inline">\(\left(x_{0},\left\{ x_{s}\right\}\right)\)</span> vale</li>
 </ul>
 <p><span class="math display">\[ V\left(x_{0},\left\{ x_{s}\right\}\right)=x_{0}+\sum_{s}q_{s}x_{s} \]</span></p>
 <ul>
-<li>Concordam sobre VPL e decisões de investimento — o mesmo vale para <span class="destaque">qualquer caso com mercados completos</span></li>
+<li>Concordam sobre VPL e decisões de investimento. O mesmo vale para <span class="destaque">qualquer caso com mercados completos</span></li>
 </ul>
+<p><span class="fonte">Ganho: o VPL deixou de depender de quem calcula. Passo 3 fechado.</span></p>
 </section>
-<section id="apreçamento-linear-sem-arbitragem" class="slide level2 smaller">
-<h2>Apreçamento linear: sem arbitragem</h2>
+<section id="apreçamento-linear" class="slide level2 smaller">
+<h2>Apreçamento linear</h2>
+<!-- Funde "Apreçamento linear: sem arbitragem" e "Apreçamento linear: uma regra". -->
 <p>Todo ativo transacionado nesta economia precisa satisfazer</p>
 <p><span class="math display">\[ p^{j}=\sum_{s}q_{s}x_{s}^{j} \]</span></p>
+<p>Prova em uma linha: o ativo é uma carteira de ativos de Arrow, <span class="math inline">\(x^j=\sum_s x^j_s A_s\)</span>, logo</p>
+<p><span class="math display">\[ P\left(x^j\right)=P\Big(\sum_{s}x_{s}^{j}A_{s}\Big)=\sum_{s}x_{s}^{j}\,P\left(A_{s}\right)=\sum_{s}q_{s}x_{s}^{j} \]</span></p>
 <ul>
-<li>Caso contrário, poderia ser desmembrado com lucro ou replicado a preço mais baixo</li>
-<li>Em quantidades arbitrariamente grandes: <span class="destaque">arbitragem</span> (formalizamos a seguir)</li>
+<li>Caso contrário: desmembrar com lucro ou replicar mais barato, em escala ilimitada. <span class="destaque">Arbitragem</span> (formalizamos a seguir)</li>
+<li>É uma <strong>regra linear</strong>, <span class="math inline">\(P\left(\theta x+\theta' y\right)=\theta P\left(x\right)+\theta' P\left(y\right)\)</span> para escalares <span class="math inline">\(\theta,\theta'\)</span>. Toda regra linear se escreve como <span class="math inline">\(\sum_{s}q_{s}x_{s}\)</span>, com <span class="math inline">\(q_s\)</span> os preços de estado</li>
 </ul>
-</section>
-<section id="apreçamento-linear-uma-regra" class="slide level2 smaller">
-<h2>Apreçamento linear: uma regra</h2>
-<p>A regra anterior é uma <span class="destaque">regra linear de apreçamento</span>:</p>
-<p><span class="math display">\[ P\left(\alpha x^{j}+\beta x^{k}\right)=\alpha P\left(x^{j}\right)+\beta P\left(x^{k}\right) \]</span></p>
-<ul>
-<li>A associação entre ausência de arbitragem e apreçamento linear é bastante forte</li>
-<li>Toda regra de apreçamento linear pode ser escrita como <span class="math inline">\(p^{j}=\sum_{s}q_{s}x_{s}^{j},\ \forall j\in J\)</span>, com <span class="math inline">\(q_s\)</span> <strong>preços de estado</strong></li>
-</ul>
-</section>
-<section id="retornos-como-portfólios-de-preço-unitário" class="slide level2 smaller">
-<h2>Retornos como portfólios de preço unitário</h2>
-<p>Se o preço é linear, para todo <span class="math inline">\(j\in J\)</span>,</p>
-<p><span class="math display">\[ p^{j}=\sum_{s}q_{s}x_{s}^{j}\implies1=\sum_{s}q_{s}\underset{R_{s}^{j}}{\underbrace{\frac{x_{s}^{j}}{p^{j}}}} \]</span></p>
-<ul>
-<li>Retorno é um portfólio com preço unitário — apenas mudança de unidade (R$1 em vez de uma ação)</li>
-<li>Vale também para qualquer portfólio formado com os ativos em <span class="math inline">\(J\)</span></li>
-</ul>
-</section>
-<section id="fator-estocástico-de-desconto-definição" class="slide level2">
-<h2>Fator estocástico de desconto: definição</h2>
-<!-- CORREÇÃO (log de deslizes de notação do .lyx-fonte):
-     (1) l.1700 escreve "preços de estado {p_s}" mas a fórmula logo em seguida já usa q_s
-         (p^j é preço de ATIVO no resto do arquivo) — mantivemos q_s aqui.
-     (2) l.3601 escreve m_s=a+Σ b_{n,s} f_{n,s} (carga com índice de estado s) — mantivemos
-         b_n (carga fixa por fator, sem índice s), consistente com β_n^j da equação seguinte.
-     (3) l.3627 escreve E[Rj-Rf]=α+Σ β_n^j E[f] (sem índice n em E[f]) — escrevemos E[f_n],
-         consistente com a soma em n. Ver slide "Além do CAPM". -->
-<p>Com preços de estado <span class="math inline">\(\left\{ q_{s}\right\}\)</span>, escrevemos</p>
-<p><span class="math display">\[ q_{s}=\pi_{s}m_{s}\qquad\text{ou}\qquad m_{s}=\frac{q_{s}}{\pi_{s}} \]</span></p>
-<p>definindo um <span class="destaque">fator estocástico de desconto</span> <span class="math inline">\(m_{s}\)</span> — uma variável aleatória, cuja realização é descoberta em <span class="math inline">\(t=1\)</span>.</p>
-<p><a href="#/apendice-probabilidades-neutras" class="fonte">Apêndice: probabilidades neutras ao risco →</a></p>
-</section>
-<section id="sdf-e-apreçamento" class="slide level2">
-<h2>SDF e apreçamento</h2>
-<p>Segue que, para todo <span class="math inline">\(j\in J\)</span>,</p>
-<p><span class="math display">\[ p^{j}=\sum_{s}\pi_{s}m_{s}x_{s}^{j}\implies p^{j}=\mathbb{E}\left[mx^{j}\right]\quad\text{ou}\quad1=\mathbb{E}\left[mR^{j}\right] \]</span></p>
-<p><span class="fonte">Uso: produtos cruzados, covariâncias, <span class="math inline">\(\beta\)</span>.</span></p>
+<p><span class="fonte">Ganho: o preço de qualquer fluxo é uma soma ponderada pelos preços de estado.</span></p>
 </section>
 <section id="exemplo-economia-com-dois-estados" class="slide level2 smaller">
 <h2>Exemplo: economia com dois estados</h2>
-<p>Duas datas, dois estados em <span class="math inline">\(t=1\)</span> (<span class="math inline">\(s_1, s_2\)</span>). Ativo livre de risco paga 1 em ambos; ativo arriscado (a) paga 3/2 em <span class="math inline">\(s_1\)</span> e 1/2 em <span class="math inline">\(s_2\)</span>; ambos custam 1.</p>
-<div id="700a0899" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<p>Duas datas, dois estados em <span class="math inline">\(t=1\)</span> (<span class="math inline">\(s_1, s_2\)</span>), probabilidades <span class="math inline">\(\pi=(0{,}6;\,0{,}4)\)</span>. Ativo livre de risco paga 1 em ambos; ativo arriscado (a) paga 3/2 em <span class="math inline">\(s_1\)</span> e 1/2 em <span class="math inline">\(s_2\)</span>; ambos custam 1.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">ativo</th>
-<th style="text-align: right;">payoff_s1</th>
-<th style="text-align: right;">payoff_s2</th>
-<th style="text-align: right;">preco</th>
+<th>ativo</th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_1\)</span></th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_2\)</span></th>
+<th style="text-align: right;">preço</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Livre de risco</td>
+<td>livre de risco (f)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Arriscado (a)</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.5</td>
+<td>arriscado (a)</td>
+<td style="text-align: right;">1,5</td>
+<td style="text-align: right;">0,5</td>
 <td style="text-align: right;">1</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <p>Matricialmente:</p>
 <p><span class="math display">\[ X=\begin{bmatrix} 1 &amp; 3/2\\ 1 &amp; 1/2 \end{bmatrix},\qquad P=\begin{bmatrix} 1\\ 1 \end{bmatrix} \]</span></p>
 <p><span class="math inline">\(X^j\)</span> (coluna <span class="math inline">\(j\)</span>): payoffs do ativo <span class="math inline">\(j\)</span>. <span class="math inline">\(z\in\mathbb{R}^{J}\)</span>: portfólio; <span class="math inline">\(Xz\)</span>: seus payoffs.</p>
+<!-- PLANNING: as probabilidades são ADICIONADAS (a fonte não as fixa); servem à figura do espaço de payoffs e ao artefato. -->
 </section>
 <section id="é-um-mercado-completo" class="slide level2 smaller">
 <h2>É um mercado completo?</h2>
@@ -480,23 +580,25 @@ flowchart LR
 <li>Ou seja: variando os portfólios <span class="math inline">\(z\in\mathbb{R}^{\#J}\)</span>, conseguimos descrever qualquer payoff que quisermos em <span class="math inline">\(\mathbb{R}^{\#S}\)</span>?</li>
 <li>Quais os preços de estado <span class="math inline">\(q_1, q_2\)</span>?</li>
 </ul>
-<!-- PLANNING: pergunta em aberto no material-fonte — pedir à turma antes de revelar o próximo slide. -->
+<!-- PLANNING: pergunta em aberto no material-fonte. Pergunta ao ar; a resposta é o próximo slide. -->
 </section>
 <section id="resolvendo-os-preços-de-estado" class="slide level2 smaller">
 <h2>Resolvendo os preços de estado</h2>
-<!-- ADICIONADO: não está na fonte (o .lyx só formula a pergunta). Ver dados/10-risco-precos/SNAPSHOT_INFO.txt. -->
+<!-- ADICIONADO: não está na fonte (o .lyx só formula a pergunta). -->
 <p>Aplicando <span class="math inline">\(p^{j}=\sum_s q_s x_s^j\)</span> a cada ativo:</p>
-<div id="f242031d" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
-<p><span class="math display">\[1 = q_1 + q_2 \qquad 1 = 1{,}5\,q_1 + 0{,}5\,q_2\]</span></p>
-<p><span class="math display">\[\implies q_1 = 0,5,\quad q_2 = 0,5\]</span></p>
-</div>
-</div>
-<p><span class="fonte">Verificação: o ativo arriscado vale <span class="math inline">\(0{,}5\times 1{,}5+0{,}5\times 0{,}5=1{,}00\)</span> — igual ao seu preço. Com 2 ativos linearmente independentes para 2 estados, o mercado é completo e <span class="math inline">\(q\)</span> é único.</span></p>
+<p><span class="math display">\[ 1 = q_1 + q_2 \qquad 1 = 1{,}5\,q_1 + 0{,}5\,q_2 \]</span></p>
+<p><span class="math display">\[ \implies q_1 = 0{,}5,\quad q_2 = 0{,}5 \]</span></p>
+<p><span class="fonte">Verificação: o ativo arriscado vale <span class="math inline">\(0{,}5\times 1{,}5+0{,}5\times 0{,}5=1{,}00\)</span>, igual ao seu preço. Com 2 ativos linearmente independentes para 2 estados, o mercado é completo e <span class="math inline">\(q\)</span> é único.</span></p>
 </section>
-<section id="mercados-incompletos-três-variações" class="slide level2 smaller">
-<h2>Mercados incompletos: três variações</h2>
-<!-- ADICIONADO: o .lyx-fonte só apresenta as 3 matrizes lado a lado ("E os casos abaixo?"), sem veredito de completude em texto. A coluna "É completo?" aplica o critério rank(X)=#S do slide anterior — não está na fonte. -->
+<section id="espaço-de-payoffs" class="slide level2 smaller">
+<h2>Espaço de payoffs</h2>
+<!-- ADICIONADO: não está na fonte (figura nossa). -->
+
+<img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Preço de estado é o preço de uma carteira concreta: <span class="math inline">\(A_1\)</span> custa <span class="math inline">\(0{,}5\)</span> e <span class="math inline">\(A_2\)</span> custa <span class="math inline">\(0{,}5\)</span>.</span></p>
+<!-- PLANNING: os dois ativos geram o plano inteiro; é isso que "mercado completo" quer dizer. -->
+</section>
+<section id="mercados-incompletos-e-ativos-redundantes" class="slide level2 smaller">
+<h2>Mercados incompletos e ativos redundantes</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 20%">
@@ -510,7 +612,7 @@ flowchart LR
 <th>Caso</th>
 <th><span class="math inline">\(X\)</span> (linhas = estados)</th>
 <th><span class="math inline">\(P\)</span></th>
-<th>Ativos × Estados</th>
+<th>Ativos <span class="math inline">\(\times\)</span> Estados</th>
 <th>É completo?</th>
 </tr>
 </thead>
@@ -519,26 +621,37 @@ flowchart LR
 <td>1</td>
 <td><span class="math inline">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span></td>
 <td><span class="math inline">\(\begin{bmatrix}1\end{bmatrix}\)</span></td>
-<td>1 × 2</td>
-<td>Não — faltam ativos</td>
+<td>1 <span class="math inline">\(\times\)</span> 2</td>
+<td>Não: faltam ativos</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td><span class="math inline">\(\begin{bmatrix}1 &amp; 3/2 &amp; 1/2\\1 &amp; 1/2 &amp; 1/2\end{bmatrix}\)</span></td>
 <td><span class="math inline">\(\begin{bmatrix}1\\1\\p^3\end{bmatrix}\)</span></td>
-<td>3 × 2</td>
-<td>Sim, com <span class="destaque">ativo redundante</span> (<span class="math inline">\(p^3\)</span> determinado)</td>
+<td>3 <span class="math inline">\(\times\)</span> 2</td>
+<td>Sim, com <span class="destaque">ativo redundante</span> (<span class="math inline">\(p^3\)</span> é determinado)</td>
 </tr>
 <tr class="odd">
 <td>3</td>
 <td><span class="math inline">\(\begin{bmatrix}1 &amp; 3/2\\1 &amp; 1/2\\1 &amp; 1/2\end{bmatrix}\)</span></td>
 <td><span class="math inline">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span></td>
-<td>2 × 3</td>
-<td>Não — faltam ativos</td>
+<td>2 <span class="math inline">\(\times\)</span> 3</td>
+<td>Não: faltam ativos</td>
 </tr>
 </tbody>
 </table>
-<p><span class="fonte">Toda a coluna “É completo?” é ADICIONADA — ver comentário acima.</span></p>
+<p><span class="fonte">Leitura para o quadro: faltam payoffs independentes nos casos 1 e 3; no caso 2, sobra uma equação de preço.</span></p>
+</section>
+<section id="quando-os-preços-de-estado-são-determinados" class="slide level2 smaller">
+<h2>Quando os preços de estado são determinados?</h2>
+<p>Os preços observados impõem, para cada ativo <span class="math inline">\(j\)</span>,</p>
+<p><span class="math display">\[ p^j=\sum_s q_s x_s^j\qquad\text{ou, em forma compacta,}\qquad X'q=P \]</span></p>
+<ul>
+<li>Menos payoffs independentes que estados: menos equações que <span class="math inline">\(q_s\)</span> desconhecidos; vários <span class="math inline">\(q\)</span> funcionam</li>
+<li>Payoffs independentes suficientes para os estados: sistema determinado; <span class="math inline">\(q\)</span> é único</li>
+<li>Ativo redundante: uma equação extra verifica a <span class="destaque">lei do preço único</span>; se falhar, há arbitragem</li>
+</ul>
+<!-- PLANNING: faça a contagem de incógnitas/equações no quadro, começando pelos três casos da tabela. -->
 </section>
 <section id="ausência-de-possibilidade-de-arbitragem" class="slide level2 smaller">
 <h2>Ausência de possibilidade de arbitragem</h2>
@@ -546,77 +659,440 @@ flowchart LR
 <p><span class="math display">\[ \sum_{j}p^{j}z^{j}\leq0\qquad\text{e, para cada }s,\qquad\sum_{j}x_{s}^{j}z^{j}\geq0 \]</span></p>
 <p>com <strong>pelo menos uma desigualdade estrita</strong>.</p>
 <ul>
-<li>Isto é: gera excedente positivo em algum estado (incluindo <span class="math inline">\(s_0\)</span>), sem sacrificar nada</li>
-<li>Se vale para <span class="math inline">\(z^j\)</span>, vale para todo <span class="math inline">\(\alpha z^j\)</span>: <span class="destaque">não é condizente com equilíbrio</span></li>
+<li>Isto é: gera excedente positivo em algum estado, ou hoje, sem sacrificar nada</li>
+<li>Se vale para <span class="math inline">\(z^j\)</span>, vale para todo <span class="math inline">\(\theta z^j\)</span> com <span class="math inline">\(\theta&gt;0\)</span>: <span class="destaque">não é condizente com equilíbrio</span></li>
 </ul>
 </section>
 <section id="teorema-fundamental-de-apreçamento" class="slide level2 smaller">
 <h2>Teorema Fundamental de Apreçamento</h2>
+<!-- Funde o enunciado com o diagrama "⇔" da versão atual. -->
 <blockquote>
 <p>Não há possibilidades de arbitragem em uma economia descrita pelos ativos <span class="math inline">\(j\in J\)</span>, payoffs <span class="math inline">\(X\in\mathbb{R}^{|S|\times|J|}\)</span> e preços <span class="math inline">\(P\in\mathbb{R}^{|J|}\)</span> se, e somente se, existe <span class="math inline">\(q\in\mathbb{R}_{++}^{|S|}\)</span> tal que <span class="math inline">\(P'=q'X\)</span>.</p>
 </blockquote>
 <p>Ou seja: temos apreçamento linear, com <strong>preços de estado positivos</strong> <span class="math inline">\(\left\{ q_{s}&gt;0\right\}\)</span>, tais que <span class="math inline">\(p^{j}=\sum_{s}q_{s}x_{s}^{j}\)</span> para cada ativo <span class="math inline">\(j\)</span>.</p>
+<div class="smaller">
+<p>Apreçamento linear sozinho é mais fraco (lei do preço único): garante <em>algum</em> <span class="math inline">\(q\)</span>, não necessariamente positivo. A equivalência do Teorema é com a conjunção: linear <strong>e</strong> <span class="math inline">\(q\gg0\)</span>.</p>
+</div>
+<p><span class="fonte">Ganho: ausência de arbitragem, sozinha, já dá preços de estado. Não precisamos de utilidade nem de crenças.</span></p>
 </section>
-<section id="ausência-de-arbitragem-leftrightarrow-apreçamento-linear-com-qgg0" class="slide level2 smaller">
-<h2>Ausência de arbitragem <span class="math inline">\(\Leftrightarrow\)</span> apreçamento linear com <span class="math inline">\(q\gg0\)</span></h2>
-<!-- ADICIONADO: não está na fonte (diagrama nosso, ilustrando o Teorema Fundamental). -->
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
-flowchart LR
-  A["Ausência de&lt;br/&gt;arbitragem"] --&gt; B["Apreçamento linear&lt;br/&gt;COM preços de estado&lt;br/&gt;estritamente positivos (q ≫ 0)"]
-  B --&gt; A
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p><span class="destaque">Apreçamento linear sozinho é mais fraco (lei do preço único): garante ALGUM <span class="math inline">\(q\)</span>, não necessariamente positivo. A equivalência do Teorema Fundamental é com a conjunção — linear <strong>e</strong> <span class="math inline">\(q\gg0\)</span>.</span></p>
+<section id="arbitragem-no-exemplo" class="slide level2 smaller">
+<h2>Arbitragem no exemplo</h2>
+<!-- ADICIONADO: não está na fonte. Volta à economia da aula. -->
+<p>Na nossa economia, título a 1 e seguro a 0,25. Suponha que a ação passe a custar <strong>6</strong>.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>carteira</th>
+<th style="text-align: right;">custo hoje</th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_1\)</span></th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_2\)</span></th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>vender 1 ação</td>
+<td style="text-align: right;">−6</td>
+<td style="text-align: right;">−6</td>
+<td style="text-align: right;">−5</td>
+<td style="text-align: right;">−3</td>
+</tr>
+<tr class="even">
+<td>comprar 6 títulos</td>
+<td style="text-align: right;">+6</td>
+<td style="text-align: right;">+6</td>
+<td style="text-align: right;">+6</td>
+<td style="text-align: right;">+6</td>
+</tr>
+<tr class="odd">
+<td><strong>total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Custa zero e paga <span class="math inline">\((0, 1, 3)\)</span>: <span class="destaque">arbitragem</span>. Repetindo em escala, o lucro é ilimitado.</p>
+<p>Sem arbitragem, o preço da ação fica entre 4,5 e 5,25: com <span class="math inline">\(q_3=0{,}25\)</span> e <span class="math inline">\(q_1+q_2=0{,}75\)</span>, o preço é <span class="math inline">\(4{,}5+q_1\)</span> com <span class="math inline">\(q_1\in(0;\,0{,}75)\)</span>.</p>
+<!-- PLANNING: mostrado pelo professor. O handoff dizia "entre 4,5 e 5,5"; o limite correto com o seguro a 0,25 é 5,25 (ver NOTAS-FONTE-2024.md, seção 4). -->
 </section>
-<section id="teorema-fundamental-completude-e-unicidade" class="slide level2 smaller">
-<h2>Teorema Fundamental: completude e unicidade</h2>
+<section id="artefato-quando-o-preço-vira-arbitragem" class="slide level2 smaller">
+<h2>Artefato: quando o preço vira arbitragem</h2>
+<!-- ADICIONADO: não está na fonte. Economia de dois estados: título (1, 1) a 1, arriscado (1,5; 0,5) a preço p. -->
+<style>
+.a10p{
+  --a10p-azul:#6a9bcc; --a10p-laranja:#d97757; --a10p-verde:#788c5d;
+  --a10p-tinta:#141413; --a10p-papel:#faf9f5; --a10p-linha:#e8e6dc;
+  --a10p-cinza:#5f5e5a; --a10p-cinza-claro:#b0aea5;
+  width:100%; max-width:1180px; margin:0 auto; color:var(--a10p-tinta);
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:14px; line-height:1.3; text-align:left;
+}
+.a10p *{box-sizing:border-box;}
+.a10p-controls{display:grid; gap:8px 22px; padding:8px 14px;
+  border:1px solid var(--a10p-linha); border-radius:10px; background:var(--a10p-papel);}
+.a10p-field label{display:flex; justify-content:space-between; gap:10px;
+  color:var(--a10p-cinza); font-size:13px; font-weight:600;}
+.a10p-field output{color:var(--a10p-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a10p-field input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--a10p-azul); cursor:pointer;}
+.a10p-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; align-items:start;}
+.a10p-chart{border:1px solid var(--a10p-linha); border-radius:10px; padding:4px 6px;}
+.a10p-chart svg{display:block; width:100%; height:auto; max-height:470px; margin:0 auto;}
+.a10p-card{border:1px solid var(--a10p-linha); border-radius:10px; padding:12px 14px;}
+.a10p-badge{font-size:15px; font-weight:700; margin-bottom:8px;}
+.a10p-card dl{display:grid; grid-template-columns:auto auto; gap:6px 10px; margin:0;}
+.a10p-card dt{color:var(--a10p-cinza); font-size:13px;}
+.a10p-card dd{margin:0; text-align:right; font-size:13px; font-weight:700; font-variant-numeric:tabular-nums;}
+.a10p-message{margin-top:10px; padding-top:8px; border-top:1px solid var(--a10p-linha);
+  color:var(--a10p-cinza); font-size:12.5px; line-height:1.4;}
+@media (max-width: 700px){ .a10p-grid{grid-template-columns:1fr;} }
+</style>
+
+<div class="a10p" id="a10pa-root">
+  <div class="a10p-controls" style="grid-template-columns:1fr;">
+    <div class="a10p-field">
+      <label for="a10pa-p"><span>p (preço do ativo arriscado; o título custa 1)</span><output id="a10pa-lbl-p">1,00</output></label>
+      <input type="range" id="a10pa-p" min="0" max="2" step="0.05" value="1">
+    </div>
+  </div>
+
+  <div class="a10p-grid">
+    <div class="a10p-chart">
+      <svg id="a10pa-svg" viewbox="0 0 400 400" role="img" aria-label="Espaço de payoffs com dois estados: ativos f e a fixos, reta dos payoffs de custo zero e região de arbitragem"></svg>
+    </div>
+    <div class="a10p-card" aria-live="polite">
+      <div class="a10p-badge" id="a10pa-badge"></div>
+      <dl>
+        <dt>q<sub>1</sub> = p − 0,5</dt><dd id="a10pa-q1"></dd>
+        <dt>q<sub>2</sub> = 1,5 − p</dt><dd id="a10pa-q2"></dd>
+        <dt>E[R<sup>a</sup>] − R<sup>f</sup> = 1,1/p − 1</dt><dd id="a10pa-premio"></dd>
+      </dl>
+      <div class="a10p-message" id="a10pa-msg"></div>
+      <div class="a10p-message">A reta cinza é {x : q·x = 0}, os payoffs de custo zero. A área cinza tem custo ≤ 0. Quando ela invade o quadrante positivo (cunha laranja), existe carteira de custo ≤ 0 que paga ≥ 0 com alguma desigualdade estrita. O intervalo sem arbitragem coincide com (menor, maior pagamento) só porque R<sup>f</sup> = 1.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var svg = document.getElementById("a10pa-svg");
+  if (!svg) return;
+  var AZUL="#6a9bcc", LARANJA="#d97757", VERDE="#788c5d", CINZA="#5f5e5a", CINZA_CLARO="#b0aea5", GRADE="#ece9e0";
+  function fmt(x, casas){
+    casas = casas === undefined ? 2 : casas;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits: casas, maximumFractionDigits: casas}).replace("-", "−");
+  }
+  var inp = document.getElementById("a10pa-p");
+  var lbl = document.getElementById("a10pa-lbl-p");
+  var elQ1 = document.getElementById("a10pa-q1");
+  var elQ2 = document.getElementById("a10pa-q2");
+  var elPr = document.getElementById("a10pa-premio");
+  var elBadge = document.getElementById("a10pa-badge");
+  var elMsg = document.getElementById("a10pa-msg");
+
+  // --- economia: f = (1,1) a 1; a = (1,5; 0,5) a p. Resolvendo P' = q'X: q1 = p - 0,5; q2 = 1,5 - p.
+  function precosDeEstado(p){ return [p - 0.5, 1.5 - p]; }
+  function premio(p){ return 1.1/p - 1; }
+  function carteiraArbitragem(p){
+    // custo <= 0 e payoff >= 0 com desigualdade estrita
+    if (p >= 1.5 - 1e-9) return {z:[1.5, -1], custo:1.5 - p, pag:[0, 1], texto:"comprar 1,5 título e vender 1 arriscado"};
+    if (p <= 0.5 + 1e-9) return {z:[-0.5, 1], custo:p - 0.5, pag:[1, 0], texto:"vender 0,5 título e comprar 1 arriscado"};
+    return null;
+  }
+
+  // --- geometria
+  var W=400, H=400, m={l:44, r:16, t:16, b:40};
+  var X0=-1, X1=2;
+  function sx(x){ return m.l + (W-m.l-m.r)*(x-X0)/(X1-X0); }
+  function sy(y){ return H-m.b - (H-m.t-m.b)*(y-X0)/(X1-X0); }
+  function clip(poly, q1, q2){
+    // mantém a parte do polígono com q1*x + q2*y <= 0 (Sutherland-Hodgman, um semiplano)
+    var out=[];
+    for (var i=0;i<poly.length;i++){
+      var A=poly[i], B=poly[(i+1)%poly.length];
+      var fa=q1*A[0]+q2*A[1], fb=q1*B[0]+q2*B[1];
+      var ina=fa<=1e-12, inb=fb<=1e-12;
+      if (ina) out.push(A);
+      if (ina!==inb){
+        var t=fa/(fa-fb);
+        out.push([A[0]+t*(B[0]-A[0]), A[1]+t*(B[1]-A[1])]);
+      }
+    }
+    return out;
+  }
+  function area(poly){
+    var s=0;
+    for (var i=0;i<poly.length;i++){ var A=poly[i], B=poly[(i+1)%poly.length]; s += A[0]*B[1]-B[0]*A[1]; }
+    return Math.abs(s)/2;
+  }
+  function pts(poly){ return poly.map(function(P){ return sx(P[0])+","+sy(P[1]); }).join(" "); }
+  function seta(x, y, cor, tracejada){
+    var L=Math.sqrt(x*x+y*y), ux=x/L, uy=y/L;
+    var tx=sx(x), ty=sy(y), bx=sx(x-0.12*ux), by=sy(y-0.12*uy);
+    var px=-uy, py=ux;
+    var s='<line x1="'+sx(0)+'" y1="'+sy(0)+'" x2="'+tx+'" y2="'+ty+'" stroke="'+cor+'" stroke-width="2.4"'+(tracejada?' stroke-dasharray="6,4"':'')+'/>';
+    s+='<polygon points="'+tx+','+ty+' '+(sx(x-0.12*ux+0.06*px))+','+(sy(y-0.12*uy+0.06*py))+' '+(sx(x-0.12*ux-0.06*px))+','+(sy(y-0.12*uy-0.06*py))+'" fill="'+cor+'"/>';
+    return s;
+  }
+
+  function render(){
+    var p = +inp.value;
+    lbl.textContent = fmt(p);
+    var q = precosDeEstado(p), q1=q[0], q2=q[1];
+    var arb = carteiraArbitragem(p);
+    var quadrado=[[X0,X0],[X1,X0],[X1,X1],[X0,X1]];
+    var quadrante=[[0,0],[X1,0],[X1,X1],[0,X1]];
+    var semiplano = clip(quadrado, q1, q2);
+    var cunha = clip(quadrante, q1, q2);
+
+    var s="";
+    [-1,0,1,2].forEach(function(v){
+      s+='<line x1="'+sx(v)+'" y1="'+sy(X0)+'" x2="'+sx(v)+'" y2="'+sy(X1)+'" stroke="'+GRADE+'"/>';
+      s+='<line x1="'+sx(X0)+'" y1="'+sy(v)+'" x2="'+sx(X1)+'" y2="'+sy(v)+'" stroke="'+GRADE+'"/>';
+      s+='<text x="'+sx(v)+'" y="'+(sy(X0)+16)+'" text-anchor="middle" font-size="11" fill="'+CINZA+'">'+fmt(v,0)+'</text>';
+      s+='<text x="'+(sx(X0)-6)+'" y="'+(sy(v)+4)+'" text-anchor="end" font-size="11" fill="'+CINZA+'">'+fmt(v,0)+'</text>';
+    });
+    // semiplano de custo <= 0
+    if (semiplano.length>=3) s+='<polygon points="'+pts(semiplano)+'" fill="'+CINZA_CLARO+'" fill-opacity="0.22"/>';
+    // cunha dentro do quadrante positivo
+    if (cunha.length>=3 && area(cunha)>1e-6) s+='<polygon points="'+pts(cunha)+'" fill="'+LARANJA+'" fill-opacity="0.45"/>';
+    // eixos
+    s+='<line x1="'+sx(X0)+'" y1="'+sy(0)+'" x2="'+sx(X1)+'" y2="'+sy(0)+'" stroke="'+CINZA+'" stroke-width="1.1"/>';
+    s+='<line x1="'+sx(0)+'" y1="'+sy(X0)+'" x2="'+sx(0)+'" y2="'+sy(X1)+'" stroke="'+CINZA+'" stroke-width="1.1"/>';
+    s+='<text x="'+(m.l+(W-m.l-m.r)/2)+'" y="'+(H-8)+'" text-anchor="middle" font-size="12" fill="'+CINZA+'">pagamento no estado 1</text>';
+    s+='<text x="12" y="'+(m.t+(H-m.t-m.b)/2)+'" text-anchor="middle" font-size="12" fill="'+CINZA+'" transform="rotate(-90 12 '+(m.t+(H-m.t-m.b)/2)+')">pagamento no estado 2</text>';
+    // reta q.x = 0 (direção (q2, -q1)), cortada na janela
+    var L=Math.sqrt(q1*q1+q2*q2);
+    if (L>1e-9){
+      var dx=q2/L*3.5, dy=-q1/L*3.5;
+      s+='<line x1="'+sx(-dx)+'" y1="'+sy(-dy)+'" x2="'+sx(dx)+'" y2="'+sy(dy)+'" stroke="'+CINZA+'" stroke-width="1.8" stroke-dasharray="7,5"/>';
+      s+='<text x="'+sx(1.55)+'" y="'+(sy(-0.55))+'" font-size="11" fill="'+CINZA+'">q·x = 0</text>';
+    }
+    // ativos fixos
+    s+=seta(1,1,AZUL,false)+seta(1.5,0.5,AZUL,false);
+    s+='<text x="'+(sx(1)+6)+'" y="'+(sy(1)-8)+'" font-size="12" fill="'+AZUL+'">f = (1, 1)</text>';
+    s+='<text x="'+(sx(1.5)+2)+'" y="'+(sy(0.5)+16)+'" font-size="12" fill="'+AZUL+'" text-anchor="end">a = (1,5; 0,5)</text>';
+    // carteira de arbitragem
+    if (arb){
+      s+=seta(arb.pag[0], arb.pag[1], LARANJA, true);
+      s+='<text x="'+(sx(arb.pag[0])+8)+'" y="'+(sy(arb.pag[1])+(arb.pag[1]>0?-8:18))+'" font-size="13" font-weight="700" fill="'+LARANJA+'">arbitragem</text>';
+    }
+    svg.innerHTML = s;
+
+    elQ1.textContent = fmt(q1);
+    elQ2.textContent = fmt(q2);
+    elPr.textContent = isFinite(premio(p)) ? fmt(premio(p)*100,1)+"%" : "∞";
+    if (arb){
+      elBadge.textContent = "arbitragem";
+      elBadge.style.color = LARANJA;
+      elMsg.textContent = "Carteira: "+arb.texto+". Custa "+fmt(arb.custo)+" hoje e paga ("+fmt(arb.pag[0],0)+", "+fmt(arb.pag[1],0)+") amanhã.";
+    } else {
+      elBadge.textContent = "sem arbitragem: q ≫ 0";
+      elBadge.style.color = VERDE;
+      elMsg.textContent = "Os dois preços de estado são positivos. Nenhuma carteira de custo ≤ 0 paga ≥ 0 com desigualdade estrita.";
+    }
+  }
+
+  inp.addEventListener("input", render);
+  inp.addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+
+  (function selfTest(){
+    var falhas=[];
+    function approx(nome, obtido, alvo, tol){ if (!(Math.abs(obtido-alvo)<=tol)) falhas.push(nome+": "+obtido+" != "+alvo); }
+    var q=precosDeEstado(1); approx("q1(p=1)", q[0], 0.5, 1e-12); approx("q2(p=1)", q[1], 0.5, 1e-12);
+    q=precosDeEstado(1.6); approx("q1(p=1,6)", q[0], 1.1, 1e-12); approx("q2(p=1,6)", q[1], -0.1, 1e-12);
+    // P' = q'X para ambos os ativos, para qualquer p
+    [0.3, 1, 1.4, 1.9].forEach(function(p){
+      var qq=precosDeEstado(p);
+      approx("titulo(p="+p+")", qq[0]+qq[1], 1, 1e-12);
+      approx("arriscado(p="+p+")", 1.5*qq[0]+0.5*qq[1], p, 1e-12);
+    });
+    approx("premio(p=1)", premio(1), 0.1, 1e-12);
+    var a=carteiraArbitragem(1.6); approx("custo arb p=1,6", a.custo, -0.1, 1e-12);
+    approx("pag1 arb p=1,6", 1.5*1-1*1.5, 0, 1e-12); approx("pag2 arb p=1,6", 1.5*1-1*0.5, 1, 1e-12);
+    a=carteiraArbitragem(0.4); approx("custo arb p=0,4", a.custo, -0.1, 1e-12);
+    approx("pag1 arb p<=0,5", -0.5*1+1*1.5, 1, 1e-12); approx("pag2 arb p<=0,5", -0.5*1+1*0.5, 0, 1e-12);
+    if (carteiraArbitragem(1) !== null) falhas.push("p=1 não deveria ter arbitragem");
+    var c=clip([[0,0],[2,0],[2,2],[0,2]], 0.5, 0.5); if (area(c)>1e-9) falhas.push("cunha deveria ser vazia em p=1");
+    c=clip([[0,0],[2,0],[2,2],[0,2]], 1.1, -0.1); if (!(area(c)>0.1)) falhas.push("cunha deveria existir em p=1,6");
+    if (falhas.length) console.error("Autoteste (Aula 10 alfa, artefato de arbitragem) FALHOU:\n"+falhas.join("\n"));
+  })();
+
+  render();
+})();
+</script>
+<!-- PLANNING: pergunta ao ar antes de mover o slider: "para que preços não há arbitragem?" Resposta: 0,5 < p < 1,5. -->
+</section>
+<section id="lei-do-preço-único-replicação" class="slide level2 smaller">
+<h2>Lei do preço único: replicação</h2>
+<p>Se duas carteiras replicam o mesmo fluxo, seus pagamentos coincidem em cada estado:</p>
+<p><span class="math display">\[ Xz=X\overline z\qquad\Longleftrightarrow\qquad \sum_j x_s^j z^j=\sum_j x_s^j\overline z^j\quad\text{para todo }s \]</span></p>
+<p>Elas precisam ter o mesmo custo hoje:</p>
+<p><span class="math display">\[ \sum_j p^j z^j=\sum_j p^j\overline z^j \]</span></p>
 <ul>
-<li>Com mercados completos, temos <span class="math inline">\(S\)</span> ou mais ativos</li>
-<li>Se tivermos mais, ignoramos os redundantes (linearmente dependentes) e formamos <span class="math inline">\(\tilde{X}\)</span> com <span class="math inline">\(S\)</span> ativos</li>
-<li>Achamos <span class="math inline">\(q^{'}=P^{'}\tilde{X}^{-1}\)</span> por inversão de matriz</li>
-<li>Com mercados <strong>incompletos</strong>, há indeterminação de <span class="math inline">\(q\)</span>: vários <span class="math inline">\(q\)</span>’s válidos</li>
+<li>Caso contrário, compra-se a carteira barata e vende-se a cara: sobra dinheiro hoje e nada muda amanhã</li>
+<li>Isto é <span class="destaque">arbitragem</span></li>
 </ul>
 </section>
-<section id="valor-fundamental" class="slide level2">
-<h2>Valor fundamental</h2>
-<blockquote>
-<p>Para qualquer fluxo <span class="math inline">\(x\in\text{Im}\left(X\right)\)</span>, há concordância dos agentes sobre seu <strong>valor fundamental</strong>, que coincide com seu valor de mercado.</p>
-</blockquote>
-</section>
-<section id="lei-do-preço-único" class="slide level2">
-<h2>Lei do preço único</h2>
-<blockquote>
-<p>Tome um fluxo <span class="math inline">\(x\in\text{Im}\left(X\right)\)</span>. Se dois portfólios <span class="math inline">\(z,\overline{z}\in\mathbb{R}^{|J|}\)</span> replicam <span class="math inline">\(x\)</span> (i.e., <span class="math inline">\(Xz=X\overline{z}=x\)</span>), então ambos têm o mesmo custo em <span class="math inline">\(t=0\)</span>:</p>
-<p><span class="math display">\[ c_{q}\left(z\right)=c_{q}\left(\overline{z}\right)=q^{'}x \]</span></p>
-</blockquote>
-</section>
-<section id="sdf-existência-e-não-unicidade" class="slide level2 smaller">
-<h2>SDF: existência e (não) unicidade</h2>
-<p>Tudo que vale para preços de estado <span class="math inline">\(\left\{ q_{s}\right\}\)</span> vale também para <span class="math inline">\(m_{s}\)</span>:</p>
+<section id="valor-fundamental-de-um-fluxo-replicável" class="slide level2 smaller">
+<h2>Valor fundamental de um fluxo replicável</h2>
+<p>Se um portfólio <span class="math inline">\(z\)</span> replica o fluxo <span class="math inline">\(x\)</span>, isto é, <span class="math inline">\(x_s=\sum_j x_s^j z^j\)</span> para todo estado <span class="math inline">\(s\)</span>, seu valor é</p>
+<p><span class="math display">\[ V_0(x)=\sum_j p^j z^j=\sum_s q_s x_s=\mathbb{E}[m x] \]</span></p>
 <ul>
-<li>Ausência de arbitragem garante existência de <span class="math inline">\(m\in\mathbb{R}_{++}^{S}\)</span></li>
-<li>Todo retorno de ativo <span class="math inline">\(R^{j}\)</span> satisfaz <span class="math inline">\(1=\mathbb{E}\left[mR^{j}\right]\)</span> — linear em <span class="math inline">\(R^j\)</span>, vale para todos os portfólios formados com <span class="math inline">\(J\)</span></li>
-<li><span class="math inline">\(m\)</span> <span class="destaque">único</span> com mercados completos; <strong>múltiplos</strong> <span class="math inline">\(m\)</span>’s com mercados incompletos</li>
+<li>O valor não depende de qual carteira replica o fluxo</li>
+<li>É este número que comparamos ao investimento inicial para calcular o VPL</li>
 </ul>
+<p><span class="destaque">Replicação transforma um fluxo arriscado em um preço observável no mercado.</span></p>
+</section>
+<section id="completude-e-unicidade" class="slide level2 smaller">
+<h2>Completude e unicidade</h2>
+<ul>
+<li>Ausência de arbitragem garante que existe <span class="math inline">\(q\gg0\)</span> que precifica os ativos negociados</li>
+<li>Em mercado completo, <span class="math inline">\(q\)</span> é único: resolvemos <span class="math inline">\(p^j=\sum_s q_s x_s^j\)</span> para ativos independentes</li>
+<li>Em mercado incompleto, vários <span class="math inline">\(q\gg0\)</span> podem precificar os ativos existentes</li>
+<li>Um fluxo novo, que não pode ser replicado, não tem valor único imposto apenas pela ausência de arbitragem</li>
+</ul>
+<p><a href="#/apendice-incompleto-na-nossa-economia" class="fonte">Apêndice: exemplo numérico →</a></p>
+<p><span class="fonte">Ganho: ausência de arbitragem fixa o preço de toda réplica; completude estende esse resultado a qualquer fluxo. Passo 4 fechado.</span></p>
+<!-- PLANNING: ponto natural de parada. -->
+</section>
+<section id="o-roteiro-passo-5" class="slide level2 smaller">
+<h2>O roteiro: passo 5</h2>
+<!-- ADICIONADO: não está na fonte (mapa reexibido). -->
+<ol type="1">
+<li>Um investidor sozinho: o preço é a soma dos pagamentos vezes a TMS</li>
+<li>Isso não basta: a TMS não se observa, muda com o tamanho e difere entre pessoas</li>
+<li>Mercados resolvem: o preço de R$1 em cada estado é o mesmo para todos</li>
+<li>Sem arbitragem, ativos negociados e fluxos replicáveis valem <span class="math inline">\(\sum_s q_s x_s\)</span>, com <span class="math inline">\(q_s&gt;0\)</span></li>
+<li><span class="destaque">Preço = média descontada + covariância com <span class="math inline">\(m\)</span>. Só o risco que anda com <span class="math inline">\(m\)</span> tem preço</span></li>
+<li>CAPM: o caso em que <span class="math inline">\(m\)</span> é uma reta no retorno de mercado</li>
+</ol>
+<p><span class="fonte">Temos: preços de estado positivos, únicos com mercado completo. Falta: transformar a soma em esperança e separar tempo de risco.</span></p>
+</section>
+<section id="fator-estocástico-de-desconto" class="slide level2 smaller">
+<h2>Fator estocástico de desconto</h2>
+<!-- Funde "Fator estocástico de desconto: definição" com a primeira metade de "SDF e apreçamento". -->
+<!-- CORREÇÃO (log de deslizes de notação do .lyx-fonte):
+     (1) l.1700 escreve "preços de estado {p_s}" mas a fórmula logo em seguida já usa q_s
+         (p^j é preço de ATIVO no resto do arquivo) — mantivemos q_s aqui.
+     (2) l.3601 escreve m_s=a+Σ b_{n,s} f_{n,s} (carga com índice de estado s) — mantivemos
+         b_n (carga fixa por fator, sem índice s), consistente com β_n^j da equação seguinte.
+     (3) l.3627 escreve E[Rj-Rf]=α+Σ β_n^j E[f] (sem índice n em E[f]) — escrevemos E[f_n],
+         consistente com a soma em n. Ver slide "Além do CAPM". -->
+<p>Com preços de estado <span class="math inline">\(\left\{ q_{s}\right\}\)</span> e probabilidades <span class="math inline">\(\left\{ \pi_{s}\right\}\)</span>, definimos</p>
+<p><span class="math display">\[ m_{s}=\frac{q_{s}}{\pi_{s}}\qquad\text{ou}\qquad q_{s}=\pi_{s}m_{s} \]</span></p>
+<ul>
+<li>Lê-se: <span class="math inline">\(m_s\)</span> é o preço de R$1 no estado <span class="math inline">\(s\)</span>, <strong>por unidade de probabilidade</strong></li>
+<li>É uma variável aleatória: o valor <span class="math inline">\(m_s\)</span> se revela em <span class="math inline">\(t=1\)</span></li>
+<li><span class="destaque">Caro onde o dinheiro é escasso:</span> <span class="math inline">\(m\)</span> alto nos estados em que R$1 vale muito</li>
+</ul>
+<p><span class="fonte">Na nossa economia: <span class="math inline">\(m=(5/6;\,1;\,5/3)\)</span>, de <span class="math inline">\(q=(0{,}5;\,0{,}25;\,0{,}25)\)</span> e <span class="math inline">\(\pi=(0{,}60;\,0{,}25;\,0{,}15)\)</span>.</span></p>
+<p><a href="#/apendice-probabilidades-neutras" class="fonte">Apêndice: probabilidades neutras ao risco →</a></p>
+</section>
+<section id="retornos-e-a-equação-central" class="slide level2 smaller">
+<h2>Retornos e a equação central</h2>
+<!-- Funde "Retornos como portfólios de preço unitário" com a segunda metade de "SDF e apreçamento". -->
+<p>Para todo ativo <span class="math inline">\(j\)</span>, a soma vira uma esperança:</p>
+<p><span class="math display">\[ p^{j}=\sum_{s}q_{s}x_{s}^{j}=\sum_{s}\pi_{s}m_{s}x_{s}^{j}=\mathbb{E}\left[m\,x^{j}\right] \]</span></p>
+<p>Dividindo pelo preço, <span class="math inline">\(R^{j}=x^{j}/p^{j}\)</span> é o pagamento que se compra com R$1:</p>
+<p><span class="math display">\[ 1=\mathbb{E}\left[m\,R^{j}\right] \]</span></p>
+<ul>
+<li>Vale para qualquer carteira formada com os ativos em <span class="math inline">\(J\)</span>: retorno é um portfólio de preço unitário</li>
+</ul>
+<p><span class="destaque">Ganho: o preço virou uma esperança. Esperança de produto abre em covariância.</span></p>
+</section>
+<section id="mosaico-probabilidade-m-e-preço-de-estado" class="slide level2 smaller">
+<h2>Mosaico: probabilidade, <span class="math inline">\(m\)</span> e preço de estado</h2>
+<!-- ADICIONADO: não está na fonte (figura nossa). Área de cada retângulo = q_s = pi_s m_s. -->
+
+<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">A recessão é estreita e alta: rara, mas cara. Área total = <span class="math inline">\(\sum_s q_s\)</span> = 1.</span></p>
+</section>
+<section id="sdf-e-o-retorno-livre-de-risco" class="slide level2 smaller">
+<h2>SDF e o retorno livre de risco</h2>
+<p>Ausência de arbitragem garante <span class="math inline">\(1=\mathbb{E}\left[mR^{j}\right]\)</span>. Em particular, para o título,</p>
+<p><span class="math display">\[ 1=\mathbb{E}\left[mR^{f}\right]=R^{f}\,\mathbb{E}\left[m\right]\implies R^{f}=\frac{1}{\mathbb{E}\left[m\right]}=\frac{1}{\sum_s q_s} \]</span></p>
+<p>E também (excessos de retorno, preço zero, posições long-short):</p>
+<p><span class="math display">\[ 0=\mathbb{E}\left[m\left(R-R^{f}\right)\right] \]</span></p>
+<p><span class="fonte">Na nossa economia, <span class="math inline">\(R^f = 1\)</span> porque os preços de estado somam 1. É uma propriedade deste exemplo: em geral <span class="math inline">\(\sum_s q_s = 1/R^f\)</span>. Ver a variante com <span class="math inline">\(\beta = 0{,}9\)</span> no <a href="#/apendice-beta">apêndice</a>.</span></p>
+</section>
+<section id="preços-e-risco" class="slide level2 smaller">
+<h2>Preços e risco</h2>
+<p><span class="fonte">Lembrando (Aula 9): <span class="math inline">\(Cov\left(x,y\right)=\mathbb{E}\left[xy\right]-\mathbb{E}\left[x\right]\mathbb{E}\left[y\right]\)</span>.</span></p>
+<p><span class="math display">\[ p^{j}=\mathbb{E}\left[mx^{j}\right]=\mathbb{E}\left[m\right]\mathbb{E}\left[x^{j}\right]+Cov\left(m,x^{j}\right)=\frac{\mathbb{E}\left[x^{j}\right]}{R^{f}}+Cov\left(m,x^{j}\right) \]</span></p>
+<ul>
+<li>Preço é média descontada <strong>mais</strong> um ajuste pelo risco: a covariância com <span class="math inline">\(m\)</span></li>
+<li><span class="destaque">Apenas o risco correlacionado com <span class="math inline">\(m\)</span></span> afeta preços</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>ativo</th>
+<th style="text-align: right;"><span class="math inline">\(\mathbb{E}[x]/R^f\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Cov(m,x)\)</span></th>
+<th style="text-align: right;">preço</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ação (6, 5, 3)</td>
+<td style="text-align: right;">5,3</td>
+<td style="text-align: right;">−0,3</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>seguro (0, 0, 1)</td>
+<td style="text-align: right;">0,15</td>
+<td style="text-align: right;">+0,10</td>
+<td style="text-align: right;">0,25</td>
+</tr>
+<tr class="odd">
+<td>título (1, 1, 1)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Voltando à abertura: <span class="math inline">\((6, 5, 3)\)</span> vale 5 e <span class="math inline">\((4, 5, 11)\)</span> vale 6. Mesma média, sinais opostos da covariância.</p>
+</section>
+<section id="cascata-média-descontada-mais-covariância" class="slide level2 smaller">
+<h2>Cascata: média descontada mais covariância</h2>
+<!-- ADICIONADO: não está na fonte (figura nossa). Cascata e não barras empilhadas porque um degrau é negativo. -->
+
+<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">O mesmo degrau de partida; o ajuste de risco decide quem vale mais. Aqui <span class="math inline">\(R^f = 1\)</span>, então a média descontada é a própria média.</span></p>
+</section>
+<section id="risco-e-prêmio-de-risco-decompondo" class="slide level2 smaller">
+<h2>Risco e prêmio de risco: decompondo</h2>
+<p><span class="math display">\[ 0=\mathbb{E}\left[m\left(R-R^{f}\right)\right]=\underset{=Cov\left(m,R\right)}{\underbrace{Cov\left(m,R-R^{f}\right)}}+\mathbb{E}\left[m\right]\mathbb{E}\left[R-R^{f}\right] \]</span></p>
+<p>Isolando:</p>
+<p><span class="math display">\[ \mathbb{E}\left[R-R^{f}\right]=-\frac{Cov\left(m,R\right)}{\mathbb{E}\left[m\right]}=\underset{\beta_{R\rightarrow m}}{\underbrace{\frac{Cov\left(m,R\right)}{Var\left(m\right)}}}\times\underset{\text{preço do risco}}{\underbrace{\left(-\frac{Var\left(m\right)}{\mathbb{E}\left(m\right)}\right)}} \]</span></p>
+<ul>
+<li><span class="destaque">Prêmio positivo quando o ativo paga bem nos tempos bons, onde <span class="math inline">\(m\)</span> é baixo</span></li>
+<li>A segunda igualdade é só uma observação: preço do risco vezes quantidade de risco. Mas <span class="math inline">\(m\)</span> não é observável</li>
+</ul>
+<p><span class="fonte">Na nossa economia: prêmio da ação <span class="math inline">\(\mathbb{E}[R^{a}]-R^f = 1{,}06 - 1 = 6\%\)</span> e <span class="math inline">\(Cov(m,R^{a}) = -0{,}06\)</span> (o atalho <span class="math inline">\(Cov = 1-\mathbb{E}[R]\)</span> vale só porque <span class="math inline">\(\mathbb{E}[m]=1\)</span>).</span></p>
 </section>
 <section id="regra-de-investimento-correta-vs.-simplificada" class="slide level2 smaller">
 <h2>Regra de investimento: correta vs.&nbsp;simplificada</h2>
-<p>A regra correta para o valor presente (valor fundamental) é</p>
-<p><span class="math display">\[ NPV\left(CF\right)=-C_{0}+\mathbb{E}\left[m\,CF_{1}\right] \]</span></p>
-<p>Queremos usar uma regra simplificada, como nos livros de Finanças Corporativas:</p>
-<p><span class="math display">\[ NPV\left(CF\right)=-C_{0}+\frac{\mathbb{E}\left[CF_{1}\right]}{1+r^{*}} \]</span></p>
+<p>A regra correta para o valor presente e a regra simplificada dos livros de Finanças Corporativas:</p>
+<p><span class="math display">\[ NPV\left(CF\right)=-C_{0}+\mathbb{E}\left[m\,CF_{1}\right]\qquad\text{vs.}\qquad NPV\left(CF\right)=-C_{0}+\frac{\mathbb{E}\left[CF_{1}\right]}{1+r^{*}} \]</span></p>
 <p>Qual <span class="math inline">\(r^{*}\)</span> faria as duas decisões coincidirem?</p>
 <div class="fragment">
 <p><span class="math display">\[ {\color{#d97757}1+r^{*}=\frac{\mathbb{E}\left[CF_{1}\right]}{\mathbb{E}\left[m\,CF_{1}\right]}} \]</span></p>
+<p>Na nossa economia, o projeto <span class="math inline">\((4, 2, 0)\)</span> custa 2,6. Vale a pena?</p>
+</div>
+<div class="fragment">
+<p><span class="fonte">Não. Vale <span class="math inline">\(\mathbb{E}[m\,CF_1]=2{,}5\)</span>. Quem descontou a média de 2,9 à taxa livre de risco achou <span class="math inline">\(+0{,}3\)</span> e errou o sinal. Aqui <span class="math inline">\(1+r^*=2{,}9/2{,}5=1{,}16\)</span>.</span></p>
+<!-- PLANNING: pergunta ao ar; resposta no clique. -->
 </div>
 </section>
 <section id="de-onde-vem-r-o-portfólio-replicante" class="slide level2 smaller">
@@ -626,63 +1102,135 @@ flowchart LR
 <li>Custo de montá-lo (valor fundamental): <span class="math inline">\(c_{m}\left(CF_{1}\right)=\mathbb{E}\left[m\,CF_{1}\right]\)</span></li>
 <li>Seu retorno (ex-post): <span class="math inline">\(1+r_{z}=\dfrac{CF_{1}}{c_{m}\left(CF_{1}\right)}\)</span>; em termos esperados, <span class="math inline">\(1+r^{*}=\dfrac{\mathbb{E}\left[CF_{1}\right]}{\mathbb{E}\left[m\,CF_{1}\right]}\)</span></li>
 </ul>
-<p><span class="destaque">A taxa de desconto adequada é o retorno esperado do portfólio replicante</span> — mesmo padrão de risco. Na prática, usamos um modelo (como o CAPM) e olhamos para os <span class="math inline">\(\beta\)</span>s.</p>
+<p><span class="destaque">A taxa de desconto adequada é o retorno esperado do portfólio replicante:</span> mesmo padrão de risco.</p>
+<p><span class="fonte">Na nossa economia, <span class="math inline">\((4, 2, 0)\)</span> = 2 ações − 8 títulos + 2 seguros. Custo: <span class="math inline">\(10 - 8 + 0{,}5 = 2{,}5\)</span>. Retorno esperado: <span class="math inline">\(2{,}9/2{,}5 = 1{,}16\)</span>, logo <span class="math inline">\(r^* = 16\%\)</span>.</span></p>
 </section>
-<section id="sdf-e-o-retorno-livre-de-risco" class="slide level2">
-<h2>SDF e o retorno livre de risco</h2>
-<p>Ausência de arbitragem garante <span class="math inline">\(1=\mathbb{E}\left[mR^{j}\right]\)</span>. Em particular,</p>
-<p><span class="math display">\[ 1=\mathbb{E}\left[mR^{f}\right]\implies R^{f}=\mathbb{E}\left[m\right]^{-1} \]</span></p>
-<p>E também (excessos de retorno, preço zero, posições long-short):</p>
-<p><span class="math display">\[ 0=\mathbb{E}\left[m\left(R-R^{f}\right)\right] \]</span></p>
-</section>
-<section id="lembrando-covariância-aula-9" class="slide level2">
-<h2>Lembrando: covariância (Aula 9)</h2>
-<p><span class="math display">\[ Cov\left(x,y\right)=\mathbb{E}\left(xy\right)-\mathbb{E}\left(x\right)\mathbb{E}\left(y\right) \]</span></p>
-<p>Vamos usar essa identidade para decompor o prêmio de risco.</p>
-</section>
-<section id="risco-e-prêmio-de-risco-decompondo" class="slide level2 smaller">
-<h2>Risco e prêmio de risco: decompondo</h2>
-<p><span class="math display">\[ 0=\mathbb{E}\left[m\left(R-R^{f}\right)\right]=\underset{=Cov\left(m,R\right)}{\underbrace{Cov\left(m,R-R^{f}\right)}}+\mathbb{E}\left[m\right]\mathbb{E}\left[R-R^{f}\right] \]</span></p>
-<p>Isolando:</p>
-<p><span class="math display">\[ \mathbb{E}\left[R-R^{f}\right]=\underset{\beta_{R\rightarrow m}}{\underbrace{\frac{Cov\left(m,R\right)}{Var\left(m\right)}}}\times\underset{\text{preço/prêmio de risco}}{\underbrace{\left(-\frac{Var\left(m\right)}{\mathbb{E}\left(m\right)}\right)}} \]</span></p>
+<section id="mesma-média-retornos-exigidos-diferentes" class="slide level2 smaller">
+<h2>Mesma média, retornos exigidos diferentes</h2>
+<!-- ADICIONADO: não está na fonte. Responde a pergunta 1 do contrato. -->
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>fluxo</th>
+<th style="text-align: right;"><span class="math inline">\(\mathbb{E}[CF_1]\)</span></th>
+<th style="text-align: right;">valor <span class="math inline">\(\mathbb{E}[m\,CF_1]\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(1+r^*\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(r^*\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cíclico (6, 5, 3)</td>
+<td style="text-align: right;">5,3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1,06</td>
+<td style="text-align: right;">6%</td>
+</tr>
+<tr class="even">
+<td>defensivo (4, 5, 11)</td>
+<td style="text-align: right;">5,3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,883</td>
+<td style="text-align: right;">−11,7%</td>
+</tr>
+<tr class="odd">
+<td>constante (5,3; 5,3; 5,3)</td>
+<td style="text-align: right;">5,3</td>
+<td style="text-align: right;">5,3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0%</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Note o sinal e a interpretação; <span class="math inline">\(\beta\)</span> é linear em <span class="math inline">\(R\)</span> — lado esquerdo também</li>
-<li><span class="destaque"><span class="math inline">\(m\)</span> não é observável!</span></li>
+<li>Retorno exigido negativo faz sentido: <span class="destaque">o fluxo defensivo é um seguro, paga na recessão</span></li>
+<li>É o “por quê?” do caso <span class="math inline">\(\beta_i&lt;0\)</span> na SML da Aula 9: paga bem quando o resto vai mal</li>
 </ul>
+<p><span class="fonte">Ganho: dois fluxos com a mesma média valem diferente. O sinal do ajuste é o da covariância com <span class="math inline">\(m\)</span>. Passo 5 fechado.</span></p>
+<!-- PLANNING: ponto natural de parada. -->
 </section>
-<section id="preços-e-risco" class="slide level2 smaller">
-<h2>Preços e risco</h2>
-<p><span class="math display">\[ p^{j}=\mathbb{E}\left[mx^{j}\right]=\mathbb{E}\left[m\right]\mathbb{E}\left[x^{j}\right]+Cov\left(m,x^{j}\right)=\frac{\mathbb{E}\left[x^{j}\right]}{R^{f}}+Cov\left(m,x^{j}\right) \]</span></p>
+<section id="o-roteiro-passo-6" class="slide level2 smaller">
+<h2>O roteiro: passo 6</h2>
+<!-- ADICIONADO: não está na fonte (mapa reexibido). -->
+<ol type="1">
+<li>Um investidor sozinho: o preço é a soma dos pagamentos vezes a TMS</li>
+<li>Isso não basta: a TMS não se observa, muda com o tamanho e difere entre pessoas</li>
+<li>Mercados resolvem: o preço de R$1 em cada estado é o mesmo para todos</li>
+<li>Sem arbitragem, ativos negociados e fluxos replicáveis valem <span class="math inline">\(\sum_s q_s x_s\)</span>, com <span class="math inline">\(q_s&gt;0\)</span></li>
+<li>Preço = média descontada + covariância com <span class="math inline">\(m\)</span>. Só o risco que anda com <span class="math inline">\(m\)</span> tem preço</li>
+<li><span class="destaque">CAPM: o caso em que <span class="math inline">\(m\)</span> é uma reta no retorno de mercado</span></li>
+</ol>
+<p><span class="fonte">Temos: o prêmio de risco como covariância com <span class="math inline">\(m\)</span>, que não observamos. Falta: um <span class="math inline">\(m\)</span> que se possa estimar.</span></p>
+</section>
+<section id="o-capm-como-caso-especial" class="slide level2 smaller">
+<h2>O CAPM como caso especial</h2>
+<!-- Substitui "Derivando o CAPM". Sai a frase da fonte que só declarava o resultado: o CAPM entra como hipótese sobre m. -->
+<div class="columns">
+<div class="column" style="width:44%;">
+<p>Três hipóteses da Aula 9:</p>
 <ul>
-<li>Preço é valor esperado <strong>mais</strong> prêmio de risco</li>
-<li><span class="destaque">Apenas risco correlacionado com <span class="math inline">\(m\)</span></span> afeta preços</li>
+<li>investidores média-variância</li>
+<li>expectativas homogêneas</li>
+<li>empréstimo à taxa livre de risco</li>
 </ul>
+<p>Com elas, a carteira de mercado é eficiente. Em termos de apreçamento, o CAPM admite a representação</p>
+<p><span class="math display">\[ m_{s}=a-b\,R_{s}^{m},\qquad b&gt;0 \]</span></p>
+<p><span class="destaque">O CAPM é uma hipótese sobre <span class="math inline">\(m\)</span>: cai quando o mercado sobe.</span></p>
+</div><div class="column" style="width:56%;">
+<div id="8a6de6c8" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Ilustração com <span class="math inline">\(R^f = 1{,}02\)</span>, <span class="math inline">\(\mathbb{E}[R^m] = 1{,}08\)</span>, <span class="math inline">\(\sigma_m = 0{,}20\)</span>, escolhidos para que <span class="math inline">\(\mathbb{E}[m]=1/R^f\)</span> e <span class="math inline">\(\mathbb{E}[mR^m]=1\)</span>. Não é a nossa economia.</span></p>
+</div></div>
 </section>
-<section id="derivando-o-capm" class="slide level2 smaller">
-<h2>Derivando o CAPM</h2>
-<p>Derivações do CAPM mostram (com algum trabalho) que o SDF é <strong>linear no retorno de mercado</strong>:</p>
-<p><span class="math display">\[ m_{s}=a-bR_{s}^{m} \]</span></p>
+<section id="do-m-linear-ao-capm" class="slide level2 smaller">
+<h2>Do <span class="math inline">\(m\)</span> linear ao CAPM</h2>
+<!-- Funde "O CAPM: portfólio de mercado" e "O CAPM: fórmula final". Derivação linha a linha no apêndice. -->
+<p>Com <span class="math inline">\(m=a-bR^{m}\)</span> na decomposição do prêmio, para qualquer ativo <span class="math inline">\(j\)</span>:</p>
+<p><span class="math display">\[ \mathbb{E}\left[R^{j}-R^{f}\right]=-\frac{Cov\left(m,R^{j}\right)}{\mathbb{E}\left[m\right]}=\frac{b\,Cov\left(R^{m},R^{j}\right)}{\mathbb{E}\left[m\right]} \]</span></p>
+<p>Para o próprio mercado, <span class="math inline">\(\mathbb{E}\left[R^{m}-R^{f}\right]=b\,Var\left(R^{m}\right)/\mathbb{E}\left[m\right]\)</span>. Dividindo uma pela outra, <span class="math inline">\(b\)</span> e <span class="math inline">\(\mathbb{E}[m]\)</span> somem:</p>
+<p><span class="math display">\[ \mathbb{E}\left[R^{j}-R^{f}\right]=\underset{\beta_{R^j\rightarrow R^{m}}}{\underbrace{\frac{Cov\left(R^{j},R^{m}\right)}{Var\left(R^{m}\right)}}}\;\mathbb{E}\left[R^{m}-R^{f}\right] \]</span></p>
+<ul>
+<li><span class="destaque">Implementável e testável:</span> <span class="math inline">\(\beta\)</span> e o prêmio de mercado se estimam com retornos</li>
+</ul>
+<p><span class="fonte">Ganho: a SML da Aula 9 reaparece como consequência de um <span class="math inline">\(m\)</span> linear. Linha a linha no <a href="#//apendice-capm">apêndice</a>.</span></p>
+<!-- VARIANTE B: início. ADICIONADO: não está na fonte; só na variante B. Para ligar, apague esta linha e a linha "VARIANTE B: fim".
+## Duas rotas, uma SML {.smaller}
 
-<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="r-stretch quarto-figure-center"><p class="caption">SDF linear no retorno de mercado (a = 1,05, b = 0,5 — valores ILUSTRATIVOS, não constam do arquivo-fonte)</p><p><span class="destaque">Sinal trocado: quando o mercado vai mal, o consumo vale mais (é mais escasso).</span></p>
-</section>
-<section id="o-capm-portfólio-de-mercado" class="slide level2 smaller">
-<h2>O CAPM: portfólio de mercado</h2>
-<p>Como o mercado é um portfólio transacionado,</p>
-<p><span class="math display">\[ \mathbb{E}\left[R^{m}-R^{f}\right]=-Cov\left(m,R^{m}\right)\frac{1}{\mathbb{E}\left[m\right]}=b\,Cov\left(R^{m},R^{m}\right)\frac{1}{\mathbb{E}\left[m\right]} \]</span></p>
-<ul>
-<li><span class="math inline">\(\mathbb{E}\left[R^{m}-R^{f}\right]\)</span> e <span class="math inline">\(b\)</span> caracterizam o prêmio de risco na economia</li>
-</ul>
-<p>Para os demais ativos:</p>
-<p><span class="math display">\[ \mathbb{E}\left[R^{j}-R^{f}\right]=b\,Cov\left(R^{m},R^{j}\right)\frac{1}{\mathbb{E}\left[m\right]} \]</span></p>
-</section>
-<section id="o-capm-fórmula-final" class="slide level2 smaller">
-<h2>O CAPM: fórmula final</h2>
-<p>Dividindo e rearrumando:</p>
-<p><span class="math display">\[ \mathbb{E}\left[R^{j}-R^{f}\right]=\underset{\beta_{R\rightarrow R^{m}}}{\underbrace{\frac{Cov\left(R^{j},R^{m}\right)}{Var\left(R^{m}\right)}}}\mathbb{E}\left[R^{m}-R^{f}\right] \]</span></p>
-<ul>
-<li>De novo linear em <span class="math inline">\(R^j\)</span> (lado esquerdo e <span class="math inline">\(\beta\)</span>)</li>
-<li><span class="destaque">Implementável econometricamente e testável</span></li>
-</ul>
+:::: {.columns}
+::: {.column width="48%"}
+**Aula 9**
+
+- carteira de mercado eficiente
+- $\Rightarrow$ Sharpe marginal zero para todo ativo
+- $\Rightarrow$ SML: $\mathbb{E}[R^j]-R^f=\beta_j\,\mathbb{E}[R^m-R^f]$
+:::
+::: {.column width="48%"}
+**Hoje**
+
+- sem arbitragem $\Rightarrow$ existe $m$ com $1=\mathbb{E}[mR^j]$
+- hipótese: $m=a-bR^m$
+- $\Rightarrow$ SML, pela divisão do slide anterior
+:::
+::::
+
+[A SML da Aula 9 equivale a dizer que essa reta apreça todos os ativos: $\mathbb{E}[mR^j]=1$ para todo $j$ com $m=a-bR^m$.]{.destaque}
+
+<a href="#/apendice-sml-m" class="fonte">Apêndice: prova em seis linhas →</a>
+VARIANTE B: fim -->
 </section>
 <section id="capm-em-finanças-corporativas" class="slide level2 smaller">
 <h2>CAPM em finanças corporativas</h2>
@@ -696,29 +1244,38 @@ flowchart LR
 <li>Basta saber o beta do portfólio replicante <span class="math inline">\(\beta_{R^z,R^m}\)</span>: investimento com o mesmo padrão de risco de <span class="math inline">\(CF_1\)</span></li>
 <li>Proxies: ativo da firma, firmas comparáveis, <em>educated guesses</em></li>
 </ul>
+<p><span class="fonte">Na nossa economia, o replicante de <span class="math inline">\((4, 2, 0)\)</span> é 2 ações − 8 títulos + 2 seguros, com <span class="math inline">\(r^* = 16\%\)</span>. O CAPM é o atalho para achar esse <span class="math inline">\(r^*\)</span> sem conhecer <span class="math inline">\(m\)</span>.</span></p>
 </section>
 <section id="além-do-capm" class="slide level2 smaller">
 <h2>Além do CAPM</h2>
+<!-- CORREÇÃO: a fonte escreve o modelo de fatores como E[R^j-R^f] = α + Σ β_n^j E[f], com α dentro do modelo.
+     O intercepto α^j é o erro de apreçamento estimado no teste (o modelo prevê α^j = 0), não parte do modelo. -->
 <ul>
-<li>Infelizmente, o desempenho empírico do CAPM é <strong>ruim</strong></li>
-<li>Extensões vão melhor: modelos lineares de fatores, com <span class="math inline">\(m_{s}=a+\sum_n b_{n}f_{n,s}\)</span>
-<ul>
-<li><span class="math inline">\(n\in\left\{ 1,...,N\right\}\)</span> fatores observáveis: variáveis macro ou retornos de portfólios</li>
-</ul></li>
+<li>O CAPM deixa anomalias empíricas sistemáticas; modelos multifatores organizam parte dessa evidência</li>
+<li>Modelos lineares de fatores: <span class="math inline">\(m_{s}=a+\sum_n b_{n}f_{n,s}\)</span>, com <span class="math inline">\(n\in\{1,...,N\}\)</span> fatores observáveis (variáveis macro ou retornos de portfólios)</li>
+<li>Pelo mesmo argumento do CAPM, equivalem a</li>
 </ul>
-<p>Equivalentes a</p>
-<p><span class="math display">\[ \mathbb{E}\left[R^{j}-R^{f}\right]=\alpha+\sum_{n=1}^{N}\beta_{n}^{j}\,\mathbb{E}\left[f_n\right] \]</span></p>
-<p><span class="fonte">Fama-French 3: mercado, SMB (size), HML (book-market).</span></p>
+<p><span class="math display">\[ \mathbb{E}\left[R^{j}-R^{f}\right]=\sum_{n=1}^{N}\beta_{n}^{j}\,\lambda_{n} \]</span></p>
+<ul>
+<li>Lê-se: <span class="math inline">\(\lambda_n\)</span> é o prêmio do fator <span class="math inline">\(n\)</span> (igual a <span class="math inline">\(\mathbb{E}[f_n]\)</span> quando o fator é um excesso de retorno)</li>
+<li>No teste, regride-se o excesso de retorno nos fatores. O intercepto <span class="math inline">\(\alpha^j\)</span> é o <span class="destaque">erro de apreçamento</span>: o modelo prevê <span class="math inline">\(\alpha^j=0\)</span></li>
+</ul>
+<p><span class="fonte">Fama-French 3: mercado, SMB (tamanho), HML (book-to-market).</span></p>
 </section>
-<section id="o-que-aprendemos" class="slide level2">
+<section id="o-que-aprendemos" class="slide level2 smaller">
 <h2>O que aprendemos</h2>
-<ul>
-<li>A equação de Euler de 1 agente dá um preço em termos de TMS — <span class="destaque">abstrato e não observável</span></li>
-<li>Mercados completos + ausência de arbitragem <span class="math inline">\(\Rightarrow\)</span> existe um fator estocástico de desconto <span class="math inline">\(m\)</span> sobre o qual todos concordam</li>
-<li>Preço = valor esperado + prêmio de risco: <span class="math inline">\(p^{j}=\mathbb{E}[x^j]/R^f + Cov(m,x^j)\)</span></li>
-<li>O CAPM é o caso especial em que <span class="math inline">\(m\)</span> é linear no retorno de mercado; modelos de fatores generalizam</li>
-<li>Próxima aula: <span class="secundario">estrutura de capital</span> — como dívida e equity dividem o valor da firma</li>
-</ul>
+<p>As três perguntas do contrato:</p>
+<ol type="1">
+<li><strong>Mesma média, valores diferentes:</strong> <span class="math inline">\(p=\mathbb{E}[x]/R^f+Cov(m,x)\)</span>. O ajuste tem o sinal da covariância com <span class="math inline">\(m\)</span>: negativo para o fluxo cíclico (vale 5), positivo para o defensivo (vale 6)</li>
+<li><strong>Preços de estado e replicação:</strong> ausência de arbitragem dá <span class="math inline">\(q\gg0\)</span>; mercado completo o torna único. Sem completude, só fluxos replicáveis têm valor unicamente determinado</li>
+<li><strong>De onde vem <span class="math inline">\(r^*\)</span>:</strong> é o retorno esperado do portfólio replicante, <span class="math inline">\(1+r^*=\mathbb{E}[CF_1]/\mathbb{E}[m\,CF_1]\)</span>. O CAPM dá um <span class="math inline">\(m\)</span> linear em <span class="math inline">\(R^m\)</span> e transforma isso em <span class="math inline">\(R^f+\beta\,\mathbb{E}[R^m-R^f]\)</span></li>
+</ol>
+<p>Próxima aula: <span class="secundario">a mesma economia</span>. A firma <span class="math inline">\((6, 5, 3)\)</span> vale 5. Veremos como dívida e ações dividem esses 5.</p>
+</section>
+<section>
+<section id="apêndice" class="title-slide slide level1 center">
+<h1>Apêndice</h1>
+
 </section>
 <section id="apendice-probabilidades-neutras" class="slide level2 smaller">
 <h2>Apêndice: probabilidades neutras ao risco</h2>
@@ -731,8 +1288,135 @@ flowchart LR
 <li>Sob essa medida, <span class="math inline">\(\hat{\mathbb{E}}\left[R^{j}\right]=\dfrac{1}{\sum_{s}q_{s}}=R^{f}\)</span> para todo <span class="math inline">\(j\in J\)</span></li>
 <li>Todos os ativos têm o <strong>mesmo</strong> retorno esperado nessa medida (mas não na medida física)</li>
 </ul>
-
+<p><span class="fonte">Na nossa economia, <span class="math inline">\(\widehat\pi = q = (0{,}5;\,0{,}25;\,0{,}25)\)</span>, porque <span class="math inline">\(\sum_s q_s = 1\)</span>.</span></p>
 </section>
+<section id="apendice-lagrange" class="slide level2 smaller">
+<h2>Apêndice: o problema do agente com multiplicadores de Lagrange</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Agente <span class="math inline">\(i\)</span> resolve:</p>
+<p><span class="math display">\[ \max_{Z^{i},C^{i}}u_{0}^{i}\left(c_{0}^{i}\right)+\beta^{i}\sum_{s}\pi_{s}^{i}u_{s}^{i}\left(c_{s}^{i}\right) \]</span></p>
+<p>s.a. <span class="math inline">\(c_{0}^{i}+\sum_{j}p^{j}z^{i,j}\leq e_{0}^{i}\)</span></p>
+<p>e, para cada <span class="math inline">\(s\in S\)</span> de <span class="math inline">\(t=1\)</span>,</p>
+<p><span class="math display">\[ c_{s}^{i}\leq e_{s}^{i}+\sum_{j}x_{s}^{j}z^{i,j} \]</span></p>
+</div><div class="column" style="width:45%;">
+<p>CPOs (multiplicadores <span class="math inline">\(\lambda_0^i\)</span>, <span class="math inline">\(\lambda_s^i\)</span>):</p>
+<p><span class="math display">\[ \frac{\partial u_{0}^{i}}{\partial c_{0}^{i}}=\lambda_{0}^{i} \]</span></p>
+<p><span class="math display">\[ \beta^{i}\pi_{s}^{i}\frac{\partial u_{s}^{i}}{\partial c_{s}^{i}}=\lambda_{s}^{i} \]</span></p>
+<p><span class="math display">\[ \lambda_{0}^{i}p^{j}=\sum_{s}\lambda_{s}^{i}x_{s}^{j} \]</span></p>
+</div></div>
+<p>Solução gera demanda por ativos <span class="math inline">\(\left\{ z^{j}\left(p\right)\right\}\)</span> e consumo <span class="math inline">\(\left\{ c_{0}\left(p\right),\left\{ c_{s}\left(p\right)\right\} _{s}\right\}\)</span>.</p>
+<p><span class="destaque">Dividindo a segunda CPO pela primeira: <span class="math inline">\(\lambda_s^i/\lambda_0^i = TMS_{0,s}^i\)</span>. A terceira CPO vira <span class="math inline">\(p^j=\sum_s TMS^i_{0,s}x^j_s\)</span>: a Equação de Euler.</span></p>
+</section>
+<section id="apendice-incompleto-na-nossa-economia" class="slide level2 smaller">
+<h2>Apêndice: mercado incompleto na nossa economia</h2>
+<!-- ADICIONADO: não está na fonte. -->
+<p>Só título (a 1) e ação (a 5), três estados. As duas equações <span class="math inline">\(1=q_1+q_2+q_3\)</span> e <span class="math inline">\(5=6q_1+5q_2+3q_3\)</span> deixam uma família:</p>
+<p><span class="math display">\[ q=\left(q_1,\;1-1{,}5\,q_1,\;0{,}5\,q_1\right),\qquad q_1\in\left(0,\;2/3\right) \]</span></p>
+<ul>
+<li>Todos os membros apreçam título e ação corretamente; diferem no que dão a fluxos não replicáveis</li>
+<li>O seguro <span class="math inline">\((0, 0, 1)\)</span> vale <span class="math inline">\(0{,}5\,q_1\)</span>: qualquer valor em <span class="math inline">\((0;\,1/3)\)</span> é compatível com ausência de arbitragem</li>
+<li>Um preço observado do seguro, 0,25, fixa <span class="math inline">\(q_1=0{,}5\)</span> e recupera <span class="math inline">\(q=(0{,}5;\,0{,}25;\,0{,}25)\)</span></li>
+</ul>
+<p><span class="destaque">Sem completude, o valor de um fluxo novo pode ficar indeterminado. Com o terceiro ativo, fica único.</span></p>
+</section>
+<section id="apendice-valor-fundamental" class="slide level2 smaller">
+<h2>Apêndice: valor fundamental e lei do preço único</h2>
+<blockquote>
+<p><strong>Valor fundamental.</strong> Para qualquer fluxo <span class="math inline">\(x\in\text{Im}\left(X\right)\)</span>, há concordância dos agentes sobre seu valor fundamental, que coincide com seu valor de mercado.</p>
+</blockquote>
+<blockquote>
+<p><strong>Lei do preço único.</strong> Tome um fluxo <span class="math inline">\(x\in\text{Im}\left(X\right)\)</span>. Se dois portfólios <span class="math inline">\(z,\overline{z}\in\mathbb{R}^{|J|}\)</span> replicam <span class="math inline">\(x\)</span> (i.e., <span class="math inline">\(Xz=X\overline{z}=x\)</span>), então ambos têm o mesmo custo em <span class="math inline">\(t=0\)</span>:</p>
+<p><span class="math display">\[ c_{q}\left(z\right)=c_{q}\left(\overline{z}\right)=q^{'}x \]</span></p>
+</blockquote>
+</section>
+<section id="apendice-beta" class="slide level2 smaller">
+<h2>Apêndice: a mesma economia com <span class="math inline">\(\beta=0{,}9\)</span></h2>
+<!-- ADICIONADO: não está na fonte. -->
+<p>Se o investidor desconta o futuro, <span class="math inline">\(TMS_{0,s}=\beta\,\pi_s\,u'(c_s)/u'(c_0)\)</span> escala tudo por <span class="math inline">\(\beta\)</span>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>estado</th>
+<th style="text-align: right;"><span class="math inline">\(\pi_s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(c_s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(q_s\)</span> com <span class="math inline">\(\beta=1\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(q_s\)</span> com <span class="math inline">\(\beta=0{,}9\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>expansão</td>
+<td style="text-align: right;">0,60</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,50</td>
+<td style="text-align: right;">0,45</td>
+</tr>
+<tr class="even">
+<td>normal</td>
+<td style="text-align: right;">0,25</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0,25</td>
+<td style="text-align: right;">0,225</td>
+</tr>
+<tr class="odd">
+<td>recessão</td>
+<td style="text-align: right;">0,15</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0,25</td>
+<td style="text-align: right;">0,225</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(\sum_s q_s = 0{,}9\)</span>, logo <span class="math inline">\(R^f = 1/0{,}9 = 10/9 \approx 1{,}11\)</span>: o título passa a custar 0,9</li>
+<li><span class="math inline">\(m\)</span> também escala: <span class="math inline">\(m=(0{,}75;\,0{,}9;\,1{,}5)\)</span>, com <span class="math inline">\(\mathbb{E}[m]=0{,}9\)</span></li>
+<li>A ação passa a valer <span class="math inline">\(0{,}9\times5=4{,}5\)</span>; o prêmio de risco continua 6% (a razão <span class="math inline">\(\mathbb{E}[R^a]/R^f\)</span> não muda)</li>
+</ul>
+<p><span class="destaque">Juro zero era coisa do exemplo com <span class="math inline">\(\beta = 1\)</span>, não da teoria.</span></p>
+</section>
+<section id="apendice-capm" class="slide level2 smaller">
+<h2>Apêndice: do <span class="math inline">\(m\)</span> linear ao CAPM, linha a linha</h2>
+<p>Hipótese: <span class="math inline">\(m_s=a-bR^m_s\)</span> com <span class="math inline">\(b&gt;0\)</span>. Da decomposição do prêmio, para qualquer retorno <span class="math inline">\(R^j\)</span>:</p>
+<p><span class="math display">\[ \mathbb{E}\left[R^{j}-R^{f}\right]=-Cov\left(m,R^{j}\right)\frac{1}{\mathbb{E}\left[m\right]}=-Cov\left(a-bR^{m},R^{j}\right)\frac{1}{\mathbb{E}\left[m\right]}=b\,Cov\left(R^{m},R^{j}\right)\frac{1}{\mathbb{E}\left[m\right]} \]</span></p>
+<p>Como o mercado é um portfólio transacionado, a mesma linha vale com <span class="math inline">\(j=m\)</span>:</p>
+<p><span class="math display">\[ \mathbb{E}\left[R^{m}-R^{f}\right]=b\,Cov\left(R^{m},R^{m}\right)\frac{1}{\mathbb{E}\left[m\right]}=b\,Var\left(R^{m}\right)\frac{1}{\mathbb{E}\left[m\right]} \]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbb{E}\left[R^{m}-R^{f}\right]\)</span> e <span class="math inline">\(b\)</span> caracterizam o prêmio de risco na economia</li>
+</ul>
+</section>
+<section id="apêndice-do-m-linear-ao-capm-fórmula-final" class="slide level2 smaller">
+<h2>Apêndice: do <span class="math inline">\(m\)</span> linear ao CAPM, fórmula final</h2>
+<p>Dividindo a equação de <span class="math inline">\(j\)</span> pela do mercado, <span class="math inline">\(b\)</span> e <span class="math inline">\(\mathbb{E}[m]\)</span> cancelam:</p>
+<p><span class="math display">\[ \frac{\mathbb{E}\left[R^{j}-R^{f}\right]}{\mathbb{E}\left[R^{m}-R^{f}\right]}=\frac{Cov\left(R^{m},R^{j}\right)}{Var\left(R^{m}\right)} \]</span></p>
+<p><span class="math display">\[ \implies\mathbb{E}\left[R^{j}-R^{f}\right]=\underset{\beta_{R^j\rightarrow R^{m}}}{\underbrace{\frac{Cov\left(R^{j},R^{m}\right)}{Var\left(R^{m}\right)}}}\mathbb{E}\left[R^{m}-R^{f}\right] \]</span></p>
+<ul>
+<li>De novo linear em <span class="math inline">\(R^j\)</span> (lado esquerdo e <span class="math inline">\(\beta\)</span>)</li>
+<li><span class="destaque">Implementável econometricamente e testável</span></li>
+</ul>
+<!-- VARIANTE B: início. ADICIONADO: não está na fonte; só na variante B. Para ligar, apague esta linha e a linha "VARIANTE B: fim".
+## Apêndice: a SML equivale a um $m$ linear {#apendice-sml-m .smaller}
+
+Seja $m=a-bR^m$ com $\mathbb{E}[m]=1/R^f$, isto é, $a-b\,\mathbb{E}[R^m]=1/R^f$. Para qualquer $j$:
+
+1. $\mathbb{E}[mR^j]=a\,\mathbb{E}[R^j]-b\,\mathbb{E}[R^mR^j]$
+2. $\mathbb{E}[R^mR^j]=Cov(R^m,R^j)+\mathbb{E}[R^m]\,\mathbb{E}[R^j]$
+3. Logo $\mathbb{E}[mR^j]=\left(a-b\,\mathbb{E}[R^m]\right)\mathbb{E}[R^j]-b\,Cov(R^m,R^j)=\dfrac{\mathbb{E}[R^j]}{R^f}-b\,Cov(R^m,R^j)$
+4. Então $\mathbb{E}[mR^j]=1\iff\mathbb{E}[R^j]-R^f=b\,R^f\,Cov(R^m,R^j)$
+5. Com $j=m$: $\mathbb{E}[R^m]-R^f=b\,R^f\,Var(R^m)$, o que fixa $b\,R^f$
+6. Substituindo: $\mathbb{E}[mR^j]=1\iff\mathbb{E}[R^j]-R^f=\dfrac{Cov(R^m,R^j)}{Var(R^m)}\,\mathbb{E}[R^m-R^f]$, a SML
+
+[Volta: se a SML vale para todo $j$, defina $b=\dfrac{\mathbb{E}[R^m]-R^f}{R^f\,Var(R^m)}$ e $a=1/R^f+b\,\mathbb{E}[R^m]$; a linha 4 dá $\mathbb{E}[mR^j]=1$ para todo $j$.]{.destaque}
+VARIANTE B: fim -->
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

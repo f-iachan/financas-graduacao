@@ -316,7 +316,7 @@ Felipe Iachan
 <tr class="even">
 <td>Ação B</td>
 <td style="text-align: right;">−200</td>
-<td style="text-align: right;">−R$ 25</td>
+<td style="text-align: right;">R$ 25</td>
 <td style="text-align: right;">−R$ 5.000</td>
 </tr>
 <tr class="odd">
@@ -397,7 +397,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="a-mesma-regra-em-todo-estado" class="slide level2 smaller">
 <h2>A mesma regra em todo estado</h2>
 <p>Para <span class="math inline">\(\omega_1=0{,}6\)</span> e <span class="math inline">\(\omega_2=0{,}4\)</span>:</p>
-<div id="bb43fd41" class="cell" data-execution_count="2">
+<div id="30c1302e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <table class="caption-top">
 <thead>
@@ -437,13 +437,13 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Retorno esperado: a linearidade é uma consequência</h2>
 <p><span class="math display">\[ E\left[R_{p}\right]=\sum_{s}\pi_{s}R_{p}(s)=\sum_{s}\pi_{s}\sum_{i}\omega_{i}R_{i}(s)=\sum_{i}\omega_{i}\sum_{s}\pi_{s}R_{i}(s)=\sum_{i}\omega_{i}E\left[R_{i}\right] \]</span></p>
 <p><span class="destaque">A troca da ordem das somas é o único passo: <span class="math inline">\(E[\cdot]\)</span> é linear porque é uma soma ponderada.</span></p>
-<div id="3e9d039f" class="cell" data-execution_count="3">
+<div id="5be4cff6" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p>No exemplo: <span class="math inline">\(E[R_1]=5\%\)</span>, <span class="math inline">\(E[R_2]=11\%\)</span>, <span class="math inline">\(E[R_p]=0{,}6\times5\%+0{,}4\times11\%=7,4\%\)</span> — confere com a tabela anterior.</p>
 </div>
 </div>
 <p>Exemplo de uma linha: R$ 25 mil a 18% e R$ 35 mil a 25%:</p>
-<div id="3be9538b" class="cell" data-execution_count="4">
+<div id="fdfe5566" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[E[R_p] = 0,4167\times 0{,}18 + 0,5833\times 0{,}25 = 22,1\%\]</span></p>
 </div>
@@ -493,7 +493,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="exemplo-numérico-pesos-iguais" class="slide level2 smaller">
 <h2>Exemplo numérico: pesos iguais</h2>
 <p>Desvio-padrão médio das ações: 10% a.m.; correlação média: 0,40. Investindo o mesmo montante em cada ação, qual a variância do portfólio quando <span class="math inline">\(n\to\infty\)</span>? E se a correlação fosse 0? E 1?</p>
-<div id="f7d3e319" class="cell" data-execution_count="7">
+<div id="7c3e7443" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[Cov\left(R_i,R_j\right) = 0{,}40\times0{,}10\times0{,}10 = 0,004\]</span></p>
 <p><span class="math display">\[\sigma_p \underset{n\to\infty}{\approx} \sqrt{0,004} = 6,3\%\]</span></p>
@@ -1318,7 +1318,7 @@ R_P(\varepsilon)
 \end{aligned}
 \]</span></p>
 <p><span class="math display">\[ \left.\dfrac{d\sigma_P(\varepsilon)}{d\varepsilon}\right|_{\varepsilon=0}=\dfrac{Cov\left(R_i,R_P(0)\right)}{\sigma_P(0)}=\sigma_i\rho_{iP} \]</span></p>
-<p><span class="destaque">Na margem, a volatilidade muda apenas pela parte de <span class="math inline">\(i\)</span> comum a <span class="math inline">\(P\)</span>; o risco idiossincrático entra apenas em ordem <span class="math inline">\(\varepsilon^2\)</span>.</span></p>
+<p><span class="destaque">A variância total de <span class="math inline">\(i\)</span> entra em ordem <span class="math inline">\(\varepsilon^2\)</span>; em primeira ordem, só importa sua covariância com <span class="math inline">\(P\)</span>.</span></p>
 </section>
 <section id="sharpe-marginal" class="slide level2 smaller">
 <h2>Sharpe marginal</h2>
@@ -1335,7 +1335,7 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
 </section>
 <section id="beta-e-a-condição-de-sharpe-máximo" class="slide level2 smaller">
 <h2>Beta e a condição de Sharpe máximo</h2>
-<p>Sem restrições à negociação, <span class="math inline">\(\varepsilon\)</span> pode ter qualquer sinal. Logo, <span class="math inline">\(P\)</span> só tem Sharpe máximo se <span class="math inline">\(S_P'(0)=0\)</span> <strong>para todo</strong> <span class="math inline">\(i\)</span>:</p>
+<p>Sem restrições à negociação, <span class="math inline">\(\varepsilon\)</span> pode ter qualquer sinal. Se <span class="math inline">\(P\)</span> maximiza o Sharpe, então <span class="math inline">\(S_P'(0)=0\)</span> <strong>para todo</strong> <span class="math inline">\(i\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb E\left[R_i\right]-r_f&amp;=\beta_i^P\left(\mathbb E\left[R_P(0)\right]-r_f\right) \\
@@ -1347,8 +1347,8 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
 </ul>
 <p><span class="destaque">O lado direito é o <strong>retorno exigido</strong>: o retorno necessário para compensar o risco que <span class="math inline">\(i\)</span> acrescenta a <span class="math inline">\(P\)</span>.</span></p>
 </section>
-<section id="artefato-sharpe-marginal-e-sml" class="slide level2 smaller">
-<h2>Artefato: Sharpe marginal e SML</h2>
+<section id="artefato-sharpe-marginal-e-relação-beta-retorno" class="slide level2 smaller">
+<h2>Artefato: Sharpe marginal e relação beta-retorno</h2>
 <style>
 #a9ps-root .a9ps-charts{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:10px;}
 #a9ps-root .a9ps-card{margin-top:12px;}
@@ -1376,7 +1376,7 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
       <svg id="a9ps-svg-left" viewbox="0 0 460 320" role="img" aria-label="Índice de Sharpe S de epsilon ao acrescentar um peso epsilon no ativo i, financiado pelo ativo livre de risco"></svg>
     </div>
     <div class="a9p-chart">
-      <svg id="a9ps-svg-right" viewbox="0 0 460 320" role="img" aria-label="Linha de mercado de títulos (SML) em relação à carteira P, com os três ativos reais e o ativo hipotético i"></svg>
+      <svg id="a9ps-svg-right" viewbox="0 0 460 320" role="img" aria-label="Relação beta-retorno em relação à carteira P, com os três ativos reais e o ativo hipotético i"></svg>
     </div>
   </div>
 
@@ -1384,10 +1384,10 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
     <div class="a9p-badge" id="a9ps-badge"></div>
     <dl>
       <dt>β<sub>i</sub> (em relação a P)</dt><dd id="a9ps-beta"></dd>
-      <dt>α<sub>i</sub></dt><dd id="a9ps-alpha"></dd>
+      <dt>α<sub>i</sub><sup>P</sup></dt><dd id="a9ps-alpha"></dd>
       <dt>S'(0)</dt><dd id="a9ps-sprime"></dd>
     </dl>
-    <div class="a9p-message">α<sub>i</sub> &gt; 0 ⇔ S'(0) &gt; 0 ⇔ vale comprar i; α<sub>i</sub> = 0 coloca i exatamente na SML e a tangente em ε=0 fica horizontal.</div>
+    <div class="a9p-message">Com negociação sem restrições: α<sub>i</sub><sup>P</sup> &gt; 0 ⇔ aumente ε (compre i); α<sub>i</sub><sup>P</sup> &lt; 0 ⇔ reduza ε (venda i a descoberto).</div>
   </div>
 </div>
 
@@ -1445,9 +1445,9 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
     return num / Math.sqrt(Math.max(varE, 1e-12));
   }
   function classify(s){
-    if (s > 1e-3) return {color:A9P_VERDE, texto:"S'(0) > 0: vale comprar i"};
-    if (s < -1e-3) return {color:A9P_LARANJA, texto:"S'(0) < 0: não vale comprar i"};
-    return {color:A9P_CINZA, texto:"S'(0) ≈ 0: indiferente"};
+    if (s > 1e-3) return {color:A9P_VERDE, texto:"S'(0) > 0: compre i"};
+    if (s < -1e-3) return {color:A9P_LARANJA, texto:"S'(0) < 0: venda i a descoberto"};
+    return {color:A9P_CINZA, texto:"S'(0) ≈ 0: efeito marginal mínimo"};
   }
 
   // ---- gráfico esquerdo: S(ε) ----
@@ -1503,7 +1503,7 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
     svgL.innerHTML = s;
   }
 
-  // ---- gráfico direito: SML ----
+  // ---- gráfico direito: relação beta-retorno em relação a P ----
   var WR=460, HR=320, mR={l:46, r:14, t:14, b:36};
   var BETA0=-0.5, BETA1=2.2, RET0=-10, RET1=35;
   function sxR(b){ return mR.l + (WR-mR.l-mR.r)*(b-BETA0)/(BETA1-BETA0); }
@@ -1526,12 +1526,12 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
     s += '<text x="'+(mR.l+(WR-mR.l-mR.r)/2)+'" y="'+(HR-6)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'">β (em relação a P)</text>';
     s += '<text x="12" y="'+(mR.t+(HR-mR.t-mR.b)/2)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'" transform="rotate(-90 12 '+(mR.t+(HR-mR.t-mR.b)/2)+')">retorno esperado (%)</text>';
 
-    // SML
+    // relação beta-retorno em relação a P
     s += '<line x1="'+sxR(BETA0)+'" y1="'+syR(smlPct(BETA0))+'" x2="'+sxR(BETA1)+'" y2="'+syR(smlPct(BETA1))+
          '" stroke="'+A9P_AZUL+'" stroke-width="2.6"/>';
-    s += '<text x="'+(sxR(BETA1)-4)+'" y="'+(syR(smlPct(BETA1))-8)+'" text-anchor="end" font-size="11" fill="'+A9P_AZUL+'">SML</text>';
+    s += '<text x="'+(sxR(BETA1)-4)+'" y="'+(syR(smlPct(BETA1))-8)+'" text-anchor="end" font-size="11" fill="'+A9P_AZUL+'">beta-retorno</text>';
 
-    // três ativos reais (exatamente sobre a SML)
+    // três ativos reais sobre a relação beta-retorno
     for (var k=0; k<3; k++){
       var bx = sxR(P.betas[k]), by = syR(MU[k]*100);
       s += '<circle cx="'+bx+'" cy="'+by+'" r="5" fill="#141413"/>';
@@ -1592,18 +1592,18 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
     approx("beta2 (Coca-Cola)", P.betas[1], 0.336077, 1e-3);
     approx("beta3 (Bore)", P.betas[2], 0.067215, 1e-3);
     var somaWBeta = P.w[0]*P.betas[0] + P.w[1]*P.betas[1] + P.w[2]*P.betas[2];
-    approx("soma x_k beta_k = 1 (bilinearidade)", somaWBeta, 1, 1e-3);
+    approx("soma omega_k beta_k = 1 (bilinearidade)", somaWBeta, 1, 1e-3);
 
     // (2) i idêntico a P: beta=1, S'(0)=0
     approx("beta_i quando i=P", betaI(P.SD_P, 1), 1, 1e-6);
     approx("S'(0) quando i=P", sprime0(P.E_P, P.SD_P, 1), 0, 1e-6);
     approx("alpha_i quando i=P", alphaI(P.E_P, P.SD_P, 1), 0, 1e-6);
 
-    // (3) i exatamente sobre a SML: alpha=0 e S'(0)=0
+    // (3) i sobre a relação beta-retorno: alpha=0 e S'(0)=0
     var mu_test = 0.15, sigma_test = 0.30;
     var rho_sml = (mu_test - RF) / (P.S_P * sigma_test);
-    approx("alpha_i sobre a SML", alphaI(mu_test, sigma_test, rho_sml), 0, 1e-6);
-    approx("S'(0) sobre a SML", sprime0(mu_test, sigma_test, rho_sml), 0, 1e-6);
+    approx("alpha_i sobre a relação beta-retorno", alphaI(mu_test, sigma_test, rho_sml), 0, 1e-6);
+    approx("S'(0) sobre a relação beta-retorno", sprime0(mu_test, sigma_test, rho_sml), 0, 1e-6);
 
     // (4) identidade algébrica S'(0) = alpha_i / SD_P, para valores genéricos
     var mu_g = 0.22, sigma_g = 0.35, rho_g = -0.4;
@@ -1616,152 +1616,34 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
 })();
 </script>
 </section>
-<section id="portfólio-eficiente-e-retorno-exigido" class="slide level2 smaller">
-<h2>Portfólio eficiente e retorno exigido</h2>
-<p>Sem restrições à negociação: um portfólio é eficiente <strong>se e somente se</strong> o retorno esperado de cada título disponível é igual ao seu retorno exigido.</p>
-<p><span class="math display">\[ E\left[R_{i}\right]=r_{i}\equiv r_{f}+\beta_{i}^{eff}\left(E\left[R_{eff}\right]-r_{f}\right) \]</span></p>
-<p><span class="destaque">Resultado: o prêmio de risco de qualquer investimento vem do seu beta em relação ao portfólio eficiente. A demonstração de que essa condição vale para todos os <span class="math inline">\(i\)</span> <strong>simultaneamente</strong> está no <a href="#/apendice-tangente">apêndice</a>.</span></p>
-</section>
-<section id="o-portfólio-eficiente-como-benchmark-de-risco-sistemático" class="slide level2 smaller">
-<h2>O portfólio eficiente como benchmark de risco sistemático</h2>
-<p>O portfólio eficiente (tangente) é o padrão que separa, em qualquer ativo, o risco sistemático do idiossincrático:</p>
-<p><span class="math display">\[ SD(R_i)^2 = \underbrace{\left(\beta_i^{eff}\right)^2 SD(R_{eff})^2}_{\text{risco sistemático}} + \text{risco idiossincrático (diversificável)} \]</span></p>
-</section>
-<section id="decomposição-da-volatilidade-sistemático-vs.-idiossincrático" class="slide level2 smaller">
-<h2>Decomposição da volatilidade: sistemático vs.&nbsp;idiossincrático</h2>
-
-<img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Só o risco correlacionado com o portfólio eficiente é precificado; o resto pode ser diversificado.</span></p>
-</section>
-<section id="capm-motivação" class="slide level2 smaller">
-<h2>CAPM: motivação</h2>
+<section id="capm-da-carteira-tangente-ao-mercado" class="slide level2 smaller">
+<h2>CAPM: da carteira tangente ao mercado</h2>
 <ul>
-<li>Identificado o portfólio eficiente, calculamos o retorno esperado de qualquer título pelo seu beta</li>
-<li>Dificuldade prática: precisaríamos conhecer retornos esperados, volatilidades e correlações de tudo</li>
-<li><strong>Abordagem CAPM</strong>: identifica o portfólio eficiente sem exigir isso — usa as escolhas ótimas dos investidores para concluir que ele é o <strong>portfólio de mercado</strong></li>
+<li>Mercados competitivos; todos podem emprestar e tomar emprestado à mesma taxa <span class="math inline">\(r_f\)</span></li>
+<li>Expectativas homogêneas ⇒ todos escolhem a mesma carteira tangente <span class="math inline">\(T\)</span> de ativos arriscados</li>
+<li>Preferências determinam apenas a escala: quanto combinar <span class="math inline">\(T\)</span> com o ativo livre de risco</li>
+<li>Em equilíbrio, a oferta agregada é <span class="math inline">\(M\)</span>; portanto, <span class="math inline">\(T=M\)</span>, a carteira de mercado ponderada por valor</li>
 </ul>
+<p><span class="destaque">O CAPM identifica a carteira tangente sem precisar estimá-la diretamente.</span></p>
 </section>
-<section id="capm-as-três-hipóteses" class="slide level2 smaller">
-<h2>CAPM: as três hipóteses</h2>
-<ol type="1">
-<li>Investidores negociam a preços de mercado competitivos (sem impostos/custos de transação) e podem emprestar/tomar emprestado à taxa livre de risco</li>
-<li>Investidores mantêm apenas portfólios eficientes de títulos negociados</li>
-<li>Investidores têm <strong>expectativas homogêneas</strong> sobre volatilidades, correlações e retornos esperados</li>
-</ol>
-</section>
-<section id="capm-por-que-a-carteira-tangente-é-a-carteira-de-mercado" class="slide level2 smaller">
-<h2>CAPM: por que a carteira tangente é a carteira de mercado</h2>
+<section id="capm-retorno-exigido-sml" class="slide level2 smaller">
+<h2>CAPM: retorno exigido (SML)</h2>
+<p><span class="math display">\[ \mathbb E\left[R_i\right]=r_f+\beta_i^M\left(\mathbb E\left[R_M\right]-r_f\right) \]</span></p>
 <ul>
-<li>Expectativas homogêneas <span class="math inline">\(\Rightarrow\)</span> todos os investidores demandam a mesma carteira eficiente de ativos arriscados</li>
-<li>A demanda por títulos deve igualar a oferta</li>
-<li>A carteira combinada de todos os investidores deve ser a carteira eficiente <span class="math inline">\(\Rightarrow\)</span> é a <strong>carteira de mercado</strong></li>
+<li><span class="math inline">\(\beta_i^M\equiv\dfrac{Cov\left(R_i,R_M\right)}{Var\left(R_M\right)}\)</span></li>
+<li>Só o risco que covaria com o mercado é remunerado</li>
 </ul>
-<p><span class="destaque">Portanto, a carteira tangente <span class="math inline">\(M\)</span> é a carteira de mercado.</span></p>
-</section>
-<section id="portfólio-ótimo-e-a-cml" class="slide level2 smaller">
-<h2>Portfólio ótimo e a CML</h2>
-<ul>
-<li>Sob as hipóteses do CAPM, o portfólio ótimo é sempre uma combinação do ativo livre de risco com o <strong>portfólio de mercado</strong></li>
-<li>A reta tangente que passa pelo mercado é a <strong>Linha do Mercado de Capitais</strong> (CML)</li>
-<li>Todo portfólio ótimo está na CML</li>
-</ul>
-</section>
-<section id="a-cml-retorno-esperado-de-qualquer-carteira-eficiente" class="slide level2 smaller">
-<h2>A CML: retorno esperado de qualquer carteira eficiente</h2>
-<p>Seja <span class="math inline">\(C\)</span> uma carteira na CML e <span class="math inline">\(\omega_M\)</span> a fração aplicada no mercado <span class="math inline">\(M\)</span>:</p>
-<p><span class="math display">\[ E\left[R_{C}\right]=r_{f}+\omega_M\left(E\left[R_{M}\right]-r_{f}\right)\qquad SD\left[R_{C}\right]=\left|\omega_M\right|\,SD\left[R_{M}\right] \]</span></p>
-<p>No raio superior da CML (<span class="math inline">\(\omega_M\geq0\)</span>), para qualquer carteira eficiente:</p>
-<p><span class="math display">\[ E\left[R_{C}\right]=r_{f}+\dfrac{SD\left[R_{C}\right]}{SD\left[R_{M}\right]}\left(E\left[R_{M}\right]-r_{f}\right) \]</span></p>
-</section>
-<section id="a-cml-e-a-escolha-ótima-do-investidor" class="slide level2 smaller">
-<h2>A CML e a escolha ótima do investidor</h2>
-<ul>
-<li>Curvas de utilidade representam as preferências do investidor entre risco e retorno</li>
-<li>A escolha ótima se restringe à CML; a posição na reta reflete a aversão a risco</li>
-</ul>
-
-<img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="determinando-o-prêmio-de-risco" class="slide level2 smaller">
-<h2>Determinando o prêmio de risco</h2>
-<p>Dado um portfólio de mercado eficiente, o retorno esperado de qualquer investimento é:</p>
-<p><span class="math display">\[ E\left[R_{i}\right]=r_{f}+\beta_{i}^{M}\left(E\left[R_{M}\right]-r_{f}\right) \]</span></p>
-<p>O beta é definido como:</p>
-<p><span class="math display">\[ \beta_{i}^{M}\equiv\beta_{i}=\dfrac{SD\left(R_{i}\right)\times Corr\left(R_{i},R_{M}\right)}{SD\left(R_{M}\right)}=\dfrac{Cov\left(R_{i},R_{M}\right)}{Var\left(R_{M}\right)} \]</span></p>
-</section>
-<section id="exemplo-beta-no-nosso-exemplo" class="slide level2 smaller">
-<h2>Exemplo: beta no nosso exemplo</h2>
-<!-- ADICIONADO: extensão numérica do exemplo de três ativos, tratando a
-     carteira tangente calculada acima como mercado ilustrativo. -->
-<p>Tratando a carteira tangente como carteira de mercado (<span class="math inline">\(r_f=\)</span> 1,0%):</p>
-<div id="6d559181" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Ação</th>
-<th style="text-align: left;">Retorno esperado</th>
-<th style="text-align: left;">Beta</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Intel</td>
-<td style="text-align: left;">26,0%</td>
-<td style="text-align: left;">1,68</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Coca-Cola</td>
-<td style="text-align: left;">6,0%</td>
-<td style="text-align: left;">0,34</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bore Industries</td>
-<td style="text-align: left;">2,0%</td>
-<td style="text-align: left;">0,07</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="72939fc6" class="cell" data-execution_count="15">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
-<p>Carteira de mercado: <span class="math inline">\(E[R_M] = 15,9\%\)</span>, <span class="math inline">\(SD(R_M) = 27,6\%\)</span>.</p>
-</div>
-</div>
-</section>
-<section id="gráfico-a-linha-de-mercado-de-títulos-sml" class="slide level2 smaller">
-<h2>Gráfico: a Linha de Mercado de Títulos (SML)</h2>
-
-<img data-src="index_files/figure-revealjs/cell-17-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Sob as hipóteses do CAPM, todo ativo cai exatamente sobre a SML.</span></p>
-</section>
-<section id="linha-de-mercado-de-títulos-casos-especiais" class="slide level2">
-<h2>Linha de Mercado de Títulos: casos especiais</h2>
-<p><span class="math display">\[ \beta_{i}=1 \Rightarrow E[R_{i}]=E[R_{M}] \]</span></p>
-<p><span class="math display">\[ \beta_{i}=0 \Rightarrow E[R_{i}]=r_{f} \]</span></p>
-<p><span class="math display">\[ \beta_{i}&lt;0 \Rightarrow E[R_{i}]&lt;r_{f}\quad\text{(por quê?)} \]</span></p>
-<!-- PLANNING: perguntar à turma antes de revelar — resposta: um beta negativo funciona como seguro (paga bem justamente quando o mercado vai mal), então o investidor aceita retorno esperado menor. -->
-</section>
-<section id="beta-de-um-portfólio" class="slide level2">
-<h2>Beta de um portfólio</h2>
-<p>O beta de um portfólio é a média ponderada dos betas dos títulos que o compõem:</p>
-<p><span class="math display">\[ \beta_{P}=\dfrac{Cov\left(R_{P},R_{Mkt}\right)}{Var\left(R_{Mkt}\right)}=\sum_{i}\omega_{i}\dfrac{Cov\left(R_{i},R_{Mkt}\right)}{Var\left(R_{Mkt}\right)}=\sum_{i}\omega_{i}\beta_{i} \]</span></p>
-<p><span class="destaque">Novamente, a bilinearidade da covariância.</span></p>
-</section>
-<section id="alfa-de-um-portfólio" class="slide level2 smaller">
-<h2>Alfa de um portfólio</h2>
-<p>Para aprimorar o desempenho da carteira, comparamos o retorno esperado de cada título com seu <strong>retorno exigido</strong> pela SML.</p>
-<ul>
-<li>Quando a carteira de mercado é eficiente, todo ativo está sobre a SML e tem <strong>alfa igual a zero</strong></li>
-<li>Um alfa diferente de zero identifica uma oportunidade de melhorar a carteira, aumentando o índice de Sharpe (o mesmo raciocínio de “Sharpe marginal” de alguns slides atrás)</li>
-</ul>
+<p><span class="destaque">Quando <span class="math inline">\(P=M\)</span>, a relação beta-retorno do artefato passa a ser a SML.</span></p>
 </section>
 <section id="o-que-aprendemos" class="slide level2">
 <h2>O que aprendemos</h2>
 <ul>
 <li>Diversificação reduz o risco idiossincrático — não o <span class="destaque">risco sistemático</span></li>
-<li>Fronteira eficiente + ativo livre de risco <span class="math inline">\(\Rightarrow\)</span> CML: toda carteira ótima combina o ativo livre de risco com a carteira tangente</li>
-<li>No CAPM, a carteira tangente é o <strong>portfólio de mercado</strong>; o beta mede o risco que importa, e a SML dá o retorno exigido</li>
+<li>A carteira tangente maximiza o Sharpe; na margem, só a covariância com ela importa</li>
+<li>No CAPM, a carteira tangente é o <strong>portfólio de mercado</strong>; beta determina o retorno exigido na SML</li>
 <li>Próxima aula: <span class="secundario">de onde vem o prêmio de risco</span> — risco e preços em finanças</li>
 </ul>
+<!-- PLANNING: apêndice opcional; encerrar a aula no slide anterior. -->
 </section>
 <section id="apendice-tangente" class="slide level2 smaller">
 <h2>Apêndice: carteira tangente via Lagrangeano</h2>
