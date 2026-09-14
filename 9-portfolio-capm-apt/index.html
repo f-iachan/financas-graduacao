@@ -397,7 +397,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="a-mesma-regra-em-todo-estado" class="slide level2 smaller">
 <h2>A mesma regra em todo estado</h2>
 <p>Para <span class="math inline">\(\omega_1=0{,}6\)</span> e <span class="math inline">\(\omega_2=0{,}4\)</span>:</p>
-<div id="30c1302e" class="cell" data-execution_count="2">
+<div id="c6565db7" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <table class="caption-top">
 <thead>
@@ -437,13 +437,13 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Retorno esperado: a linearidade é uma consequência</h2>
 <p><span class="math display">\[ E\left[R_{p}\right]=\sum_{s}\pi_{s}R_{p}(s)=\sum_{s}\pi_{s}\sum_{i}\omega_{i}R_{i}(s)=\sum_{i}\omega_{i}\sum_{s}\pi_{s}R_{i}(s)=\sum_{i}\omega_{i}E\left[R_{i}\right] \]</span></p>
 <p><span class="destaque">A troca da ordem das somas é o único passo: <span class="math inline">\(E[\cdot]\)</span> é linear porque é uma soma ponderada.</span></p>
-<div id="5be4cff6" class="cell" data-execution_count="3">
+<div id="fd147be9" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p>No exemplo: <span class="math inline">\(E[R_1]=5\%\)</span>, <span class="math inline">\(E[R_2]=11\%\)</span>, <span class="math inline">\(E[R_p]=0{,}6\times5\%+0{,}4\times11\%=7,4\%\)</span> — confere com a tabela anterior.</p>
 </div>
 </div>
 <p>Exemplo de uma linha: R$ 25 mil a 18% e R$ 35 mil a 25%:</p>
-<div id="fdfe5566" class="cell" data-execution_count="4">
+<div id="4d34520f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[E[R_p] = 0,4167\times 0{,}18 + 0,5833\times 0{,}25 = 22,1\%\]</span></p>
 </div>
@@ -493,7 +493,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="exemplo-numérico-pesos-iguais" class="slide level2 smaller">
 <h2>Exemplo numérico: pesos iguais</h2>
 <p>Desvio-padrão médio das ações: 10% a.m.; correlação média: 0,40. Investindo o mesmo montante em cada ação, qual a variância do portfólio quando <span class="math inline">\(n\to\infty\)</span>? E se a correlação fosse 0? E 1?</p>
-<div id="7c3e7443" class="cell" data-execution_count="7">
+<div id="20525006" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[Cov\left(R_i,R_j\right) = 0{,}40\times0{,}10\times0{,}10 = 0,004\]</span></p>
 <p><span class="math display">\[\sigma_p \underset{n\to\infty}{\approx} \sqrt{0,004} = 6,3\%\]</span></p>
@@ -1628,12 +1628,39 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
 </section>
 <section id="capm-retorno-exigido-sml" class="slide level2 smaller">
 <h2>CAPM: retorno exigido (SML)</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
 <p><span class="math display">\[ \mathbb E\left[R_i\right]=r_f+\beta_i^M\left(\mathbb E\left[R_M\right]-r_f\right) \]</span></p>
 <ul>
 <li><span class="math inline">\(\beta_i^M\equiv\dfrac{Cov\left(R_i,R_M\right)}{Var\left(R_M\right)}\)</span></li>
 <li>Só o risco que covaria com o mercado é remunerado</li>
 </ul>
-<p><span class="destaque">Quando <span class="math inline">\(P=M\)</span>, a relação beta-retorno do artefato passa a ser a SML.</span></p>
+<p><span class="destaque">Em equilíbrio, cada ativo está sobre a SML: <span class="math inline">\(\alpha_i=0\)</span>.</span></p>
+</div><div class="column" style="width:54%;">
+<svg viewbox="0 0 560 360" role="img" aria-label="Linha do mercado de títulos: retorno esperado contra beta" style="width:100%; max-height:350px; display:block; margin:auto">
+  <rect x="0" y="0" width="560" height="360" fill="#faf9f5"></rect>
+  <g stroke="#e8e6dc" stroke-width="1">
+    <line x1="80" y1="46" x2="520" y2="46"></line><line x1="80" y1="116" x2="520" y2="116"></line><line x1="80" y1="186" x2="520" y2="186"></line><line x1="80" y1="256" x2="520" y2="256"></line>
+    <line x1="168" y1="46" x2="168" y2="292"></line><line x1="256" y1="46" x2="256" y2="292"></line><line x1="344" y1="46" x2="344" y2="292"></line><line x1="432" y1="46" x2="432" y2="292"></line>
+  </g>
+  <g stroke="#141413" stroke-width="1.8"><line x1="80" y1="292" x2="524" y2="292"></line><line x1="80" y1="298" x2="80" y2="40"></line></g>
+  <g fill="#5f5e5a" font-family="Arial, sans-serif" font-size="15">
+    <text x="78" y="316" text-anchor="middle">0</text><text x="256" y="316" text-anchor="middle">1</text><text x="432" y="316" text-anchor="middle">2</text>
+    <text x="300" y="346" text-anchor="middle">beta (β)</text>
+    <text x="24" y="174" text-anchor="middle" transform="rotate(-90 24 174)">retorno esperado</text>
+  </g>
+  <line x1="80" y1="256" x2="520" y2="80" stroke="#d97757" stroke-width="4"></line>
+  <text x="466" y="70" fill="#d97757" font-family="Arial, sans-serif" font-size="17" font-weight="700">SML</text>
+  <line x1="80" y1="256" x2="520" y2="256" stroke="#b0aea5" stroke-width="1.5" stroke-dasharray="6,5"></line>
+  <g fill="#141413" font-family="Arial, sans-serif" font-size="15">
+    <circle cx="80" cy="256" r="6" fill="#788c5d"></circle><text x="92" y="250">livre de risco (r_f)</text>
+    <circle cx="256" cy="186" r="7" fill="#6a9bcc"></circle><text x="267" y="178">mercado (M)</text>
+    <circle cx="168" cy="221" r="5.5"></circle><text x="178" y="216">A</text>
+    <circle cx="432" cy="116" r="5.5"></circle><text x="442" y="110">B</text>
+  </g>
+</svg>
+<p><span class="fonte">SML: retorno esperado em função do risco sistemático.</span></p>
+</div></div>
 </section>
 <section id="o-que-aprendemos" class="slide level2">
 <h2>O que aprendemos</h2>
