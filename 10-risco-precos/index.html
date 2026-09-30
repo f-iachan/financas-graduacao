@@ -754,9 +754,18 @@ Felipe Iachan
 .a10p-message{margin-top:10px; padding-top:8px; border-top:1px solid var(--a10p-linha);
   color:var(--a10p-cinza); font-size:12.5px; line-height:1.4;}
 @media (max-width: 700px){ .a10p-grid{grid-template-columns:1fr;} }
+/* Modo impressão (PDF do decktape, ?print-pdf, Ctrl+P): o slider some e entram três quadros fixos. */
+.a10p-print{display:none;}
+.a10p.impressao .a10p-controls, .a10p.impressao .a10p-grid{display:none;}
+.a10p.impressao .a10p-print{display:block;}
+.a10p-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+.a10p-strip figure{margin:0; border:1px solid var(--a10p-linha); border-radius:10px; padding:4px 6px;}
+.a10p-strip svg{display:block; width:100%; height:auto;}
+.reveal .slides .a10p-strip figure > figcaption{font-size:16px; line-height:1.35; margin:4px 4px 2px; text-align:left; color:var(--a10p-tinta);}
+.a10p-pensar{margin-top:12px; font-size:16px; line-height:1.4; border-left:3px solid var(--a10p-laranja); padding-left:10px;}
 </style>
 
-<div class="a10p" id="a10pa-root">
+<div class="a10p" id="a10pa-root" data-artefato="a10p-arbitragem" data-pdf-check="p = 1,60: q = (1,10; −0,10)">
   <div class="a10p-controls" style="grid-template-columns:1fr;">
     <div class="a10p-field">
       <label for="a10pa-p"><span>p (preço do ativo arriscado; o título custa 1)</span><output id="a10pa-lbl-p">1,00</output></label>
@@ -778,6 +787,14 @@ Felipe Iachan
       <div class="a10p-message" id="a10pa-msg"></div>
       <div class="a10p-message">A reta cinza é {x : q·x = 0}, os payoffs de custo zero. A área cinza tem custo ≤ 0. Quando ela invade o quadrante positivo (cunha laranja), existe carteira de custo ≤ 0 que paga ≥ 0 com alguma desigualdade estrita. O intervalo sem arbitragem coincide com (menor, maior pagamento) só porque R<sup>f</sup> = 1.</div>
     </div>
+  </div>
+  <div class="a10p-print" aria-hidden="true">
+    <div class="a10p-strip">
+      <figure><svg id="a10pa-svg-0" viewbox="0 0 400 400"></svg><figcaption id="a10pa-cap-0"></figcaption></figure>
+      <figure><svg id="a10pa-svg-1" viewbox="0 0 400 400"></svg><figcaption id="a10pa-cap-1"></figcaption></figure>
+      <figure><svg id="a10pa-svg-2" viewbox="0 0 400 400"></svg><figcaption id="a10pa-cap-2"></figcaption></figure>
+    </div>
+    <div class="a10p-pensar"><b>Para pensar:</b> para que preços p do ativo arriscado não há arbitragem? Os três quadros respondem: só quando os dois preços de estado são positivos, q<sub>1</sub> = p − 0,5 &gt; 0 e q<sub>2</sub> = 1,5 − p &gt; 0, isto é, 0,5 &lt; p &lt; 1,5. Na versão HTML, o slider percorre todos os valores.</div>
   </div>
 </div>
 
@@ -844,9 +861,7 @@ Felipe Iachan
     return s;
   }
 
-  function render(){
-    var p = +inp.value;
-    lbl.textContent = fmt(p);
+  function desenha(p){
     var q = precosDeEstado(p), q1=q[0], q2=q[1];
     var arb = carteiraArbitragem(p);
     var quadrado=[[X0,X0],[X1,X0],[X1,X1],[X0,X1]];
@@ -886,7 +901,15 @@ Felipe Iachan
       s+=seta(arb.pag[0], arb.pag[1], LARANJA, true);
       s+='<text x="'+(sx(arb.pag[0])+8)+'" y="'+(sy(arb.pag[1])+(arb.pag[1]>0?-8:18))+'" font-size="13" font-weight="700" fill="'+LARANJA+'">arbitragem</text>';
     }
-    svg.innerHTML = s;
+    return s;
+  }
+
+  function render(){
+    var p = +inp.value;
+    lbl.textContent = fmt(p);
+    var q = precosDeEstado(p), q1=q[0], q2=q[1];
+    var arb = carteiraArbitragem(p);
+    svg.innerHTML = desenha(p);
 
     elQ1.textContent = fmt(q1);
     elQ2.textContent = fmt(q2);
@@ -928,6 +951,43 @@ Felipe Iachan
   })();
 
   render();
+
+  // --- modo impressão: o PDF (decktape roda com fragments:false), ?print-pdf e Ctrl+P
+  // recebem três quadros fixos no lugar do slider, para que o PDF mostre também a arbitragem.
+  var root = document.getElementById("a10pa-root");
+  var PASSOS = [0.4, 1, 1.6];
+  function preencheImpressao(){
+    PASSOS.forEach(function(p, k){
+      document.getElementById("a10pa-svg-"+k).innerHTML = desenha(p);
+      var q = precosDeEstado(p), arb = carteiraArbitragem(p);
+      document.getElementById("a10pa-cap-"+k).innerHTML = "<b>p = "+fmt(p)+"</b>: q = ("+fmt(q[0])+"; "+fmt(q[1])+"). "
+        + (arb ? '<span style="color:'+LARANJA+'"><b>Arbitragem:</b> '+arb.texto+'; custa '+fmt(arb.custo)+' e paga ('+fmt(arb.pag[0],0)+", "+fmt(arb.pag[1],0)+").</span>"
+               : '<span style="color:'+VERDE+'"><b>Sem arbitragem:</b> q ≫ 0.</span>');
+    });
+  }
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (e) {}
+    return false;
+  }
+  var impresso = null;
+  function sincroniza(){
+    var on = emImpressao();
+    if (on === impresso) return;
+    impresso = on;
+    root.classList.toggle("impressao", on);
+    if (on) preencheImpressao();
+  }
+  window.addEventListener("beforeprint", function(){ impresso = true; root.classList.add("impressao"); preencheImpressao(); });
+  window.addEventListener("afterprint", function(){ impresso = null; sincroniza(); });
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+    sincroniza();
+  });
+  sincroniza();
 })();
 </script>
 <!-- PLANNING: pergunta ao ar antes de mover o slider: "para que preços não há arbitragem?" Resposta: 0,5 < p < 1,5. -->
@@ -1184,7 +1244,7 @@ Felipe Iachan
 <p><span class="math display">\[ m_{s}=a-b\,R_{s}^{m},\qquad b&gt;0 \]</span></p>
 <p><span class="destaque">O CAPM é uma hipótese sobre <span class="math inline">\(m\)</span>: cai quando o mercado sobe.</span></p>
 </div><div class="column" style="width:56%;">
-<div id="8a6de6c8" class="cell" data-execution_count="7">
+<div id="1cea642e" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1378,7 +1438,7 @@ VARIANTE B: fim -->
 <ul>
 <li><span class="math inline">\(\sum_s q_s = 0{,}9\)</span>, logo <span class="math inline">\(R^f = 1/0{,}9 = 10/9 \approx 1{,}11\)</span>: o título passa a custar 0,9</li>
 <li><span class="math inline">\(m\)</span> também escala: <span class="math inline">\(m=(0{,}75;\,0{,}9;\,1{,}5)\)</span>, com <span class="math inline">\(\mathbb{E}[m]=0{,}9\)</span></li>
-<li>A ação passa a valer <span class="math inline">\(0{,}9\times5=4{,}5\)</span>; o prêmio de risco continua 6% (a razão <span class="math inline">\(\mathbb{E}[R^a]/R^f\)</span> não muda)</li>
+<li>A ação passa a valer <span class="math inline">\(0{,}9\times5=4{,}5\)</span>; o retorno esperado <strong>relativo</strong> ao livre de risco continua 6% (<span class="math inline">\(\mathbb{E}[R^a]/R^f=1{,}06\)</span> não muda). Como diferença, o prêmio passa a <span class="math inline">\(5{,}3/4{,}5-10/9\approx6{,}67\%\)</span></li>
 </ul>
 <p><span class="destaque">Juro zero era coisa do exemplo com <span class="math inline">\(\beta = 1\)</span>, não da teoria.</span></p>
 </section>
