@@ -675,55 +675,6 @@ Felipe Iachan
 </div>
 <p><span class="fonte">Ganho: ausência de arbitragem, sozinha, já dá preços de estado. Não precisamos de utilidade nem de crenças.</span></p>
 </section>
-<section id="arbitragem-no-exemplo" class="slide level2 smaller">
-<h2>Arbitragem no exemplo</h2>
-<!-- ADICIONADO: não está na fonte. Volta à economia da aula. -->
-<p>Na nossa economia, título a 1 e seguro a 0,25. Suponha que a ação passe a custar <strong>6</strong>.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>carteira</th>
-<th style="text-align: right;">custo hoje</th>
-<th style="text-align: right;">paga em <span class="math inline">\(s_1\)</span></th>
-<th style="text-align: right;">paga em <span class="math inline">\(s_2\)</span></th>
-<th style="text-align: right;">paga em <span class="math inline">\(s_3\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>vender 1 ação</td>
-<td style="text-align: right;">−6</td>
-<td style="text-align: right;">−6</td>
-<td style="text-align: right;">−5</td>
-<td style="text-align: right;">−3</td>
-</tr>
-<tr class="even">
-<td>comprar 6 títulos</td>
-<td style="text-align: right;">+6</td>
-<td style="text-align: right;">+6</td>
-<td style="text-align: right;">+6</td>
-<td style="text-align: right;">+6</td>
-</tr>
-<tr class="odd">
-<td><strong>total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>1</strong></td>
-<td style="text-align: right;"><strong>3</strong></td>
-</tr>
-</tbody>
-</table>
-<p>Custa zero e paga <span class="math inline">\((0, 1, 3)\)</span>: <span class="destaque">arbitragem</span>. Repetindo em escala, o lucro é ilimitado.</p>
-<p>Sem arbitragem, o preço da ação fica entre 4,5 e 5,25: com <span class="math inline">\(q_3=0{,}25\)</span> e <span class="math inline">\(q_1+q_2=0{,}75\)</span>, o preço é <span class="math inline">\(4{,}5+q_1\)</span> com <span class="math inline">\(q_1\in(0;\,0{,}75)\)</span>.</p>
-<!-- PLANNING: mostrado pelo professor. O handoff dizia "entre 4,5 e 5,5"; o limite correto com o seguro a 0,25 é 5,25 (ver NOTAS-FONTE-2024.md, seção 4). -->
-</section>
 <section id="artefato-quando-o-preço-vira-arbitragem" class="slide level2 smaller">
 <h2>Artefato: quando o preço vira arbitragem</h2>
 <!-- ADICIONADO: não está na fonte. Economia de dois estados: título (1, 1) a 1, arriscado (1,5; 0,5) a preço p. -->
@@ -785,7 +736,7 @@ Felipe Iachan
         <dt>E[R<sup>a</sup>] − R<sup>f</sup> = 1,1/p − 1</dt><dd id="a10pa-premio"></dd>
       </dl>
       <div class="a10p-message" id="a10pa-msg"></div>
-      <div class="a10p-message">A reta cinza é {x : q·x = 0}, os payoffs de custo zero. A área cinza tem custo ≤ 0. Quando ela invade o quadrante positivo (cunha laranja), existe carteira de custo ≤ 0 que paga ≥ 0 com alguma desigualdade estrita. O intervalo sem arbitragem coincide com (menor, maior pagamento) só porque R<sup>f</sup> = 1.</div>
+      <div class="a10p-message">A seta q = (q<sub>1</sub>, q<sub>2</sub>) é o vetor de preços de estado: verde quando q ≫ 0, laranja quando algum componente é ≤ 0. A reta cinza é {x : q·x = 0}, os payoffs de custo zero, perpendicular a q. A área cinza tem custo ≤ 0. Quando ela invade o quadrante positivo (cunha laranja), existe carteira de custo ≤ 0 que paga ≥ 0 com alguma desigualdade estrita. O intervalo sem arbitragem coincide com (menor, maior pagamento) só porque R<sup>f</sup> = 1.</div>
     </div>
   </div>
   <div class="a10p-print" aria-hidden="true">
@@ -827,7 +778,8 @@ Felipe Iachan
   }
 
   // --- geometria
-  var W=400, H=400, m={l:44, r:16, t:16, b:40};
+  // Escala igual nos dois eixos (340 × 340 px): q aparece perpendicular à reta q·x = 0.
+  var W=400, H=400, m={l:44, r:16, t:20, b:40};
   var X0=-1, X1=2;
   function sx(x){ return m.l + (W-m.l-m.r)*(x-X0)/(X1-X0); }
   function sy(y){ return H-m.b - (H-m.t-m.b)*(y-X0)/(X1-X0); }
@@ -896,6 +848,14 @@ Felipe Iachan
     s+=seta(1,1,AZUL,false)+seta(1.5,0.5,AZUL,false);
     s+='<text x="'+(sx(1)+6)+'" y="'+(sy(1)-8)+'" font-size="12" fill="'+AZUL+'">f = (1, 1)</text>';
     s+='<text x="'+(sx(1.5)+2)+'" y="'+(sy(0.5)+16)+'" font-size="12" fill="'+AZUL+'" text-anchor="end">a = (1,5; 0,5)</text>';
+    // vetor de preços de estado q: normal à reta q·x = 0, apontando para o lado de custo > 0
+    if (L>1e-9){
+      var corQ = (q1>0 && q2>0) ? VERDE : LARANJA;
+      s+=seta(q1, q2, corQ, false);
+      // rótulo do lado anti-horário da seta, longe de f e de a
+      var nx=-q2/L, ny=q1/L;
+      s+='<text x="'+(sx(q1+0.16*nx))+'" y="'+(sy(q2+0.16*ny)+4)+'" font-size="13" font-weight="700" text-anchor="middle" fill="'+corQ+'">q</text>';
+    }
     // carteira de arbitragem
     if (arb){
       s+=seta(arb.pag[0], arb.pag[1], LARANJA, true);
@@ -944,6 +904,7 @@ Felipe Iachan
     approx("pag1 arb p=1,6", 1.5*1-1*1.5, 0, 1e-12); approx("pag2 arb p=1,6", 1.5*1-1*0.5, 1, 1e-12);
     a=carteiraArbitragem(0.4); approx("custo arb p=0,4", a.custo, -0.1, 1e-12);
     approx("pag1 arb p<=0,5", -0.5*1+1*1.5, 1, 1e-12); approx("pag2 arb p<=0,5", -0.5*1+1*0.5, 0, 1e-12);
+    approx("escala x = escala y", W-m.l-m.r, H-m.t-m.b, 0);
     if (carteiraArbitragem(1) !== null) falhas.push("p=1 não deveria ter arbitragem");
     var c=clip([[0,0],[2,0],[2,2],[0,2]], 0.5, 0.5); if (area(c)>1e-9) falhas.push("cunha deveria ser vazia em p=1");
     c=clip([[0,0],[2,0],[2,2],[0,2]], 1.1, -0.1); if (!(area(c)>0.1)) falhas.push("cunha deveria existir em p=1,6");
@@ -991,6 +952,55 @@ Felipe Iachan
 })();
 </script>
 <!-- PLANNING: pergunta ao ar antes de mover o slider: "para que preços não há arbitragem?" Resposta: 0,5 < p < 1,5. -->
+</section>
+<section id="arbitragem-no-exemplo" class="slide level2 smaller">
+<h2>Arbitragem no exemplo</h2>
+<!-- ADICIONADO: não está na fonte. Volta à economia da aula. -->
+<p>De volta à nossa economia de três estados: título <span class="math inline">\((1, 1, 1)\)</span> a 1, seguro contra recessão <span class="math inline">\((0, 0, 1)\)</span> a 0,25 e ação <span class="math inline">\((6, 5, 3)\)</span>. Suponha que a ação passe a custar <strong>6</strong>.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>carteira</th>
+<th style="text-align: right;">custo hoje</th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_1\)</span></th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_2\)</span></th>
+<th style="text-align: right;">paga em <span class="math inline">\(s_3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>vender 1 ação</td>
+<td style="text-align: right;">−6</td>
+<td style="text-align: right;">−6</td>
+<td style="text-align: right;">−5</td>
+<td style="text-align: right;">−3</td>
+</tr>
+<tr class="even">
+<td>comprar 6 títulos</td>
+<td style="text-align: right;">+6</td>
+<td style="text-align: right;">+6</td>
+<td style="text-align: right;">+6</td>
+<td style="text-align: right;">+6</td>
+</tr>
+<tr class="odd">
+<td><strong>total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Custa zero e paga <span class="math inline">\((0, 1, 3)\)</span>: <span class="destaque">arbitragem</span>. Repetindo em escala, o lucro é ilimitado.</p>
+<p>Sem arbitragem, o preço da ação fica entre 4,5 e 5,25: o seguro dá <span class="math inline">\(q_3=0{,}25\)</span>, o título dá <span class="math inline">\(q_1+q_2=0{,}75\)</span>, e o preço é <span class="math inline">\(4{,}5+q_1\)</span> com <span class="math inline">\(q_1\in(0;\,0{,}75)\)</span>.</p>
+<!-- PLANNING: mostrado pelo professor. O handoff dizia "entre 4,5 e 5,5"; o limite correto com o seguro a 0,25 é 5,25 (ver NOTAS-FONTE-2024.md, seção 4). -->
 </section>
 <section id="lei-do-preço-único-replicação" class="slide level2 smaller">
 <h2>Lei do preço único: replicação</h2>
@@ -1244,7 +1254,7 @@ Felipe Iachan
 <p><span class="math display">\[ m_{s}=a-b\,R_{s}^{m},\qquad b&gt;0 \]</span></p>
 <p><span class="destaque">O CAPM é uma hipótese sobre <span class="math inline">\(m\)</span>: cai quando o mercado sobe.</span></p>
 </div><div class="column" style="width:56%;">
-<div id="1cea642e" class="cell" data-execution_count="7">
+<div id="3ba5fb55" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
