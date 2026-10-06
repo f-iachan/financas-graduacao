@@ -815,7 +815,6 @@ Felipe Iachan
 
   function desenha(p){
     var q = precosDeEstado(p), q1=q[0], q2=q[1];
-    var arb = carteiraArbitragem(p);
     var quadrado=[[X0,X0],[X1,X0],[X1,X1],[X0,X1]];
     var quadrante=[[0,0],[X1,0],[X1,X1],[0,X1]];
     var semiplano = clip(quadrado, q1, q2);
@@ -856,11 +855,7 @@ Felipe Iachan
       var nx=-q2/L, ny=q1/L;
       s+='<text x="'+(sx(q1+0.16*nx))+'" y="'+(sy(q2+0.16*ny)+4)+'" font-size="13" font-weight="700" text-anchor="middle" fill="'+corQ+'">q</text>';
     }
-    // carteira de arbitragem
-    if (arb){
-      s+=seta(arb.pag[0], arb.pag[1], LARANJA, true);
-      s+='<text x="'+(sx(arb.pag[0])+8)+'" y="'+(sy(arb.pag[1])+(arb.pag[1]>0?-8:18))+'" font-size="13" font-weight="700" fill="'+LARANJA+'">arbitragem</text>';
-    }
+    // A carteira de arbitragem não ganha seta: a cunha laranja já marca a região e o quadro descreve a carteira.
     return s;
   }
 
@@ -1254,7 +1249,7 @@ Felipe Iachan
 <p><span class="math display">\[ m_{s}=a-b\,R_{s}^{m},\qquad b&gt;0 \]</span></p>
 <p><span class="destaque">O CAPM é uma hipótese sobre <span class="math inline">\(m\)</span>: cai quando o mercado sobe.</span></p>
 </div><div class="column" style="width:56%;">
-<div id="3ba5fb55" class="cell" data-execution_count="7">
+<div id="dd9a8ebb" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
