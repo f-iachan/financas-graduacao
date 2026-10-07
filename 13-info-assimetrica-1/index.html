@@ -333,8 +333,17 @@ flowchart LR
 <li>Probabilidade prévia (“<em>prior</em>”) de sucesso de um investimento:</li>
 </ul>
 <p><span class="math display">\[m \equiv \alpha p + (1-\alpha) q\]</span></p>
-
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="r-stretch quarto-figure-center"><p class="caption">Amostra ilustrativa de empreendedores (α = 0,5 aqui — genérico no .lyx-fonte)</p></section>
+<div id="8cb28858" class="cell" data-fig-height="3.2" data-fig-width="8" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-3-output-1.svg"></p>
+<figcaption>Amostra ilustrativa de empreendedores (α = 0,5 aqui — genérico no .lyx-fonte)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="dois-casos" class="slide level2">
 <h2>Dois casos</h2>
 <table class="caption-top">
@@ -578,8 +587,17 @@ flowchart LR
 <section id="gráfico-equilíbrio-separador-leland-pyle" class="slide level2 smaller">
 <h2>Gráfico: equilíbrio separador (Leland-Pyle)</h2>
 <!-- ADICIONADO: não está na fonte. O .lyx cola uma imagem raster (Tirole, 2006, p. 261); aqui o gráfico é redesenhado a partir das retas de lucro zero dadas na própria figura-fonte, com p, q, R e utilidade log escolhidos apenas para tornar o gráfico desenhável. Ver dados/13-info-assimetrica-1/SNAPSHOT_INFO.txt. -->
-
-<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="r-stretch quarto-figure-center"><p class="caption">Equilíbrio separador, redesenhado de Tirole (2006, p.&nbsp;261). Parâmetros ILUSTRATIVOS: p=0,7; q=0,4; R=10; U(x)=ln(x).</p><ul>
+<div id="96d773ae" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg"></p>
+<figcaption>Equilíbrio separador, redesenhado de Tirole (2006, p.&nbsp;261). Parâmetros ILUSTRATIVOS: p=0,7; q=0,4; R=10; U(x)=ln(x).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
 <li><span class="math inline">\(B\)</span>: seguro pleno do tipo ruim. <span class="math inline">\(G\)</span>: seguro pleno hipotético do tipo bom (inatingível). <span class="math inline">\(S\)</span>: contrato separador do tipo bom. <span class="math inline">\(R\)</span>: retenção total do risco.</li>
 </ul>
 </section>
@@ -819,6 +837,253 @@ flowchart LR
           RevealZoom
         ]
       });
+    </script>
+    <style>
+      .reveal .slides [data-figure-zoom] { cursor: zoom-in; }
+      .reveal .slides [data-figure-zoom]:focus-visible {
+        outline: 3px solid #d97757;
+        outline-offset: 4px;
+      }
+      .figure-zoom {
+        box-sizing: border-box;
+        display: none;
+        width: 96vw;
+        height: 94vh;
+        max-width: none;
+        max-height: none;
+        padding: 12px;
+        border: 1px solid #b0aea5;
+        border-radius: 8px;
+        background: #faf9f5;
+        color: #141413;
+        font: 16px Arial, sans-serif;
+      }
+      .figure-zoom[open] { display: flex; flex-direction: column; gap: 8px; }
+      .figure-zoom::backdrop { background: rgba(20, 20, 19, .82); }
+      .figure-zoom-header { display: flex; align-items: center; gap: 8px; flex: none; }
+      .figure-zoom-title { flex: 1; min-width: 0; margin: 0; font-size: 16px; }
+      .figure-zoom button {
+        flex: none;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 4px 8px;
+        border: 1px solid #b0aea5;
+        border-radius: 4px;
+        color: #141413;
+        background: #fff;
+        font: 20px Arial, sans-serif;
+        cursor: pointer;
+      }
+      .figure-zoom button:focus-visible { outline: 3px solid #d97757; outline-offset: 2px; }
+      .figure-zoom button:disabled { opacity: .4; cursor: default; }
+      .figure-zoom-level { min-width: 45px; text-align: center; }
+      .figure-zoom-viewport {
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+        overscroll-behavior: contain;
+        background: #fff;
+      }
+      .figure-zoom-stage { display: grid; place-items: center; }
+      .figure-zoom-stage > img, .figure-zoom-stage > svg {
+        display: block;
+        flex: none;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        user-select: none;
+      }
+      .figure-zoom-viewport.can-pan { cursor: grab; }
+      .figure-zoom-viewport.is-panning { cursor: grabbing; }
+      @media (max-width: 600px) {
+        .figure-zoom-title { font-size: 13px; }
+        .figure-zoom-header { gap: 4px; }
+        .figure-zoom { padding: 6px; }
+        .figure-zoom button { min-width: 36px; padding: 4px; }
+      }
+      @media print {
+        .figure-zoom, .figure-zoom::backdrop { display: none !important; }
+        .reveal .slides [data-figure-zoom] { outline: none !important; }
+      }
+      html.print-pdf .figure-zoom, body.print-pdf .figure-zoom { display: none !important; }
+    </style>
+    <script>
+    (() => {
+      "use strict";
+      // Shared by all reveal.js decks; does not wrap or resize the original figures.
+      function initialize() {
+        const slides = document.querySelector(".reveal .slides");
+        if (!slides || !HTMLDialogElement.prototype.showModal) return;
+        const printing = () => matchMedia("print").matches ||
+          document.documentElement.classList.contains("print-pdf") ||
+          document.body.classList.contains("print-pdf") || /[?&]print-pdf(?:[=&]|$)/.test(location.search);
+        const dialog = document.createElement("dialog");
+        dialog.className = "figure-zoom";
+        dialog.setAttribute("aria-labelledby", "figure-zoom-title");
+        dialog.innerHTML = `
+          <header class="figure-zoom-header">
+            <p class="figure-zoom-title" id="figure-zoom-title"></p>
+            <button type="button" data-action="less" aria-label="Diminuir ampliação">−</button>
+            <span class="figure-zoom-level" aria-live="polite"></span>
+            <button type="button" data-action="more" aria-label="Aumentar ampliação">+</button>
+            <button type="button" data-action="fit" aria-label="Ajustar figura à janela">Ajustar</button>
+            <button type="button" data-action="close" aria-label="Fechar figura ampliada">×</button>
+          </header>
+          <div class="figure-zoom-viewport"><div class="figure-zoom-stage"></div></div>`;
+        document.body.append(dialog);
+        const viewport = dialog.querySelector(".figure-zoom-viewport");
+        const stage = dialog.querySelector(".figure-zoom-stage");
+        const title = dialog.querySelector(".figure-zoom-title");
+        const level = dialog.querySelector(".figure-zoom-level");
+        const closeButton = dialog.querySelector('[data-action="close"]');
+        let trigger, media, dimensions, zoom = 1, drag = null, serial = 0;
+        const svgStyles = ["fill", "fill-opacity", "fill-rule", "stroke", "stroke-width",
+          "stroke-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap",
+          "stroke-linejoin", "opacity", "color", "font-family", "font-size", "font-weight",
+          "font-style", "letter-spacing", "line-height", "white-space", "text-align", "box-sizing",
+          "margin-top", "margin-right", "margin-bottom", "margin-left", "text-anchor", "dominant-baseline", "visibility",
+          "display", "paint-order", "vector-effect", "clip-path", "filter", "marker-start", "marker-mid", "marker-end"];
+        const label = el => el.getAttribute("aria-label") || el.getAttribute("alt") ||
+          el.querySelector("title")?.textContent || el.closest("section")?.querySelector("h2")?.textContent || "Figura";
+        const eligible = el => !el.closest("a, button, .math, .MathJax, mjx-container, .MJX_Assistive_MathML, .nolightbox, [data-no-zoom]") &&
+          !(el.tagName.toLowerCase() === "svg" && el.parentElement.closest("svg"));
+        function decorate() {
+          slides.querySelectorAll("img, svg").forEach(el => {
+            if (!eligible(el) || el.hasAttribute("data-figure-zoom")) return;
+            el.setAttribute("data-figure-zoom", "");
+            el.setAttribute("tabindex", "0");
+            el.setAttribute("role", "button");
+            if (!el.hasAttribute("title")) el.setAttribute("title", "Clique para ampliar");
+            el.setAttribute("aria-label", `Ampliar figura: ${label(el)}`);
+          });
+        }
+        function snapshotSVG(source) {
+          const clone = source.cloneNode(true);
+          const originals = [source, ...source.querySelectorAll("*")];
+          const copies = [clone, ...clone.querySelectorAll("*")];
+          const ids = new Map();
+          copies.forEach((el, i) => {
+            const style = getComputedStyle(originals[i]);
+            svgStyles.forEach(name => el.style.setProperty(name, style.getPropertyValue(name)));
+            if (el.id) { ids.set(el.id, `figure-zoom-${++serial}-${el.id}`); el.id = ids.get(el.id); }
+            el.removeAttribute("data-figure-zoom");
+            el.removeAttribute("tabindex");
+          });
+          copies.forEach(el => [...el.attributes].forEach(attr => {
+            const value = attr.value.replace(/url\(["']?(?:[^)#]*#)([^)"']+)["']?\)/g,
+              (match, id) => ids.has(id) ? `url(#${ids.get(id)})` : match);
+            if (value !== attr.value) el.setAttribute(attr.name, value);
+            if ((attr.name === "href" || attr.name === "xlink:href") && ids.has(attr.value.slice(1)))
+              el.setAttribute(attr.name, `#${ids.get(attr.value.slice(1))}`);
+          }));
+          // Mermaid scopes its embedded CSS with the SVG's ID.
+          clone.querySelectorAll("style").forEach(el => {
+            el.textContent = el.textContent.replace(/#([\w-]+)/g,
+              (match, id) => ids.has(id) ? `#${ids.get(id)}` : match);
+          });
+          clone.setAttribute("role", "img");
+          return clone;
+        }
+        function layout(recenter = false) {
+          if (!dialog.open || !dimensions) return;
+          const fit = Math.min(viewport.clientWidth / dimensions.width, viewport.clientHeight / dimensions.height);
+          const width = dimensions.width * fit * zoom, height = dimensions.height * fit * zoom;
+          const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / Math.max(stage.clientWidth, 1);
+          const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / Math.max(stage.clientHeight, 1);
+          stage.style.width = `${Math.max(width, viewport.clientWidth)}px`;
+          stage.style.height = `${Math.max(height, viewport.clientHeight)}px`;
+          media.style.setProperty("width", `${width}px`, "important");
+          media.style.setProperty("height", `${height}px`, "important");
+          viewport.scrollLeft = (recenter ? .5 : centerX) * stage.clientWidth - viewport.clientWidth / 2;
+          viewport.scrollTop = (recenter ? .5 : centerY) * stage.clientHeight - viewport.clientHeight / 2;
+          viewport.classList.toggle("can-pan", zoom > 1);
+          level.textContent = `${Math.round(zoom * 100)}%`;
+          dialog.querySelector('[data-action="less"]').disabled = zoom <= 1;
+          dialog.querySelector('[data-action="more"]').disabled = zoom >= 6;
+        }
+        function close() { if (dialog.open) dialog.close(); }
+        function open(source) {
+          if (printing() || dialog.open || !eligible(source)) return;
+          const isSVG = source.tagName.toLowerCase() === "svg";
+          if (!isSVG && (!source.complete || !source.naturalWidth)) return;
+          trigger = source;
+          const box = source.getBoundingClientRect();
+          const vb = isSVG ? source.viewBox.baseVal : null;
+          dimensions = {width: vb?.width || source.naturalWidth || box.width,
+            height: vb?.height || source.naturalHeight || box.height};
+          if (!dimensions.width || !dimensions.height) return;
+          media = isSVG ? snapshotSVG(source) : document.createElement("img");
+          if (!isSVG) { media.src = source.currentSrc || source.src; media.alt = source.alt; media.draggable = false; }
+          title.textContent = label(source).replace(/^Ampliar figura: /, "");
+          stage.replaceChildren(media);
+          zoom = 1;
+          dialog.showModal();
+          layout(true);
+          closeButton.focus();
+        }
+        function changeZoom(value) { zoom = Math.max(1, Math.min(6, value)); layout(); }
+        slides.addEventListener("click", event => {
+          if (event.target.closest("a, button, input")) return;
+          const source = event.target.closest("[data-figure-zoom]");
+          if (!source || event.altKey || event.ctrlKey || event.metaKey) return;
+          event.preventDefault(); event.stopPropagation(); open(source);
+        });
+        slides.addEventListener("keydown", event => {
+          if (!["Enter", " "].includes(event.key) || !event.target.matches("[data-figure-zoom]")) return;
+          event.preventDefault(); event.stopPropagation(); open(event.target);
+        });
+        dialog.addEventListener("click", event => {
+          const action = event.target.closest("[data-action]")?.dataset.action;
+          if (action === "close" || event.target === dialog) close();
+          else if (action === "more") changeZoom(zoom * 1.5);
+          else if (action === "less") changeZoom(zoom / 1.5);
+          else if (action === "fit") { zoom = 1; layout(true); }
+        });
+        dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
+        dialog.addEventListener("close", () => {
+          stage.replaceChildren(); drag = null;
+          viewport.classList.remove("is-panning");
+          if (trigger?.isConnected) trigger.focus({preventScroll: true});
+        });
+        window.addEventListener("keydown", event => {
+          if (!dialog.open) return;
+          event.stopImmediatePropagation();
+          if (event.key === "Escape") { event.preventDefault(); close(); }
+          else if (event.key === "+" || event.key === "=") { event.preventDefault(); changeZoom(zoom * 1.5); }
+          else if (event.key === "-") { event.preventDefault(); changeZoom(zoom / 1.5); }
+          else if (event.key.startsWith("Arrow")) {
+            event.preventDefault();
+            viewport.scrollBy({left: event.key === "ArrowRight" ? 80 : event.key === "ArrowLeft" ? -80 : 0,
+              top: event.key === "ArrowDown" ? 80 : event.key === "ArrowUp" ? -80 : 0});
+          }
+        }, true);
+        viewport.addEventListener("pointerdown", event => {
+          if (zoom <= 1 || event.button !== 0 || event.pointerType !== "mouse") return;
+          drag = {x: event.clientX, y: event.clientY, left: viewport.scrollLeft, top: viewport.scrollTop};
+          viewport.setPointerCapture(event.pointerId); viewport.classList.add("is-panning");
+          event.preventDefault();
+        });
+        viewport.addEventListener("pointermove", event => {
+          if (!drag) return;
+          viewport.scrollLeft = drag.left + drag.x - event.clientX;
+          viewport.scrollTop = drag.top + drag.y - event.clientY;
+        });
+        const stopDrag = () => { drag = null; viewport.classList.remove("is-panning"); };
+        viewport.addEventListener("pointerup", stopDrag);
+        viewport.addEventListener("pointercancel", stopDrag);
+        window.addEventListener("resize", () => layout());
+        window.addEventListener("beforeprint", close);
+        decorate();
+        new MutationObserver(decorate).observe(slides, {childList: true, subtree: true});
+        function connectReveal() {
+          if (!window.Reveal?.on) { requestAnimationFrame(connectReveal); return; }
+          window.Reveal.on("slidechanged", close);
+        }
+        connectReveal();
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize, {once: true});
+      else initialize();
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

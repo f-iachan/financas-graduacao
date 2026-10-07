@@ -365,16 +365,32 @@ flowchart LR
 <section id="como-as-firmas-decidem-na-prática" class="slide level2 smaller">
 <h2>Como as firmas decidem, na prática</h2>
 <p>Gitman e Forrester (1977): apenas <strong>~10% das grandes firmas</strong> usavam o VPL como método principal de decisão. A evidência mudou desde então:</p>
-
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Fonte: Graham e Harvey (2001).</span></p>
+<div id="3f16b6a7" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Fonte: Graham e Harvey (2001).</span></p>
 <!-- ATUALIZADO: recriação compacta da Figura 2 de Graham (2022), usando os
      valores exatos da Tabela I e mantendo porte constante na comparação. -->
 </section>
 <section id="evidência-mais-recente" class="slide level2 smaller">
 <h2>Evidência mais recente</h2>
 <p>Percentual de CFOs que usam cada regra <strong>sempre ou quase sempre</strong>:</p>
-
-<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="r-stretch"><p><span class="destaque">Pesquisa de 2022 (onda de mar./2020): grandes usam sobretudo VPL e TIR/hurdle rate; pequenas, payback.</span></p>
+<div id="8f4ef9f2" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">Pesquisa de 2022 (onda de mar./2020): grandes usam sobretudo VPL e TIR/hurdle rate; pequenas, payback.</span></p>
 <p><strong>Hurdle rate:</strong> taxa mínima de retorno exigida; veremos mais adiante como estimá-la.</p>
 <p><span class="fonte">Fonte: Graham (2022), Figura 2 e Tabela I.</span></p>
 </section>
@@ -394,7 +410,7 @@ flowchart LR
 <p>Dada uma taxa de desconto <span class="math inline">\(r\)</span>:</p>
 <p><span class="math display">\[VPL(r) = -81,6 + \frac{28}{r}\left(1 - \frac{1}{(1+r)^4}\right)\]</span></p>
 <p>Com custo de capital estimado em <span class="math inline">\(r = 10\%\)</span>:</p>
-<div id="614d9e77" class="cell" data-execution_count="4">
+<div id="f46dd1f8" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[VPL = 7,2 &gt; 0\]</span></p>
 </div>
@@ -403,8 +419,16 @@ flowchart LR
 </section>
 <section id="robustez-vpl-como-função-de-r" class="slide level2 smaller">
 <h2>Robustez: VPL como função de r</h2>
-
-<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<div id="2928faf1" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="taxa-interna-de-retorno-tir" class="slide level2">
 <h2>Taxa interna de retorno (TIR)</h2>
 <!-- CORREÇÃO: o .lyx-fonte escreve r*=14 sem a unidade percentual; como r é uma
@@ -413,7 +437,7 @@ flowchart LR
 <li>A regra do VPL diz: investir sse <span class="math inline">\(VPL(r) &gt; 0\)</span></li>
 <li>A raiz de <span class="math inline">\(VPL(r) = 0\)</span> é a <strong>taxa interna de retorno</strong> (TIR; <em>IRR</em> em inglês)</li>
 </ul>
-<div id="69fa7903" class="cell" data-execution_count="6">
+<div id="21481e72" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <p><span class="math display">\[VPL(r^*) = 0 \quad\Longrightarrow\quad r^* = TIR = 14\%\]</span></p>
 </div>
@@ -495,12 +519,12 @@ flowchart LR
 </section>
 <section id="análise-a-tir" class="slide level2">
 <h2>Análise: a TIR</h2>
-<div id="69fc4b9a" class="cell" data-execution_count="7">
+<div id="9a0ce35a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[0 = 32 - \frac{16}{1+TIR} - \frac{16}{(1+TIR)^2} - \frac{16}{(1+TIR)^3} \;\Longrightarrow\; TIR = 23,38\%\]</span></p>
 </div>
 </div>
-<div id="d795b08b" class="cell" data-execution_count="8">
+<div id="aba34ff4" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <p>Note que <span class="math inline">\(\mathrm{TIR} = 23,38\% &gt; r = 10\%\)</span>.</p>
 </div>
@@ -509,7 +533,7 @@ flowchart LR
 </section>
 <section id="análise-e-o-vpl" class="slide level2">
 <h2>Análise: e o VPL?</h2>
-<div id="e235cef7" class="cell" data-execution_count="9">
+<div id="5b018d92" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <p><span class="math display">\[VPL = 32 - \frac{16}{1{,}1} - \frac{16}{1{,}1^2} - \frac{16}{1{,}1^3} = -R\$7,79\text{ mi} &lt; 0\]</span></p>
 </div>
@@ -518,8 +542,16 @@ flowchart LR
 </section>
 <section id="o-gráfico-explica" class="slide level2 smaller">
 <h2>O gráfico explica</h2>
-
-<img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Quando o benefício ocorre antes do custo, <span class="destaque">o VPL é função <strong>crescente</strong> de r</span> — o oposto do caso usual. A regra da TIR sai invertida.</p>
+<div id="bb564415" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Quando o benefício ocorre antes do custo, <span class="destaque">o VPL é função <strong>crescente</strong> de r</span> — o oposto do caso usual. A regra da TIR sai invertida.</p>
 </section>
 <section id="dificuldades-com-a-tir-1" class="slide level2 smaller">
 <h2>Dificuldades com a TIR</h2>
@@ -531,7 +563,7 @@ flowchart LR
 <line class="axis" x1="90" y1="92" x2="1010" y2="92"></line> <line class="tick" x1="90" y1="54" x2="90" y2="132"></line> <line class="tick" x1="330" y1="54" x2="330" y2="132"></line> <line class="tick" x1="570" y1="54" x2="570" y2="132"></line> <line class="tick" x1="720" y1="54" x2="720" y2="132"></line> <line class="tick" x1="1010" y1="54" x2="1010" y2="132"></line> <text class="time-label" x="90" y="42" text-anchor="middle">0</text> <text class="time-label" x="330" y="42" text-anchor="middle">1–3</text> <text class="time-label" x="570" y="42" text-anchor="middle">4–9</text> <text class="time-label" x="720" y="100" text-anchor="middle">…</text> <text class="time-label" x="1010" y="42" text-anchor="middle">10</text> <text class="flow-label inflow" x="90" y="182" text-anchor="middle">+32 mi</text> <text class="flow-label outflow" x="330" y="182" text-anchor="middle">−16 mi</text> <text class="flow-label" x="570" y="182" text-anchor="middle">0</text> <text class="flow-label inflow" x="1010" y="182" text-anchor="middle">+19,2 mi</text>
 </svg>
 <p><span class="fonte">Valores em R$ milhões.</span></p>
-<div id="0448de5e" class="cell" data-execution_count="11">
+<div id="31314042" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <p>Há <strong>duas TIRs</strong>: <span class="math inline">\(TIR_1 = 5,79\% &lt; 10\%\)</span> e <span class="math inline">\(TIR_2 = 13,80\% &gt; 10\%\)</span>.</p>
 </div>
@@ -540,8 +572,16 @@ flowchart LR
 </section>
 <section id="o-gráfico-duas-raízes" class="slide level2 smaller">
 <h2>O gráfico: duas raízes</h2>
-
-<img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p>Ao custo de capital de 10% (entre as duas raízes), o VPL é <strong>negativo</strong>.</p>
+<div id="d5929ca3" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ao custo de capital de 10% (entre as duas raízes), o VPL é <strong>negativo</strong>.</p>
 <!-- ADICIONADO: gráfico interativo; não está no .lyx-fonte. -->
 </section>
 <section id="nascimento-e-morte-das-tirs" class="slide level2 smaller">
@@ -620,8 +660,16 @@ flowchart LR
 </section>
 <section id="gráfico-duas-trocas-de-sinal-sem-raiz" class="slide level2 smaller">
 <h2>Gráfico: duas trocas de sinal, sem raiz</h2>
-
-<img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">Mesmo com duas trocas de sinal, pode não existir TIR</span>: o VPL nunca cruza zero — o oposto do caso anterior (ali, duas trocas de sinal geraram duas raízes).</p>
+<div id="241a84d4" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">Mesmo com duas trocas de sinal, pode não existir TIR</span>: o VPL nunca cruza zero — o oposto do caso anterior (ali, duas trocas de sinal geraram duas raízes).</p>
 <!-- ADICIONADO: gráfico interativo de revisão; não está no .lyx-fonte. -->
 </section>
 <section id="laboratório-do-vplr" class="slide level2 smaller">
@@ -721,7 +769,7 @@ flowchart LR
 <svg class="cashflow-svg" viewbox="0 0 520 180" role="img" aria-label="Fluxo de caixa da sociedade: investimento de 10 mil reais hoje e entradas de 6 mil reais nos anos 1, 2 e 3">
 <line class="axis" x1="55" y1="70" x2="465" y2="70"></line> <line class="tick" x1="55" y1="46" x2="55" y2="96"></line> <line class="tick" x1="192" y1="46" x2="192" y2="96"></line> <line class="tick" x1="328" y1="46" x2="328" y2="96"></line> <line class="tick" x1="465" y1="46" x2="465" y2="96"></line> <text class="time-label" x="55" y="36" text-anchor="middle">0</text> <text class="time-label" x="192" y="36" text-anchor="middle">1</text> <text class="time-label" x="328" y="36" text-anchor="middle">2</text> <text class="time-label" x="465" y="36" text-anchor="middle">3</text> <text class="flow-label outflow" x="55" y="142" text-anchor="middle">−10.000</text> <text class="flow-label inflow" x="192" y="142" text-anchor="middle">+6.000</text> <text class="flow-label inflow" x="328" y="142" text-anchor="middle">+6.000</text> <text class="flow-label inflow" x="465" y="142" text-anchor="middle">+6.000</text>
 </svg>
-<div id="80a34f66" class="cell" data-execution_count="14">
+<div id="1f18a649" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <p><span class="math inline">\(VPL = 4.411\)</span>, <span class="math inline">\(TIR = 36,3\%\)</span></p>
 </div>
@@ -731,7 +779,7 @@ flowchart LR
 <svg class="cashflow-svg" viewbox="0 0 520 180" role="img" aria-label="Fluxo de caixa da entrega com dois drones: investimento de 10 mil reais hoje e entradas de 5 mil reais nos anos 1, 2 e 3">
 <line class="axis" x1="55" y1="70" x2="465" y2="70"></line> <line class="tick" x1="55" y1="46" x2="55" y2="96"></line> <line class="tick" x1="192" y1="46" x2="192" y2="96"></line> <line class="tick" x1="328" y1="46" x2="328" y2="96"></line> <line class="tick" x1="465" y1="46" x2="465" y2="96"></line> <text class="time-label" x="55" y="36" text-anchor="middle">0</text> <text class="time-label" x="192" y="36" text-anchor="middle">1</text> <text class="time-label" x="328" y="36" text-anchor="middle">2</text> <text class="time-label" x="465" y="36" text-anchor="middle">3</text> <text class="flow-label outflow" x="55" y="142" text-anchor="middle">−10.000</text> <text class="flow-label inflow" x="192" y="142" text-anchor="middle">+5.000</text> <text class="flow-label inflow" x="328" y="142" text-anchor="middle">+5.000</text> <text class="flow-label inflow" x="465" y="142" text-anchor="middle">+5.000</text>
 </svg>
-<div id="d814b567" class="cell" data-execution_count="15">
+<div id="69ad8110" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p><span class="math inline">\(VPL = 2.009\)</span>, <span class="math inline">\(TIR = 23,4\%\)</span></p>
 </div>
@@ -741,18 +789,26 @@ flowchart LR
 </section>
 <section id="gráfico-mesma-escala" class="slide level2 smaller">
 <h2>Gráfico: mesma escala</h2>
-
-<img data-src="index_files/figure-revealjs/cell-17-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<div id="d80217d4" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-17-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="mudança-de-escala" class="slide level2 smaller">
 <h2>Mudança de escala</h2>
 <p>Alternativa 2.b — entrega com <strong>10 drones</strong>: multiplicam-se gastos e receitas por 5.</p>
 <p><span class="math display">\[-50.000 \to +25.000, +25.000, +25.000\]</span></p>
-<div id="da6df9a8" class="cell" data-execution_count="17">
+<div id="695f6bc9" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math display">\[VPL = -50.000 + \frac{25.000}{1{,}12} + \frac{25.000}{1{,}12^2} + \frac{25.000}{1{,}12^3} = 10.046\]</span></p>
 </div>
 </div>
-<div id="20baf18b" class="cell" data-execution_count="18">
+<div id="5c41206a" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="18">
 <ul>
 <li>Menor retorno por real investido — a TIR não muda: <span class="math inline">\(TIR = 23,4\%\)</span> (mesma da alternativa de 2 drones)</li>
@@ -765,8 +821,16 @@ flowchart LR
 </section>
 <section id="gráfico-crossover-de-escala" class="slide level2 smaller">
 <h2>Gráfico: crossover de escala</h2>
-
-<img data-src="index_files/figure-revealjs/cell-20-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">A TIR maior (sociedade) não implica o maior VPL</span> quando a escala é diferente.</p>
+<div id="3c7aae85" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-20-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">A TIR maior (sociedade) não implica o maior VPL</span> quando a escala é diferente.</p>
 </section>
 <section id="períodos-de-investimento-distintos" class="slide level2">
 <h2>Períodos de investimento distintos</h2>
@@ -776,7 +840,7 @@ flowchart LR
 </ul>
 <p>Compare a alternativa de 10 drones (2.b) com vender o negócio já no ano 1 por R$ 40.000 adicionais (2.c):</p>
 <p><span class="math display">\[-50.000 \to +65.000 \quad (\text{apenas em } t=0,1)\]</span></p>
-<div id="2119649e" class="cell" data-execution_count="20">
+<div id="b868b707" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <p><span class="math inline">\(TIR_{2.c} = 30\% &gt; TIR_{2.b} = 23,4\%\)</span>. Mas e o VPL? E para taxas distintas?</p>
 </div>
@@ -784,8 +848,16 @@ flowchart LR
 </section>
 <section id="gráfico-vender-ou-não-vender" class="slide level2 smaller">
 <h2>Gráfico: vender ou não vender</h2>
-
-<img data-src="index_files/figure-revealjs/cell-22-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="destaque">TIR maior não significa a melhor decisão</span> quando o momento dos fluxos difere.</p>
+<div id="18fc2edf" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-22-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">TIR maior não significa a melhor decisão</span> quando o momento dos fluxos difere.</p>
 </section>
 <section id="mais-sobre-horizontes-distintos" class="slide level2 smaller">
 <h2>Mais sobre horizontes distintos</h2>
@@ -794,7 +866,7 @@ flowchart LR
 <li><strong>Fornecedor A</strong>: mais caro hoje, manutenção menor, serviço por <strong>3 anos</strong></li>
 <li><strong>Fornecedor B</strong>: mais barato hoje, manutenção maior, serviço por <strong>2 anos</strong></li>
 </ul>
-<div id="1f352929" class="cell" data-execution_count="22">
+<div id="fcf84f5c" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <table class="caption-top">
 <thead>
@@ -831,7 +903,7 @@ flowchart LR
 </section>
 <section id="como-errar" class="slide level2">
 <h2>Como errar</h2>
-<div id="89ac6782" class="cell" data-execution_count="23">
+<div id="a384399a" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <ul>
 <li>VPL de B (-10,47) é menos negativo que VPL de A (-12,49)</li>
@@ -850,13 +922,13 @@ flowchart LR
 <li><strong>Anuidade Equivalente (EAA)</strong> — <em>equivalent annual annuity</em></li>
 </ul>
 <p>Custo de A: primeiro anuitiza o gasto inicial de R$ 10 mi ao longo de 3 anos:</p>
-<div id="4610dff9" class="cell" data-execution_count="24">
+<div id="e3e9e100" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
 <p><span class="math display">\[10 = \frac{x}{1+r} + \frac{x}{(1+r)^2} + \frac{x}{(1+r)^3} \;\Longrightarrow\; x \approx 4,02\]</span></p>
 </div>
 </div>
 <p>Somando a manutenção de R$ 1 mi/ano:</p>
-<div id="2a426638" class="cell" data-execution_count="25">
+<div id="8bdfa0b4" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
 <p><span class="math display">\[EAA_A = -5,02\]</span></p>
 </div>
@@ -865,12 +937,12 @@ flowchart LR
 <section id="eaa-de-b-e-a-conclusão" class="slide level2">
 <h2>EAA de B, e a conclusão</h2>
 <p>Mesmo procedimento para B (anuitizar R$ 7 mi em 2 anos, <span class="math inline">\(r=10\%\)</span>):</p>
-<div id="b8d82108" class="cell" data-execution_count="26">
+<div id="17d9f73d" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
 <p><span class="math display">\[EAA_B = -6,03\]</span></p>
 </div>
 </div>
-<div id="3746811f" class="cell" data-execution_count="27">
+<div id="f5a0fdfe" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
 <p><span class="destaque">Fornecedor A é o mais barato por ano</span>, apesar de ter o VPL total mais negativo — porque dura mais.</p>
 </div>
@@ -1115,6 +1187,253 @@ flowchart LR
           RevealZoom
         ]
       });
+    </script>
+    <style>
+      .reveal .slides [data-figure-zoom] { cursor: zoom-in; }
+      .reveal .slides [data-figure-zoom]:focus-visible {
+        outline: 3px solid #d97757;
+        outline-offset: 4px;
+      }
+      .figure-zoom {
+        box-sizing: border-box;
+        display: none;
+        width: 96vw;
+        height: 94vh;
+        max-width: none;
+        max-height: none;
+        padding: 12px;
+        border: 1px solid #b0aea5;
+        border-radius: 8px;
+        background: #faf9f5;
+        color: #141413;
+        font: 16px Arial, sans-serif;
+      }
+      .figure-zoom[open] { display: flex; flex-direction: column; gap: 8px; }
+      .figure-zoom::backdrop { background: rgba(20, 20, 19, .82); }
+      .figure-zoom-header { display: flex; align-items: center; gap: 8px; flex: none; }
+      .figure-zoom-title { flex: 1; min-width: 0; margin: 0; font-size: 16px; }
+      .figure-zoom button {
+        flex: none;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 4px 8px;
+        border: 1px solid #b0aea5;
+        border-radius: 4px;
+        color: #141413;
+        background: #fff;
+        font: 20px Arial, sans-serif;
+        cursor: pointer;
+      }
+      .figure-zoom button:focus-visible { outline: 3px solid #d97757; outline-offset: 2px; }
+      .figure-zoom button:disabled { opacity: .4; cursor: default; }
+      .figure-zoom-level { min-width: 45px; text-align: center; }
+      .figure-zoom-viewport {
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+        overscroll-behavior: contain;
+        background: #fff;
+      }
+      .figure-zoom-stage { display: grid; place-items: center; }
+      .figure-zoom-stage > img, .figure-zoom-stage > svg {
+        display: block;
+        flex: none;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        user-select: none;
+      }
+      .figure-zoom-viewport.can-pan { cursor: grab; }
+      .figure-zoom-viewport.is-panning { cursor: grabbing; }
+      @media (max-width: 600px) {
+        .figure-zoom-title { font-size: 13px; }
+        .figure-zoom-header { gap: 4px; }
+        .figure-zoom { padding: 6px; }
+        .figure-zoom button { min-width: 36px; padding: 4px; }
+      }
+      @media print {
+        .figure-zoom, .figure-zoom::backdrop { display: none !important; }
+        .reveal .slides [data-figure-zoom] { outline: none !important; }
+      }
+      html.print-pdf .figure-zoom, body.print-pdf .figure-zoom { display: none !important; }
+    </style>
+    <script>
+    (() => {
+      "use strict";
+      // Shared by all reveal.js decks; does not wrap or resize the original figures.
+      function initialize() {
+        const slides = document.querySelector(".reveal .slides");
+        if (!slides || !HTMLDialogElement.prototype.showModal) return;
+        const printing = () => matchMedia("print").matches ||
+          document.documentElement.classList.contains("print-pdf") ||
+          document.body.classList.contains("print-pdf") || /[?&]print-pdf(?:[=&]|$)/.test(location.search);
+        const dialog = document.createElement("dialog");
+        dialog.className = "figure-zoom";
+        dialog.setAttribute("aria-labelledby", "figure-zoom-title");
+        dialog.innerHTML = `
+          <header class="figure-zoom-header">
+            <p class="figure-zoom-title" id="figure-zoom-title"></p>
+            <button type="button" data-action="less" aria-label="Diminuir ampliação">−</button>
+            <span class="figure-zoom-level" aria-live="polite"></span>
+            <button type="button" data-action="more" aria-label="Aumentar ampliação">+</button>
+            <button type="button" data-action="fit" aria-label="Ajustar figura à janela">Ajustar</button>
+            <button type="button" data-action="close" aria-label="Fechar figura ampliada">×</button>
+          </header>
+          <div class="figure-zoom-viewport"><div class="figure-zoom-stage"></div></div>`;
+        document.body.append(dialog);
+        const viewport = dialog.querySelector(".figure-zoom-viewport");
+        const stage = dialog.querySelector(".figure-zoom-stage");
+        const title = dialog.querySelector(".figure-zoom-title");
+        const level = dialog.querySelector(".figure-zoom-level");
+        const closeButton = dialog.querySelector('[data-action="close"]');
+        let trigger, media, dimensions, zoom = 1, drag = null, serial = 0;
+        const svgStyles = ["fill", "fill-opacity", "fill-rule", "stroke", "stroke-width",
+          "stroke-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap",
+          "stroke-linejoin", "opacity", "color", "font-family", "font-size", "font-weight",
+          "font-style", "letter-spacing", "line-height", "white-space", "text-align", "box-sizing",
+          "margin-top", "margin-right", "margin-bottom", "margin-left", "text-anchor", "dominant-baseline", "visibility",
+          "display", "paint-order", "vector-effect", "clip-path", "filter", "marker-start", "marker-mid", "marker-end"];
+        const label = el => el.getAttribute("aria-label") || el.getAttribute("alt") ||
+          el.querySelector("title")?.textContent || el.closest("section")?.querySelector("h2")?.textContent || "Figura";
+        const eligible = el => !el.closest("a, button, .math, .MathJax, mjx-container, .MJX_Assistive_MathML, .nolightbox, [data-no-zoom]") &&
+          !(el.tagName.toLowerCase() === "svg" && el.parentElement.closest("svg"));
+        function decorate() {
+          slides.querySelectorAll("img, svg").forEach(el => {
+            if (!eligible(el) || el.hasAttribute("data-figure-zoom")) return;
+            el.setAttribute("data-figure-zoom", "");
+            el.setAttribute("tabindex", "0");
+            el.setAttribute("role", "button");
+            if (!el.hasAttribute("title")) el.setAttribute("title", "Clique para ampliar");
+            el.setAttribute("aria-label", `Ampliar figura: ${label(el)}`);
+          });
+        }
+        function snapshotSVG(source) {
+          const clone = source.cloneNode(true);
+          const originals = [source, ...source.querySelectorAll("*")];
+          const copies = [clone, ...clone.querySelectorAll("*")];
+          const ids = new Map();
+          copies.forEach((el, i) => {
+            const style = getComputedStyle(originals[i]);
+            svgStyles.forEach(name => el.style.setProperty(name, style.getPropertyValue(name)));
+            if (el.id) { ids.set(el.id, `figure-zoom-${++serial}-${el.id}`); el.id = ids.get(el.id); }
+            el.removeAttribute("data-figure-zoom");
+            el.removeAttribute("tabindex");
+          });
+          copies.forEach(el => [...el.attributes].forEach(attr => {
+            const value = attr.value.replace(/url\(["']?(?:[^)#]*#)([^)"']+)["']?\)/g,
+              (match, id) => ids.has(id) ? `url(#${ids.get(id)})` : match);
+            if (value !== attr.value) el.setAttribute(attr.name, value);
+            if ((attr.name === "href" || attr.name === "xlink:href") && ids.has(attr.value.slice(1)))
+              el.setAttribute(attr.name, `#${ids.get(attr.value.slice(1))}`);
+          }));
+          // Mermaid scopes its embedded CSS with the SVG's ID.
+          clone.querySelectorAll("style").forEach(el => {
+            el.textContent = el.textContent.replace(/#([\w-]+)/g,
+              (match, id) => ids.has(id) ? `#${ids.get(id)}` : match);
+          });
+          clone.setAttribute("role", "img");
+          return clone;
+        }
+        function layout(recenter = false) {
+          if (!dialog.open || !dimensions) return;
+          const fit = Math.min(viewport.clientWidth / dimensions.width, viewport.clientHeight / dimensions.height);
+          const width = dimensions.width * fit * zoom, height = dimensions.height * fit * zoom;
+          const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / Math.max(stage.clientWidth, 1);
+          const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / Math.max(stage.clientHeight, 1);
+          stage.style.width = `${Math.max(width, viewport.clientWidth)}px`;
+          stage.style.height = `${Math.max(height, viewport.clientHeight)}px`;
+          media.style.setProperty("width", `${width}px`, "important");
+          media.style.setProperty("height", `${height}px`, "important");
+          viewport.scrollLeft = (recenter ? .5 : centerX) * stage.clientWidth - viewport.clientWidth / 2;
+          viewport.scrollTop = (recenter ? .5 : centerY) * stage.clientHeight - viewport.clientHeight / 2;
+          viewport.classList.toggle("can-pan", zoom > 1);
+          level.textContent = `${Math.round(zoom * 100)}%`;
+          dialog.querySelector('[data-action="less"]').disabled = zoom <= 1;
+          dialog.querySelector('[data-action="more"]').disabled = zoom >= 6;
+        }
+        function close() { if (dialog.open) dialog.close(); }
+        function open(source) {
+          if (printing() || dialog.open || !eligible(source)) return;
+          const isSVG = source.tagName.toLowerCase() === "svg";
+          if (!isSVG && (!source.complete || !source.naturalWidth)) return;
+          trigger = source;
+          const box = source.getBoundingClientRect();
+          const vb = isSVG ? source.viewBox.baseVal : null;
+          dimensions = {width: vb?.width || source.naturalWidth || box.width,
+            height: vb?.height || source.naturalHeight || box.height};
+          if (!dimensions.width || !dimensions.height) return;
+          media = isSVG ? snapshotSVG(source) : document.createElement("img");
+          if (!isSVG) { media.src = source.currentSrc || source.src; media.alt = source.alt; media.draggable = false; }
+          title.textContent = label(source).replace(/^Ampliar figura: /, "");
+          stage.replaceChildren(media);
+          zoom = 1;
+          dialog.showModal();
+          layout(true);
+          closeButton.focus();
+        }
+        function changeZoom(value) { zoom = Math.max(1, Math.min(6, value)); layout(); }
+        slides.addEventListener("click", event => {
+          if (event.target.closest("a, button, input")) return;
+          const source = event.target.closest("[data-figure-zoom]");
+          if (!source || event.altKey || event.ctrlKey || event.metaKey) return;
+          event.preventDefault(); event.stopPropagation(); open(source);
+        });
+        slides.addEventListener("keydown", event => {
+          if (!["Enter", " "].includes(event.key) || !event.target.matches("[data-figure-zoom]")) return;
+          event.preventDefault(); event.stopPropagation(); open(event.target);
+        });
+        dialog.addEventListener("click", event => {
+          const action = event.target.closest("[data-action]")?.dataset.action;
+          if (action === "close" || event.target === dialog) close();
+          else if (action === "more") changeZoom(zoom * 1.5);
+          else if (action === "less") changeZoom(zoom / 1.5);
+          else if (action === "fit") { zoom = 1; layout(true); }
+        });
+        dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
+        dialog.addEventListener("close", () => {
+          stage.replaceChildren(); drag = null;
+          viewport.classList.remove("is-panning");
+          if (trigger?.isConnected) trigger.focus({preventScroll: true});
+        });
+        window.addEventListener("keydown", event => {
+          if (!dialog.open) return;
+          event.stopImmediatePropagation();
+          if (event.key === "Escape") { event.preventDefault(); close(); }
+          else if (event.key === "+" || event.key === "=") { event.preventDefault(); changeZoom(zoom * 1.5); }
+          else if (event.key === "-") { event.preventDefault(); changeZoom(zoom / 1.5); }
+          else if (event.key.startsWith("Arrow")) {
+            event.preventDefault();
+            viewport.scrollBy({left: event.key === "ArrowRight" ? 80 : event.key === "ArrowLeft" ? -80 : 0,
+              top: event.key === "ArrowDown" ? 80 : event.key === "ArrowUp" ? -80 : 0});
+          }
+        }, true);
+        viewport.addEventListener("pointerdown", event => {
+          if (zoom <= 1 || event.button !== 0 || event.pointerType !== "mouse") return;
+          drag = {x: event.clientX, y: event.clientY, left: viewport.scrollLeft, top: viewport.scrollTop};
+          viewport.setPointerCapture(event.pointerId); viewport.classList.add("is-panning");
+          event.preventDefault();
+        });
+        viewport.addEventListener("pointermove", event => {
+          if (!drag) return;
+          viewport.scrollLeft = drag.left + drag.x - event.clientX;
+          viewport.scrollTop = drag.top + drag.y - event.clientY;
+        });
+        const stopDrag = () => { drag = null; viewport.classList.remove("is-panning"); };
+        viewport.addEventListener("pointerup", stopDrag);
+        viewport.addEventListener("pointercancel", stopDrag);
+        window.addEventListener("resize", () => layout());
+        window.addEventListener("beforeprint", close);
+        decorate();
+        new MutationObserver(decorate).observe(slides, {childList: true, subtree: true});
+        function connectReveal() {
+          if (!window.Reveal?.on) { requestAnimationFrame(connectReveal); return; }
+          window.Reveal.on("slidechanged", close);
+        }
+        connectReveal();
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize, {once: true});
+      else initialize();
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

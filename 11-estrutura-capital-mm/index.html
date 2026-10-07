@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-7e27f3dd3070cc50ea180fc52d0db151.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-ebc22d1efb10b48ab26dfda692002621.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -175,19 +175,137 @@ Felipe Iachan
 <li>A pergunta de hoje: a <strong>combinação</strong> entre eles afeta o valor total?</li>
 </ul>
 </section>
+<section id="industrias-2022" class="slide level2 smaller">
+<h2>Alavancagem varia entre indústrias</h2>
+<!-- ATUALIZADO: Berk e DeMarzo (2024), Figura 15.7, p. 543 (PDF p. 576).
+     Recorte vetorial da figura original, com dados Capital IQ de 2022.
+     São medianas e a base é EV; não comparar 15% com a média de 33% de 2010. -->
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/estrutura-capital-industrias-2022.svg" height="490"></p>
+<figcaption>Medianas de dívida bruta e líquida por indústria (EUA, 2022).</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>Medianas por indústria</strong> nos EUA, em 2022</li>
+<li>Dívida bruta mediana: cerca de <strong>15% do EV</strong></li>
+<li>Intervalo azul: diferença entre dívida bruta e líquida — <strong>caixa / EV</strong></li>
+<li>Biotecnologia tem caixa líquido; radiodifusão tem mais dívida</li>
+</ul>
+<p>Mesma pergunta: por que as escolhas de financiamento diferem tanto?</p>
+<p><span class="fonte">Berk e DeMarzo (2024), Figura 15.7; Capital IQ (2022). <span class="math inline">\(EV=E+D-\text{Caixa}\)</span>; a base difere de <span class="math inline">\(D+E\)</span>.</span></p>
+</div></div>
+</section>
+<section id="firmas-2026" class="slide level2 smaller">
+<h2>Firmas reais: escolhas diferentes</h2>
+<p>Fotografia de 2026: participações <span class="math inline">\(E/(D+E)\)</span> e <span class="math inline">\(D/(D+E)\)</span>.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="eua-três-firmas">EUA: três firmas</h3>
+<div id="7fad6f7e" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Firma</th>
+<th style="text-align: right;">Equity</th>
+<th style="text-align: right;">Dívida</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Apple</td>
+<td style="text-align: right;">98,3%</td>
+<td style="text-align: right;">1,7%</td>
+</tr>
+<tr class="even">
+<td>Meta</td>
+<td style="text-align: right;">95,6%</td>
+<td style="text-align: right;">4,4%</td>
+</tr>
+<tr class="odd">
+<td>Delta</td>
+<td style="text-align: right;">80,9%</td>
+<td style="text-align: right;">19,1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>O <strong>mesmo país</strong> abriga estruturas distintas</li>
+<li>Essa escolha muda o <strong>valor total</strong>?</li>
+</ul>
+</div><div class="column" style="width:51%;">
+<h3 id="brasil-extremos-do-top-20">Brasil: extremos do top 20</h3>
+<div id="a5511463" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Firma</th>
+<th style="text-align: right;">Equity</th>
+<th style="text-align: right;">Dívida</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ambev</td>
+<td style="text-align: right;">98,8%</td>
+<td style="text-align: right;">1,2%</td>
+</tr>
+<tr class="even">
+<td>WEG</td>
+<td style="text-align: right;">97,7%</td>
+<td style="text-align: right;">2,3%</td>
+</tr>
+<tr class="odd">
+<td>Telefônica</td>
+<td style="text-align: right;">95,4%</td>
+<td style="text-align: right;">4,6%</td>
+</tr>
+<tr class="even">
+<td>Sabesp</td>
+<td style="text-align: right;">68,6%</td>
+<td style="text-align: right;">31,4%</td>
+</tr>
+<tr class="odd">
+<td>Rede D’Or</td>
+<td style="text-align: right;">66,3%</td>
+<td style="text-align: right;">33,7%</td>
+</tr>
+<tr class="even">
+<td>Equatorial</td>
+<td style="text-align: right;">48,9%</td>
+<td style="text-align: right;">51,1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>As três menos e as três mais alavancadas entre as <strong>11 não financeiras</strong> do top 20 da B3.</p>
+</div></div>
+<p><span class="fonte"><span class="math inline">\(D\)</span>: dívida bruta contábil, sem arrendamentos e sem abater caixa; <span class="math inline">\(E\)</span>: capitalização em 07/10/2026. Balanços de jun/2026. Brasil: excluídas financeiras; Rede D’Or consolida SulAmérica. Fontes: <a href="https://sistemaswebb3-listados.b3.com.br/marketValuePage/stockExchangeDaily">B3</a>, <a href="https://dados.cvm.gov.br/dataset/cia_aberta-doc-itr">CVM</a>, relatórios trimestrais dos EUA e Yahoo Finance.</span></p>
+</section>
 <section id="painel-ilustrativo-uma-firma-por-setor" class="slide level2 smaller">
 <h2>Painel ilustrativo: uma firma por setor</h2>
-
-<img data-src="index_files/figure-revealjs/cell-3-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Painel ilustrativo, não médias setoriais: um ticker por setor. Dívida vem do último balanço disponível (2025-06 a 2026-01) e market cap é corrente, portanto as datas não coincidem. Bancos/seguradoras excluídos; GM inclui dívida da GM Financial. Fonte: yfinance.</span></p>
-</section>
-<section id="variação-empírica-entre-firmas" class="slide level2 smaller">
-<h2>Variação empírica entre firmas</h2>
-
-<img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Dados reais atuais (yfinance). A dispersão que o livro-texto ilustrava persiste, mas hoje as duas gigantes de tecnologia (Meta, Apple) operam com alavancagem quase nula — a da Apple caiu bastante desde a edição do exemplo original do livro (2019: cerca de 11% dívida) —, enquanto o setor aéreo (Delta) segue historicamente mais alavancado. Estrutura de capital não é estática.</span></p>
+<div id="3b331b2e" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Painel ilustrativo, não médias setoriais: um ticker por setor. Dívida vem do último balanço disponível (2025-06 a 2026-01) e market cap é corrente, portanto as datas não coincidem. Bancos/seguradoras excluídos; GM inclui dívida da GM Financial. Fonte: yfinance.</span></p>
 </section>
 <section id="um-exemplo-numérico" class="slide level2 smaller">
 <h2>Um exemplo numérico</h2>
-<p>Economia incerta, duas datas <span class="math inline">\(t=0,1\)</span>, três estados <span class="math inline">\(s\in\{1,2,3\}\)</span>.</p>
+<p>Economia incerta, duas datas <span class="math inline">\(t=0,1\)</span>, três estados <span class="math inline">\(s\in\{1,2,3\}\)</span>; <span class="math inline">\(CF_0=0\)</span>.</p>
 <p>Fluxo dos ativos (não depende do financiamento), e preços de estado:</p>
 <table class="caption-top">
 <thead>
@@ -215,55 +333,374 @@ Felipe Iachan
 </table>
 <p><span class="math display">\[V^F=\frac{1}{4}\left(2\cdot 6+1\cdot 5+1\cdot 3\right)=5\]</span></p>
 </section>
-<section id="situações-alternativas" class="slide level2 smaller">
-<h2>Situações alternativas</h2>
-<p>Diferentes níveis de dívida <span class="math inline">\(F\)</span> (<span class="math inline">\(CF_1^D(s)=\min\{CF_1(s),F\}\)</span>, <span class="math inline">\(CF_1^E(s)=CF_1(s)-CF_1^D(s)\)</span>):</p>
+<section id="firmas-contrafactuais" class="slide level2 smaller">
+<h2>Três firmas contrafactuais</h2>
+<p>Mesmos ativos, mesmos preços de estado. Muda apenas a <strong>face da dívida</strong>, <span class="math inline">\(F\)</span>.</p>
+<!-- RESTAURADO: os três painéis do slide 7 de EstCap.pdf (2024), com os mesmos números.
+     F é o pagamento prometido em t=1; V^D é o valor de mercado da dívida em t=0. -->
+<div class="columns">
+<div class="column" style="width:31%;">
+<p><strong>Sem dívida: <span class="math inline">\(F=0\)</span></strong></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th><span class="math inline">\(F\)</span></th>
-<th><span class="math inline">\(CF^D(1,2,3)\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(V^D\)</span></th>
-<th><span class="math inline">\(CF^E(1,2,3)\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(V^E\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(V^F=V^D+V^E\)</span></th>
+<th>Estado</th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^D\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^E\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>0 (desalavancada)</td>
-<td>0, 0, 0</td>
+<td>1</td>
 <td style="text-align: right;">0</td>
-<td>6, 5, 3</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;"><strong>5</strong></td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
-<td>1 (pouca dívida)</td>
-<td>1, 1, 1</td>
-<td style="text-align: right;">1</td>
-<td>5, 4, 2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;"><strong>5</strong></td>
+<td>2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
-<td>3 (muita dívida)</td>
-<td>3, 3, 3</td>
+<td>3</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">3</td>
-<td>3, 2, 0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;"><strong>5</strong></td>
 </tr>
 <tr class="even">
-<td>5 (ainda mais)</td>
-<td>5, 5, 3</td>
-<td style="text-align: right;">4,5</td>
-<td>1, 0, 0</td>
-<td style="text-align: right;">0,5</td>
+<td><strong>Valor hoje</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
 <td style="text-align: right;"><strong>5</strong></td>
 </tr>
 </tbody>
 </table>
+</div><div class="column" style="width:31%;">
+<p><strong>Pouca dívida: <span class="math inline">\(F=1\)</span></strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Estado</th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^D\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td><strong>Valor hoje</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;"><strong>4</strong></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:31%;">
+<p><strong>Mais dívida: <span class="math inline">\(F=3\)</span></strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Estado</th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^D\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td><strong>Valor hoje</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+<td style="text-align: right;"><strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p>Em todas: <span class="math inline">\(V^F=V^D+V^E=\)</span> <span class="destaque">5</span>.</p>
+</section>
+<section id="divida-arriscada" class="slide level2 smaller">
+<h2>E se a dívida for arriscada?</h2>
+<p><strong>Ainda mais dívida: <span class="math inline">\(F=5\)</span>.</strong> A promessa supera o fluxo do estado 3.</p>
+<!-- RESTAURADO: slide 8 de EstCap.pdf (2024), separado dos casos de dívida sem risco. -->
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Estado <span class="math inline">\(s\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^F(s)\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^D(s)\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(CF_1^E(s)\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(q(s)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><span class="math inline">\(2/4\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><span class="math inline">\(1/4\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><span class="math inline">\(1/4\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[V^D=\frac{2\cdot5+5+3}{4}=4{,}5,\qquad V^E=\frac{2\cdot1}{4}=0{,}5\]</span></p>
+<ul>
+<li>No estado 3, o credor recebe <strong>3</strong>, embora a promessa seja <strong>5</strong></li>
+<li>Mesmo com pagamento parcial: <span class="math inline">\(V^F=4{,}5+0{,}5=\)</span> <span class="destaque">5</span></li>
+</ul>
+</section>
+<section id="reparticao-dinamica" class="slide level2 smaller">
+<h2>Muda a dívida. Mudam os ativos?</h2>
+<!-- Extensão da ilustração de MM I de 2024. Cliques: F=0→1→3→5.
+     PDF: tabela HTML estática, sem geração por JS. Não usa probabilidades:
+     q=(1/2,1/4,1/4) são preços de estado.
+     Adapta a linha d'água recuperada do preview de 30/09/2026 (archive/): largura=q,
+     altura=fluxo e área=valor. Acrescenta navegação reveal e versão impressa. -->
+<style>
+.a11mm{font-family:"Poppins",Arial,sans-serif;font-size:18px;line-height:1.35;width:100%;color:#141413;}
+.a11mm *{box-sizing:border-box;}
+.a11mm svg{width:100%;height:auto;display:block;}
+.a11mm-caption{min-height:2.7em;font-size:18px;margin:4px 0 0;}
+.a11mm-instruction{font-size:15px;color:#5f5e5a;margin-top:2px;}
+.a11mm-print{display:none;}
+.a11mm.impressao .a11mm-live{display:none;}
+.a11mm.impressao .a11mm-print{display:block;}
+.reveal .a11mm-table{width:100%;font:20px/1.3 "Poppins",Arial,sans-serif;border-collapse:collapse;margin:12px 0;}
+.reveal .a11mm-table th,.reveal .a11mm-table td{padding:5px 12px;text-align:center;}
+.reveal .a11mm-table th:first-child{text-align:left;}
+.reveal .a11mm-table .a11mm-value{font-weight:600;}
+.reveal .a11mm-table .a11mm-divider>*{border-top:2px solid #b0aea5;}
+.a11mm-summary{font-size:19px;margin-top:12px;}
+@media print{.a11mm-live{display:none!important;}.a11mm-print{display:block!important;}}
+</style>
+
+<div class="a11mm" id="a11mm-root" data-artefato="a11-reparticao" data-pdf-check="Quatro firmas, os mesmos ativos">
+  <div class="a11mm-live">
+    <svg id="a11mm-svg" viewbox="0 0 1200 390" role="img" aria-label="Fluxos dos ativos em três estados, repartidos entre credores e acionistas, e seus valores de mercado"></svg>
+    <div class="a11mm-caption" id="a11mm-caption" aria-live="polite"></div>
+    <div class="a11mm-instruction">Avance por F = 0 → 1 → 3 → 5.</div>
+  </div>
+  <div class="a11mm-print">
+    <div class="a11mm-summary"><b>Quatro firmas, os mesmos ativos.</b> Fluxos amanhã; valores de mercado hoje.</div>
+    <div class="a11mm-summary">Ativos: (6, 5, 3). Preços de estado: (1/2, 1/4, 1/4). Valor = soma dos fluxos × preços de estado.</div>
+    
+<table class="a11mm-table caption-top" aria-label="Comparação dos fluxos e valores para quatro faces da dívida">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" scope="col">Fluxo ou valor</th>
+<th data-quarto-table-cell-role="th" scope="col">F = 0</th>
+<th data-quarto-table-cell-role="th" scope="col">F = 1</th>
+<th data-quarto-table-cell-role="th" scope="col">F = 3</th>
+<th data-quarto-table-cell-role="th" scope="col">F = 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" scope="row">Dívida — estado 1</th>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th" scope="row">Dívida — estado 2</th>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" scope="row">Dívida — estado 3</th>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="a11mm-value even">
+<th data-quarto-table-cell-role="th" scope="row">Valor da dívida Vᴰ</th>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>4,5</td>
+</tr>
+<tr class="a11mm-divider odd">
+<th data-quarto-table-cell-role="th" scope="row">Ações — estado 1</th>
+<td>6</td>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th" scope="row">Ações — estado 2</th>
+<td>5</td>
+<td>4</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" scope="row">Ações — estado 3</th>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="a11mm-value even">
+<th data-quarto-table-cell-role="th" scope="row">Valor das ações Vᴱ</th>
+<td>5</td>
+<td>4</td>
+<td>2</td>
+<td>0,5</td>
+</tr>
+<tr class="a11mm-value a11mm-divider odd">
+<th data-quarto-table-cell-role="th" scope="row">Valor total Vᶠ = Vᴰ + Vᴱ</th>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+    <div class="a11mm-summary">Com F = 5, a dívida é arriscada: no estado 3, a promessa é 5 e o pagamento é 3. O valor total continua 5.</div>
+  </div>
+  <span class="fragment" data-a11mm-step="1" aria-hidden="true"></span>
+  <span class="fragment" data-a11mm-step="2" aria-hidden="true"></span>
+  <span class="fragment" data-a11mm-step="3" aria-hidden="true"></span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  let root = document.getElementById("a11mm-root");
+  if (!root) return;
+  let svg = root.querySelector("#a11mm-svg"), caption = root.querySelector("#a11mm-caption"), section = root.closest("section");
+  const faces = [0,1,3,5], cf = [6,5,3], q = [.5,.25,.25];
+  // O modo de rolagem móvel do Reveal pode substituir os nós ao voltar aos slides.
+  function refresh(){
+    const latest=document.getElementById("a11mm-root");
+    if(latest&&latest!==root){root=latest;svg=root.querySelector("#a11mm-svg");caption=root.querySelector("#a11mm-caption");section=root.closest("section");}
+  }
+  const NS = "http://www.w3.org/2000/svg";
+  const C = {debt:"#6a9bcc", equity:"#d97757", ink:"#141413", gray:"#5f5e5a", line:"#b0aea5"};
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function fmt(x, digits=1){return (Math.abs(x)<1e-8?0:x).toLocaleString("pt-BR",{minimumFractionDigits:digits,maximumFractionDigits:digits});}
+  function split(F){
+    const debt=cf.map(x=>Math.min(x,F)), equity=cf.map((x,i)=>x-debt[i]);
+    const VD=debt.reduce((v,x,i)=>v+q[i]*x,0), VE=equity.reduce((v,x,i)=>v+q[i]*x,0);
+    return {F,debt,equity,VD,VE,VF:VD+VE};
+  }
+  function node(tag,attrs,parent,content){
+    const e=document.createElementNS(NS,tag);
+    Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));
+    if(content!==undefined)e.textContent=content;
+    parent.appendChild(e);return e;
+  }
+  function text(parent,x,y,value,extra={}){return node("text",{x,y,fill:C.ink,"font-size":20,...extra},parent,value);}
+  function bars(target,F){
+    target.replaceChildren();const p=split(F);
+    const base=326, scale=38, left=140, fullWidth=600, gap=15;
+    node("line",{x1:82,x2:780,y1:base,y2:base,stroke:C.line,"stroke-width":1},target);
+    cf.forEach((x,i)=>{
+      const xpos=left+q.slice(0,i).reduce((a,b)=>a+b,0)*fullWidth+i*gap, width=q[i]*fullWidth, d=p.debt[i], e=p.equity[i];
+      node("rect",{x:xpos,y:base-d*scale,width,height:d*scale,fill:C.debt,"data-state":i,"data-claim":"debt"},target);
+      node("rect",{x:xpos,y:base-x*scale,width,height:e*scale,fill:C.equity,"data-state":i,"data-claim":"equity"},target);
+      text(target,xpos+width/2,base-x*scale-14,fmt(x,0),{"text-anchor":"middle","font-size":24});
+      text(target,xpos+width/2,base+30,"Estado "+(i+1),{"text-anchor":"middle","font-size":22});
+      {
+        text(target,xpos+width/2,base+57,"q = "+fmt(q[i],2),{"text-anchor":"middle","font-size":18,fill:C.gray});
+        if(d>.35)text(target,xpos+width/2,base-d*scale/2+7,fmt(d),{"text-anchor":"middle",fill:"#ffffff","font-size":22});
+        if(e>.35)text(target,xpos+width/2,base-x*scale+e*scale/2+7,fmt(e),{"text-anchor":"middle",fill:"#ffffff","font-size":22});
+      }
+    });
+    const yface=base-F*scale;
+    node("line",{x1:82,x2:780,y1:yface,y2:yface,stroke:C.debt,"stroke-width":2,"stroke-dasharray":"7 5"},target);
+    text(target,83,yface-8,"F = "+fmt(F),{"font-size":21,fill:C.debt});
+    {
+      text(target,82,25,"Fluxos amanhã (t = 1)",{"font-size":22});
+      text(target,82,49,"Largura = q(s) · altura = fluxo · área = valor",{"font-size":16,fill:C.gray});
+      node("rect",{x:920,y:12,width:18,height:18,fill:C.debt},target);text(target,945,28,"Dívida",{"font-size":18});
+      node("rect",{x:1030,y:12,width:18,height:18,fill:C.equity},target);text(target,1055,28,"Ações",{"font-size":18});
+      text(target,850,91,"Valores hoje (t = 0)",{"font-size":22});
+      text(target,850,136,"Vᴰ = Σ q(s) CFᴰ(s) = "+fmt(p.VD,2),{"font-size":20,fill:C.debt});
+      text(target,850,183,"Vᴱ = Σ q(s) CFᴱ(s) = "+fmt(p.VE,2),{"font-size":20,fill:C.equity});
+      node("line",{x1:850,x2:1180,y1:213,y2:213,stroke:C.line},target);
+      text(target,850,255,"Vᶠ = Vᴰ + Vᴱ = "+fmt(p.VF,0),{"font-size":28,"font-weight":"600"});
+      text(target,850,301,"Os ativos continuam (6, 5, 3).",{"font-size":19,fill:C.gray});
+      node("rect",{x:850,y:324,width:330*p.VD/p.VF,height:27,fill:C.debt},target);
+      node("rect",{x:850+330*p.VD/p.VF,y:324,width:330*p.VE/p.VF,height:27,fill:C.equity},target);
+    }
+    return p;
+  }
+  let current=0, frame=null;
+  function draw(F){
+    refresh();
+    current=F;const p=bars(svg,F);root.dataset.face=String(F);
+    root.dataset.vd=String(p.VD);root.dataset.ve=String(p.VE);root.dataset.vf=String(p.VF);
+    if(F===0)caption.textContent="Sem dívida: todos os fluxos pertencem aos acionistas. O valor das ações é 5.";
+    else if(F<=3)caption.textContent="A dívida é paga integralmente em todos os estados. Mais dívida transfere fluxos e valor dos acionistas para os credores.";
+    else{const missing=cf.map((x,i)=>x<F?String(i+1):null).filter(Boolean);
+      caption.textContent="Dívida arriscada: pagamento parcial no"+(missing.length>1?"s estados ":" estado ")+missing.join(" e ")+". Mesmo assim, dívida + ações continuam valendo 5.";
+    }
+  }
+  function go(F,animate=false){
+    F=Math.max(0,Math.min(6,F));if(frame!==null){cancelAnimationFrame(frame);frame=null;}
+    if(!animate||reduced){draw(F);return;}
+    const start=current,t0=performance.now();
+    function tick(now){const u=Math.min(1,(now-t0)/280),e=u*u*(3-2*u);draw(start+(F-start)*e);
+      if(u<1)frame=requestAnimationFrame(tick);else{frame=null;draw(F);}}
+    frame=requestAnimationFrame(tick);
+  }
+  function printMode(){return /[?&](print-pdf|impressao)\b/.test(location.search)||(window.matchMedia&&window.matchMedia("print").matches)||(window.Reveal&&Reveal.getConfig().fragments===false);}
+  function step(){refresh();return section?section.querySelectorAll(".fragment.visible[data-a11mm-step]").length:0;}
+  function sync(){refresh();const print=Boolean(printMode());root.classList.toggle("impressao",print);root.querySelector(".a11mm-print").setAttribute("aria-hidden",String(!print));root.querySelector(".a11mm-live").setAttribute("aria-hidden",String(print));if(!print)go(faces[step()]??5);}
+  window.addEventListener("beforeprint",()=>{refresh();root.classList.add("impressao");});
+  window.addEventListener("afterprint",sync);
+  function bindReveal(){
+    if(!window.Reveal||typeof Reveal.on!=="function"){requestAnimationFrame(bindReveal);return;}
+    Reveal.on("ready",sync);Reveal.on("slidechanged",sync);
+    ["fragmentshown","fragmenthidden"].forEach(event=>Reveal.on(event,e=>{refresh();if(section&&section.contains(e.fragment)&&e.fragment.hasAttribute("data-a11mm-step"))go(faces[step()]??5,true);}));
+    if(Reveal.isReady())sync();
+  }
+  bindReveal();
+  go(0);
+})();
+</script>
 </section>
 <section id="o-que-o-exemplo-mostra" class="slide level2 center">
 <h2>O que o exemplo mostra</h2>
@@ -292,7 +729,8 @@ Felipe Iachan
 <p><span class="math display">\[CF_1^E(s) = CF_1^F - CF_1^D(s) = \max\left\{0,\,CF_1^F(s)-F\right\}\]</span></p>
 <ul>
 <li>Concavidade da dívida, convexidade das ações</li>
-<li>Relação com opções (dívida <span class="math inline">\(\approx\)</span> posição vendida em put; ações <span class="math inline">\(\approx\)</span> opção de compra sobre os ativos)</li>
+<li>Ações: opção de compra sobre os ativos, com exercício <span class="math inline">\(F\)</span></li>
+<li>Dívida: promessa sem risco <strong>menos</strong> uma put sobre os ativos, com exercício <span class="math inline">\(F\)</span></li>
 </ul>
 <div class="fragment">
 <p><span class="destaque">Voltaremos a discutir distorções e conflitos de interesse.</span></p>
@@ -373,12 +811,18 @@ V^{E} &amp; =E\left[m\cdot CF_{1}^{E}\right]\\
 <li>Olhamos para o retorno <strong>desse portfólio</strong></li>
 </ul>
 </section>
-<section id="wacc-definição" class="slide level2">
+<section id="identidade-wacc" class="slide level2 smaller">
 <h2>WACC: definição</h2>
 <p><strong>Weighted Average Cost of Capital</strong> — custo de capital médio ponderado.</p>
-<p><span class="math display">\[r_{WACC}=\left(\frac{V^{D}}{V^{F}}\right)r_{D}+\left(\frac{V^{E}}{V^{F}}\right)r_{E}\]</span></p>
+<!-- RESTAURADO: identidade rotulada de BDM0.png, slide 21 de 2024. -->
+<p><span class="math display">\[r_{WACC}^{\text{pré}}=
+\underbrace{\frac{V^{E}}{V^{F}}}_{\text{peso do equity}}\,
+\underbrace{r_E}_{\text{custo do equity}}
++\underbrace{\frac{V^{D}}{V^{F}}}_{\text{peso da dívida}}\,
+\underbrace{r_D}_{\text{custo da dívida}}
+=\underbrace{r_U}_{\text{custo dos ativos}}\]</span></p>
 <ul>
-<li>Pesos: participação de dívida e equity no <strong>valor de mercado</strong></li>
+<li>Pesos a <strong>valor de mercado</strong>, não de face ou contábil</li>
 <li><span class="destaque"><span class="math inline">\(r_D\)</span> não é a taxa de cupom</span> — é o custo de uma nova emissão de dívida</li>
 <li>Adiante: modificação para incorporar impostos</li>
 </ul>
@@ -406,19 +850,56 @@ V^{E} &amp; =E\left[m\cdot CF_{1}^{E}\right]\\
 <li>Estimar o <span class="math inline">\(\beta\)</span> do <strong>projeto</strong> usando as melhores estimativas disponíveis e projetos similares</li>
 </ul>
 </section>
-<section id="exemplo-ilustrativo-beta-de-comparável" class="slide level2 smaller">
-<h2>Exemplo ilustrativo: beta de comparável</h2>
-<p>Uma varejista tradicional avalia entrar no negócio de <strong>entregas por aplicativo</strong> — segmento novo, com risco sistemático diferente do seu negócio principal.</p>
+<section id="procter-gamble" class="slide level2 smaller">
+<h2>Novo negócio: qual comparável usar?</h2>
+<p>Sua firma avalia expandir a divisão de <strong>produtos domésticos</strong>. A <strong>Procter &amp; Gamble</strong> tem investimentos com risco semelhante.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Dado do exercício</th>
+<th style="text-align: right;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Valor de mercado das ações da P&amp;G</td>
+<td style="text-align: right;">US$ 300 bilhões</td>
+</tr>
+<tr class="even">
+<td>Dívida da P&amp;G, classificação AA</td>
+<td style="text-align: right;">US$ 35 bilhões</td>
+</tr>
+<tr class="odd">
+<td>Beta das ações</td>
+<td style="text-align: right;">0,56</td>
+</tr>
+<tr class="even">
+<td>Rendimento da dívida</td>
+<td style="text-align: right;">3,2%</td>
+</tr>
+<tr class="odd">
+<td>Taxa livre de risco / prêmio de mercado</td>
+<td style="text-align: right;">3% / 5%</td>
+</tr>
+</tbody>
+</table>
+<p><span class="destaque">Qual é o custo de capital dos ativos desse negócio?</span></p>
+<p><span class="fonte">Berk e DeMarzo (2024), 6ª edição, Exemplo 12.5, p.&nbsp;428. Valores do exercício.</span></p>
+</section>
+<section id="procter-gamble-solucao" class="slide level2 smaller">
+<h2>P&amp;G: das ações aos ativos</h2>
+<p>Pelo CAPM, o custo das ações é:</p>
+<p><span class="math display">\[r_E=3\%+0{,}56\times5\%=5{,}8\%\]</span></p>
+<div class="fragment">
+<p>O custo dos ativos combina <strong>ações e dívida</strong>:</p>
+<p><span class="math display">\[r_U=\frac{300}{335}\times5{,}8\%+\frac{35}{335}\times3{,}2\%\approx5{,}53\%\]</span></p>
 <ul>
-<li>Identifica uma empresa <strong>pure-play</strong> de entregas, sem dívida, com <span class="math inline">\(\beta=1{,}1\)</span></li>
-<li><span class="math inline">\(r^f=4\%\)</span>, prêmio de mercado <span class="math inline">\(=5\%\)</span></li>
+<li>Dívida AA: aproximamos seu custo pelo rendimento de <strong>3,2%</strong></li>
+<li>Usar só <strong>5,8%</strong> superestima o custo do projeto sem dívida</li>
+<li>O comparável deve refletir o <strong>risco dos ativos do novo negócio</strong></li>
 </ul>
-<div id="1dbbf3bb" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
-<p><span class="math display">\[r = r^f + \beta\times(\text{prêmio}) = 4\% + 1,1\times 5\% = 9,5\%\]</span></p>
+<p><span class="fonte">Berk e DeMarzo (2024), Exemplo 12.5, p.&nbsp;428. Projeto avaliado sem dívida; o rendimento aproxima o custo da dívida da comparável.</span></p>
 </div>
-</div>
-<p><span class="destaque">Usar o WACC da própria varejista aqui seria um erro</span>: o novo negócio não tem o mesmo risco do principal. <em>(Exemplo ilustrativo, números próprios.)</em></p>
 </section>
 <section id="custo-de-capital-em-equilíbrio" class="slide level2 smaller">
 <h2>Custo de capital em equilíbrio</h2>
@@ -452,10 +933,72 @@ R^{WACC}(s)
 <p><span class="math display">\[\mathbb{E}[R^{u}]=R^{f}+\beta_{R^u,R^*}\left\{\mathbb{E}[R^*]-R^f\right\}\]</span></p>
 <p>em que <span class="math inline">\(R^*\)</span> é o retorno do portfólio de mercado.</p>
 </section>
+<section id="tabela-wacc" class="slide level2 smaller">
+<h2>Quatro estruturas, o mesmo WACC</h2>
+<!-- RESTAURADO: tabela da Figure 16.5, BDM3.png, slide 32 de EstCap.pdf (2024).
+     Última linha arredondada na fonte: 0,1*75% + 0,9*8,3% = 14,97%. -->
+<p>Mesmos ativos: <span class="math inline">\(V^F=E+D=30.000\)</span>. Mais dívida eleva o <strong>custo das ações</strong>.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(E\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(D\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(D/V^F\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(r_E\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(r_D\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(r_{WACC}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">30.000</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">15%</td>
+<td style="text-align: right;">5%</td>
+<td style="text-align: right;">15%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24.000</td>
+<td style="text-align: right;">6.000</td>
+<td style="text-align: right;">20%</td>
+<td style="text-align: right;">17,5%</td>
+<td style="text-align: right;">5%</td>
+<td style="text-align: right;">15%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15.000</td>
+<td style="text-align: right;">15.000</td>
+<td style="text-align: right;">50%</td>
+<td style="text-align: right;">25%</td>
+<td style="text-align: right;">5%</td>
+<td style="text-align: right;">15%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.000</td>
+<td style="text-align: right;">27.000</td>
+<td style="text-align: right;">90%</td>
+<td style="text-align: right;">75%</td>
+<td style="text-align: right;">8,3%</td>
+<td style="text-align: right;"><span class="math inline">\(\approx15\%\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Na segunda firma: <span class="math inline">\(0{,}8\times17{,}5\%+0{,}2\times5\%=\)</span> <span class="destaque">15%</span>.</p>
+<p><span class="fonte">Berk e DeMarzo, Figura 16.5. Última linha com taxas arredondadas.</span></p>
+</section>
 <section id="wacc-não-muda-com-alavancagem-sem-impostos" class="slide level2 smaller">
 <h2>WACC não muda com alavancagem (sem impostos)</h2>
-
-<img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Simulação ilustrativa própria (não é a figura do livro): <span class="math inline">\(r_U=12\%\)</span>, <span class="math inline">\(r_D\)</span> hipotético crescente com a alavancagem, <span class="math inline">\(r_E\)</span> obtido pela fórmula de MM II.</span></p>
+<div id="d784dfbc" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Ilustração: <span class="math inline">\(r_U=15\%\)</span>, <span class="math inline">\(r_D=5\%\)</span> até <span class="math inline">\(D/V^F=50\%\)</span> e 8,3% em 90%. No limite de toda a firma em dívida, <span class="math inline">\(r_D\to r_U\)</span>; não há equity. <span class="math inline">\(r_E\)</span> vem de MM II.</span></p>
 </section>
 <section id="mm-ii-custo-do-equity" class="slide level2 smaller">
 <h2>MM II: custo do equity</h2>
@@ -468,7 +1011,7 @@ R^{WACC}(s)
 </section>
 <section id="mm-ii-intuição" class="slide level2 smaller">
 <h2>MM II: intuição</h2>
-<p><strong>Modigliani-Miller (2)</strong>: o custo do equity é igual ao da firma desalavancada, mais um prêmio proporcional à alavancagem.</p>
+<p><strong>Modigliani-Miller (2)</strong>: o custo do equity é igual ao da firma desalavancada, mais um prêmio proporcional a <span class="math inline">\(D/E\)</span>, para <strong>custo da dívida dado</strong>.</p>
 <ul>
 <li>Retorno do acionista é <strong>residual</strong>, após o pagamento da dívida</li>
 <li>Quanto mais alavancada, mais arriscado <span class="math inline">\(R^E\)</span>: mais concentrado nos estados de maior <span class="math inline">\(CF_1^F\)</span></li>
@@ -512,7 +1055,7 @@ R^{WACC}(s)
 <li>Acionista do painel <strong>muita dívida</strong> poupa uma quantia fixa num ativo livre de risco para receber <strong>2</strong> em <span class="math inline">\(t=1\)</span> — desfaz a alavancagem por conta própria.</li>
 </ol>
 <div class="fragment">
-<p><span class="destaque">Pergunta em aberto:</span> e quando a própria dívida da firma é arriscada?</p>
+<p><span class="destaque">Para pensar:</span> e quando a própria dívida da firma é arriscada?</p>
 </div>
 </section>
 <section id="impostos" class="slide level2">
@@ -541,8 +1084,16 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
 </section>
 <section id="wacc-cai-com-a-alavancagem-com-impostos" class="slide level2 smaller">
 <h2>WACC cai com a alavancagem (com impostos)</h2>
-
-<img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Simulação ilustrativa própria; alíquota <span class="math inline">\(\tau_C\)</span> ilustrativa de 34% (aproximação da alíquota combinada de IRPJ+CSLL no Brasil — não consta do material-fonte).</span></p>
+<div id="c670bdce" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Ilustração com <span class="math inline">\(\tau_C=\)</span> 34% e as mesmas taxas pré-impostos do exemplo anterior. Supõe utilização integral do benefício fiscal dos juros.</span></p>
 </section>
 <section id="no-brasil-jscp" class="slide level2">
 <h2>No Brasil: JSCP</h2>
@@ -569,6 +1120,7 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
 </ul>
 <p><strong>Indiretos</strong>: perda de clientes, fornecedores (ex.: Swiss Air, Varig), saída de funcionários-chave, venda de ativos a preços adversos</p>
 <ul>
+<li>Clientes evitam bens que dependem de <strong>suporte futuro</strong> da firma</li>
 <li>Andrade e Kaplan (<em>JF</em>, 1998): <span class="destaque">10 a 20%</span> <!-- CORREÇÃO: fonte (EstCap.lyx) cita 2004; o artigo é JF 1998 ("How Costly is Financial (Not Economic) Distress?"). --></li>
 </ul>
 </section>
@@ -582,8 +1134,16 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
 </section>
 <section id="trade-off-benefício-fiscal-vs.-custo-de-falência" class="slide level2 smaller">
 <h2>Trade-off: benefício fiscal vs.&nbsp;custo de falência</h2>
-
-<img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="fonte">Simulação ilustrativa própria (não é a figura do livro), com <span class="math inline">\(\tau_C\)</span> ilustrativo de 34% e custo de falência <span class="math inline">\(\propto D^2\)</span>.</span></p>
+<div id="1c33a812" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Ilustração com <span class="math inline">\(\tau_C=\)</span> 34% e custo esperado de falência <span class="math inline">\(\propto D^2\)</span>. A reta supõe uso integral do benefício fiscal; juros acima do EBIT limitam seu aproveitamento no período.</span></p>
 </section>
 <section id="o-que-é-assentado-o-que-está-em-aberto" class="slide level2 smaller">
 <h2>O que é assentado, o que está em aberto</h2>
@@ -618,7 +1178,7 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
 </tr>
 <tr class="odd">
 <td>Homemade leverage com dívida arriscada</td>
-<td>Pergunta em aberto neste material</td>
+<td>Exercício: verificar os títulos e as condições de replicação</td>
 </tr>
 </tbody>
 </table>
@@ -627,7 +1187,7 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
 <h2>O que aprendemos</h2>
 <ul>
 <li>Sem fricções, <span class="destaque">estrutura de capital é irrelevante</span> para o valor da firma (MM I)</li>
-<li>Mais dívida eleva o risco — e o custo — do equity na mesma proporção (MM II)</li>
+<li>Mais dívida concentra risco nos acionistas e eleva o custo do equity (MM II)</li>
 <li>WACC pré-impostos não muda com alavancagem; com impostos, cai com a dívida</li>
 <li>Custos de falência geram um trade-off com solução interior</li>
 <li>Próxima aula: <span class="secundario">avaliação com alavancagem</span> — aplicando WACC e APV na prática</li>
@@ -850,6 +1410,253 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
           RevealZoom
         ]
       });
+    </script>
+    <style>
+      .reveal .slides [data-figure-zoom] { cursor: zoom-in; }
+      .reveal .slides [data-figure-zoom]:focus-visible {
+        outline: 3px solid #d97757;
+        outline-offset: 4px;
+      }
+      .figure-zoom {
+        box-sizing: border-box;
+        display: none;
+        width: 96vw;
+        height: 94vh;
+        max-width: none;
+        max-height: none;
+        padding: 12px;
+        border: 1px solid #b0aea5;
+        border-radius: 8px;
+        background: #faf9f5;
+        color: #141413;
+        font: 16px Arial, sans-serif;
+      }
+      .figure-zoom[open] { display: flex; flex-direction: column; gap: 8px; }
+      .figure-zoom::backdrop { background: rgba(20, 20, 19, .82); }
+      .figure-zoom-header { display: flex; align-items: center; gap: 8px; flex: none; }
+      .figure-zoom-title { flex: 1; min-width: 0; margin: 0; font-size: 16px; }
+      .figure-zoom button {
+        flex: none;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 4px 8px;
+        border: 1px solid #b0aea5;
+        border-radius: 4px;
+        color: #141413;
+        background: #fff;
+        font: 20px Arial, sans-serif;
+        cursor: pointer;
+      }
+      .figure-zoom button:focus-visible { outline: 3px solid #d97757; outline-offset: 2px; }
+      .figure-zoom button:disabled { opacity: .4; cursor: default; }
+      .figure-zoom-level { min-width: 45px; text-align: center; }
+      .figure-zoom-viewport {
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+        overscroll-behavior: contain;
+        background: #fff;
+      }
+      .figure-zoom-stage { display: grid; place-items: center; }
+      .figure-zoom-stage > img, .figure-zoom-stage > svg {
+        display: block;
+        flex: none;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        user-select: none;
+      }
+      .figure-zoom-viewport.can-pan { cursor: grab; }
+      .figure-zoom-viewport.is-panning { cursor: grabbing; }
+      @media (max-width: 600px) {
+        .figure-zoom-title { font-size: 13px; }
+        .figure-zoom-header { gap: 4px; }
+        .figure-zoom { padding: 6px; }
+        .figure-zoom button { min-width: 36px; padding: 4px; }
+      }
+      @media print {
+        .figure-zoom, .figure-zoom::backdrop { display: none !important; }
+        .reveal .slides [data-figure-zoom] { outline: none !important; }
+      }
+      html.print-pdf .figure-zoom, body.print-pdf .figure-zoom { display: none !important; }
+    </style>
+    <script>
+    (() => {
+      "use strict";
+      // Shared by all reveal.js decks; does not wrap or resize the original figures.
+      function initialize() {
+        const slides = document.querySelector(".reveal .slides");
+        if (!slides || !HTMLDialogElement.prototype.showModal) return;
+        const printing = () => matchMedia("print").matches ||
+          document.documentElement.classList.contains("print-pdf") ||
+          document.body.classList.contains("print-pdf") || /[?&]print-pdf(?:[=&]|$)/.test(location.search);
+        const dialog = document.createElement("dialog");
+        dialog.className = "figure-zoom";
+        dialog.setAttribute("aria-labelledby", "figure-zoom-title");
+        dialog.innerHTML = `
+          <header class="figure-zoom-header">
+            <p class="figure-zoom-title" id="figure-zoom-title"></p>
+            <button type="button" data-action="less" aria-label="Diminuir ampliação">−</button>
+            <span class="figure-zoom-level" aria-live="polite"></span>
+            <button type="button" data-action="more" aria-label="Aumentar ampliação">+</button>
+            <button type="button" data-action="fit" aria-label="Ajustar figura à janela">Ajustar</button>
+            <button type="button" data-action="close" aria-label="Fechar figura ampliada">×</button>
+          </header>
+          <div class="figure-zoom-viewport"><div class="figure-zoom-stage"></div></div>`;
+        document.body.append(dialog);
+        const viewport = dialog.querySelector(".figure-zoom-viewport");
+        const stage = dialog.querySelector(".figure-zoom-stage");
+        const title = dialog.querySelector(".figure-zoom-title");
+        const level = dialog.querySelector(".figure-zoom-level");
+        const closeButton = dialog.querySelector('[data-action="close"]');
+        let trigger, media, dimensions, zoom = 1, drag = null, serial = 0;
+        const svgStyles = ["fill", "fill-opacity", "fill-rule", "stroke", "stroke-width",
+          "stroke-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap",
+          "stroke-linejoin", "opacity", "color", "font-family", "font-size", "font-weight",
+          "font-style", "letter-spacing", "line-height", "white-space", "text-align", "box-sizing",
+          "margin-top", "margin-right", "margin-bottom", "margin-left", "text-anchor", "dominant-baseline", "visibility",
+          "display", "paint-order", "vector-effect", "clip-path", "filter", "marker-start", "marker-mid", "marker-end"];
+        const label = el => el.getAttribute("aria-label") || el.getAttribute("alt") ||
+          el.querySelector("title")?.textContent || el.closest("section")?.querySelector("h2")?.textContent || "Figura";
+        const eligible = el => !el.closest("a, button, .math, .MathJax, mjx-container, .MJX_Assistive_MathML, .nolightbox, [data-no-zoom]") &&
+          !(el.tagName.toLowerCase() === "svg" && el.parentElement.closest("svg"));
+        function decorate() {
+          slides.querySelectorAll("img, svg").forEach(el => {
+            if (!eligible(el) || el.hasAttribute("data-figure-zoom")) return;
+            el.setAttribute("data-figure-zoom", "");
+            el.setAttribute("tabindex", "0");
+            el.setAttribute("role", "button");
+            if (!el.hasAttribute("title")) el.setAttribute("title", "Clique para ampliar");
+            el.setAttribute("aria-label", `Ampliar figura: ${label(el)}`);
+          });
+        }
+        function snapshotSVG(source) {
+          const clone = source.cloneNode(true);
+          const originals = [source, ...source.querySelectorAll("*")];
+          const copies = [clone, ...clone.querySelectorAll("*")];
+          const ids = new Map();
+          copies.forEach((el, i) => {
+            const style = getComputedStyle(originals[i]);
+            svgStyles.forEach(name => el.style.setProperty(name, style.getPropertyValue(name)));
+            if (el.id) { ids.set(el.id, `figure-zoom-${++serial}-${el.id}`); el.id = ids.get(el.id); }
+            el.removeAttribute("data-figure-zoom");
+            el.removeAttribute("tabindex");
+          });
+          copies.forEach(el => [...el.attributes].forEach(attr => {
+            const value = attr.value.replace(/url\(["']?(?:[^)#]*#)([^)"']+)["']?\)/g,
+              (match, id) => ids.has(id) ? `url(#${ids.get(id)})` : match);
+            if (value !== attr.value) el.setAttribute(attr.name, value);
+            if ((attr.name === "href" || attr.name === "xlink:href") && ids.has(attr.value.slice(1)))
+              el.setAttribute(attr.name, `#${ids.get(attr.value.slice(1))}`);
+          }));
+          // Mermaid scopes its embedded CSS with the SVG's ID.
+          clone.querySelectorAll("style").forEach(el => {
+            el.textContent = el.textContent.replace(/#([\w-]+)/g,
+              (match, id) => ids.has(id) ? `#${ids.get(id)}` : match);
+          });
+          clone.setAttribute("role", "img");
+          return clone;
+        }
+        function layout(recenter = false) {
+          if (!dialog.open || !dimensions) return;
+          const fit = Math.min(viewport.clientWidth / dimensions.width, viewport.clientHeight / dimensions.height);
+          const width = dimensions.width * fit * zoom, height = dimensions.height * fit * zoom;
+          const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / Math.max(stage.clientWidth, 1);
+          const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / Math.max(stage.clientHeight, 1);
+          stage.style.width = `${Math.max(width, viewport.clientWidth)}px`;
+          stage.style.height = `${Math.max(height, viewport.clientHeight)}px`;
+          media.style.setProperty("width", `${width}px`, "important");
+          media.style.setProperty("height", `${height}px`, "important");
+          viewport.scrollLeft = (recenter ? .5 : centerX) * stage.clientWidth - viewport.clientWidth / 2;
+          viewport.scrollTop = (recenter ? .5 : centerY) * stage.clientHeight - viewport.clientHeight / 2;
+          viewport.classList.toggle("can-pan", zoom > 1);
+          level.textContent = `${Math.round(zoom * 100)}%`;
+          dialog.querySelector('[data-action="less"]').disabled = zoom <= 1;
+          dialog.querySelector('[data-action="more"]').disabled = zoom >= 6;
+        }
+        function close() { if (dialog.open) dialog.close(); }
+        function open(source) {
+          if (printing() || dialog.open || !eligible(source)) return;
+          const isSVG = source.tagName.toLowerCase() === "svg";
+          if (!isSVG && (!source.complete || !source.naturalWidth)) return;
+          trigger = source;
+          const box = source.getBoundingClientRect();
+          const vb = isSVG ? source.viewBox.baseVal : null;
+          dimensions = {width: vb?.width || source.naturalWidth || box.width,
+            height: vb?.height || source.naturalHeight || box.height};
+          if (!dimensions.width || !dimensions.height) return;
+          media = isSVG ? snapshotSVG(source) : document.createElement("img");
+          if (!isSVG) { media.src = source.currentSrc || source.src; media.alt = source.alt; media.draggable = false; }
+          title.textContent = label(source).replace(/^Ampliar figura: /, "");
+          stage.replaceChildren(media);
+          zoom = 1;
+          dialog.showModal();
+          layout(true);
+          closeButton.focus();
+        }
+        function changeZoom(value) { zoom = Math.max(1, Math.min(6, value)); layout(); }
+        slides.addEventListener("click", event => {
+          if (event.target.closest("a, button, input")) return;
+          const source = event.target.closest("[data-figure-zoom]");
+          if (!source || event.altKey || event.ctrlKey || event.metaKey) return;
+          event.preventDefault(); event.stopPropagation(); open(source);
+        });
+        slides.addEventListener("keydown", event => {
+          if (!["Enter", " "].includes(event.key) || !event.target.matches("[data-figure-zoom]")) return;
+          event.preventDefault(); event.stopPropagation(); open(event.target);
+        });
+        dialog.addEventListener("click", event => {
+          const action = event.target.closest("[data-action]")?.dataset.action;
+          if (action === "close" || event.target === dialog) close();
+          else if (action === "more") changeZoom(zoom * 1.5);
+          else if (action === "less") changeZoom(zoom / 1.5);
+          else if (action === "fit") { zoom = 1; layout(true); }
+        });
+        dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
+        dialog.addEventListener("close", () => {
+          stage.replaceChildren(); drag = null;
+          viewport.classList.remove("is-panning");
+          if (trigger?.isConnected) trigger.focus({preventScroll: true});
+        });
+        window.addEventListener("keydown", event => {
+          if (!dialog.open) return;
+          event.stopImmediatePropagation();
+          if (event.key === "Escape") { event.preventDefault(); close(); }
+          else if (event.key === "+" || event.key === "=") { event.preventDefault(); changeZoom(zoom * 1.5); }
+          else if (event.key === "-") { event.preventDefault(); changeZoom(zoom / 1.5); }
+          else if (event.key.startsWith("Arrow")) {
+            event.preventDefault();
+            viewport.scrollBy({left: event.key === "ArrowRight" ? 80 : event.key === "ArrowLeft" ? -80 : 0,
+              top: event.key === "ArrowDown" ? 80 : event.key === "ArrowUp" ? -80 : 0});
+          }
+        }, true);
+        viewport.addEventListener("pointerdown", event => {
+          if (zoom <= 1 || event.button !== 0 || event.pointerType !== "mouse") return;
+          drag = {x: event.clientX, y: event.clientY, left: viewport.scrollLeft, top: viewport.scrollTop};
+          viewport.setPointerCapture(event.pointerId); viewport.classList.add("is-panning");
+          event.preventDefault();
+        });
+        viewport.addEventListener("pointermove", event => {
+          if (!drag) return;
+          viewport.scrollLeft = drag.left + drag.x - event.clientX;
+          viewport.scrollTop = drag.top + drag.y - event.clientY;
+        });
+        const stopDrag = () => { drag = null; viewport.classList.remove("is-panning"); };
+        viewport.addEventListener("pointerup", stopDrag);
+        viewport.addEventListener("pointercancel", stopDrag);
+        window.addEventListener("resize", () => layout());
+        window.addEventListener("beforeprint", close);
+        decorate();
+        new MutationObserver(decorate).observe(slides, {childList: true, subtree: true});
+        function connectReveal() {
+          if (!window.Reveal?.on) { requestAnimationFrame(connectReveal); return; }
+          window.Reveal.on("slidechanged", close);
+        }
+        connectReveal();
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize, {once: true});
+      else initialize();
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
