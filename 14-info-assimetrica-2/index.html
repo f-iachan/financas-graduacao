@@ -148,7 +148,7 @@ Felipe Iachan
 <h2>Onde estamos</h2>
 <ul>
 <li>Aula 13: <span class="secundario">seleção adversa</span> — financiador não distingue firmas boas de ruins</li>
-<li>Hoje: e se o problema não for o <em>tipo</em> da firma, mas as <strong>ações</strong> que ninguém observa?</li>
+<li>Hoje: como conflitos entre acionistas, credores e empreendedores afetam o investimento?</li>
 <li>Roteiro: debt overhang, risk shifting e racionamento de crédito por risco moral</li>
 </ul>
 <!-- PLANNING: ~3 min de recap; não re-derivar sinalização/pecking order da Aula 13. -->
@@ -156,7 +156,7 @@ Felipe Iachan
 <section id="a-pergunta" class="slide level2 center">
 <h2>A pergunta</h2>
 <div class="r-fit-text">
-<p>Se ninguém observa as <span class="destaque">ações</span> dentro da firma, como a própria estrutura de capital distorce as decisões de investimento?</p>
+<p>Como a <span class="destaque">estrutura de capital</span> e os incentivos dentro da firma distorcem as decisões de investimento?</p>
 </div>
 </section>
 <section id="lembrando-os-sintomas-da-seleção-adversa-aula-13" class="slide level2 smaller">
@@ -179,7 +179,7 @@ Felipe Iachan
 <div>
 <pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
 flowchart LR
-  A["Aula 13:&lt;br/&gt;seleção adversa&lt;br/&gt;(tipos ocultos)"] --&gt; B["Aula 14:&lt;br/&gt;ações ocultas&lt;br/&gt;dentro da firma"]
+  A["Aula 13:&lt;br/&gt;seleção adversa&lt;br/&gt;(tipos ocultos)"] --&gt; B["Aula 14:&lt;br/&gt;conflitos de agência&lt;br/&gt;e ações ocultas"]
   B --&gt; C["Debt overhang:&lt;br/&gt;subinvestimento"]
   B --&gt; D["Risk shifting:&lt;br/&gt;risco excessivo"]
   B --&gt; F["Racionamento de&lt;br/&gt;crédito (Tirole)"]
@@ -192,7 +192,7 @@ flowchart LR
 </div>
 </div>
 </div>
-<p><span class="fonte">Antes, o financiador não sabia o <em>tipo</em> da firma. Agora, ninguém observa o que os agentes internos fazem.</span></p>
+<p><span class="fonte">Conflitos de agência podem surgir sem renegociação; no modelo de Tirole, a ação do empreendedor é oculta.</span></p>
 </section>
 <section id="debt-overhang" class="slide level2 smaller">
 <h2>Debt Overhang</h2>
@@ -232,7 +232,7 @@ flowchart LR
 <section id="payoffs-de-dívida-e-patrimônio" class="slide level2 smaller">
 <h2>Payoffs de dívida e patrimônio</h2>
 <!-- ADICIONADO: figura e analogia com put/call não estão no .lyx-fonte (que só traz as fórmulas de CF^D e CF^E); ilustram essas mesmas fórmulas. -->
-<div id="00699416" class="cell" data-execution_count="2">
+<div id="05da7c98" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -534,7 +534,7 @@ flowchart LR
 <!-- ADICIONADO: não está na fonte (o .lyx só formula a pergunta). Ver dados/14-info-assimetrica-2/SNAPSHOT_INFO.txt. -->
 <p>Se investir: <span class="math inline">\(CF^F=2\)</span>, e o acionista fica com <span class="math inline">\(\max(0,2-1{,}7)-1=\)</span> -0,70</p>
 <p>Se não investir: acionista fica com 0,00</p>
-<div id="1ac09677" class="cell" data-execution_count="4">
+<div id="25a3cb0b" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[-0,70 &lt; 0,00 \implies \text{acionista}\ \textbf{não investe}\]</span></p>
 </div>
@@ -544,7 +544,7 @@ flowchart LR
 <section id="debt-overhang-quanto-valor-se-perde" class="slide level2 smaller">
 <h2>Debt overhang: quanto valor se perde?</h2>
 <!-- ADICIONADO: comparação numérica entre os dois cenários; não está na fonte. -->
-<div id="f6e39b6b" class="cell" data-execution_count="5">
+<div id="08bb33dc" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -563,6 +563,59 @@ flowchart LR
 <li>Incentivos a decisões ineficientemente arriscadas</li>
 <li><span class="destaque">Conflitos de interesse</span> que viram problema sem renegociação, ou com informação assimétrica</li>
 </ul>
+</section>
+<section id="primeiro-mais-risco-mesma-média" class="slide level2 smaller">
+<h2>Primeiro: mais risco, mesma média</h2>
+<!-- ADICIONADO: exemplo de média fixa, para isolar convexidade antes do exemplo-fonte com destruição de valor. R$ milhões, agentes neutros ao risco, sem desconto; dívida predeterminada F=50. -->
+<p>Com dívida <span class="math inline">\(F=50\)</span>, compare <strong>70 com certeza</strong> a <strong>0 ou 140</strong>, cada um com probabilidade <span class="math inline">\(1/2\)</span>.</p>
+<div id="6b9c9486" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Projeto</th>
+<th style="text-align: right;">Firma <span class="math inline">\(V\)</span></th>
+<th style="text-align: right;">Credores <span class="math inline">\(V_D\)</span></th>
+<th style="text-align: right;">Acionistas <span class="math inline">\(V_E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>70 certo</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>0 ou 140, média 70</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">45</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>O acionista ganha com a dispersão: <span class="math inline">\(20\rightarrow45\)</span></li>
+<li>O valor total continua 70; os credores perdem a mesma quantia: <span class="math inline">\(50\rightarrow25\)</span></li>
+</ul>
+<p><span class="destaque">A convexidade pode premiar risco mesmo sem aumentar o valor do projeto.</span></p>
+</section>
+<section id="por-que-a-incerteza-valoriza-uma-opção" class="slide level2 smaller">
+<h2>Por que a incerteza valoriza uma opção?</h2>
+<!-- RECUPERADO: manuscrito Valor da Opção e Incerteza uma Demonstração Fácil_Outubro 2014.pdf. Redesenho normal/limiar e payoff; a derivação corrigida está no apêndice. O gráfico é ilustrativo: mu=70, sigma=20, K=90. A comparação de dispersões mantém mu, K, R_f e a distribuição de epsilon fixos. -->
+<p><span class="math inline">\(S=\mu+\sigma\epsilon\)</span>, <span class="math inline">\(\mathbb E[\epsilon]=0\)</span>: aumentar <span class="math inline">\(\sigma\)</span> mantém a <strong>média <span class="math inline">\(\mu\)</span> fixa</strong>.</p>
+<div id="15bc6ae3" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Choque com distribuição fixa sob a medida de apreçamento; agentes neutros ao risco e desconto fixo. Maior dispersão não reduz o valor da call. Para o patrimônio, <span class="math inline">\(K=F\)</span>.</span></p>
 </section>
 <section id="exemplo-dois-projetos" class="slide level2 smaller">
 <h2>Exemplo: dois projetos</h2>
@@ -587,20 +640,58 @@ flowchart LR
 <p>Payoff esperado do acionista em cada projeto, dado <span class="math inline">\(F\)</span>:</p>
 <p><span class="math display">\[V_E^{seguro}(F)=\max(0,70-F) \qquad V_E^{arriscado}(F)=\tfrac{1}{2}\max(0,100-F)\]</span></p>
 <p>Na região em que ambos os projetos ainda pagam ao acionista, <span class="math inline">\(\tfrac{1}{2}(100-F)&gt;70-F\)</span> quando <span class="math inline">\(F&gt;40\)</span>. Considerando os <code>max</code>:</p>
-<div id="2ff5d3c3" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
+<div id="fc69599f" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <p><span class="math display">\[F^*=40 &lt; F &lt; 100\]</span></p>
 </div>
 </div>
-<p><span class="destaque">Para <span class="math inline">\(40&lt;F&lt;100\)</span>, o acionista escolhe o projeto pior (VE menor), mesmo destruindo valor — <em>risk shifting</em>. Em <span class="math inline">\(F\ge100\)</span>, ambos os payoffs acionários são zero.</span></p>
+<p><span class="destaque">Para <span class="math inline">\(40&lt;F&lt;100\)</span>, o acionista escolhe o projeto de menor valor esperado total (50 &lt; 70), mesmo destruindo valor. Em <span class="math inline">\(F\ge100\)</span>, ambos os payoffs acionários são zero.</span></p>
+</section>
+<section id="quem-ganha-e-quem-perde-com-f50" class="slide level2 smaller">
+<h2>Quem ganha e quem perde com <span class="math inline">\(F=50\)</span>?</h2>
+<!-- ADICIONADO: solução completa da pergunta de V, V_D, V_E do exemplo original, usando F=50 ilustrativo. Diferente da comparação de média fixa: aqui o projeto arriscado paga 0/100, média 50. -->
+<p>Agora, o projeto arriscado paga <strong>0 ou 100</strong>; seu valor esperado é menor.</p>
+<div id="f1ac03f1" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Projeto</th>
+<th style="text-align: right;">Firma <span class="math inline">\(V\)</span></th>
+<th style="text-align: right;">Credores <span class="math inline">\(V_D\)</span></th>
+<th style="text-align: right;">Acionistas <span class="math inline">\(V_E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>70 certo</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>0 ou 100, média 50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Acionistas ganham 5 ao escolher o projeto arriscado</li>
+<li>Credores perdem 25; a firma perde 20 de valor total</li>
+</ul>
+<p><span class="destaque">O incentivo privado ao risco pode levar à escolha de um projeto que destrói valor.</span></p>
 </section>
 <section id="risk-shifting-o-cruzamento" class="slide level2 smaller">
 <h2>Risk shifting: o cruzamento</h2>
-<div id="a28ec035" class="cell" data-execution_count="7">
+<div id="5081cf63" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -650,7 +741,8 @@ flowchart LR
 <section id="ações-ocultas-também-racionam-crédito" class="slide level2 smaller">
 <h2>Ações ocultas também racionam crédito</h2>
 <p>Até aqui, a dívida já emitida distorcia decisões <strong>depois</strong> de tomada.</p>
-<p>E se a ação oculta acontecer <strong>antes</strong>, afetando quanto se consegue captar?</p>
+<p>Como antecipar a <strong>ação oculta futura</strong> limita o crédito disponível hoje?</p>
+<p><strong>Contrato e captação → investimento e ação oculta → resultado e pagamentos.</strong></p>
 <ul>
 <li><span class="destaque">Racionamento ineficiente de crédito</span> pode vir da mesma raiz: ações não observáveis</li>
 <li>Exemplo simples e linear de risco moral (<span class="fonte">Tirole, 2006</span>)</li>
@@ -672,14 +764,16 @@ flowchart LR
 <li>Ação ineficiente: gera probabilidade <span class="math inline">\(p_{L}\)</span>, mas dá ao empreendedor um <span class="destaque">benefício privado</span> não pecuniário <span class="math inline">\(B&gt;0\)</span></li>
 </ul>
 <p><span class="math display">\[p_{H}R-I&gt;0&gt;p_{L}R+B-I\]</span></p>
-<p>Só a ação eficiente cria valor — mas, sem incentivos, o empreendedor prefere a ineficiente (fica com <span class="math inline">\(B\)</span>).</p>
+<p>Só a ação eficiente cria valor. O contrato precisa deixar retorno suficiente ao empreendedor para compensar o benefício <span class="math inline">\(B\)</span>.</p>
 </section>
 <section id="sem-responsabilidade-limitada" class="slide level2 smaller">
 <h2>Sem responsabilidade limitada</h2>
+<!-- CORREÇÃO: a fonte cobra I independentemente do resultado. Explicitamos o aporte A: crédito e pagamento fixo são I−A; o retorno líquido total ainda é R−I ou −I. Ausência de responsabilidade limitada permite cobrança fora do projeto, não perdas de magnitude infinita. -->
 <ul>
-<li>Cobrar <span class="math inline">\(I\)</span> do empreendedor após a maturidade, <strong>independentemente do resultado</strong></li>
-<li>Empreendedor vira <em>“residual claimant”</em>: fica com <span class="math inline">\(R-I\)</span> no sucesso, <span class="math inline">\(-I\)</span> no fracasso</li>
-<li><span class="secundario">Incentivos corretos</span> — mas exige que ele possa arcar com perdas ilimitadas</li>
+<li>Após aportar <span class="math inline">\(A\)</span>, o empreendedor toma <span class="math inline">\(I-A\)</span> e paga esse valor <strong>mesmo no fracasso</strong></li>
+<li>É o beneficiário residual: líquido do aporte, recebe <span class="math inline">\(R-I\)</span> no sucesso e <span class="math inline">\(-I\)</span> no fracasso</li>
+<li><span class="secundario">Incentivos corretos</span>: compara <span class="math inline">\(p_HR-I\)</span> a <span class="math inline">\(p_LR+B-I\)</span></li>
+<li>Exige recursos externos ao projeto para honrar o pagamento se ele fracassar</li>
 </ul>
 </section>
 <section id="com-responsabilidade-limitada" class="slide level2 smaller">
@@ -702,8 +796,8 @@ flowchart LR
 <p>Isolando <span class="math inline">\(R_{E}\)</span> na condição de incentivos, com <span class="math inline">\(\Delta p\equiv p_{H}-p_{L}\)</span>:</p>
 <p><span class="math display">\[R_{L}\leq\left(R-\frac{B}{\Delta p}\right)\]</span></p>
 <ul>
-<li>Definimos <span class="math inline">\(\rho_{0}=p_{H}\left(R-\dfrac{B}{\Delta p}\right)\)</span>: <span class="destaque">renda empenhável (pledgeable)</span>, o limite de crédito</li>
-<li>Note que <span class="math inline">\(\rho_{0}&lt;p_{H}R\)</span> — o financiador nunca capta o VPL inteiro</li>
+<li><p>Definimos <span class="math inline">\(\rho_{0}=p_{H}\left(R-\dfrac{B}{\Delta p}\right)\)</span>: <span class="destaque">renda empenhável (pledgeable)</span>, o limite de crédito <!-- CORREÇÃO: p_H R é receita esperada, não VPL. No exemplo, receita=120, VPL=20 e renda empenhável=88. --></p></li>
+<li><p>Como <span class="math inline">\(\rho_{0}&lt;p_{H}R\)</span>, parte da <strong>receita esperada</strong> deve ficar com o empreendedor para preservar os incentivos</p></li>
 </ul>
 </section>
 <section id="quando-o-projeto-é-financiado" class="slide level2 smaller">
@@ -715,14 +809,45 @@ flowchart LR
 <li>Recursos próprios/patrimônio líquido (<span class="math inline">\(A\)</span>) ajudam a aliviar essa fricção</li>
 </ul>
 </section>
-<section id="racionamento-ilustração" class="slide level2 smaller">
-<h2>Racionamento: ilustração</h2>
-<!-- ADICIONADO: parâmetros ilustrativos (I, R, p_H, p_L, B) não constam do .lyx-fonte, que só apresenta o modelo em símbolos. Ver dados/14-info-assimetrica-2/SNAPSHOT_INFO.txt. -->
-<div id="74213de5" class="cell" data-execution_count="8">
+<section id="dividindo-o-retorno-sem-ação-oculta" class="slide level2 smaller">
+<h2>Dividindo o retorno: sem ação oculta</h2>
+<!-- RECUPERADO: Graficos para MH.pdf, p.1. Ação H contratável: p_H R_E≥A (retorno de reserva do empreendedor) e p_H R_L≥I−A (participação do financiador). R=R_E+R_L; existência equivale a p_H R≥I. O caso VPL<0 é benchmark gráfico e relaxa deliberadamente a hipótese p_H R−I>0 do modelo principal. -->
+<p>Com <span class="math inline">\(H\)</span> contratável: <span class="math inline">\(p_HR_E-A\geq0\)</span> e <span class="math inline">\(p_HR_L\geq I-A\)</span>, com <span class="math inline">\(R_E+R_L=R\)</span>.</p>
+<div id="be9f8ec9" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Exemplo: <span class="math inline">\(I=100\)</span>, <span class="math inline">\(p_H=0{,}8\)</span>, <span class="math inline">\(A=8\)</span>. O piso <span class="math inline">\(R_E=A/p_H\)</span> repõe o aporte. Cinza: reservas; verde: contratos viáveis. Sem IC, há contrato se <span class="math inline">\(p_HR\geq I\)</span>.</span></p>
+</section>
+<section id="dividindo-o-retorno-com-ação-oculta" class="slide level2 smaller">
+<h2>Dividindo o retorno: com ação oculta</h2>
+<!-- RECUPERADO: Graficos para MH.pdf, p.2. IC R_E≥B/Δp, comparada à reserva A/p_H. Nos dois painéis IC domina a reserva (40>10 ou 20). Mantemos R=150 e VPL=20: só muda A. O mínimo ao financiador cai de115 para105 e viabiliza o contrato. -->
+<p>Agora <span class="math inline">\(R_E\geq B/\Delta p=40\)</span>: a renda de incentivos supera <span class="math inline">\(A/p_H\)</span> nos dois casos.</p>
+<div id="9d72f5dc" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte"><span class="math inline">\(I=100\)</span>, <span class="math inline">\(R=150\)</span>, <span class="math inline">\(p_H=0{,}8\)</span>, <span class="math inline">\(p_L=0{,}3\)</span>, <span class="math inline">\(B=20\)</span>. Nos dois casos o VPL é 20; mais patrimônio reduz a quantia que o financiador precisa receber.</span></p>
+<!-- PLANNING: reservar 15–20 min para interpretar as duas figuras: identidade de recursos (inclinação −1), participação, retorno de reserva e IC. Diario 2024.xlsx Sheet1 C28 ensinou quase tudo de Tirole menos gráfico com interpretação; C29 continuou MH Tirole, gráficos. O bloco transbordou para a sessão seguinte: preservar conteúdo e geometria, não cortar como suposta duplicação da Aula 15. -->
+</section>
+<section id="racionamento-ilustração" class="slide level2 smaller">
+<h2>Racionamento: ilustração</h2>
+<!-- ADICIONADO: parâmetros ilustrativos (I, R, p_H, p_L, B) não constam do .lyx-fonte, que só apresenta o modelo em símbolos. Ver dados/14-info-assimetrica-2/SNAPSHOT_INFO.txt. -->
+<div id="5f0bff25" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -740,7 +865,7 @@ flowchart LR
 </section>
 <section id="fechando-o-bloco-de-fricções-de-financiamento" class="slide level2 smaller">
 <h2>Fechando o bloco de fricções de financiamento</h2>
-<p>Vimos três fricções nascidas de ações que ninguém observa:</p>
+<p>Vimos três fricções ligadas a conflitos de agência e restrições contratuais:</p>
 <ul>
 <li><span class="secundario">Debt overhang</span>: dívida existente afasta o acionista de bons projetos</li>
 <li><span class="secundario">Risk shifting</span>: dívida existente empurra o acionista para projetos ruins</li>
@@ -757,6 +882,19 @@ flowchart LR
 <li>Racionamento de crédito: ações ocultas limitam a renda penhorável <span class="math inline">\(\rho_0\)</span>, mesmo sem dívida prévia</li>
 <li>Próxima aula: <span class="secundario">moral hazard e política de remuneração</span></li>
 </ul>
+</section>
+<section id="apêndice-opção-dispersão-e-a-derivada" class="slide level2 smaller">
+<h2>Apêndice: opção, dispersão e a derivada</h2>
+<!-- RECUPERADO/CORREÇÃO: manuscrito Valor da Opção e Incerteza...2014.pdf, p.1. A última integral omite epsilon; a derivada correta leva epsilon f(epsilon). Em geral o sinal é fraco; normal não degenerada e sigma>0 dão sinal estrito. Intercâmbio derivada/integral requer E|epsilon| finito; distribuição com densidade fixa. -->
+<p>Na medida de apreçamento fixa: retorno bruto livre de risco <span class="math inline">\(R_f&gt;0\)</span> fixo, <span class="math inline">\(\sigma&gt;0\)</span>, densidade <span class="math inline">\(f\)</span>, <span class="math inline">\(\mathbb E[\epsilon]=0\)</span> e <span class="math inline">\(\mathbb E|\epsilon|&lt;\infty\)</span>.</p>
+<p><span class="math display">\[V(\sigma)=\frac1{R_f}\int_{a(\sigma)}^\infty(\mu+\sigma\epsilon-K)f(\epsilon)\,d\epsilon,\qquad a(\sigma)=\frac{K-\mu}{\sigma}.\]</span></p>
+<p>Pela regra de Leibniz, o termo de fronteira é zero: <span class="math inline">\(\mu+\sigma a-K=0\)</span>.</p>
+<p><span class="math display">\[V'(\sigma)=\frac1{R_f}\int_{a(\sigma)}^\infty\epsilon f(\epsilon)\,d\epsilon\ \geq\ 0.\]</span></p>
+<ul>
+<li>Se <span class="math inline">\(a\geq0\)</span>, o integrando na região de exercício é não negativo</li>
+<li>Se <span class="math inline">\(a&lt;0\)</span>, use <span class="math inline">\(\int_a^\infty\epsilon f(\epsilon)d\epsilon=-\int_{-\infty}^a\epsilon f(\epsilon)d\epsilon\geq0\)</span></li>
+</ul>
+<p><span class="fonte">Para <span class="math inline">\(\epsilon\sim N(0,1)\)</span>, com densidade <span class="math inline">\(\phi\)</span>, <span class="math inline">\(V'(\sigma)=\phi(a)/R_f&gt;0\)</span>. Em geral pode haver igualdade quando a dispersão não cruza o preço de exercício.</span></p>
 
 </section>
     </div>

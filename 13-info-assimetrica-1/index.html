@@ -271,7 +271,8 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<p><span class="fonte">Viés na medida de custos de falência: firmas em concordata ou liquidação já tinham baixo valor. Difícil justificar uso moderado de dívida em empresas mais sólidas.</span></p>
+<!-- RESTAURADO: fonte 2024, PDF p.8/LyX l.629, ressalva sobre impostos pessoais omitida na condensação. -->
+<p><span class="fonte">A crítica persiste ao considerar impostos pessoais. Viés na medida de custos de falência: firmas em concordata ou liquidação já tinham baixo valor. Difícil justificar uso moderado de dívida em empresas mais sólidas.</span></p>
 </section>
 <section id="além-dos-impostos-e-da-falência" class="slide level2 smaller">
 <h2>Além dos impostos e da falência</h2>
@@ -333,12 +334,12 @@ flowchart LR
 <li>Probabilidade prévia (“<em>prior</em>”) de sucesso de um investimento:</li>
 </ul>
 <p><span class="math display">\[m \equiv \alpha p + (1-\alpha) q\]</span></p>
-<div id="8cb28858" class="cell" data-fig-height="3.2" data-fig-width="8" data-execution_count="2">
+<div id="431ea51c" class="cell" data-fig-height="3.2" data-fig-width="8" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="index_files/figure-revealjs/cell-3-output-1.svg"></p>
-<figcaption>Amostra ilustrativa de empreendedores (α = 0,5 aqui — genérico no .lyx-fonte)</figcaption>
+<figcaption>Amostra ilustrativa de empreendedores (α = 0,5)</figcaption>
 </figure>
 </div>
 </div>
@@ -413,8 +414,10 @@ flowchart LR
 </section>
 <section id="restrição-de-crédito-e-subinvestimento" class="slide level2 smaller">
 <h2>Restrição de crédito e subinvestimento</h2>
+<!-- CORREÇÃO: na fonte 2024 p.19, mR−I era chamado preço máximo; é VPL. O preço máximo pelo fluxo bruto é mR<I. -->
 <ul>
-<li>Nesse caso, racionalmente, emprestadores nunca ofereceriam pelo fluxo total do projeto mais do que <span class="math inline">\([\alpha p+(1-\alpha)q]R-I&lt;0\)</span></li>
+<li>Mesmo cedendo todo o fluxo, o empreendedor levanta no máximo <span class="math inline">\(mR&lt;I\)</span></li>
+<li>O VPL médio é negativo: <span class="math inline">\(mR-I&lt;0\)</span>; falta financiamento para cobrir <span class="math inline">\(I\)</span></li>
 <li>Logo, não existe contrato com <span class="math inline">\(R_e&gt;0\)</span> que viabilize o investimento</li>
 <li>Há <span class="destaque">restrição de crédito e subinvestimento</span>: investimentos com <span class="math inline">\(VPL&gt;0\)</span> deixam de ser feitos</li>
 </ul>
@@ -432,15 +435,15 @@ flowchart LR
 <p><span class="math display">\[\alpha\left[p\left(R-R_{e}\right)-I\right]+\left(1-\alpha\right)\left[q\left(R-R_{e}\right)-I\right]=0\]</span></p>
 <p><span class="math display">\[p\left(R-R_{e}\right)&gt;I \qquad q\left(R-R_{e}\right)&lt;I\]</span></p>
 <ul>
-<li>Emprestadores ganham (em valor esperado) ao emprestar ao tipo <span class="math inline">\(p\)</span> e perdem ao emprestar ao tipo <span class="math inline">\(q\)</span></li>
-<li>Tipo <span class="math inline">\(p\)</span> recebe menos de <span class="math inline">\(Rp-I\)</span> (VPL do investimento); tipo <span class="math inline">\(q\)</span> recebe mais de <span class="math inline">\(Rq-I\)</span></li>
+<li>Emprestadores ganham (em valor esperado) ao emprestar ao tipo <span class="math inline">\(p\)</span> e perdem ao emprestar ao tipo <span class="math inline">\(q\)</span> <!-- CORREÇÃO: explicita valor esperado, não payoff condicional R_e, ao comparar com os VPLs; mesma lógica da errata de pR_e=VPL. --></li>
+<li>Em valor esperado: <span class="math inline">\(pR_e&lt;pR-I\)</span> e <span class="math inline">\(qR_e&gt;qR-I\)</span> (VPLs dos investimentos)</li>
 </ul>
 </section>
 <section id="o-desconto-de-seleção-adversa" class="slide level2 smaller">
 <h2>O desconto de seleção adversa</h2>
 <p>Tomadores do tipo <span class="math inline">\(p\)</span> recebem <span class="math inline">\(R_e\)</span> tal que</p>
 <p><span class="math display">\[mR_{e}=mR-I \implies R_{e}=R-\frac{I}{m}\]</span></p>
-<p>Utilidade do tipo bom (recebe tudo em caso de sucesso):</p>
+<p>Utilidade do tipo bom (recebe <span class="math inline">\(R_e\)</span> apenas em caso de sucesso):</p>
 <p><span class="math display">\[U^{p}=pR_{e}=pR-\frac{p}{m}I&lt;pR-I\]</span></p>
 <ul>
 <li>Desconto cresce com a fração do tipo ruim e com a diferença relativa <span class="math inline">\(\dfrac{p-q}{p}\)</span></li>
@@ -483,6 +486,22 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<!-- ADICIONADO: gráfico didático da restrição de financiamento; parâmetros ilustrativos, não dados estimados. Mantém a condição original para alpha*. -->
+</section>
+<section id="uma-fronteira-para-o-crédito" class="slide level2 smaller">
+<h2>Uma fronteira para o crédito</h2>
+<div id="fe7b1a2e" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg"></p>
+<figcaption>Exemplo ilustrativo: p=0,8; q=0,4; R=100; I=50 (caso C2).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">Mais tipos bons elevam o valor financiável; o tipo ruim continua com VPL negativo.</span></p>
+<p><span class="fonte">Na fronteira <span class="math inline">\(\alpha=\alpha^*\)</span>, <span class="math inline">\(R_e=0\)</span>: o crédito pode operar se os empreendedores aceitarem por indiferença.</span></p>
 </section>
 <section id="aplicação-1-pecking-order-theory" class="slide level2 smaller">
 <h2>Aplicação 1: Pecking Order Theory</h2>
@@ -497,6 +516,17 @@ flowchart LR
 <li>Emissão adicional de ações</li>
 </ol></li>
 </ul>
+<!-- ADICIONADO: evidência histórica localizada em 2019/Notas de Aula/5 IPO, SEO/IPO8.pdf, idêntico a 2016/Notas de Aula/18 IPO, SEO/IPO8.pdf. Rasterização integral do original, sem reconstruir/digitalizar série. Não confundir com IPO8.png, que é outro gráfico. -->
+</section>
+<section id="emitir-ações-também-transmite-informação" class="slide level2 smaller">
+<h2>Emitir ações também transmite informação</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/reacao-anuncio-seo-bdm.png" style="width:76.0%"></p>
+<figcaption>Reação do preço ao anúncio de emissão subsequente de ações</figcaption>
+</figure>
+</div>
+<p><span class="fonte">Fonte: Berk e DeMarzo, figura 14.9, material histórico; CRSP e cálculos dos autores. Emissões de 2004–2007; queda de cerca de 1,5% no anúncio.</span></p>
 </section>
 <section id="pecking-order-o-modelo" class="slide level2 smaller">
 <h2>Pecking order: o modelo</h2>
@@ -509,6 +539,42 @@ flowchart LR
 <ul>
 <li>Contrato: olhando para uma situação de <em>pooling</em> (podemos garanti-la?) — <span class="math inline">\(R_e^S\)</span> para o empreendedor em caso de sucesso, <span class="math inline">\(R_e^F\)</span> em caso de fracasso</li>
 </ul>
+<!-- ADICIONADO: fixa a classe de títulos usuais, com responsabilidade limitada e pagamentos monotônicos, e separa I<=R^F de I>R^F. A fonte não explicitava a região em que R_e^F=0 é ótimo. -->
+</section>
+<section id="que-contratos-estamos-comparando" class="slide level2 smaller">
+<h2>Que contratos estamos comparando?</h2>
+<p>Defina o pagamento do investidor em cada estado: <span class="math inline">\(D^j\equiv R^j-R_e^j\)</span>.</p>
+<ul>
+<li>Responsabilidade limitada: <span class="math inline">\(0\leq D^j\leq R^j\)</span>, <span class="math inline">\(j\in\{F,S\}\)</span></li>
+<li>Pagamentos monotônicos: <span class="math inline">\(0\leq D^S-D^F\leq R^S-R^F\)</span></li>
+<li>O pagamento de nenhum dos dois diminui quando o fluxo aumenta</li>
+<li>A seguir, <span class="math inline">\(I\geq R^F\)</span>: usamos toda a capacidade de dívida segura</li>
+</ul>
+</section>
+<section id="e-se-a-dívida-segura-já-basta" class="slide level2 smaller">
+<h2>E se a dívida segura já basta?</h2>
+<p>Se <span class="math inline">\(I\leq R^F\)</span>, dívida de face <span class="math inline">\(I\)</span> financia todo o projeto:</p>
+<p><span class="math display">\[D^S=D^F=I \quad\Longrightarrow\quad R_e^F=R^F-I\geq0\]</span></p>
+<ul>
+<li>Lucro zero do investidor, qualquer que seja o tipo</li>
+<li>Sem desconto de seleção adversa nesse financiamento</li>
+<li><span class="math inline">\(R_e^F=0\)</span> só na fronteira <span class="math inline">\(I=R^F\)</span>; se <span class="math inline">\(I&lt;R^F\)</span>, sobra caixa no fracasso</li>
+</ul>
+<!-- ADICIONADO: comparação numérica didática antes da decomposição algébrica. p=.8, q=.4, alpha=.5, R^F=20, R^S=120, I=50. Dois contratos de pooling levantam 50 com lucro zero; dividendos e participações descritos em termos de fluxos, sem série de mercado. -->
+</section>
+<section id="antes-da-álgebra-dívida-segura-ou-só-ações" class="slide level2 smaller">
+<h2>Antes da álgebra: dívida segura ou só ações?</h2>
+<div id="0db1cd47" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-5-output-1.svg"></p>
+<figcaption>Exemplo ilustrativo: p=0,8; q=0,4; α=0,5; m=0,6; I=50. Ambos os contratos levantam 50.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">Tipo bom retém, em média: 37,5 só com ações; 40 com dívida segura + ações.</span></p>
 </section>
 <section id="pecking-order-lucro-zero-e-utilidade" class="slide level2 smaller">
 <h2>Pecking order: lucro zero e utilidade</h2>
@@ -528,9 +594,11 @@ flowchart LR
 </section>
 <section id="por-que-a-dívida-vem-primeiro" class="slide level2 smaller">
 <h2>Por que a dívida vem primeiro</h2>
-<p>Condicional à participação de investidores desinformados, o agente de tipo “bom” sempre prefere:</p>
+<!-- CORREÇÃO: qualifica o "sempre" da fonte 2024 p.26 pela necessidade I>=R^F e pela classe de pagamentos monotônicos definida acima. -->
+<p>Com <span class="math inline">\(I\geq R^F\)</span>, nos contratos considerados e com participação dos investidores, o tipo “bom” prefere:</p>
 <ul>
-<li><span class="math inline">\(R_e^F=0\)</span>: minimiza o desconto — emissão máxima da dívida livre de risco (ativo menos sensível à informação)</li>
+<li><span class="math inline">\(R_e^F=0\)</span>: usa toda a dívida segura de face <span class="math inline">\(R^F\)</span>, menos sensível à informação</li>
+<li>O restante, <span class="math inline">\(I-R^F\)</span>, vem de um título pago no sucesso; isso minimiza o desconto</li>
 <li><span class="math inline">\(R_e^S\)</span> o máximo possível, desde que ainda suficiente para garantir o investimento</li>
 </ul>
 <p><span class="destaque">Essa é a lógica por trás da pecking order.</span></p>
@@ -587,11 +655,11 @@ flowchart LR
 <section id="gráfico-equilíbrio-separador-leland-pyle" class="slide level2 smaller">
 <h2>Gráfico: equilíbrio separador (Leland-Pyle)</h2>
 <!-- ADICIONADO: não está na fonte. O .lyx cola uma imagem raster (Tirole, 2006, p. 261); aqui o gráfico é redesenhado a partir das retas de lucro zero dadas na própria figura-fonte, com p, q, R e utilidade log escolhidos apenas para tornar o gráfico desenhável. Ver dados/13-info-assimetrica-1/SNAPSHOT_INFO.txt. -->
-<div id="96d773ae" class="cell" data-execution_count="3">
+<div id="92cc3f9d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg"></p>
 <figcaption>Equilíbrio separador, redesenhado de Tirole (2006, p.&nbsp;261). Parâmetros ILUSTRATIVOS: p=0,7; q=0,4; R=10; U(x)=ln(x).</figcaption>
 </figure>
 </div>
@@ -600,6 +668,7 @@ flowchart LR
 <ul>
 <li><span class="math inline">\(B\)</span>: seguro pleno do tipo ruim. <span class="math inline">\(G\)</span>: seguro pleno hipotético do tipo bom (inatingível). <span class="math inline">\(S\)</span>: contrato separador do tipo bom. <span class="math inline">\(R\)</span>: retenção total do risco.</li>
 </ul>
+<!-- RESTAURADO: curvas de indiferença do tipo bom por G e S da figura-fonte de 2024 p.33; notação dos eixos harmonizada com R_e nos problemas anteriores. -->
 </section>
 <section id="lições" class="slide level2 smaller">
 <h2>Lições</h2>
