@@ -123,9 +123,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="quarto-light">
@@ -144,100 +141,57 @@ Felipe Iachan
 </div>
 
 </section>
-<section id="onde-estamos" class="slide level2">
-<h2>Onde estamos</h2>
+<section id="um-enigma" class="slide level2 smaller">
+<h2>Um enigma</h2>
+<!-- ADICIONADO (revisão out/2026): abertura reorganizada em torno de um enigma empírico. Os slides de revisão de MM e a lista de distorções de incentivo foram para o apêndice, sem cortes de conteúdo. -->
+<p>O que acontece com o preço das ações de quem anuncia uma emissão?</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Amostra</th>
+<th style="text-align: right;">Antes do anúncio</th>
+<th style="text-align: right;">No anúncio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EUA, anos 1970–80 (Lucas e McDonald, 1990)</td>
+<td style="text-align: right;">+47% sobre o mercado em 18 meses</td>
+<td style="text-align: right;">−3%</td>
+</tr>
+<tr class="even">
+<td>EUA, 1996–2007 (Gao e Ritter, 2010)</td>
+<td style="text-align: right;">+108% no ano anterior</td>
+<td style="text-align: right;">−2,1%</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Aulas 11–12: Modigliani-Miller, WACC, valor com <span class="secundario">alavancagem</span> — um mundo sem fricções</li>
-<li>Hoje: o que muda quando levamos a sério a <span class="destaque">informação assimétrica</span>?</li>
-<li>Foco de hoje: seleção adversa. Risco moral fica para a Aula 14.</li>
+<li>Em MM, vender ações a preço justo tem VPL zero. Por que o preço <span class="destaque">cai</span> no anúncio?</li>
+<li>E por que as firmas emitem justamente depois de uma alta?</li>
 </ul>
-<!-- PLANNING: aula com bastante álgebra simbólica (p, q, R, I, alfa) — poucos números concretos no .lyx-fonte; ritmo de quadro para as derivações de cada regime. -->
+<p><span class="fonte">Fontes: Berk e DeMarzo (2024), seção 16.8 e figura 16.3 (Lucas e McDonald, <em>JF</em> 1990; a queda de ~3% resume Asquith e Mullins, Masulis e Korwar, Mikkelson e Partch, <em>JFE</em> 1986); Gao e Ritter (<em>JFE</em> 2010): alta = retorno total em 250 pregões; anúncio = retorno ajustado ao mercado em [−1, +1].</span></p>
+<!-- PLANNING: deixar a pergunta no ar; o Gentec, três slides adiante, dá a resposta intuitiva, e o modelo de hoje a formaliza. -->
 </section>
-<section id="a-pergunta" class="slide level2 center">
-<h2>A pergunta</h2>
-<div class="r-fit-text">
-<p>Firmas e bancos gastam horas desenhando a estrutura financeira. Isso faria algum sentido numa economia <span class="destaque">sem fricções</span>?</p>
-</div>
-</section>
-<section id="o-roteiro-de-hoje" class="slide level2">
-<h2>O roteiro de hoje</h2>
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": false, "padding": 30}}}%%
-flowchart LR
-  A["MM:&lt;br/&gt;mundo sem fricções"] --&gt; B["Fricções:&lt;br/&gt;impostos, falência,&lt;br/&gt;informação"]
-  B --&gt; C["Seleção adversa:&lt;br/&gt;quem consegue crédito?"]
-  C --&gt; D["Pecking order:&lt;br/&gt;ordem de financiamento"]
-  D --&gt; E["Sinalização:&lt;br/&gt;reter risco&lt;br/&gt;para separar"]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p><span class="fonte">Hoje entramos em C, D e E.</span></p>
-</section>
-<section id="de-volta-à-estrutura-de-capital" class="slide level2">
-<h2>De Volta à Estrutura de Capital</h2>
+<section id="mm-em-um-slide-e-o-que-falta" class="slide level2 smaller">
+<h2>MM em um slide — e o que falta</h2>
 <ul>
-<li>Firmas e agentes externos (bancos comerciais, bancos de investimento, <em>venture capitalists</em>) dedicam muitos recursos estudando e desenhando a estrutura financeira</li>
-<li>Isso faz sentido em uma economia sem fricções?</li>
-</ul>
-<p>Modigliani e Miller (1958, 1961): <span class="destaque">não</span>.</p>
-</section>
-<section id="lembrando-hipóteses-de-mm" class="slide level2 smaller">
-<h2>Lembrando: hipóteses de MM</h2>
+<li>Aulas 11–12: Modigliani-Miller e as primeiras fricções (impostos, custos de falência)</li>
+<li>Em MM, a estrutura de capital é irrelevante quando:
 <ul>
-<li>Oportunidades de investimento são fixas (fluxo de caixa independe do financiamento)</li>
-<li>Mercados competitivos: todos são tomadores de preço, mesmos preços de mercado
-<ul>
-<li>Ausência de custos de transação ou impostos</li>
+<li>as oportunidades de investimento são fixas</li>
+<li>os mercados são competitivos, sem impostos nem custos de transação</li>
+<li>a informação é <span class="destaque">simétrica</span></li>
+<li>não há arbitragem</li>
 </ul></li>
-<li>Informação simétrica</li>
-<li>Ausência de possibilidades de arbitragem</li>
+<li>Firmas e bancos gastam muitos recursos desenhando a estrutura financeira. Hoje: o que muda sem informação simétrica?</li>
 </ul>
-</section>
-<section id="lembrando-proposições-de-mm" class="slide level2">
-<h2>Lembrando: proposições de MM</h2>
-<ol type="1">
-<li>O valor total de mercado de uma firma é independente da estrutura de capital</li>
-<li>O custo do capital próprio é crescente na razão dívida/capital próprio</li>
-<li>O valor total de uma firma independe de sua política de dividendos</li>
-</ol>
-</section>
-<section id="surpresas-do-mundo-mm" class="slide level2">
-<h2>Surpresas do mundo MM</h2>
-<p>Possíveis surpresas:</p>
-<ul>
-<li>Decisões de financiamento são irrelevantes</li>
-<li>Política de dividendos é irrelevante</li>
-<li>Gerenciamento de liquidez/risco financeiro é irrelevante</li>
-<li>Diversificação é irrelevante</li>
-</ul>
-</section>
-<section id="lições-de-mm" class="slide level2 smaller">
-<h2>Lições de MM</h2>
-<ul>
-<li>Valor é apenas criado pelos fluxos de caixa dos ativos (lado esquerdo do balanço patrimonial)</li>
-<li>Se a política de investimento é independente da de financiamento, financiamento é irrelevante</li>
-<li>O ambiente de Modigliani-Miller serve como <span class="destaque">referência de partida</span></li>
-</ul>
-<p>Como as decisões patrimoniais podem afetar o valor total:</p>
-<ul>
-<li>Impostos, custos de transação</li>
-<li>Custos de falência</li>
-<li>Informação assimétrica e conflitos de interesse</li>
-</ul>
-</section>
-<section id="primeira-fricção-vantagens-fiscais" class="slide level2">
-<h2>Primeira fricção: vantagens fiscais</h2>
-<ul>
-<li>Na primeira parte do curso, foram introduzidas vantagens fiscais da dívida</li>
-<li>Estrutura de capital ótima se define em um <em>trade-off</em> entre vantagens fiscais e custos de falência</li>
-</ul>
+<p><a href="#/apendice-mm" class="fonte">Apêndice: revisão de MM →</a></p>
 </section>
 <section id="trade-off-as-críticas-empíricas" class="slide level2 smaller">
 <h2>Trade-off: as críticas empíricas</h2>
@@ -263,30 +217,67 @@ flowchart LR
 </tr>
 <tr class="odd">
 <td>Custos de falência parecem pequenos</td>
-<td>Warner (1976); Weiss (1990): custos diretos de 1% a 5% do valor da firma em bancarrota</td>
+<td>Warner (1977); Weiss (1990): custos diretos de 1% a 5% do valor da firma em bancarrota</td>
 </tr>
 <tr class="even">
 <td>…frente a ganhos fiscais grandes</td>
-<td>Graham (2010); Kemsley e Nissim (2002): ~10% do valor da firma em média (40% do saldo da dívida)</td>
+<td>Graham (2000); Kemsley e Nissim (2002): ~10% do valor da firma em média (40% do saldo da dívida)</td>
 </tr>
 </tbody>
 </table>
 <!-- RESTAURADO: fonte 2024, PDF p.8/LyX l.629, ressalva sobre impostos pessoais omitida na condensação. -->
+<!-- CORREÇÃO: a fonte 2024 (LyX l.639–652) cita "Warner, 76" e "Graham, 2010"; os trabalhos são Warner (1977, JF 32(2)) e Graham (2000, JF 55(5)). -->
 <p><span class="fonte">A crítica persiste ao considerar impostos pessoais. Viés na medida de custos de falência: firmas em concordata ou liquidação já tinham baixo valor. Difícil justificar uso moderado de dívida em empresas mais sólidas.</span></p>
+<p><span class="fonte">Cuidado na comparação: custos de falência são medidos em quem já faliu; o que pesa na decisão é o custo esperado, incluindo os indiretos (Andrade e Kaplan, 1998: 10–20%, Aula 11).</span></p>
+<!-- ADICIONADO (revisão out/2026): exemplo de Berk e DeMarzo (2024), seção 16.8; não está na fonte 2024. -->
 </section>
-<section id="além-dos-impostos-e-da-falência" class="slide level2 smaller">
-<h2>Além dos impostos e da falência</h2>
+<section id="gentec-emitir-hoje-ou-esperar" class="slide level2 smaller">
+<h2>Gentec: emitir hoje ou esperar?</h2>
+<p>A Gentec tem 20 milhões de ações a $10. A gestão sabe que valem $15 ($300 milhões) e precisa captar $60 milhões.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Emitir hoje a $10</th>
+<th style="text-align: right;">Esperar a notícia ($15)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Novas ações para captar $60 mi</td>
+<td style="text-align: right;">6 mi</td>
+<td style="text-align: right;">4 mi</td>
+</tr>
+<tr class="even">
+<td>Valor da firma após a notícia</td>
+<td style="text-align: right;">$360 mi</td>
+<td style="text-align: right;">$360 mi</td>
+</tr>
+<tr class="odd">
+<td>Ações totais</td>
+<td style="text-align: right;">26 mi</td>
+<td style="text-align: right;">24 mi</td>
+</tr>
+<tr class="even">
+<td>Preço final por ação</td>
+<td style="text-align: right;">$13,85</td>
+<td style="text-align: right;">$15,00</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Decisões de investimento são feitas por agentes diferentes daqueles que têm direito aos fluxos de caixa</li>
-<li>Com informação assimétrica ou cumprimento limitado, <span class="destaque">incentivos importam</span>: decisões de estrutura de capital podem influenciar decisões de investimento</li>
-<li>Preocupações principais: indução de esforço e compensação ótima; monitoramento e <em>free-riding</em>; vantagens não-pecuniárias e construção de impérios; distorções na escolha de risco</li>
+<li>Gestor que sabe que a ação está barata prefere esperar</li>
+<li>Logo, quem emite agora sinaliza que a ação <span class="destaque">não está barata</span>: o preço cai no anúncio</li>
 </ul>
+<p><span class="fonte">Fonte: Berk e DeMarzo (2024), seção 16.8.</span></p>
 </section>
 <section id="hoje-seleção-adversa" class="slide level2 center">
 <h2>Hoje: seleção adversa</h2>
 <div class="r-fit-text">
-<p><span class="destaque">Seleção adversa</span> no financiamento externo — as demais distorções (esforço, risco moral) ficam para a Aula 14.</p>
+<p><span class="destaque">Seleção adversa</span> no financiamento externo</p>
 </div>
+<p>Roteiro: quem consegue crédito? → pecking order → sinalização</p>
+<p><span class="fonte">Ficam para depois: conflitos entre acionistas e credores e racionamento de crédito por risco moral (Aula 14); esforço e remuneração (Aula 15). Outras distorções de incentivo: ver apêndice.</span></p>
 </section>
 <section id="financiamento-externo-com-informação-assimétrica" class="slide level2 smaller">
 <h2>Financiamento externo com informação assimétrica</h2>
@@ -334,7 +325,7 @@ flowchart LR
 <li>Probabilidade prévia (“<em>prior</em>”) de sucesso de um investimento:</li>
 </ul>
 <p><span class="math display">\[m \equiv \alpha p + (1-\alpha) q\]</span></p>
-<div id="431ea51c" class="cell" data-fig-height="3.2" data-fig-width="8" data-execution_count="2">
+<div id="3568d7df" class="cell" data-fig-height="3.2" data-fig-width="8" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -388,6 +379,8 @@ flowchart LR
 <li><span class="math inline">\(i\,R_{e}^{i} = VPL^{i}\)</span>, para <span class="math inline">\(i \in \{p,q\}\)</span> (isto é, <span class="math inline">\(p\,R_e^p=VPL^p\)</span> e <span class="math inline">\(q\,R_e^q=VPL^q\)</span>)</li>
 <li>Tipo ruim investe se, e só se, <span class="math inline">\(qR-I&gt;0\)</span> — <span class="destaque">apenas no caso de investimento eficiente</span></li>
 </ul>
+<!-- CORREÇÃO (revisão out/2026): as duas equações valem para os tipos financiados; em C2 a do tipo ruim exigiria R_e^q<0. -->
+<p><span class="fonte">Em C2, lucro zero com o tipo ruim exigiria <span class="math inline">\(R_e^q&lt;0\)</span>, o que a responsabilidade limitada proíbe: ele não é financiado.</span></p>
 </section>
 <section id="informação-assimétrica-dois-regimes" class="slide level2">
 <h2>Informação assimétrica: dois regimes</h2>
@@ -448,6 +441,511 @@ flowchart LR
 <ul>
 <li>Desconto cresce com a fração do tipo ruim e com a diferença relativa <span class="math inline">\(\dfrac{p-q}{p}\)</span></li>
 </ul>
+<!-- ADICIONADO (revisão out/2026): figura didática; mesmos parâmetros ilustrativos da fronteira para o crédito (p=0,8; q=0,4; R=100; I=50). -->
+</section>
+<section id="o-mesmo-título-dois-valores" class="slide level2 smaller">
+<h2>O mesmo título, dois valores</h2>
+<div id="c1b2fc57" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg"></p>
+<figcaption>Exemplo ilustrativo: p=0,8; q=0,4; R=100; I=50. O investidor paga I=50 pelo título em qualquer caso.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">O tipo bom vende por 50 um título que, nas mãos do investidor, vale mais que 50: a diferença é o desconto.</span></p>
+<!-- ADICIONADO (revisão out/2026): exemplo numérico único, mesmos parâmetros. Taxa contratada = (R−R_e)/I − 1, paga só no sucesso; não é retorno esperado. -->
+</section>
+<section id="em-números" class="slide level2 smaller">
+<h2>Em números</h2>
+<p><span class="math inline">\(p=0{,}8\)</span>, <span class="math inline">\(q=0{,}4\)</span>, <span class="math inline">\(R=100\)</span>, <span class="math inline">\(I=50\)</span>: VPL do bom <span class="math inline">\(=30\)</span>, do ruim <span class="math inline">\(=-10\)</span> (caso C2), <span class="math inline">\(\alpha^*=0{,}25\)</span>.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Info. simétrica (bom)</th>
+<th style="text-align: right;"><em>Pooling</em>, <span class="math inline">\(\alpha=0{,}5\)</span> (<span class="math inline">\(m=0{,}6\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Investidor recebe no sucesso, <span class="math inline">\(R-R_e\)</span></td>
+<td style="text-align: right;">62,5</td>
+<td style="text-align: right;">83,3</td>
+</tr>
+<tr class="even">
+<td>Taxa contratada (paga só no sucesso)</td>
+<td style="text-align: right;">25%</td>
+<td style="text-align: right;">66,7%</td>
+</tr>
+<tr class="odd">
+<td>Utilidade do bom, <span class="math inline">\(pR_e\)</span></td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">13,3</td>
+</tr>
+<tr class="even">
+<td>Retorno esperado do investidor</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">+33% com o bom, −33% com o ruim</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Desconto do bom: <span class="math inline">\(30-13{,}3=16{,}7\)</span>. Com <span class="math inline">\(\alpha=0{,}2&lt;\alpha^*\)</span>: <span class="math inline">\(mR=48&lt;I\)</span> e o <span class="destaque">mercado fecha</span></li>
+</ul>
+</section>
+<section id="para-pensar" class="slide level2 center">
+<h2>Para pensar</h2>
+<p>O tipo bom paga 66,7% de juros contratados no <em>pooling</em>. Subir ainda mais os juros afastaria o tipo ruim?</p>
+<!-- PLANNING: Não. Os dois recebem R_e só no sucesso; todo contrato que o bom aceita, o ruim também aceita (ele tem ainda menos a perder). Juros mais altos só pioram o bom. -->
+</section>
+<section id="movendo-alpha-quem-paga-a-conta" class="slide level2 smaller">
+<h2>Movendo <span class="math inline">\(\alpha\)</span>: quem paga a conta?</h2>
+<!-- ADICIONADO: artefato a13 (seleção adversa em passos + sliders). Não está na fonte: junta, num só quadro,
+     o pooling do Tirole, cap. 6 (m(α), R_e = R − I/m, U^p = pR_e, lucro zero em média, subsídio cruzado,
+     desconto e α*) com os parâmetros ilustrativos do slide "Uma fronteira para o crédito"
+     (p = 0,8; q = 0,4; R = 100; I = 50; α* = 0,25). O passo final muda q para 0,6 (qR > I, caso C1).
+     No PDF (decktape, fragments:false), ?print-pdf e Ctrl+P, vira uma tira de cinco quadros + "Para pensar". -->
+<!-- PLANNING: um clique por passo. O quadro inicial (α = 0,75) já mostra α*, a região fechada e o livro
+     do emprestador; então as perguntas funcionam como leitura/recapitulação do gráfico. Pergunte ANTES de cada clique:
+     0→1 "Neste pool, o emprestador ganha ou perde com cada tipo? Se α cai para 0,5, quem paga a conta do ruim?"
+          (o bom: desconto 16,67 = lucro com cada bom = perda com cada ruim; 0,5·16,67 = 0,5·16,67)
+     1→2 "No gráfico, onde fica α*? O que sobra para o tipo bom ali?" (α* = 0,25; R_e = 0; todo o VPL
+          do bom, 30, vira subsídio; note que a perda por ruim caiu de 21,43 para 10 quando α caiu)
+     2→3 "E abaixo de α*? Existe contrato com R_e ≥ 0 que levante I?" (não: m(α)R = 46 < 50;
+          mercado fechado, subinvestimento do bom)
+     3→4 "E se o tipo ruim tivesse VPL > 0 (q = 0,6)? O mercado fecha para algum α?" (não: α* = −0,5;
+          opera para todo α, desconto 13,49, só redistribuição; caso C1)
+     Sliders livres de α e q para perguntas da turma. -->
+<script>window.A13SA = {"p": 0.8, "q": 0.4, "R": 100.0, "I": 50.0, "qC1": 0.6};</script>
+<style>
+.a13sa{ --a13-azul:#6a9bcc; --a13-laranja:#d97757; --a13-verde:#788c5d; --a13-tinta:#141413;
+  --a13-cinza:#5f5e5a; --a13-cinza-claro:#b0aea5; --a13-papel:#faf9f5; --a13-linha:#e8e6dc;
+  width:100%; max-width:1200px; margin:0 auto; color:var(--a13-tinta); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3; }
+.a13sa *{box-sizing:border-box;}
+.a13sa svg{display:block; width:100%; height:auto;}
+.a13sa-controls{display:grid; grid-template-columns:1fr 1fr; gap:6px 28px; padding:6px 14px;
+  border:1px solid var(--a13-linha); border-radius:10px; background:var(--a13-papel);}
+.a13sa-field label{display:flex; justify-content:space-between; gap:10px; color:var(--a13-cinza); font-size:13px; font-weight:600;}
+.a13sa-field output{color:var(--a13-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a13sa-field input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--a13-azul); cursor:pointer;}
+.a13sa-cap{font-size:19px; line-height:1.35; min-height:2.7em; margin-top:2px;}
+.a13sa-print{display:none;}
+.a13sa.impressao .a13sa-live{display:none;}
+.a13sa.impressao .a13sa-print{display:block;}
+.a13sa-strip{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px;}
+.a13sa-strip figure{margin:0; border:1px solid var(--a13-linha); border-radius:10px; padding:6px 6px 4px;}
+.reveal .slides .a13sa-strip figure > figcaption, .a13sa-strip figure > figcaption{font-size:15px; line-height:1.3; margin:6px 2px 2px; text-align:left; color:var(--a13-tinta);}
+.a13sa-pensar{margin-top:14px; font-size:17px; line-height:1.4; border-left:3px solid var(--a13-laranja); padding-left:12px;}
+.a13sa-pensar ol{margin:4px 0 0; padding-left:1.3em;}
+.reveal .a13sa-pensar li{font-family:inherit; font-size:inherit; margin-bottom:2px;}
+</style>
+
+<div class="a13sa" id="a13sa-root" data-artefato="a13-selecao-adversa" data-pdf-check="mercado fechado, subinvestimento">
+  <div class="a13sa-live">
+    <div class="a13sa-controls">
+      <div class="a13sa-field">
+        <label for="a13sa-a"><span>α: fração de tipos bons no pool</span><output id="a13sa-lbl-a">0,75</output></label>
+        <input type="range" id="a13sa-a" min="0" max="1" step="0.01" value="0.75">
+      </div>
+      <div class="a13sa-field">
+        <label for="a13sa-q"><span>q: prob. de sucesso do tipo ruim (p = 0,8)</span><output id="a13sa-lbl-q">0,40</output></label>
+        <input type="range" id="a13sa-q" min="0.2" max="0.7" step="0.05" value="0.4">
+      </div>
+    </div>
+    <svg id="a13sa-svg" viewbox="0 0 1200 470" role="img" aria-label="Seleção adversa: o pool de empreendedores, o lucro do emprestador com cada tipo e as utilidades U^p e U^q em função de alfa, com o mercado de crédito fechado abaixo de alfa estrela"></svg>
+    <div class="a13sa-cap" id="a13sa-cap" aria-live="polite"></div>
+  </div>
+  <div class="a13sa-print" aria-hidden="true">
+    <div class="a13sa-strip">
+      <figure><svg id="a13sa-mini-0" viewbox="0 0 300 250"></svg><figcaption id="a13sa-mcap-0"></figcaption></figure>
+      <figure><svg id="a13sa-mini-1" viewbox="0 0 300 250"></svg><figcaption id="a13sa-mcap-1"></figcaption></figure>
+      <figure><svg id="a13sa-mini-2" viewbox="0 0 300 250"></svg><figcaption id="a13sa-mcap-2"></figcaption></figure>
+      <figure><svg id="a13sa-mini-3" viewbox="0 0 300 250"></svg><figcaption id="a13sa-mcap-3"></figcaption></figure>
+      <figure><svg id="a13sa-mini-4" viewbox="0 0 300 250"></svg><figcaption id="a13sa-mcap-4"></figcaption></figure>
+    </div>
+    <div class="a13sa-pensar" id="a13sa-pensar"></div>
+  </div>
+  <span class="fragment a13sa-f" data-a13sa="1"></span><span class="fragment a13sa-f" data-a13sa="2"></span><span class="fragment a13sa-f" data-a13sa="3"></span><span class="fragment a13sa-f" data-a13sa="4"></span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById("a13sa-root");
+  if (!root) return;
+  // No deck, os parâmetros vêm do chunk Python do slide "Uma fronteira para o crédito" (p_cred, q_cred, R_cred, I_cred).
+  var P = window.A13SA;
+  if (!P){ P = {p:0.8, q:0.4, R:100, I:50, qC1:0.6}; }
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {azul:"#6a9bcc", laranja:"#d97757", verde:"#788c5d", tinta:"#141413", cinza:"#5f5e5a", cinzaClaro:"#b0aea5", branco:"#ffffff", papel:"#faf9f5", grade:"#ece9e0"};
+  function fmt(x, casas){ casas = casas === undefined ? 2 : casas; if (Math.abs(x) < 5e-9) x = 0;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits:casas, maximumFractionDigits:casas}).replace("-", "−"); }
+  function sinal(x, casas){ return (x > 5e-9 ? "+" : "") + fmt(x, casas); }
+  function clamp(x, a, b){ a = a === undefined ? 0 : a; b = b === undefined ? 1 : b; return Math.min(b, Math.max(a, x)); }
+  function ease(x){ return x < .5 ? 4*x*x*x : 1 - Math.pow(-2*x + 2, 3)/2; }
+  function lerp(a, b, u){ return a + (b - a)*u; }
+  function el(tag, at, pai){ var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, html, at){ var a = {x:x, y:y, fill:C.tinta, "font-size":18}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.innerHTML = html; return e; }
+  function set(e, at){ for (var k in at) e.setAttribute(k, at[k]); }
+  function sub(s){ return '<tspan baseline-shift="sub" font-size="70%">' + s + '</tspan>'; }
+  function sup(s){ return '<tspan baseline-shift="super" font-size="70%">' + s + '</tspan>'; }
+
+  // MODELO-INICIO --- notação do deck (Tirole, cap. 6): tipos p > q, fração α do tipo bom, retorno R no sucesso, custo I.
+  // Pooling: m(α) = αp + (1−α)q;  lucro zero em média: m(α)(R − R_e) = I  ⇒  R_e = R − I/m.
+  // Mercado fechado quando m(α)R < I, isto é, α < α*, onde α*(pR) + (1−α*)(qR) = I.
+  var TOL = 1e-9;
+  function m(a, q){ return a*P.p + (1 - a)*q; }
+  function alfaEstrela(q){ return (P.I/P.R - q)/(P.p - q); }            // pode ser ≤ 0 (caso C1: qR ≥ I)
+  function opera(a, q){ return m(a, q)*P.R >= P.I - TOL; }               // na fronteira, R_e = 0: opera por indiferença
+  function Re(a, q){ return P.R - P.I/m(a, q); }                         // payoff do empreendedor no sucesso
+  function Up(a, q){ return opera(a, q) ? P.p*Re(a, q) : 0; }           // U^p = pR_e
+  function Uq(a, q){ return opera(a, q) ? q*Re(a, q) : 0; }              // U^q = qR_e
+  function vplP(){ return P.p*P.R - P.I; }                               // pR − I (info. simétrica)
+  function vplQ(q){ return q*P.R - P.I; }                                // qR − I
+  function lucroBom(a, q){ return P.p*(P.R - Re(a, q)) - P.I; }          // p(R − R_e) − I  (> 0)
+  function lucroRuim(a, q){ return q*(P.R - Re(a, q)) - P.I; }           // q(R − R_e) − I  (< 0)
+  function desconto(a, q){ return vplP() - P.p*Re(a, q); }              // pR − I − U^p = (1−α)(p−q)I/m
+  function subsidio(a, q){ return q*Re(a, q) - vplQ(q); }                 // U^q − (qR − I) = −[q(R − R_e) − I]
+  function regime(a, q){ var s = alfaEstrela(q);
+    if (!opera(a, q)) return "fechado";
+    if (s > 0 && Math.abs(a - s) < 0.004) return "fronteira";
+    return "opera"; }
+  // MODELO-FIM
+
+  // --- passos (um clique cada); o último muda q para o caso C1
+  var aS = alfaEstrela(P.q);
+  var PASSOS = [{a:0.75, q:P.q}, {a:0.5, q:P.q}, {a:aS, q:P.q}, {a:0.15, q:P.q}, {a:0.15, q:P.qC1}];
+  function capPasso(k){
+    var s = PASSOS[k], a = s.a, q = s.q;
+    switch (k){
+      case 0: return "α = " + fmt(a) + ": o crédito opera com um único contrato. O tipo bom recebe R<sub>e</sub> = " + fmt(Re(a,q)) +
+        " e paga um desconto de " + fmt(desconto(a,q)) + " frente a pR − I = " + fmt(vplP(),0) + ".";
+      case 1: return "α = " + fmt(a) + ": o desconto sobe para " + fmt(desconto(a,q)) + ". É o lucro do emprestador com cada tipo bom, e paga a perda de " +
+        fmt(-lucroRuim(a,q)) + " com cada tipo ruim: " + fmt(a) + "·" + fmt(lucroBom(a,q)) + " = " + fmt(1-a) + "·" + fmt(-lucroRuim(a,q)) + ".";
+      case 2: return "α = α* = " + fmt(a) + ": m(α)R = I e R<sub>e</sub> = 0. O tipo bom já não ganha nada: todo o seu VPL (" + fmt(vplP(),0) + ") vira subsídio.";
+      case 3: return "α = " + fmt(a) + " &lt; α*: nem cedendo todo o fluxo se levanta I (m(α)R = " + fmt(m(a,q)*P.R,0) + " &lt; " + fmt(P.I,0) +
+        "). Mercado fechado: o tipo bom, com VPL " + fmt(vplP(),0) + ", fica sem crédito.";
+      case 4: return "E se q = " + fmt(q) + " (qR &gt; I, caso C1)? Então α* &lt; 0 e o crédito opera para todo α. A seleção adversa só redistribui (desconto " +
+        fmt(desconto(a,q)) + "), sem distorcer o investimento.";
+    }
+    return "";
+  }
+  function capLivre(a, q){
+    var r = regime(a, q), s = alfaEstrela(q), caso;
+    if (vplQ(q) < -TOL) caso = "caso C2 (qR &lt; I)"; else if (vplQ(q) > TOL) caso = "caso C1 (qR &gt; I)"; else caso = "qR = I";
+    if (r === "fechado") return "α = " + fmt(a) + " &lt; α* = " + fmt(s) + " (" + caso + "): m(α)R = " + fmt(m(a,q)*P.R,1) + " &lt; I. Mercado fechado: subinvestimento do tipo bom (VPL " + fmt(vplP(),0) + ").";
+    if (r === "fronteira") return "α ≈ α* = " + fmt(s) + ": R<sub>e</sub> ≈ 0, o tipo bom só investe por indiferença; todo o seu VPL vira subsídio.";
+    var t = "α = " + fmt(a) + " (" + caso + "): desconto do tipo bom " + fmt(desconto(a,q)) + " = lucro do emprestador com ele; subsídio ao tipo ruim " + fmt(subsidio(a,q)) + ". ";
+    if (vplQ(q) < -TOL) t += "O tipo ruim (VPL " + fmt(vplQ(q),0) + ") investe: sobreinvestimento.";
+    else t += "Sem distorção do investimento: só redistribuição.";
+    return t;
+  }
+
+  // --- quadro principal (sala)
+  var svg = document.getElementById("a13sa-svg"), cap = document.getElementById("a13sa-cap");
+  var inA = document.getElementById("a13sa-a"), inQ = document.getElementById("a13sa-q");
+  var lbA = document.getElementById("a13sa-lbl-a"), lbQ = document.getElementById("a13sa-lbl-q");
+  // gráfico de utilidades (direita)
+  var GX0 = 590, GX1 = 1075, UMAX = 34, UMIN = -32, GY0 = 82, GY1 = 410;
+  function gx(a){ return GX0 + (GX1 - GX0)*a; }
+  function gy(u){ return GY0 + (GY1 - GY0)*(UMAX - u)/(UMAX - UMIN); }
+  // livro do emprestador (esquerda)
+  var LZ = 360, LK = 3.6;                       // linha do zero e px por unidade
+  // pool: 40 pontos em posições fixas; os primeiros round(40α) da permutação são do tipo bom
+  var NPOOL = 40, perm = (function(){ var v = [], s = 13; for (var i = 0; i < NPOOL; i++) v.push(i);
+    for (var j = NPOOL - 1; j > 0; j--){ s = (s*1103515245 + 12345) % 2147483648; var k = s % (j + 1), t = v[j]; v[j] = v[k]; v[k] = t; } return v; })();
+  var G = {};
+  (function init(){
+    // --- pool
+    tx(svg, 24, 22, "o pool: 40 empreendedores, um só contrato", {"font-size":16, fill:C.cinza});
+    G.pool = el("g", {}, svg); G.dots = [];
+    for (var i = 0; i < NPOOL; i++){
+      G.dots.push(el("circle", {cx:44 + 42*(i % 10), cy:52 + 40*Math.floor(i/10), r:15, fill:C.azul, stroke:C.branco, "stroke-width":2}, G.pool));
+    }
+    G.nb = tx(svg, 24, 222, "", {"font-size":15, fill:C.cinza});
+    G.poolX = el("g", {}, svg);
+    el("rect", {x:110, y:92, width:270, height:44, rx:8, fill:C.papel, stroke:C.cinza, "stroke-width":1.5}, G.poolX);
+    tx(G.poolX, 245, 121, "ninguém recebe crédito", {"text-anchor":"middle", "font-size":19, fill:C.cinza, "font-weight":600});
+    // --- livro do emprestador
+    tx(svg, 24, 246, "emprestador, por empreendedor do pool:", {"font-size":16, fill:C.cinza});
+    tx(svg, 110, 270, "α·[p(R − R" + sub("e") + ") − I]", {"text-anchor":"middle", "font-size":15, fill:C.azul, "font-weight":600});
+    tx(svg, 262, 270, "(1−α)·[q(R − R" + sub("e") + ") − I]", {"text-anchor":"middle", "font-size":15, fill:C.laranja, "font-weight":600});
+    tx(svg, 404, 270, "soma", {"text-anchor":"middle", "font-size":15, fill:C.cinza, "font-weight":600});
+    G.led = el("g", {}, svg);
+    el("line", {x1:40, x2:460, y1:LZ, y2:LZ, stroke:C.cinza, "stroke-width":1.4}, G.led);
+    G.bA = el("rect", {x:60, width:100, fill:C.azul}, G.led);
+    G.bB = el("rect", {x:212, width:100, fill:C.laranja}, G.led);
+    el("rect", {x:364, y:LZ - 3, width:80, height:6, fill:C.cinza}, G.led);
+    G.lA = tx(G.led, 110, 0, "", {"text-anchor":"middle", "font-size":17, "font-weight":700, fill:C.azul});
+    G.lB = tx(G.led, 262, 0, "", {"text-anchor":"middle", "font-size":17, "font-weight":700, fill:C.laranja});
+    tx(G.led, 404, LZ - 12, "= 0", {"text-anchor":"middle", "font-size":19, "font-weight":700, fill:C.cinza});
+    G.pA = tx(G.led, 110, 458, "", {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    G.pB = tx(G.led, 262, 458, "", {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    G.ledX = el("g", {}, svg);
+    G.ledXt = tx(G.ledX, 245, 352, "", {"text-anchor":"middle", "font-size":17, fill:C.cinza, "font-weight":600});
+    tx(G.ledX, 245, 378, "nenhum contrato com R" + sub("e") + " ≥ 0 cobre I", {"text-anchor":"middle", "font-size":16, fill:C.cinza});
+    // --- gráfico de utilidades
+    G.cab1 = tx(svg, GX0 - 50, 22, "", {"font-size":16, fill:C.cinza});
+    G.cab2 = tx(svg, GX0 - 50, 48, "", {"font-size":16, fill:C.tinta});
+    G.selo = el("g", {}, svg);
+    G.seloR = el("rect", {x:1010, y:6, width:180, height:48, rx:8}, G.selo);
+    G.seloT = tx(G.selo, 1100, 38, "", {"text-anchor":"middle", fill:C.branco, "font-size":19, "font-weight":600});
+    G.fech = el("rect", {x:GX0, y:GY0, height:GY1 - GY0, fill:C.cinzaClaro, opacity:.22}, svg);
+    G.fechT1 = tx(svg, 0, GY0 + 86, "mercado", {"text-anchor":"middle", "font-size":15, fill:C.cinza, "font-weight":600});
+    G.fechT2 = tx(svg, 0, GY0 + 108, "fechado", {"text-anchor":"middle", "font-size":15, fill:C.cinza, "font-weight":600});
+    [-30, -15, 0, 15, 30].forEach(function(u){
+      el("line", {x1:GX0, x2:GX1, y1:gy(u), y2:gy(u), stroke:u === 0 ? C.cinza : C.grade, "stroke-width":u === 0 ? 1.3 : 1}, svg);
+      tx(svg, GX0 - 8, gy(u) + 5, fmt(u,0), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    });
+    [0, .25, .5, .75, 1].forEach(function(a){
+      el("line", {x1:gx(a), x2:gx(a), y1:GY1, y2:GY1 + 6, stroke:C.cinza}, svg);
+      tx(svg, gx(a), GY1 + 24, fmt(a), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    });
+    tx(svg, (GX0 + GX1)/2, GY1 + 50, "fração de tipos bons α", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    tx(svg, GX0 + 4, GY0 - 10, "utilidade esperada", {"font-size":14, fill:C.cinza});
+    G.astar = el("line", {y1:GY0, y2:GY1, stroke:C.cinza, "stroke-width":1.5, "stroke-dasharray":"3 4"}, svg);
+    G.astarT = tx(svg, 0, GY1 - 8, "", {"text-anchor":"start", "font-size":15, fill:C.cinza, "font-weight":600});
+    G.vp = el("line", {x1:GX0, x2:GX1, stroke:C.azul, "stroke-width":2, "stroke-dasharray":"9 6"}, svg);
+    G.vpT = tx(svg, GX0 + 6, 0, "pR − I", {"font-size":15, fill:C.azul, "font-weight":600});
+    G.vq = el("line", {x1:GX0, x2:GX1, stroke:C.laranja, "stroke-width":2, "stroke-dasharray":"9 6"}, svg);
+    G.vqT = tx(svg, GX0 + 6, 0, "", {"font-size":15, fill:C.laranja, "font-weight":600});
+    G.zero = el("path", {fill:"none", stroke:C.cinza, "stroke-width":4}, svg);
+    G.cUp = el("path", {fill:"none", stroke:C.azul, "stroke-width":3.5}, svg);
+    G.cUq = el("path", {fill:"none", stroke:C.laranja, "stroke-width":3.5}, svg);
+    G.cUpT = tx(svg, GX1 + 8, 0, "U" + sup("p") + " = pR" + sub("e"), {"font-size":16, fill:C.azul, "font-weight":700});
+    G.cUqT = tx(svg, GX1 + 8, 0, "U" + sup("q") + " = qR" + sub("e"), {"font-size":16, fill:C.laranja, "font-weight":700});
+    G.mk = el("line", {y1:GY0, y2:GY1, stroke:C.tinta, "stroke-width":1, opacity:.35}, svg);
+    G.brP = el("line", {stroke:C.azul, "stroke-width":7, opacity:.45}, svg);
+    G.brQ = el("line", {stroke:C.laranja, "stroke-width":7, opacity:.45}, svg);
+    G.brPT = tx(svg, 0, 0, "", {"font-size":15, fill:C.tinta, "font-weight":600, stroke:C.branco, "stroke-width":4, "paint-order":"stroke"});
+    G.brQT = tx(svg, 0, 0, "", {"font-size":15, fill:C.tinta, "font-weight":600, stroke:C.branco, "stroke-width":4, "paint-order":"stroke"});
+    G.dP = el("circle", {r:7, fill:C.azul, stroke:C.branco, "stroke-width":2}, svg);
+    G.dQ = el("circle", {r:7, fill:C.laranja, stroke:C.branco, "stroke-width":2}, svg);
+    G.d0 = el("circle", {r:7, fill:C.cinza, stroke:C.branco, "stroke-width":2}, svg);
+  })();
+
+  function caminho(f, a0, a1){
+    var d = "", n = 80;
+    for (var i = 0; i <= n; i++){ var a = a0 + (a1 - a0)*i/n; d += (i ? "L" : "M") + gx(a).toFixed(1) + " " + gy(f(a)).toFixed(1); }
+    return d;
+  }
+  function desenha(a, q){
+    var r = regime(a, q), ab = r !== "fechado", s = alfaEstrela(q), sC = clamp(s), mm = m(a, q);
+    // pool
+    var nb = Math.round(NPOOL*a);
+    for (var i = 0; i < NPOOL; i++) set(G.dots[perm[i]], {fill: i < nb ? C.azul : C.laranja});
+    set(G.pool, {opacity: ab ? 1 : .3}); set(G.poolX, {opacity: ab ? 0 : 1});
+    G.nb.innerHTML = '<tspan fill="' + C.azul + '" font-weight="700">' + nb + ' bons (p)</tspan> · <tspan fill="' + C.laranja + '" font-weight="700">' + (NPOOL - nb) + ' ruins (q)</tspan>';
+    // livro do emprestador
+    set(G.led, {opacity: ab ? 1 : 0}); set(G.ledX, {opacity: ab ? 0 : 1});
+    G.ledXt.textContent = "m(α)R = " + fmt(mm*P.R, 1) + " < I = " + fmt(P.I, 0);
+    if (ab){
+      var vA = a*lucroBom(a, q), vB = (1 - a)*lucroRuim(a, q);
+      set(G.bA, {y:LZ - Math.max(vA, 0)*LK, height:Math.abs(vA)*LK});
+      set(G.bB, {y:LZ - Math.max(vB, 0)*LK, height:Math.abs(vB)*LK});
+      set(G.lA, {y:LZ - vA*LK - 8}); G.lA.textContent = sinal(vA);
+      set(G.lB, {y:LZ - vB*LK + 20}); G.lB.textContent = sinal(vB);
+      G.pA.textContent = "por bom: " + sinal(lucroBom(a, q));
+      G.pB.textContent = "por ruim: " + sinal(lucroRuim(a, q));
+    }
+    // cabeçalho do gráfico
+    var caso = vplQ(q) < -TOL ? "caso C2: qR = " + fmt(q*P.R,0) + " &lt; I = " + fmt(P.I,0) + " · α* = " + fmt(s)
+                              : (vplQ(q) > TOL ? "caso C1: qR = " + fmt(q*P.R,0) + " &gt; I = " + fmt(P.I,0) + " · crédito para todo α"
+                                               : "qR = I = " + fmt(P.I,0) + " · α* = 0");
+    G.cab1.innerHTML = caso;
+    G.cab2.innerHTML = "m(α) = " + fmt(mm) + " → m(α)R = " + fmt(mm*P.R, 1) + (ab ? " ≥ " : " &lt; ") + "I = " + fmt(P.I,0);
+    var sel = r === "fechado" ? ["mercado fechado", C.cinza] : (r === "fronteira" ? ["fronteira: R" + sub("e") + " = 0", C.cinza] : ["mercado opera", C.verde]);
+    set(G.seloR, {fill:sel[1]}); G.seloT.innerHTML = sel[0];
+    // região fechada e α*
+    var temFech = s > 0;
+    set(G.fech, {width: temFech ? gx(sC) - GX0 : 0});
+    var largo = gx(sC) - GX0 > 70;
+    [G.fechT1, G.fechT2].forEach(function(e){ set(e, {x:(GX0 + gx(sC))/2, opacity: temFech && largo ? 1 : 0}); });
+    set(G.astar, {x1:gx(sC), x2:gx(sC), opacity: temFech ? 1 : 0});
+    set(G.astarT, {x:gx(sC) + 6, opacity: temFech ? 1 : 0}); G.astarT.textContent = "α* = " + fmt(s);
+    // VPLs sob informação simétrica
+    set(G.vp, {y1:gy(vplP()), y2:gy(vplP())}); set(G.vpT, {y:gy(vplP()) - 8});
+    set(G.vq, {y1:gy(vplQ(q)), y2:gy(vplQ(q))}); set(G.vqT, {y:gy(vplQ(q)) + (vplQ(q) > -22 ? 20 : -8)});
+    G.vqT.textContent = "qR − I = " + fmt(vplQ(q), 0) + (vplQ(q) < -TOL ? " (VPL do ruim < 0)" : "");
+    // curvas: U = 0 onde o mercado fecha; U^p e U^q onde opera
+    var a0 = Math.max(sC, 0);
+    set(G.zero, {d: temFech ? "M" + GX0 + " " + gy(0) + "L" + gx(sC).toFixed(1) + " " + gy(0) : "", opacity: temFech ? 1 : 0});
+    set(G.cUp, {d: caminho(function(x){ return P.p*Re(x, q); }, a0, 1)});
+    set(G.cUq, {d: caminho(function(x){ return q*Re(x, q); }, a0, 1)});
+    set(G.cUpT, {y:gy(Up(1, q)) - 6}); set(G.cUqT, {y:gy(Uq(1, q)) + 6});
+    // marcador em α: desconto (bom) e subsídio (ruim)
+    var X = gx(a), esq = a - Math.max(s, 0) > .25;
+    set(G.mk, {x1:X, x2:X});
+    set(G.dP, {cx:X, cy:gy(Up(a, q)), opacity: ab ? 1 : 0});
+    set(G.dQ, {cx:X, cy:gy(Uq(a, q)), opacity: ab ? 1 : 0});
+    set(G.d0, {cx:X, cy:gy(0), opacity: ab ? 0 : 1});
+    set(G.brP, {x1:X, x2:X, y1:gy(Up(a, q)), y2:gy(vplP()), opacity: ab ? .45 : 0});
+    set(G.brQ, {x1:X, x2:X, y1:gy(Uq(a, q)), y2:gy(vplQ(q)), opacity: ab ? .45 : 0});
+    var ancora = esq ? "end" : "start", dx = esq ? -12 : 12;
+    set(G.brPT, {x:X + dx, y:gy((Up(a, q) + vplP())/2) + 5, "text-anchor":ancora, opacity: ab && desconto(a, q) > .5 ? 1 : 0});
+    G.brPT.textContent = "desconto " + fmt(desconto(a, q));
+    set(G.brQT, {x:X + dx, y:gy((Uq(a, q) + vplQ(q))/2) + 5, "text-anchor":ancora, opacity: ab && subsidio(a, q) > .5 ? 1 : 0});
+    G.brQT.textContent = "subsídio " + fmt(subsidio(a, q));
+  }
+
+  // --- tira de impressão: desenho compacto, mesmas contas
+  function mini(svgEl, a, q){
+    svgEl.innerHTML = "";
+    var X0 = 40, X1 = 288, Y0 = 40, Y1 = 218;
+    function mx(v){ return X0 + (X1 - X0)*v; }
+    function my(u){ return Y0 + (Y1 - Y0)*(UMAX - u)/(UMAX - UMIN); }
+    function cam(f, v0, v1){ var d = ""; for (var i = 0; i <= 50; i++){ var v = v0 + (v1 - v0)*i/50; d += (i ? "L" : "M") + mx(v).toFixed(1) + " " + my(f(v)).toFixed(1); } return d; }
+    var r = regime(a, q), ab = r !== "fechado", s = alfaEstrela(q), sC = clamp(s);
+    if (s > 0){
+      el("rect", {x:X0, y:Y0, width:mx(sC) - X0, height:Y1 - Y0, fill:C.cinzaClaro, opacity:.25}, svgEl);
+      el("line", {x1:mx(sC), x2:mx(sC), y1:Y0, y2:Y1, stroke:C.cinza, "stroke-dasharray":"3 3"}, svgEl);
+      el("line", {x1:X0, x2:mx(sC), y1:my(0), y2:my(0), stroke:C.cinza, "stroke-width":3}, svgEl);
+    }
+    el("line", {x1:X0, x2:X1, y1:my(0), y2:my(0), stroke:C.cinza, "stroke-width":1}, svgEl);
+    tx(svgEl, X0 - 5, my(0) + 4, "0", {"text-anchor":"end", "font-size":12, fill:C.cinza});
+    el("line", {x1:X0, x2:X1, y1:my(vplP()), y2:my(vplP()), stroke:C.azul, "stroke-width":1.6, "stroke-dasharray":"6 4"}, svgEl);
+    tx(svgEl, X0 - 5, my(vplP()) + 4, fmt(vplP(),0), {"text-anchor":"end", "font-size":12, fill:C.azul});
+    el("line", {x1:X0, x2:X1, y1:my(vplQ(q)), y2:my(vplQ(q)), stroke:C.laranja, "stroke-width":1.6, "stroke-dasharray":"6 4"}, svgEl);
+    tx(svgEl, X0 - 5, my(vplQ(q)) + 4, fmt(vplQ(q),0), {"text-anchor":"end", "font-size":12, fill:C.laranja});
+    var a0 = Math.max(sC, 0);
+    el("path", {d:cam(function(v){ return P.p*Re(v, q); }, a0, 1), fill:"none", stroke:C.azul, "stroke-width":2.8}, svgEl);
+    el("path", {d:cam(function(v){ return q*Re(v, q); }, a0, 1), fill:"none", stroke:C.laranja, "stroke-width":2.8}, svgEl);
+    var X = mx(a);
+    el("line", {x1:X, x2:X, y1:Y0, y2:Y1, stroke:C.tinta, opacity:.35}, svgEl);
+    if (ab){
+      el("line", {x1:X, x2:X, y1:my(Up(a, q)), y2:my(vplP()), stroke:C.azul, "stroke-width":6, opacity:.45}, svgEl);
+      el("line", {x1:X, x2:X, y1:my(Uq(a, q)), y2:my(vplQ(q)), stroke:C.laranja, "stroke-width":6, opacity:.45}, svgEl);
+      el("circle", {cx:X, cy:my(Up(a, q)), r:5, fill:C.azul}, svgEl);
+      el("circle", {cx:X, cy:my(Uq(a, q)), r:5, fill:C.laranja}, svgEl);
+    } else {
+      el("circle", {cx:X, cy:my(0), r:5, fill:C.cinza}, svgEl);
+    }
+    [[0, "0"], [1, "1"]].forEach(function(t){ tx(svgEl, mx(t[0]), 236, t[1], {"text-anchor":"middle", "font-size":12, fill:C.cinza}); });
+    if (s > 0) tx(svgEl, mx(sC), 236, "α*", {"text-anchor":"middle", "font-size":13, fill:C.cinza, "font-weight":700});
+    tx(svgEl, (X0 + X1)/2 + 30, 236, "α", {"text-anchor":"middle", "font-size":13, fill:C.cinza});
+    tx(svgEl, 8, 22, "α = " + fmt(a) + (q !== P.q ? ", q = " + fmt(q) : ""), {"font-size":18, "font-weight":700});
+    var sel = r === "fechado" ? ["fechado", C.cinza] : (r === "fronteira" ? ["R" + sub("e") + " = 0", C.cinza] : ["opera", C.verde]);
+    tx(svgEl, 292, 22, sel[0], {"text-anchor":"end", "font-size":17, "font-weight":700, fill:sel[1]});
+  }
+  function preencheImpressao(){
+    var q = P.q, q1 = P.qC1;
+    var casos = [
+      [0.75, "<b>α = " + fmt(.75) + "</b>: opera. R<sub>e</sub> = " + fmt(Re(.75,q)) + "; desconto do tipo bom " + fmt(desconto(.75,q)) + " (U<sup>p</sup> = " + fmt(Up(.75,q)) + " &lt; pR − I = " + fmt(vplP(),0) + ")."],
+      [0.5, "<b>α = " + fmt(.5) + "</b>: desconto " + fmt(desconto(.5,q)) + " = lucro do emprestador com cada bom; cobre a perda de " + fmt(-lucroRuim(.5,q)) + " com cada ruim."],
+      [aS, "<b>α = α* = " + fmt(aS) + "</b>: m(α)R = I, R<sub>e</sub> = 0. Todo o VPL do tipo bom (" + fmt(vplP(),0) + ") vira subsídio."],
+      [0.15, "<b>α = " + fmt(.15) + ": mercado fechado, subinvestimento</b>. m(α)R = " + fmt(m(.15,q)*P.R,0) + " &lt; I = " + fmt(P.I,0) + "; o tipo bom (VPL " + fmt(vplP(),0) + ") fica sem crédito."],
+      [0.15, "<b>q = " + fmt(q1) + " (caso C1, qR &gt; I)</b>: α* = " + fmt(alfaEstrela(q1)) + " &lt; 0, o mercado opera para todo α. Com α = " + fmt(.15) +
+        ": desconto " + fmt(desconto(.15,q1)) + ", só redistribuição, sem distorcer o investimento.", q1]
+    ];
+    casos.forEach(function(c, k){
+      mini(document.getElementById("a13sa-mini-" + k), c[0], c[2] === undefined ? q : c[2]);
+      document.getElementById("a13sa-mcap-" + k).innerHTML = c[1];
+    });
+    document.getElementById("a13sa-pensar").innerHTML = "<b>Para pensar</b> (p = " + fmt(P.p,1) + ", q = " + fmt(q,1) + ", R = " + fmt(P.R,0) + ", I = " + fmt(P.I,0) +
+      "; azul: tipo bom, U<sup>p</sup> e pR − I; laranja: tipo ruim, U<sup>q</sup> e qR − I; faixas: desconto e subsídio):<ol>" +
+      "<li>Com α = " + fmt(.5) + ", quem paga a perda que o emprestador tem com o tipo ruim?</li>" +
+      "<li>Para qual α o tipo bom deixa de ganhar algo com o projeto? Por que a perda com cada ruim encolhe quando α cai?</li>" +
+      "<li>Abaixo de α*, existe contrato que financie I? E se q = " + fmt(P.qC1,1) + " (qR &gt; I, caso C1): o mercado fecha para algum α?</li></ol>";
+  }
+
+  // --- estado, controles e passos ligados aos fragmentos do reveal
+  // Cada clique anima só o último passo, em DUR segundos. Se o clique chega com uma animação em curso
+  // (cliques rápidos) ou pula passos, o quadro vai NA HORA ao estado completo do passo anterior ao destino
+  // e só então anima até o destino: nenhum estado intermediário (p.ex. o mercado fechado) é atravessado
+  // pela metade. A legenda é a do destino e é reafirmada quando a animação termina no estado do destino.
+  // O slider move α (e q) livremente; um clique depois do slider anima a partir do ponto do slider.
+  var st = {a:PASSOS[0].a, q:PASSOS[0].q}, ini = null, fim = null, raf = null, t0 = null, DUR = 0.75, passoMostrado = 0;
+  var reduz = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var sec = root.closest("section");
+  function passoAtual(){ return sec ? sec.querySelectorAll(".fragment.visible[data-a13sa]").length : 0; }
+  function aplica(){ desenha(st.a, st.q); inA.value = st.a; inQ.value = st.q; lbA.textContent = fmt(st.a); lbQ.textContent = fmt(st.q); }
+  function poe(k){ st.a = PASSOS[k].a; st.q = PASSOS[k].q; aplica(); }
+  function tick(ts){
+    if (t0 === null) t0 = ts;
+    var u = clamp((ts - t0)/1000/DUR), e = ease(u);
+    if (u < 1){ st.a = lerp(ini.a, fim.a, e); st.q = lerp(ini.q, fim.q, e); aplica(); raf = requestAnimationFrame(tick); return; }
+    raf = null; poe(passoMostrado); cap.innerHTML = capPasso(passoMostrado);
+  }
+  function vai(b, anima){
+    b = clamp(b, 0, PASSOS.length - 1);
+    var antes = passoMostrado, emCurso = raf !== null; passoMostrado = b;
+    if (raf){ cancelAnimationFrame(raf); raf = null; }
+    cap.innerHTML = capPasso(b);
+    fim = {a:PASSOS[b].a, q:PASSOS[b].q};
+    if (!anima || reduz || b === antes){ poe(b); return; }
+    if (emCurso || Math.abs(b - antes) > 1) poe(b - Math.sign(b - antes));
+    ini = {a:st.a, q:st.q};
+    t0 = null; raf = requestAnimationFrame(tick);
+  }
+  function livre(){
+    if (raf){ cancelAnimationFrame(raf); raf = null; }
+    st.a = +inA.value; st.q = +inQ.value; aplica(); cap.innerHTML = capLivre(st.a, st.q);
+  }
+  inA.addEventListener("input", livre); inQ.addEventListener("input", livre);
+  [inA, inQ].forEach(function(inp){ inp.addEventListener("keydown", function(ev){ ev.stopPropagation(); }); });
+
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (e) {}
+    return false;
+  }
+  var impresso = null;
+  function sincroniza(){
+    var on = emImpressao();
+    if (on !== impresso){ impresso = on; root.classList.toggle("impressao", on); if (on) preencheImpressao(); }
+    if (!on) vai(passoAtual(), false);
+  }
+  function noNossoSlide(ev){ return sec && ev && ev.fragment && sec.contains(ev.fragment); }
+  window.addEventListener("beforeprint", function(){ impresso = true; root.classList.add("impressao"); preencheImpressao(); });
+  window.addEventListener("afterprint", function(){ impresso = null; sincroniza(); });
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){
+      Reveal.on("ready", sincroniza);
+      Reveal.on("slidechanged", sincroniza);
+      Reveal.on("fragmentshown", function(ev){ if (noNossoSlide(ev)) vai(passoAtual(), true); });
+      Reveal.on("fragmenthidden", function(ev){ if (noNossoSlide(ev)) vai(passoAtual(), true); });
+    }
+    sincroniza();
+  });
+  // gancho para testar fora do Reveal (protótipo, testes headless); inofensivo no deck
+  root.addEventListener("a13sa:passo", function(){ vai(passoAtual(), true); });
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-9))) f.push(n + ": " + a + " != " + b); }
+    ap("α* (C2)", aS, 0.25); ap("m(α*)R = I", m(aS, P.q)*P.R, P.I); ap("R_e(α*)", Re(aS, P.q), 0); ap("U^p(α*)", Up(aS, P.q), 0);
+    ap("R_e(0,75)", Re(.75, P.q), 200/7); ap("desconto(0,75)", desconto(.75, P.q), 50/7);
+    ap("desconto(0,5)", desconto(.5, P.q), 50/3); ap("lucroRuim(0,5)", lucroRuim(.5, P.q), -50/3);
+    ap("U^p(0,5)", Up(.5, P.q), 40/3); ap("U^q(0,5)", Uq(.5, P.q), 20/3);
+    [0.25, 0.3, 0.5, 0.75, 1].forEach(function(a){
+      ap("lucro zero em média, α=" + a, a*lucroBom(a, P.q) + (1 - a)*lucroRuim(a, P.q), 0);
+      ap("desconto fechado, α=" + a, desconto(a, P.q), (1 - a)*(P.p - P.q)*P.I/m(a, P.q));
+      ap("desconto = lucro com bom, α=" + a, desconto(a, P.q), lucroBom(a, P.q));
+      ap("subsídio = perda com ruim, α=" + a, subsidio(a, P.q), -lucroRuim(a, P.q));
+    });
+    if (opera(.15, P.q)) f.push("α = 0,15 (C2) deveria fechar o mercado");
+    if (!opera(0, P.qC1)) f.push("caso C1 deveria operar até com α = 0");
+    if (!(alfaEstrela(P.qC1) < 0)) f.push("α* deveria ser negativo no caso C1");
+    if (f.length) console.error("Autoteste (Aula 13, seleção adversa) FALHOU:\n" + f.join("\n"));
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+  })();
+
+  aplica(); cap.innerHTML = capPasso(0);
+  sincroniza();
+})();
+</script>
 </section>
 <section id="sub-ou-sobreinvestimento" class="slide level2 smaller">
 <h2>Sub ou sobreinvestimento?</h2>
@@ -490,11 +988,11 @@ flowchart LR
 </section>
 <section id="uma-fronteira-para-o-crédito" class="slide level2 smaller">
 <h2>Uma fronteira para o crédito</h2>
-<div id="fe7b1a2e" class="cell" data-execution_count="3">
+<div id="3ba68753" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg"></p>
 <figcaption>Exemplo ilustrativo: p=0,8; q=0,4; R=100; I=50 (caso C2).</figcaption>
 </figure>
 </div>
@@ -527,6 +1025,21 @@ flowchart LR
 </figure>
 </div>
 <p><span class="fonte">Fonte: Berk e DeMarzo, figura 14.9, material histórico; CRSP e cálculos dos autores. Emissões de 2004–2007; queda de cerca de 1,5% no anúncio.</span></p>
+<!-- ADICIONADO (revisão out/2026): Smith (1986, JFE 15), Tabela 1: médias de estudos de evento dos EUA (anos 1960–80). O retorno medido é o das AÇÕES ORDINÁRIAS da emissora, qualquer que seja o título emitido. -->
+</section>
+<section id="a-reação-depende-do-título-emitido" class="slide level2 smaller">
+<h2>A reação depende do título emitido</h2>
+<div id="11a0afbc" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-7-output-1.svg"></p>
+<figcaption>Retorno anormal das ações da emissora em 2 dias ao redor do anúncio. Cinza: não significativo. Fonte: Smith (1986, JFE), Tabela 1.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">Quanto mais o título emitido depende da informação privada, maior a queda.</span></p>
 </section>
 <section id="pecking-order-o-modelo" class="slide level2 smaller">
 <h2>Pecking order: o modelo</h2>
@@ -564,11 +1077,11 @@ flowchart LR
 </section>
 <section id="antes-da-álgebra-dívida-segura-ou-só-ações" class="slide level2 smaller">
 <h2>Antes da álgebra: dívida segura ou só ações?</h2>
-<div id="0db1cd47" class="cell" data-execution_count="4">
+<div id="b988c682" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-5-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg"></p>
 <figcaption>Exemplo ilustrativo: p=0,8; q=0,4; α=0,5; m=0,6; I=50. Ambos os contratos levantam 50.</figcaption>
 </figure>
 </div>
@@ -583,6 +1096,21 @@ flowchart LR
 <p>Utilidade esperada do tipo “bom”:</p>
 <p><span class="math display">\[pR_{e}^{S}+\left(1-p\right)R_{e}^{F}\]</span></p>
 <p>Usando (1) e <span class="math inline">\(m=p-(1-\alpha)(p-q)\)</span>, reescrevemos essa utilidade a seguir.</p>
+<!-- ADICIONADO (revisão out/2026): intuição antes da decomposição; a identidade segue de subtrair o lucro zero médio do lucro com o tipo bom. -->
+</section>
+<section id="por-que-a-dívida-segura-escapa-do-desconto" class="slide level2 smaller">
+<h2>Por que a dívida segura escapa do desconto?</h2>
+<p>Pagamento ao investidor em cada estado: <span class="math inline">\(D^j\equiv R^j-R_e^j\)</span>.</p>
+<ul>
+<li>Lucro zero na média: <span class="math inline">\(mD^S+(1-m)D^F=I\)</span></li>
+<li>Lucro do investidor com o tipo bom: <span class="math inline">\(pD^S+(1-p)D^F-I\)</span></li>
+<li>Subtraindo, o desconto pago pelo bom é</li>
+</ul>
+<p><span class="math display">\[(p-m)\,\left(D^S-D^F\right), \qquad p-m=(1-\alpha)(p-q)\]</span></p>
+<ul>
+<li>Dívida segura: <span class="math inline">\(D^S=D^F\)</span>, desconto zero. Ações: <span class="math inline">\(D^S-D^F\)</span> grande, desconto grande</li>
+<li><span class="math inline">\(D^S-D^F\)</span> mede a <span class="destaque">sensibilidade do título à informação privada</span></li>
+</ul>
 </section>
 <section id="decompondo-o-valor-info.-simétrica-menos-desconto" class="slide level2 smaller">
 <h2>Decompondo o valor: info. simétrica menos desconto</h2>
@@ -602,6 +1130,20 @@ flowchart LR
 <li><span class="math inline">\(R_e^S\)</span> o máximo possível, desde que ainda suficiente para garantir o investimento</li>
 </ul>
 <p><span class="destaque">Essa é a lógica por trás da pecking order.</span></p>
+<!-- ADICIONADO (revisão out/2026): mesmos parâmetros do exemplo de barras (p=0,8; q=0,4; α=0,5; R^S−R^F=100; I=50). Eixo limitado a R^F ≤ I, região do modelo. -->
+</section>
+<section id="quanto-a-dívida-segura-economiza" class="slide level2 smaller">
+<h2>Quanto a dívida segura economiza</h2>
+<div id="8a6a65b3" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-9-output-1.svg"></p>
+<figcaption>Exemplo ilustrativo: <span class="math inline">\(p=0{,}8\)</span>; <span class="math inline">\(q=0{,}4\)</span>; <span class="math inline">\(\alpha=0{,}5\)</span>; <span class="math inline">\(R^S-R^F=100\)</span>; <span class="math inline">\(I=50\)</span>. Em <span class="math inline">\(R^F=20\)</span>, os valores do exemplo de barras.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="aplicação-2-sinalização-e-diversificação" class="slide level2 smaller">
 <h2>Aplicação 2: sinalização e diversificação</h2>
@@ -622,19 +1164,21 @@ flowchart LR
 <section id="sinalização-e-diversificação-leland-pyle" class="slide level2 smaller">
 <h2>Sinalização e diversificação: Leland-Pyle</h2>
 <p><em>Tirole, p.&nbsp;260</em></p>
+<!-- CORREÇÃO (revisão out/2026): o modelo volta ao básico (R ou 0), não ao da pecking order; e o termo -R_e^F das restrições seguintes vem da venda de participação, explicitada aqui. -->
 <ul>
-<li>Como o modelo anterior, porém com empreendedores avessos ao risco: <span class="math inline">\(U\left(R_i^j\right)\)</span> côncava (<span class="math inline">\(j\)</span> para estado, <span class="math inline">\(i\)</span> para indivíduo)</li>
+<li>Volta ao modelo básico (<span class="math inline">\(R\)</span> no sucesso, <span class="math inline">\(0\)</span> no fracasso), agora com empreendedores avessos ao risco: <span class="math inline">\(U\)</span> côncava</li>
 <li>Investimento tido como feito inicialmente</li>
-<li>Paga <span class="math inline">\(R&gt;0\)</span> em caso de sucesso e <span class="math inline">\(0\)</span> em caso de fracasso</li>
 <li>Empreendedores querem vender promessas de pagamento para minimizar sua exposição ao risco</li>
+<li>Contrato: vende parte do projeto por um caixa <span class="math inline">\(b\)</span> e retém a fração <span class="math inline">\(s\)</span>, logo <span class="math inline">\(R_e^F=b\)</span> e <span class="math inline">\(R_e^S=b+sR\)</span></li>
 </ul>
+<p><span class="fonte">Por isso o investidor aparece com <span class="math inline">\(-R_e^F\)</span> no fracasso: ele pagou <span class="math inline">\(b\)</span> e nada recebe.</span></p>
 </section>
 <section id="informação-simétrica-problema-do-tipo-alto" class="slide level2 smaller">
 <h2>Informação simétrica: problema do tipo alto</h2>
 <p>Para tipo alto, se resolve:</p>
 <p><span class="math display">\[\max \; pU\left(R_{e,p}^{S}\right)+\left(1-p\right)U\left(R_{e,p}^{F}\right)\]</span></p>
 <p>s.a. (lucro esperado zero / participação do emprestador)</p>
-<p><span class="math display">\[p\left(R^{S}-R_{e,p}^{S}\right)+\left(1-p\right)\left(-R_{e,p}^{F}\right)=0\]</span></p>
+<p><span class="math display">\[p\left(R-R_{e,p}^{S}\right)+\left(1-p\right)\left(-R_{e,p}^{F}\right)=0\]</span></p>
 </section>
 <section id="informação-simétrica-seguro-completo" class="slide level2 smaller">
 <h2>Informação simétrica: seguro completo</h2>
@@ -647,7 +1191,7 @@ flowchart LR
 <h2>Informação assimétrica: compatibilidade de incentivos</h2>
 <p><span class="math display">\[\max \; pU\left(R_{e,p}^{S}\right)+\left(1-p\right)U\left(R_{e,p}^{F}\right)\]</span></p>
 <p>s.a. (lucro esperado zero / participação do emprestador)</p>
-<p><span class="math display">\[p\left(R^{S}-R_{e,p}^{S}\right)+\left(1-p\right)\left(-R_{e,p}^{F}\right)=0\]</span></p>
+<p><span class="math display">\[p\left(R-R_{e,p}^{S}\right)+\left(1-p\right)\left(-R_{e,p}^{F}\right)=0\]</span></p>
 <p>e (restrição de compatibilidade de incentivos)</p>
 <p><span class="math display">\[qU\left(R_{e,p}^{S}\right)+\left(1-q\right)U\left(R_{e,p}^{F}\right)\leq U\left(R_{e,q}\right)\]</span></p>
 <p>em que <span class="math inline">\(R_{e,q}\equiv qR\)</span> (já impõe seguro perfeito para o tipo baixo).</p>
@@ -655,11 +1199,11 @@ flowchart LR
 <section id="gráfico-equilíbrio-separador-leland-pyle" class="slide level2 smaller">
 <h2>Gráfico: equilíbrio separador (Leland-Pyle)</h2>
 <!-- ADICIONADO: não está na fonte. O .lyx cola uma imagem raster (Tirole, 2006, p. 261); aqui o gráfico é redesenhado a partir das retas de lucro zero dadas na própria figura-fonte, com p, q, R e utilidade log escolhidos apenas para tornar o gráfico desenhável. Ver dados/13-info-assimetrica-1/SNAPSHOT_INFO.txt. -->
-<div id="92cc3f9d" class="cell" data-execution_count="5">
+<div id="ee1f5f59" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-10-output-1.svg"></p>
 <figcaption>Equilíbrio separador, redesenhado de Tirole (2006, p.&nbsp;261). Parâmetros ILUSTRATIVOS: p=0,7; q=0,4; R=10; U(x)=ln(x).</figcaption>
 </figure>
 </div>
@@ -673,12 +1217,17 @@ flowchart LR
 <section id="lições" class="slide level2 smaller">
 <h2>Lições</h2>
 <ul>
-<li>Seguro perfeito para o tipo baixo, que se desfaz da quantidade ótima de ativos</li>
-<li>Seguro parcial para o tipo alto, para possibilitar <em>screening</em>
+<li><p>Seguro perfeito para o tipo baixo, que se desfaz da quantidade ótima de ativos <!-- CORREÇÃO (revisão out/2026): fonte dizia screening; quem desenha o contrato é a parte informada, logo é sinalização. --></p></li>
+<li><p>Seguro parcial para o tipo alto, para possibilitar a sinalização (separação)</p>
 <ul>
 <li>Tipo “bom” está mais disposto a manter parte do risco, pois é relativamente menos custoso — a probabilidade de sucesso é superior</li>
 </ul></li>
 </ul>
+</section>
+<section id="para-pensar-1" class="slide level2 center">
+<h2>Para pensar</h2>
+<p>Se o tipo ruim fica ainda pior (<span class="math inline">\(q\)</span> cai), o tipo bom precisa reter mais ou menos risco para se separar?</p>
+<!-- PLANNING: Mais. Com os parâmetros do gráfico (p=0,7; R=10; log), a fração retida passa de ~67% (q=0,4) para ~81% (q=0,2): imitar o bom fica mais tentador para o ruim e a restrição de incentivos aperta. -->
 </section>
 <section id="o-que-aprendemos-hoje" class="slide level2 smaller">
 <h2>O que aprendemos hoje</h2>
@@ -686,10 +1235,74 @@ flowchart LR
 <li>Seleção adversa gera desconto de preço, restrição de crédito ou sobreinvestimento — depende de qual caso (C1/C2) e de <span class="math inline">\(\alpha\)</span> vs.&nbsp;<span class="math inline">\(\alpha^*\)</span></li>
 <li>Pecking order: dívida antes de ações, porque é a fonte menos sensível à informação privada</li>
 <li>Sinalização (Leland-Pyle): reter risco é mais caro para o tipo ruim — permite separação</li>
-<li>Próxima aula: <span class="secundario">risco moral</span> — quando o problema não é o que o agente sabe, mas o que ele faz</li>
+<li>Próxima aula: conflitos entre acionistas e credores e <span class="secundario">risco moral</span> no crédito — quando o problema não é o que o agente sabe, mas o que ele faz</li>
+</ul>
+</section>
+<section>
+<section id="apêndice" class="title-slide slide level1 center">
+<h1>Apêndice</h1>
+<!-- ADICIONADO (revisão out/2026): slides de revisão que abriam a aula, movidos para cá sem alteração de conteúdo. -->
+</section>
+<section id="apendice-mm" class="slide level2 smaller">
+<h2>Apêndice: hipóteses de MM</h2>
+<ul>
+<li>Oportunidades de investimento são fixas (fluxo de caixa independe do financiamento)</li>
+<li>Mercados competitivos: todos são tomadores de preço, mesmos preços de mercado
+<ul>
+<li>Ausência de custos de transação ou impostos</li>
+</ul></li>
+<li>Informação simétrica</li>
+<li>Ausência de possibilidades de arbitragem</li>
+</ul>
+</section>
+<section id="apêndice-proposições-de-mm" class="slide level2">
+<h2>Apêndice: proposições de MM</h2>
+<ol type="1">
+<li>O valor total de mercado de uma firma é independente da estrutura de capital</li>
+<li>O custo do capital próprio é crescente na razão dívida/capital próprio</li>
+<li>O valor total de uma firma independe de sua política de dividendos</li>
+</ol>
+</section>
+<section id="apêndice-surpresas-do-mundo-mm" class="slide level2">
+<h2>Apêndice: surpresas do mundo MM</h2>
+<p>Possíveis surpresas:</p>
+<ul>
+<li>Decisões de financiamento são irrelevantes</li>
+<li>Política de dividendos é irrelevante</li>
+<li>Gerenciamento de liquidez/risco financeiro é irrelevante</li>
+<li>Diversificação é irrelevante</li>
+</ul>
+</section>
+<section id="apêndice-lições-de-mm" class="slide level2 smaller">
+<h2>Apêndice: lições de MM</h2>
+<ul>
+<li>Valor é apenas criado pelos fluxos de caixa dos ativos (lado esquerdo do balanço patrimonial)</li>
+<li>Se a política de investimento é independente da de financiamento, financiamento é irrelevante</li>
+<li>O ambiente de Modigliani-Miller serve como <span class="destaque">referência de partida</span></li>
+</ul>
+<p>Como as decisões patrimoniais podem afetar o valor total:</p>
+<ul>
+<li>Impostos, custos de transação</li>
+<li>Custos de falência</li>
+<li>Informação assimétrica e conflitos de interesse</li>
+</ul>
+</section>
+<section id="apêndice-primeira-fricção-vantagens-fiscais" class="slide level2">
+<h2>Apêndice: primeira fricção, vantagens fiscais</h2>
+<ul>
+<li>Na primeira parte do curso, foram introduzidas vantagens fiscais da dívida</li>
+<li>Estrutura de capital ótima se define em um <em>trade-off</em> entre vantagens fiscais e custos de falência</li>
+</ul>
+</section>
+<section id="apêndice-além-dos-impostos-e-da-falência" class="slide level2 smaller">
+<h2>Apêndice: além dos impostos e da falência</h2>
+<ul>
+<li>Decisões de investimento são feitas por agentes diferentes daqueles que têm direito aos fluxos de caixa</li>
+<li>Com informação assimétrica ou cumprimento limitado, <span class="destaque">incentivos importam</span>: decisões de estrutura de capital podem influenciar decisões de investimento</li>
+<li>Preocupações principais: indução de esforço e compensação ótima; monitoramento e <em>free-riding</em>; vantagens não-pecuniárias e construção de impérios; distorções na escolha de risco</li>
 </ul>
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
