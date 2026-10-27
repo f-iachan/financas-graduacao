@@ -325,7 +325,7 @@ Felipe Iachan
 <li>Probabilidade prévia (“<em>prior</em>”) de sucesso de um investimento:</li>
 </ul>
 <p><span class="math display">\[m \equiv \alpha p + (1-\alpha) q\]</span></p>
-<div id="3568d7df" class="cell" data-fig-height="3.2" data-fig-width="8" data-execution_count="2">
+<div id="d409033a" class="cell" data-fig-height="3.2" data-fig-width="8" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -445,7 +445,7 @@ Felipe Iachan
 </section>
 <section id="o-mesmo-título-dois-valores" class="slide level2 smaller">
 <h2>O mesmo título, dois valores</h2>
-<div id="c1b2fc57" class="cell" data-execution_count="3">
+<div id="e7ffce8b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -988,7 +988,7 @@ Felipe Iachan
 </section>
 <section id="uma-fronteira-para-o-crédito" class="slide level2 smaller">
 <h2>Uma fronteira para o crédito</h2>
-<div id="3ba68753" class="cell" data-execution_count="5">
+<div id="39c2b738" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1029,7 +1029,7 @@ Felipe Iachan
 </section>
 <section id="a-reação-depende-do-título-emitido" class="slide level2 smaller">
 <h2>A reação depende do título emitido</h2>
-<div id="11a0afbc" class="cell" data-execution_count="6">
+<div id="a88ee805" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1077,7 +1077,7 @@ Felipe Iachan
 </section>
 <section id="antes-da-álgebra-dívida-segura-ou-só-ações" class="slide level2 smaller">
 <h2>Antes da álgebra: dívida segura ou só ações?</h2>
-<div id="b988c682" class="cell" data-execution_count="7">
+<div id="8213bdc3" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1134,7 +1134,7 @@ Felipe Iachan
 </section>
 <section id="quanto-a-dívida-segura-economiza" class="slide level2 smaller">
 <h2>Quanto a dívida segura economiza</h2>
-<div id="8a6a65b3" class="cell" data-execution_count="8">
+<div id="a3772c26" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1199,7 +1199,7 @@ Felipe Iachan
 <section id="gráfico-equilíbrio-separador-leland-pyle" class="slide level2 smaller">
 <h2>Gráfico: equilíbrio separador (Leland-Pyle)</h2>
 <!-- ADICIONADO: não está na fonte. O .lyx cola uma imagem raster (Tirole, 2006, p. 261); aqui o gráfico é redesenhado a partir das retas de lucro zero dadas na própria figura-fonte, com p, q, R e utilidade log escolhidos apenas para tornar o gráfico desenhável. Ver dados/13-info-assimetrica-1/SNAPSHOT_INFO.txt. -->
-<div id="ee1f5f59" class="cell" data-execution_count="9">
+<div id="f6d3a8e0" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1228,6 +1228,313 @@ Felipe Iachan
 <h2>Para pensar</h2>
 <p>Se o tipo ruim fica ainda pior (<span class="math inline">\(q\)</span> cai), o tipo bom precisa reter mais ou menos risco para se separar?</p>
 <!-- PLANNING: Mais. Com os parâmetros do gráfico (p=0,7; R=10; log), a fração retida passa de ~67% (q=0,4) para ~81% (q=0,2): imitar o bom fica mais tentador para o ruim e a restrição de incentivos aperta. -->
+</section>
+<section id="movendo-q-quanto-o-bom-precisa-reter" class="slide level2 smaller">
+<h2>Movendo <span class="math inline">\(q\)</span>: quanto o bom precisa reter?</h2>
+<!-- ADICIONADO: artefato a13lp (Leland-Pyle com controle de q). Não está na fonte: anima o gráfico
+     "Gráfico: equilíbrio separador (Leland-Pyle)" com os mesmos parâmetros ilustrativos (p = 0,7; R = 10; U = ln)
+     e acrescenta o spread do contrato separador, Δ*(q) = R_e^S − R_e^F (= s*R). Responde ao "Para pensar": quando q cai, Δ* sobe.
+     No PDF (decktape, fragments:false), ?print-pdf e Ctrl+P, vira um quadro estático em q = 0,2 com o caso da aula (q = 0,4) como fantasma. -->
+<!-- PLANNING: perguntar antes de mover o slider: "se q cai, S se aproxima ou se afasta da diagonal de seguro pleno?".
+     Mover q de 0,40 para 0,20: Δ* vai de 6,67 para 8,06 (s* de 66,7% para 80,6%); R_e^F cai de 2,33 para 1,36 (sempre abaixo de qR, a linha pontilhada);
+     o custo da sinalização para o bom (pR menos o equivalente certo) sobe de 1,00 para 1,73.
+     Dois efeitos de uma queda de q sobre o ruim: imitar S fica pior (perde U(R_e^S) − U(R_e^F) por unidade de q) e revelar-se fica pior
+     (perde R·U'(qR)). O segundo domina para qualquer U côncava (em q = 0,4: 2,50 contra 1,35), então o ganho de imitar sobe e S precisa se afastar da diagonal.
+     Cuidado com "risco": aqui é a exposição Δ do empreendedor, não o risco do projeto. Em q = 0,2 o projeto ruim tem
+     variância q(1−q)R² = 16, menor que a do bom (21): o ruim fica pior (média), não mais arriscado. -->
+<script>window.A13LP = {"p": 0.7, "q": 0.4, "R": 10.0, "qImp": 0.2};</script>
+<style>
+.a13lp{ --a13-azul:#6a9bcc; --a13-laranja:#d97757; --a13-verde:#788c5d; --a13-tinta:#141413;
+  --a13-cinza:#5f5e5a; --a13-cinza-claro:#b0aea5; --a13-papel:#faf9f5; --a13-linha:#e8e6dc;
+  width:100%; max-width:1200px; margin:0 auto; color:var(--a13-tinta); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3; }
+.a13lp *{box-sizing:border-box;}
+.a13lp svg{display:block; width:100%; max-width:1080px; height:auto; margin:0 auto;}   /* 1080: cabe nos 720px do slide com a legenda */
+.a13lp-controls{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:6px 20px; padding:6px 14px;
+  border:1px solid var(--a13-linha); border-radius:10px; background:var(--a13-papel);}
+.a13lp-field{min-width:0;}
+.a13lp-field label{display:flex; justify-content:space-between; gap:10px; color:var(--a13-cinza); font-size:13px; font-weight:600;}
+.a13lp-field output{color:var(--a13-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a13lp-field input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--a13-laranja); cursor:pointer;}
+.a13lp-reset{font:inherit; font-size:13px; font-weight:600; color:var(--a13-cinza); background:#fff;
+  border:1px solid var(--a13-linha); border-radius:8px; padding:4px 10px; cursor:pointer;}
+.a13lp-estatico{display:none; padding:6px 14px; font-size:15px; color:var(--a13-cinza);}
+.a13lp.impressao .a13lp-controls{display:none;}
+.a13lp.impressao .a13lp-estatico{display:block;}
+.a13lp-cap{font-size:18px; line-height:1.35; min-height:2.7em; margin-top:2px;}
+.a13lp-cap p{margin:0 0 4px;}
+.reveal .a13lp-cap p{font-family:inherit;}
+.a13lp-efeitos{color:var(--a13-cinza); font-size:16px;}
+</style>
+
+<div class="a13lp" id="a13lp-root" data-artefato="a13-leland-pyle-q" data-pdf-check="S se afasta do seguro pleno">
+  <div class="a13lp-controls">
+    <div class="a13lp-field">
+      <label for="a13lp-q"><span>q: prob. de sucesso do tipo ruim (p = 0,7)</span><output id="a13lp-lbl-q">0,40</output></label>
+      <input type="range" id="a13lp-q" min="0.05" max="0.65" step="0.01" value="0.4">
+    </div>
+    <button type="button" class="a13lp-reset" id="a13lp-reset">q = 0,40</button>
+  </div>
+  <div class="a13lp-estatico" id="a13lp-estatico"></div>
+  <svg id="a13lp-svg" viewbox="0 0 1200 500" role="img" aria-label="Leland-Pyle: plano de pagamentos contingentes com o contrato separador S do tipo bom, e o spread Delta* = R_e^S − R_e^F em função de q, decrescente"></svg>
+  <div class="a13lp-cap" id="a13lp-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById("a13lp-root");
+  if (!root) return;
+  // No deck, os parâmetros vêm do chunk Python do slide "Gráfico: equilíbrio separador (Leland-Pyle)" (p, q, R).
+  var P = window.A13LP;
+  if (!P){ P = {p:0.7, q:0.4, R:10, qImp:0.2}; }
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {azul:"#6a9bcc", laranja:"#d97757", verde:"#788c5d", tinta:"#141413", cinza:"#5f5e5a", cinzaClaro:"#b0aea5", branco:"#ffffff", grade:"#ece9e0"};
+  function fmt(x, casas){ casas = casas === undefined ? 2 : casas; if (Math.abs(x) < 5e-9) x = 0;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits:casas, maximumFractionDigits:casas}).replace("-", "−"); }
+  function pct(x){ return fmt(100*x, 1) + "%"; }
+  function el(tag, at, pai){ var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, html, at){ var a = {x:x, y:y, fill:C.tinta, "font-size":18}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.innerHTML = html; return e; }
+  function set(e, at){ for (var k in at) e.setAttribute(k, at[k]); }
+  // R_e^j em SVG: índice e expoente empilhados (o expoente recua sobre o índice)
+  function Rej(j){ return 'R<tspan baseline-shift="sub" font-size="70%">e</tspan><tspan dx="-0.42em" baseline-shift="super" font-size="70%">' + j + '</tspan>'; }
+  var ReS = Rej("S"), ReF = Rej("F"), HALO = {stroke:C.branco, "stroke-width":4, "paint-order":"stroke"};
+  function comHalo(at){ for (var k in HALO) at[k] = HALO[k]; return at; }
+  // (html) para legenda em HTML
+  var hReS = "R<sub>e</sub><sup>S</sup>", hReF = "R<sub>e</sub><sup>F</sup>";
+
+  // MODELO-INICIO --- Leland-Pyle (Tirole, p. 260), notação do deck: tipos p > q, R no sucesso, 0 no fracasso, U côncava.
+  // Pagamentos contingentes do bom na reta de lucro zero, pR_e^S + (1 − p)R_e^F = pR, indexados pelo spread Δ = R_e^S − R_e^F:
+  //   R_e^S = pR + (1 − p)Δ,  R_e^F = pR − pΔ   (Δ = sR, com s a fração retida e b = R_e^F o caixa levantado).
+  // O ruim, com seguro pleno, tem U(qR). Contrato separador S: menor Δ com  qU(R_e^S) + (1 − q)U(R_e^F) ≤ U(qR).
+  function U(x){ return Math.log(x); }
+  function Uinv(u){ return Math.exp(u); }
+  function Ulinha(x){ return 1/x; }
+  function contrato(d){ return {S:P.p*P.R + (1 - P.p)*d, F:P.p*P.R - P.p*d}; }
+  function ganhoImitar(d, q){ var c = contrato(d); return q*U(c.S) + (1 - q)*U(c.F) - U(q*P.R); }   // > 0: o ruim imita
+  function dEstrela(q){                                   // ganhoImitar é côncava em Δ, > 0 em Δ = 0 e → −∞ em Δ = R: raiz única
+    var a = 0, b = P.R*(1 - 1e-12);
+    for (var i = 0; i < 80; i++){ var m = (a + b)/2; if (ganhoImitar(m, q) > 0) a = m; else b = m; }
+    return (a + b)/2;
+  }
+  function euBom(d){ var c = contrato(d); return P.p*U(c.S) + (1 - P.p)*U(c.F); }
+  function ceBom(d){ return Uinv(euBom(d)); }                                        // equivalente certo do bom em S
+  function custoSinal(d){ return P.p*P.R - ceBom(d); }                               // pR − EC: o que o bom paga para se separar
+  // Dois efeitos de uma queda de q sobre o ruim (derivadas em q, com o contrato fixo):
+  function efeitoImitar(d){ var c = contrato(d); return U(c.S) - U(c.F); }          // imitar S piora (o sucesso fica menos provável)
+  function efeitoRevelar(q){ return P.R*Ulinha(q*P.R); }                             // revelar-se piora (qR cai)
+  function retaBom(x){ return P.p*(P.R - x)/(1 - P.p); }                             // px + (1 − p)y = pR, com x = R_e^S, y = R_e^F
+  function retaRuim(x, q){ return q*(P.R - x)/(1 - q); }                             // qx + (1 − q)y = qR
+  function indifRuim(x, q){ return Uinv((U(q*P.R) - q*U(x))/(1 - q)); }             // indiferença do ruim por B = (qR, qR)
+  function indifBom(x, d){ return Uinv((euBom(d) - P.p*U(x))/(1 - P.p)); }          // indiferença do bom por S
+  // MODELO-FIM
+
+  // --- geometria
+  var XMAX = 10.5, YMAX = 8;
+  var LX0 = 78, LX1 = 600, LY0 = 92, LY1 = 440;
+  function lx(v){ return LX0 + (LX1 - LX0)*v/XMAX; }
+  function ly(v){ return LY1 - (LY1 - LY0)*v/YMAX; }
+  var QMAX = P.p, RX0 = 760, RX1 = 1150, RY0 = 92, RY1 = 440;
+  function rx(q){ return RX0 + (RX1 - RX0)*q/QMAX; }
+  function ry(d){ return RY1 - (RY1 - RY0)*d/P.R; }
+  function cam(f, v0, v1, X, Y, n){
+    n = n || 90; var d = "";
+    for (var i = 0; i <= n; i++){ var v = v0 + (v1 - v0)*i/n; d += (i ? "L" : "M") + X(v).toFixed(1) + " " + Y(f(v)).toFixed(1); }
+    return d;
+  }
+  function xTopoIndifBom(d){ return Uinv((euBom(d) - (1 - P.p)*U(YMAX))/P.p); }    // onde a indiferença do bom sai pelo topo
+  function xTopoReta(t){ return Math.max(0, P.R - YMAX*(1 - t)/t); }
+  function amostra(g, x, y, at){                                                      // traço de legenda
+    var a = {x1:x, x2:x + 28, y1:y - 5, y2:y - 5, "stroke-width":3}; for (var k in at) a[k] = at[k]; return el("line", a, g); }
+
+  var svg = document.getElementById("a13lp-svg"), cap = document.getElementById("a13lp-cap");
+  var inQ = document.getElementById("a13lp-q"), lbQ = document.getElementById("a13lp-lbl-q");
+  var G = {};
+  (function init(){
+    // --- painel esquerdo: plano de pagamentos contingentes (como no gráfico estático da aula)
+    tx(svg, 20, 20, "pagamentos contingentes do empreendedor (U = ln; p = " + fmt(P.p, 1) + "; R = " + fmt(P.R, 0) + ")", {"font-size":16, fill:C.cinza});
+    var lg = el("g", {"font-size":13}, svg);
+    amostra(lg, 20, 46, {stroke:C.laranja});  tx(lg, 54, 46, "lucro zero: ruim", {"font-size":13, fill:C.cinza});
+    amostra(lg, 176, 46, {stroke:C.azul});    tx(lg, 210, 46, "lucro zero: bom", {"font-size":13, fill:C.cinza});
+    amostra(lg, 330, 46, {stroke:C.laranja, "stroke-width":1.6, "stroke-dasharray":"2 3"}); tx(lg, 364, 46, ReF + " = qR: teto para o caixa", {"font-size":13, fill:C.cinza});
+    amostra(lg, 20, 68, {stroke:C.cinza, "stroke-width":2.2, "stroke-dasharray":"7 4"}); tx(lg, 54, 68, "indiferença do ruim por B", {"font-size":13, fill:C.cinza});
+    amostra(lg, 230, 68, {stroke:C.azul, "stroke-width":2, "stroke-dasharray":"10 4 2 4"}); tx(lg, 264, 68, "indiferença do bom por S", {"font-size":13, fill:C.cinza});
+    G.lgF = el("g", {}, lg);
+    el("circle", {cx:452, cy:63, r:5, fill:C.branco, stroke:C.laranja, "stroke-width":2}, G.lgF);
+    el("circle", {cx:468, cy:63, r:5, fill:C.branco, stroke:C.azul, "stroke-width":2}, G.lgF);
+    tx(G.lgF, 480, 68, "q = " + fmt(P.q) + " (aula)", {"font-size":13, fill:C.cinza});
+    for (var v = 0; v <= 10; v += 2){
+      el("line", {x1:lx(v), x2:lx(v), y1:LY1, y2:LY1 + 6, stroke:C.cinza}, svg);
+      tx(svg, lx(v), LY1 + 24, fmt(v, 0), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    }
+    for (var w = 0; w <= 8; w += 2){
+      el("line", {x1:LX0 - 6, x2:LX0, y1:ly(w), y2:ly(w), stroke:C.cinza}, svg);
+      tx(svg, LX0 - 10, ly(w) + 5, fmt(w, 0), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    }
+    el("line", {x1:LX0, x2:LX1, y1:LY1, y2:LY1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    el("line", {x1:LX0, x2:LX0, y1:LY0, y2:LY1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    tx(svg, (LX0 + LX1)/2, LY1 + 50, ReS + ": retido no sucesso", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    tx(svg, 0, 0, ReF + ": retido no fracasso", {"text-anchor":"middle", "font-size":15, fill:C.cinza, transform:"translate(" + (LX0 - 44) + "," + ((LY0 + LY1)/2) + ") rotate(-90)"});
+    // diagonal de seguro pleno
+    el("line", {x1:lx(0), y1:ly(0), x2:lx(YMAX), y2:ly(YMAX), stroke:C.cinzaClaro, "stroke-width":1.2, "stroke-dasharray":"2 4"}, svg);
+    // fantasma: caso da aula (q = P.q)
+    G.fant = el("g", {opacity:0}, svg);
+    G.fRuim = el("path", {fill:"none", stroke:C.laranja, "stroke-width":2, opacity:.35}, G.fant);
+    G.fIndR = el("path", {fill:"none", stroke:C.cinza, "stroke-width":1.6, "stroke-dasharray":"6 4", opacity:.35}, G.fant);
+    G.fB = el("circle", {r:6, fill:C.branco, stroke:C.laranja, "stroke-width":2}, G.fant);
+    G.fS = el("circle", {r:6, fill:C.branco, stroke:C.azul, "stroke-width":2}, G.fant);
+    // curvas do caso atual
+    G.teto = el("line", {stroke:C.laranja, "stroke-width":1.6, "stroke-dasharray":"2 3"}, svg);
+    G.ruim = el("path", {fill:"none", stroke:C.laranja, "stroke-width":3}, svg);
+    el("path", {d:cam(retaBom, xTopoReta(P.p), P.R, lx, ly, 2), fill:"none", stroke:C.azul, "stroke-width":3}, svg);
+    G.indB = el("path", {fill:"none", stroke:C.azul, "stroke-width":2, "stroke-dasharray":"10 4 2 4"}, svg);
+    G.indR = el("path", {fill:"none", stroke:C.cinza, "stroke-width":2.2, "stroke-dasharray":"7 4"}, svg);
+    // pontos
+    el("circle", {cx:lx(P.p*P.R), cy:ly(P.p*P.R), r:7, fill:C.branco, stroke:C.azul, "stroke-width":2.2}, svg);
+    tx(svg, lx(P.p*P.R) + 12, ly(P.p*P.R) - 6, "G", comHalo({"font-size":18, "font-weight":700}));
+    el("circle", {cx:lx(P.R), cy:ly(0), r:7, fill:C.verde, stroke:C.branco, "stroke-width":2}, svg);
+    tx(svg, lx(P.R) + 10, ly(0) - 10, "R", comHalo({"font-size":18, "font-weight":700}));
+    G.B = el("circle", {r:7, fill:C.laranja, stroke:C.branco, "stroke-width":2}, svg);
+    G.BT = tx(svg, 0, 0, "B", comHalo({"font-size":18, "font-weight":700, "text-anchor":"end"}));
+    G.S = el("circle", {r:8, fill:C.azul, stroke:C.branco, "stroke-width":2}, svg);
+    G.ST = tx(svg, 0, 0, "S", comHalo({"font-size":18, "font-weight":700}));
+
+    // --- painel direito: Δ*(q)
+    tx(svg, RX0 - 64, 20, "spread do contrato separador, Δ* = " + ReS + " − " + ReF, {"font-size":16, fill:C.cinza});
+    var lr = el("g", {}, svg);
+    amostra(lr, RX0 - 64, 46, {stroke:C.azul, "stroke-width":3.5}); tx(lr, RX0 - 30, 46, "Δ*(q) com U = ln", {"font-size":13, fill:C.cinza});
+    amostra(lr, RX0 + 110, 46, {stroke:C.cinza, "stroke-width":1.6, "stroke-dasharray":"2 4"}); tx(lr, RX0 + 144, 46, "cota R(1 − q/p), qualquer U côncava", {"font-size":13, fill:C.cinza});
+    tx(lr, RX0 - 64, 68, "eixo à direita: fração retida s* = Δ*/R", {"font-size":13, fill:C.cinzaClaro});
+    [0, 2.5, 5, 7.5, 10].forEach(function(d){
+      el("line", {x1:RX0, x2:RX1, y1:ry(d), y2:ry(d), stroke:d === 0 ? C.cinza : C.grade, "stroke-width":d === 0 ? 1.3 : 1}, svg);
+      tx(svg, RX0 - 8, ry(d) + 5, fmt(d, d % 1 ? 1 : 0), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+      tx(svg, RX1 + 8, ry(d) + 5, fmt(100*d/P.R, 0) + "%", {"text-anchor":"start", "font-size":13, fill:C.cinzaClaro});
+    });
+    for (var k = 0; k <= 7; k++){
+      var q = k/10;
+      el("line", {x1:rx(q), x2:rx(q), y1:RY1, y2:RY1 + 6, stroke:C.cinza}, svg);
+      tx(svg, rx(q), RY1 + 24, fmt(q, 1), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    }
+    tx(svg, (RX0 + RX1)/2, RY1 + 50, "q: prob. de sucesso do tipo ruim (q → p: tipos iguais)", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    el("path", {d:cam(function(q){ return P.R*(1 - q/P.p); }, 0, QMAX, rx, ry, 2), fill:"none", stroke:C.cinza, "stroke-width":1.6, "stroke-dasharray":"2 4"}, svg);
+    el("path", {d:cam(dEstrela, 0.002, QMAX - 1e-4, rx, ry, 140), fill:"none", stroke:C.azul, "stroke-width":3.5}, svg);
+    G.rFant = el("g", {opacity:0}, svg);
+    G.rFd = el("circle", {r:6, fill:C.branco, stroke:C.azul, "stroke-width":2}, G.rFant);
+    G.rFt = tx(G.rFant, 0, 0, "", comHalo({"font-size":13, fill:C.cinza, "text-anchor":"start"}));
+    G.rMk = el("line", {y1:RY0, y2:RY1, stroke:C.laranja, "stroke-width":1.5, opacity:.6}, svg);
+    G.rD = el("circle", {r:8, fill:C.azul, stroke:C.branco, "stroke-width":2}, svg);
+    G.rT = tx(svg, 0, 0, "", comHalo({"font-size":17, "font-weight":700, fill:C.tinta}));
+  })();
+
+  function desenha(q, qFant){
+    var d = dEstrela(q), c = contrato(d), qR = q*P.R;
+    // painel esquerdo
+    set(G.ruim, {d:cam(function(x){ return retaRuim(x, q); }, xTopoReta(q), P.R, lx, ly, 2)});
+    set(G.indR, {d:cam(function(x){ return indifRuim(x, q); }, qR, XMAX, lx, ly)});
+    set(G.indB, {d:cam(function(x){ return indifBom(x, d); }, xTopoIndifBom(d), XMAX, lx, ly)});
+    // teto do caixa: R_e^F < qR (S fica abaixo desta linha para qualquer U côncava)
+    set(G.teto, {x1:lx(qR), x2:lx(P.R - (1 - P.p)*qR/P.p), y1:ly(qR), y2:ly(qR)});
+    set(G.B, {cx:lx(qR), cy:ly(qR)}); set(G.BT, {x:lx(qR) - 10, y:ly(qR) - 10});
+    set(G.S, {cx:lx(c.S), cy:ly(c.F)}); set(G.ST, {x:lx(c.S) + 12, y:ly(c.F) + 22});
+    // fantasma
+    var temF = qFant !== undefined && Math.abs(qFant - q) > 1e-6;
+    [G.fant, G.rFant, G.lgF].forEach(function(e){ set(e, {opacity: temF ? 1 : 0}); });
+    if (temF){
+      var dF = dEstrela(qFant), cF = contrato(dF);
+      set(G.fRuim, {d:cam(function(x){ return retaRuim(x, qFant); }, xTopoReta(qFant), P.R, lx, ly, 2)});
+      set(G.fIndR, {d:cam(function(x){ return indifRuim(x, qFant); }, qFant*P.R, XMAX, lx, ly)});
+      set(G.fB, {cx:lx(qFant*P.R), cy:ly(qFant*P.R)});
+      set(G.fS, {cx:lx(cF.S), cy:ly(cF.F)});
+      set(G.rFd, {cx:rx(qFant), cy:ry(dF)});
+      set(G.rFt, {x:rx(qFant) - 10, y:ry(dF) + 24, "text-anchor":"end"}); G.rFt.textContent = "q = " + fmt(qFant) + ": Δ* = " + fmt(dF);
+    }
+    // painel direito
+    set(G.rMk, {x1:rx(q), x2:rx(q)});
+    set(G.rD, {cx:rx(q), cy:ry(d)});
+    var dir = q > .45;
+    set(G.rT, {x:rx(q) + (dir ? -14 : 14), y:ry(d) - 14, "text-anchor": dir ? "end" : "start"});
+    G.rT.textContent = "Δ* = " + fmt(d) + " (s* = " + pct(d/P.R) + ")";
+  }
+
+  function linhaEfeitos(q, d){
+    return '<p class="a13lp-efeitos">Se q cai, para o ruim: imitar S piora ' + fmt(efeitoImitar(d)) + ' por unidade de q, revelar-se piora ' +
+      fmt(efeitoRevelar(q)) + '. Revelar piora mais, então imitar fica mais tentador e S precisa se afastar do seguro pleno.</p>';
+  }
+  function legenda(q, qRef){
+    var d = dEstrela(q), c = contrato(d), t;
+    t = "<p>q = " + fmt(q) + ": S = (" + fmt(c.S) + "; " + fmt(c.F) + "), spread Δ* = " + fmt(d) + " (s* = " + pct(d/P.R) + "); " +
+        hReF + " = " + fmt(c.F) + " &lt; qR = " + fmt(q*P.R) + ". Custo de se separar para o bom: pR − EC = " + fmt(custoSinal(d)) + ".";
+    if (qRef !== undefined && Math.abs(qRef - q) > 1e-6){
+      var dR = dEstrela(qRef);
+      t += " (Com q = " + fmt(qRef) + ": Δ* = " + fmt(dR) + ", custo " + fmt(custoSinal(dR)) + ".)";
+    }
+    return t + "</p>" + linhaEfeitos(q, d);
+  }
+  function legendaImpressao(){
+    var q = P.qImp, d = dEstrela(q), dR = dEstrela(P.q);
+    return "<p>Quando q cai de " + fmt(P.q) + " para " + fmt(q) + ", S se afasta do seguro pleno: Δ* sobe de " + fmt(dR) + " para " + fmt(d) +
+      " (s* de " + pct(dR/P.R) + " para " + pct(d/P.R) + "); " + hReF + " cai de " + fmt(contrato(dR).F) + " para " + fmt(contrato(d).F) +
+      " (sempre abaixo de qR) e o custo de se separar sobe de " + fmt(custoSinal(dR)) + " para " + fmt(custoSinal(d)) + ".</p>" + linhaEfeitos(q, d);
+  }
+
+  // --- estado e controles
+  function livre(){ var q = +inQ.value; lbQ.textContent = fmt(q); desenha(q, P.q); cap.innerHTML = legenda(q, P.q); }
+  inQ.addEventListener("input", livre);
+  inQ.addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  document.getElementById("a13lp-reset").addEventListener("click", function(){ inQ.value = P.q; livre(); });
+
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (e) {}
+    return false;
+  }
+  function modoImpressao(){
+    root.classList.add("impressao");
+    document.getElementById("a13lp-estatico").innerHTML = "q = " + fmt(P.qImp) + " (círculos vazios: q = " + fmt(P.q) + ", o caso do gráfico anterior)";
+    desenha(P.qImp, P.q); cap.innerHTML = legendaImpressao();
+  }
+  function modoSala(){ root.classList.remove("impressao"); livre(); }
+  function sincroniza(){ if (emImpressao()) modoImpressao(); else modoSala(); }
+  window.addEventListener("beforeprint", modoImpressao);
+  window.addEventListener("afterprint", sincroniza);
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+    sincroniza();
+  });
+  // gancho para testes headless; inofensivo no deck
+  root.a13lp = {dEstrela:dEstrela, contrato:contrato, ganhoImitar:ganhoImitar, custoSinal:custoSinal};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-9))) f.push(n + ": " + a + " != " + b); }
+    // referências calculadas fora do navegador (Python, bisseção independente em s = Δ/R)
+    var REF = {0.05:0.938931, 0.1:0.888974, 0.2:0.806046, 0.3:0.734934, 0.4:0.667251, 0.5:0.593215, 0.6:0.488572, 0.65:0.394644};
+    for (var q in REF) ap("s*(" + q + ")", dEstrela(+q)/P.R, REF[q], 2e-6);
+    var c4 = contrato(dEstrela(.4));
+    ap("S do gráfico estático, R_e^S", c4.S, 9.0018, 1e-3); ap("S do gráfico estático, R_e^F", c4.F, 2.3292, 1e-3);
+    var ant = P.R + 1;
+    for (var i = 1; i < 69; i++){
+      var qq = i/100, d = dEstrela(qq), cc = contrato(d);
+      ap("IC ativa, q=" + qq, ganhoImitar(d, qq), 0, 1e-9);
+      ap("lucro zero com o bom, q=" + qq, P.p*(P.R - cc.S) - (1 - P.p)*cc.F, 0, 1e-9);
+      ap("spread, q=" + qq, cc.S - cc.F, d, 1e-9);
+      if (!(d < ant)) f.push("Δ* deveria cair com q em q=" + qq);
+      if (!(d > P.R*(1 - qq/P.p))) f.push("Δ* deveria exceder R(1 − q/p) em q=" + qq);
+      if (!(cc.F < qq*P.R)) f.push("R_e^F deveria ser < qR em q=" + qq);
+      if (!(efeitoRevelar(qq) > efeitoImitar(d))) f.push("efeito revelar deveria dominar em q=" + qq);
+      ant = d;
+    }
+    if (!(custoSinal(dEstrela(.2)) > custoSinal(dEstrela(.4)))) f.push("custo da sinalização deveria subir quando q cai");
+    if (f.length) console.error("Autoteste (Aula 13, Leland-Pyle com q) FALHOU:\n" + f.join("\n"));
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+  })();
+
+  livre();
+})();
+</script>
 </section>
 <section id="o-que-aprendemos-hoje" class="slide level2 smaller">
 <h2>O que aprendemos hoje</h2>
