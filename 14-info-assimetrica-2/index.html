@@ -164,7 +164,7 @@ Felipe Iachan
 <p>Vimos que informação assimétrica nos mercados de crédito pode gerar:</p>
 <ul>
 <li><span class="secundario">Congelamento</span> ou ausência ineficiente de crédito</li>
-<li><span class="secundario">Desconto</span> na obtenção de financiamento</li>
+<li><span class="secundario">Desconto</span> na obtenção de financiamento (venda de títulos, ativos)</li>
 <li><span class="secundario">Sobreinvestimento</span> em projetos de VPL &lt; 0</li>
 <li>Preferência por instrumentos menos sujeitos à seleção adversa</li>
 <li>Distorções na divisão de risco e falta de diversificação</li>
@@ -232,7 +232,7 @@ flowchart LR
 <section id="payoffs-de-dívida-e-patrimônio" class="slide level2 smaller">
 <h2>Payoffs de dívida e patrimônio</h2>
 <!-- ADICIONADO: figura e analogia com put/call não estão no .lyx-fonte (que só traz as fórmulas de CF^D e CF^E); ilustram essas mesmas fórmulas. -->
-<div id="05da7c98" class="cell" data-execution_count="2">
+<div id="54d626df" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -256,9 +256,9 @@ flowchart LR
 </ul>
 </section>
 <section id="e-se-f-17-mi" class="slide level2 center">
-<h2>E se <span class="math inline">\(F = 1,7\)</span> mi?</h2>
+<h2>E se <span class="math inline">\(F = 1{,}7\)</span> mi?</h2>
 <div class="r-fit-text">
-<p>Qual a decisão de investimento? Quais são <span class="math inline">\(V\)</span>, <span class="math inline">\(V_E\)</span> e <span class="math inline">\(V_D\)</span>?</p>
+<p>Qual a decisão de investimento?<br>Quais são <span class="math inline">\(V\)</span>, <span class="math inline">\(V_E\)</span> e <span class="math inline">\(V_D\)</span>?<br>Há solução?</p>
 </div>
 <!-- PLANNING: pergunta em aberto no material-fonte — pedir a solução à turma antes de revelar o próximo slide. -->
 </section>
@@ -266,7 +266,8 @@ flowchart LR
 <h2>Quem fica com o VPL?</h2>
 <!-- ADICIONADO: não está na fonte. Diagrama em passos do exemplo do slide anterior (I, X, prob. e F do CSV
      dados/14-info-assimetrica-2/debt_overhang_exemplo.csv). O último passo (face renegociada para 0,8) é
-     extensão ilustrativa; o .lyx não trata renegociação. No PDF (decktape, fragments:false), ?print-pdf e
+     extensão ilustrativa: o .lyx só diz que a ineficiência depende de não se poder renegociar e pergunta
+     "Solução?", sem conta. No PDF (decktape, fragments:false), ?print-pdf e
      Ctrl+P, o diagrama vira uma tira de quatro quadros com as perguntas abaixo. -->
 <!-- PLANNING: um clique por passo. Pergunte ANTES de cada clique:
      1→2 "Com dívida antiga, quem desembolsa I? Quem recebe primeiro o que o projeto paga?"
@@ -534,17 +535,18 @@ flowchart LR
 <!-- ADICIONADO: não está na fonte (o .lyx só formula a pergunta). Ver dados/14-info-assimetrica-2/SNAPSHOT_INFO.txt. -->
 <p>Se investir: <span class="math inline">\(CF^F=2\)</span>, e o acionista fica com <span class="math inline">\(\max(0,2-1{,}7)-1=\)</span> -0,70</p>
 <p>Se não investir: acionista fica com 0,00</p>
-<div id="25a3cb0b" class="cell" data-execution_count="4">
+<div id="7cedaee8" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
-<p><span class="math display">\[-0,70 &lt; 0,00 \implies \text{acionista}\ \textbf{não investe}\]</span></p>
+<p><span class="math display">\[-0{,}70 &lt; 0{,}00 \implies \text{acionista}\ \textbf{não investe}\]</span></p>
 </div>
 </div>
-<p><span class="destaque">O projeto tem VPL &gt; 0 (2 − 1 = 1), mas quase todo o ganho iria para a dívida antiga — o acionista prefere abrir mão dele.</span></p>
+<!-- CORREÇÃO (revisão 28/10/2026): a versão anterior deste deck dizia "quase todo o ganho iria para a dívida antiga"; o credor levaria 1,7, mais que o VPL de 1. -->
+<p><span class="destaque">O projeto tem VPL &gt; 0 (2 − 1 = 1), mas a dívida antiga levaria 1,7 — mais que todo o ganho. O acionista prefere abrir mão dele.</span></p>
 </section>
 <section id="debt-overhang-quanto-valor-se-perde" class="slide level2 smaller">
 <h2>Debt overhang: quanto valor se perde?</h2>
-<!-- ADICIONADO: comparação numérica entre os dois cenários; não está na fonte. -->
-<div id="08bb33dc" class="cell" data-execution_count="5">
+<!-- ADICIONADO: comparação numérica investir vs. não investir com F = 1,7 (valores em t=0); não está na fonte. -->
+<div id="681671cc" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -554,9 +556,11 @@ flowchart LR
 </div>
 </div>
 <p>Regra geral: o acionista só investe se <span class="math inline">\(F\leq F^{*}=X-I=\)</span> 1,0. Com <span class="math inline">\(F=1{,}7&gt;1\)</span>, o investimento nunca ocorre.</p>
+<p><span class="fonte">Valores antes de a oportunidade surgir (prob. ½); <span class="math inline">\(V_E\)</span> é líquido do aporte <span class="math inline">\(I\)</span> do acionista.</span></p>
 </section>
 <section id="risk-shifting" class="slide level2 smaller">
 <h2>Risk Shifting</h2>
+<!-- CORREÇÃO: o .lyx diz "em que V é o valor dos ativos da firma no vencimento", mas as fórmulas usam CF^F; a definição correta de CF^F já está no slide "Pagamentos: dívida arriscada". -->
 <ul>
 <li>Dívida arriscada gera o mesmo padrão de pagamentos: <span class="math inline">\(CF^D=\min\{CF^F,F\}\)</span>, <span class="math inline">\(CF^E=\max\{0,CF^F-F\}\)</span></li>
 <li>Pagamento aos acionistas é <span class="destaque">convexo</span> → gera propensão ao risco</li>
@@ -568,7 +572,7 @@ flowchart LR
 <h2>Primeiro: mais risco, mesma média</h2>
 <!-- ADICIONADO: exemplo de média fixa, para isolar convexidade antes do exemplo-fonte com destruição de valor. R$ milhões, agentes neutros ao risco, sem desconto; dívida predeterminada F=50. -->
 <p>Com dívida <span class="math inline">\(F=50\)</span>, compare <strong>70 com certeza</strong> a <strong>0 ou 140</strong>, cada um com probabilidade <span class="math inline">\(1/2\)</span>.</p>
-<div id="6b9c9486" class="cell" data-execution_count="6">
+<div id="b36e20a4" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <table class="caption-top">
 <thead>
@@ -602,20 +606,275 @@ flowchart LR
 </ul>
 <p><span class="destaque">A convexidade pode premiar risco mesmo sem aumentar o valor do projeto.</span></p>
 </section>
-<section id="por-que-a-incerteza-valoriza-uma-opção" class="slide level2 smaller">
-<h2>Por que a incerteza valoriza uma opção?</h2>
-<!-- RECUPERADO: manuscrito Valor da Opção e Incerteza uma Demonstração Fácil_Outubro 2014.pdf. Redesenho normal/limiar e payoff; a derivação corrigida está no apêndice. O gráfico é ilustrativo: mu=70, sigma=20, K=90. A comparação de dispersões mantém mu, K, R_f e a distribuição de epsilon fixos. -->
-<p><span class="math inline">\(S=\mu+\sigma\epsilon\)</span>, <span class="math inline">\(\mathbb E[\epsilon]=0\)</span>: aumentar <span class="math inline">\(\sigma\)</span> mantém a <strong>média <span class="math inline">\(\mu\)</span> fixa</strong>.</p>
-<div id="15bc6ae3" class="cell" data-execution_count="7">
+<section id="uma-opção-de-compra-em-um-minuto" class="slide level2 smaller">
+<h2>Uma opção de compra, em um minuto</h2>
+<!-- ADICIONADO (28/10/2026): os alunos não viram opções. Definição mínima para ler o patrimônio como uma call (K = F)
+     e preparar o artefato seguinte. Substitui o antigo slide "Por que a incerteza valoriza uma opção?"; a figura da
+     densidade de epsilon com o corte a foi para o Apêndice A, junto da demonstração do manuscrito de 2014. -->
+<div class="columns">
+<div class="column" style="width:52%;">
+<ul>
+<li>Direito, <span class="destaque">não obrigação</span>, de comprar por <span class="math inline">\(K\)</span></li>
+<li>No vencimento, recebe <span class="math inline">\(\max(S-K,0)\)</span></li>
+<li><span class="secundario">Fora do dinheiro</span>: em média, <span class="math inline">\(S\)</span> fica abaixo de <span class="math inline">\(K\)</span></li>
+<li><span class="secundario">Dentro do dinheiro</span>: em média, <span class="math inline">\(S\)</span> fica acima de <span class="math inline">\(K\)</span></li>
+<li>O patrimônio é uma call sobre a firma, com <span class="math inline">\(K=F\)</span></li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div id="4aa2f6c2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><span class="fonte">Choque com distribuição fixa sob a medida de apreçamento; agentes neutros ao risco e desconto fixo. Maior dispersão não reduz o valor da call. Para o patrimônio, <span class="math inline">\(K=F\)</span>.</span></p>
+</div></div>
+<p><span class="fonte">No slide anterior, <span class="math inline">\(\mu=70&gt;F=50\)</span>: o patrimônio era uma call dentro do dinheiro.</span></p>
+</section>
+<section id="opcao-volatilidade" class="slide level2 smaller">
+<h2>Mais risco, mesma média: e a opção?</h2>
+<!-- ADICIONADO (28/10/2026): artefato a14vol. Não está na fonte. S = mu + sigma*eps com eps normal padrão, mu = 70 fixa
+     (a média do slide "Primeiro: mais risco, mesma média"), sem desconto. Duas calls: K = 90 (fora do dinheiro) e
+     K = F = 50 (dentro: o patrimônio do exemplo). Valor = (mu − K)Phi(d) + sigma*phi(d), d = (mu − K)/sigma.
+     Dois fatos: (1) mais risco leva massa para a cauda direita, e a call fora do dinheiro passa a pagar;
+     (2) dentro do dinheiro, a chance de pagar CAI com sigma, mas o valor SOBE, pela perda evitada max(K − S, 0).
+     Por simetria em torno de mu, a perda evitada com K = 50 é igual ao valor da call com K = 90.
+     No PDF (decktape, fragments:false), ?print-pdf e Ctrl+P, vira um quadro estático em sigma = 30 com sigma = 8 como fantasma. -->
+<!-- PLANNING: antes de mover o slider, perguntar: "se o risco sobe e a média fica igual, a chance de a opção dentro do
+     dinheiro pagar sobe ou cai? E o valor dela?". Levar sigma de 8 a 20: fora, paga em 15,9% e vale 1,67; dentro,
+     paga em 84,1% (cai) e vale 21,67 = 20 + 1,67. Depois mostrar o slide seguinte (decomposição). -->
+<script>window.A14VOL = {"mu": 70.0, "Kfora": 90.0, "Kdentro": 50.0, "s0": 8, "sImp": 30, "sMax": 36};</script>
+<style>
+.a14vol{ --v-azul:#6a9bcc; --v-laranja:#d97757; --v-tinta:#141413; --v-cinza:#5f5e5a; --v-linha:#e8e6dc; --v-papel:#faf9f5;
+  width:100%; max-width:1200px; margin:0 auto; color:var(--v-tinta); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3; }
+.a14vol *{box-sizing:border-box;}
+.a14vol svg{display:block; width:100%; max-width:1080px; height:auto; margin:0 auto;}
+.a14vol-controls{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:6px 20px; padding:6px 14px;
+  border:1px solid var(--v-linha); border-radius:10px; background:var(--v-papel);}
+.a14vol-field{min-width:0;}
+.a14vol-field label{display:flex; justify-content:space-between; gap:10px; color:var(--v-cinza); font-size:13px; font-weight:600;}
+.a14vol-field output{color:var(--v-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a14vol-field input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--v-laranja); cursor:pointer;}
+.a14vol-reset{font:inherit; font-size:13px; font-weight:600; color:var(--v-cinza); background:#fff;
+  border:1px solid var(--v-linha); border-radius:8px; padding:4px 10px; cursor:pointer;}
+.a14vol-estatico{display:none; padding:6px 14px; font-size:15px; color:var(--v-cinza);}
+.a14vol.impressao .a14vol-controls{display:none;}
+.a14vol.impressao .a14vol-estatico{display:block;}
+.a14vol-cap{font-size:17px; line-height:1.35; min-height:2.7em; margin-top:2px;}
+.reveal .a14vol-cap p{font-family:inherit; margin:0;}
+</style>
+
+<div class="a14vol" id="a14vol-root" data-artefato="a14-opcao-volatilidade" data-pdf-check="a chance de pagar cai, mas o valor sobe">
+  <div class="a14vol-controls">
+    <div class="a14vol-field">
+      <label for="a14vol-s"><span>σ: risco do ativo (a média μ fica fixa)</span><output id="a14vol-lbl">8</output></label>
+      <input type="range" id="a14vol-s" min="8" max="36" step="1" value="8">
+    </div>
+    <button type="button" class="a14vol-reset" id="a14vol-reset">σ = 8</button>
+  </div>
+  <div class="a14vol-estatico" id="a14vol-estatico"></div>
+  <svg id="a14vol-svg" viewbox="0 0 1200 500" role="img" aria-label="Distribuição do valor do ativo com média fixa e risco sigma, para uma call fora do dinheiro (K = 90) e uma dentro do dinheiro (K = 50), e o valor das duas calls em função de sigma"></svg>
+  <div class="a14vol-cap" id="a14vol-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById("a14vol-root");
+  if (!root) return;
+  var P = window.A14VOL;
+  if (!P){ console.error("Aula 14 (opção e volatilidade): parâmetros ausentes; usando os do deck de 2026."); P = {mu:70, Kfora:90, Kdentro:50, s0:8, sImp:30, sMax:36}; }
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {azul:"#6a9bcc", laranja:"#d97757", tinta:"#141413", cinza:"#5f5e5a", cinzaClaro:"#b0aea5", branco:"#ffffff", fundo:"#faf9f5", grade:"#ece9e0"};
+  function fmt(x, casas){ casas = casas === undefined ? 2 : casas; if (Math.abs(x) < 5e-9) x = 0;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits:casas, maximumFractionDigits:casas}).replace("-", "−"); }
+  function pct(x){ return fmt(100*x, 1) + "%"; }
+  function el(tag, at, pai){ var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, html, at){ var a = {x:x, y:y, fill:C.tinta, "font-size":18}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.innerHTML = html; return e; }
+  function set(e, at){ for (var k in at) e.setAttribute(k, at[k]); }
+  var HALO = {stroke:C.fundo, "stroke-width":4, "paint-order":"stroke"};
+  function comHalo(at){ for (var k in HALO) at[k] = HALO[k]; return at; }
+
+  // MODELO-INICIO --- S = mu + sigma*eps, eps ~ N(0,1), sem desconto (R_f = 1).
+  function phi(x){ return Math.exp(-x*x/2)/Math.sqrt(2*Math.PI); }
+  function Phi(x){                                   // Abramowitz-Stegun 7.1.26 (erro < 1,5e-7)
+    var z = Math.abs(x)/Math.SQRT2, t = 1/(1 + 0.3275911*z);
+    var e = 1 - (((((1.061405429*t - 1.453152027)*t) + 1.421413741)*t - 0.284496736)*t + 0.254829592)*t*Math.exp(-z*z);
+    return x >= 0 ? .5*(1 + e) : .5*(1 - e);
+  }
+  function dens(S, s){ return phi((S - P.mu)/s)/s; }
+  function call(K, s){ if (s < 1e-9) return Math.max(P.mu - K, 0); var d = (P.mu - K)/s; return (P.mu - K)*Phi(d) + s*phi(d); }
+  function probPaga(K, s){ return Phi((P.mu - K)/s); }                 // P(S > K)
+  function perdaEvitada(K, s){ return call(K, s) - (P.mu - K); }       // E[max(K − S, 0)]
+  // MODELO-FIM
+
+  // --- geometria: dois painéis de densidade (S em [0, 160]) e o gráfico de valor × sigma embaixo
+  var SMAX = 160, YB = 228, YT = 76, HMAX = YB - YT, DPICO = dens(P.mu, P.s0);
+  var PAINEIS = [
+    {K:P.Kfora,   cor:C.azul,    x0:80,  x1:560,  tit:"Fora do dinheiro: K = " + fmt(P.Kfora, 0) + " > μ"},
+    {K:P.Kdentro, cor:C.laranja, x0:660, x1:1140, tit:"Dentro do dinheiro: K = " + fmt(P.Kdentro, 0) + " < μ (o patrimônio, K = F)"}
+  ];
+  var VX0 = 150, VX1 = 1100, VY0 = 356, VY1 = 456, VMAX = 30;
+  function vx(s){ return VX0 + (VX1 - VX0)*s/P.sMax; }
+  function vy(v){ return VY1 - (VY1 - VY0)*v/VMAX; }
+
+  var svg = document.getElementById("a14vol-svg"), cap = document.getElementById("a14vol-cap");
+  var inS = document.getElementById("a14vol-s"), lbS = document.getElementById("a14vol-lbl");
+
+  (function init(){
+    PAINEIS.forEach(function(p){
+      p.sx = function(S){ return p.x0 + (p.x1 - p.x0)*S/SMAX; };
+      tx(svg, p.x0, 26, p.tit, {"font-size":18, "font-weight":700, fill:p.cor});
+      var clipId = "a14vol-clip-" + p.x0, cp = el("clipPath", {id:clipId}, svg);
+      el("rect", {x:p.x0, y:YT - 26, width:p.x1 - p.x0, height:YB - YT + 26}, cp);
+      p.g = el("g", {"clip-path":"url(#" + clipId + ")"}, svg);
+      p.area = el("path", {fill:p.cor, opacity:.32}, p.g);
+      p.fant = el("path", {fill:"none", stroke:C.cinza, "stroke-width":1.6, "stroke-dasharray":"5 4", opacity:.7}, p.g);
+      p.curva = el("path", {fill:"none", stroke:p.cor, "stroke-width":3}, p.g);
+      el("line", {x1:p.x0, x2:p.x1, y1:YB, y2:YB, stroke:C.cinza, "stroke-width":1.3}, svg);
+      [0, 50, 100, 150].forEach(function(v){
+        el("line", {x1:p.sx(v), x2:p.sx(v), y1:YB, y2:YB + 6, stroke:C.cinza}, svg);
+        tx(svg, p.sx(v), YB + 24, fmt(v, 0), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+      });
+      tx(svg, p.x1 + 8, YB + 5, "S", {"font-size":15, fill:C.cinza, "font-style":"italic"});
+      var kDir = p.K > P.mu;
+      el("line", {x1:p.sx(P.mu), x2:p.sx(P.mu), y1:YT - 14, y2:YB, stroke:C.cinzaClaro, "stroke-width":1.6, "stroke-dasharray":"2 4"}, svg);
+      tx(svg, p.sx(P.mu) + (kDir ? -6 : 6), YT - 18, "μ = " + fmt(P.mu, 0), {"text-anchor":kDir ? "end" : "start", "font-size":15, fill:C.cinza});
+      el("line", {x1:p.sx(p.K), x2:p.sx(p.K), y1:YT - 14, y2:YB, stroke:p.cor, "stroke-width":2, "stroke-dasharray":"7 4"}, svg);
+      tx(svg, p.sx(p.K) + (kDir ? 6 : -6), YT - 18, "K = " + fmt(p.K, 0), {"text-anchor":kDir ? "start" : "end", "font-size":15, "font-weight":600, fill:p.cor});
+      tx(svg, p.sx(p.K) + (kDir ? 6 : -6), YT + 2, "paga →", {"text-anchor":kDir ? "start" : "end", "font-size":13, fill:p.cor});
+      p.st = tx(svg, p.x0, 278, "", {"font-size":17});
+      if (p.K < P.mu) p.dec = tx(svg, p.x0, 302, "", {"font-size":15, fill:C.cinza});
+    });
+    // painel inferior: valor das duas calls × sigma
+    tx(svg, VX0 - 70, 334, "valor da opção (sem desconto) conforme o risco σ", {"font-size":16, fill:C.cinza});
+    [0, 10, 20, 30].forEach(function(v){
+      el("line", {x1:VX0, x2:VX1, y1:vy(v), y2:vy(v), stroke:v === 0 ? C.cinza : C.grade, "stroke-width":v === 0 ? 1.3 : 1}, svg);
+      tx(svg, VX0 - 8, vy(v) + 5, fmt(v, 0), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    });
+    for (var s = 0; s <= P.sMax; s += 6){
+      el("line", {x1:vx(s), x2:vx(s), y1:VY1, y2:VY1 + 6, stroke:C.cinza}, svg);
+      tx(svg, vx(s), VY1 + 24, fmt(s, 0), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    }
+    tx(svg, VX1 + 12, VY1 + 5, "σ", {"font-size":16, fill:C.cinza, "font-style":"italic"});
+    el("line", {x1:vx(0), x2:vx(P.sMax), y1:vy(P.mu - P.Kdentro), y2:vy(P.mu - P.Kdentro), stroke:C.cinza, "stroke-width":1.4, "stroke-dasharray":"6 4"}, svg);
+    tx(svg, vx(0) + 8, vy(P.mu - P.Kdentro) - 8, "μ − K = " + fmt(P.mu - P.Kdentro, 0) + ": valor sem risco da opção dentro do dinheiro", comHalo({"font-size":13, fill:C.cinza}));
+    PAINEIS.forEach(function(p){
+      var d = "";
+      for (var i = 0; i <= 120; i++){ var s = 0.3 + (P.sMax - 0.3)*i/120; d += (i ? "L" : "M") + vx(s).toFixed(1) + " " + vy(call(p.K, s)).toFixed(1); }
+      el("path", {d:d, fill:"none", stroke:p.cor, "stroke-width":3}, svg);
+      var vFim = call(p.K, P.sMax);
+      tx(svg, VX1 + 12, vy(vFim) + (p.K > P.mu ? 12 : -4), p.K > P.mu ? "fora" : "dentro", {"font-size":14, "font-weight":600, fill:p.cor});
+      p.mf = el("circle", {r:6, fill:C.fundo, stroke:p.cor, "stroke-width":2}, svg);
+      p.mk = el("circle", {r:8, fill:p.cor, stroke:C.fundo, "stroke-width":2}, svg);
+    });
+  })();
+
+  function curvaPath(p, s, fechaEmK){
+    var d = "", ini = fechaEmK ? p.K : 0, n = 160;
+    for (var i = 0; i <= n; i++){
+      var S = ini + (SMAX - ini)*i/n, y = YB - HMAX*dens(S, s)/DPICO;
+      d += (i ? "L" : "M") + p.sx(S).toFixed(1) + " " + y.toFixed(1);
+    }
+    if (fechaEmK) d += "L" + p.sx(SMAX).toFixed(1) + " " + YB + "L" + p.sx(p.K).toFixed(1) + " " + YB + "Z";
+    return d;
+  }
+  function desenha(s, sFant){
+    var temF = sFant !== undefined && Math.abs(sFant - s) > 1e-9;
+    PAINEIS.forEach(function(p){
+      set(p.curva, {d:curvaPath(p, s, false)});
+      set(p.area, {d:curvaPath(p, s, true)});
+      set(p.fant, {d:temF ? curvaPath(p, sFant, false) : "", opacity:temF ? .7 : 0});
+      var v = call(p.K, s), pr = probPaga(p.K, s);
+      var t = "paga em <tspan font-weight=\"700\">" + pct(pr) + "</tspan> dos cenários · vale <tspan font-weight=\"700\" fill=\"" + p.cor + "\">" + fmt(v) + "</tspan>";
+      p.st.innerHTML = t;
+      if (p.dec) p.dec.innerHTML = "= μ − K + perda evitada = " + fmt(P.mu - p.K, 0) + " + " + fmt(perdaEvitada(p.K, s));
+      set(p.mk, {cx:vx(s), cy:vy(v)});
+      set(p.mf, {cx:vx(sFant || s), cy:vy(call(p.K, sFant || s)), opacity:temF ? 1 : 0});
+    });
+  }
+  function legenda(s){
+    var f = PAINEIS[0], d = PAINEIS[1];
+    if (s <= P.s0 + 1e-9)
+      return "<p>Com pouco risco, a opção fora do dinheiro quase nunca paga (vale " + fmt(call(f.K, s)) + "); a dentro do dinheiro quase sempre paga e vale μ − K = " +
+        fmt(call(d.K, s)) + ". Aumente σ: a média continua " + fmt(P.mu, 0) + ".</p>";
+    return "<p>σ = " + fmt(s, 0) + ". <b>Fora</b>: mais massa na cauda direita; paga em " + pct(probPaga(f.K, s)) + " dos cenários e vale " + fmt(call(f.K, s)) +
+      ". <b>Dentro</b>: paga em " + pct(probPaga(d.K, s)) + " (com σ = " + fmt(P.s0, 0) + ": " + pct(probPaga(d.K, P.s0)) + "), mas vale " + fmt(call(d.K, s)) +
+      ": os cenários ruins param em zero, os bons não.</p>";
+  }
+  function legendaImpressao(){
+    var f = PAINEIS[0], d = PAINEIS[1], s = P.sImp, s0 = P.s0;
+    return "<p>De σ = " + fmt(s0, 0) + " para σ = " + fmt(s, 0) + ", com a média fixa. Fora do dinheiro, a chance de pagar sobe de " + pct(probPaga(f.K, s0)) +
+      " para " + pct(probPaga(f.K, s)) + " e o valor, de " + fmt(call(f.K, s0)) + " para " + fmt(call(f.K, s)) + ". Dentro do dinheiro, a chance de pagar cai, mas o valor sobe: de " +
+      pct(probPaga(d.K, s0)) + " para " + pct(probPaga(d.K, s)) + ", e de " + fmt(call(d.K, s0)) + " para " + fmt(call(d.K, s)) + ".</p>";
+  }
+
+  // --- estado e controles
+  function livre(){ var s = +inS.value; lbS.textContent = fmt(s, 0); desenha(s, P.s0); cap.innerHTML = legenda(s); }
+  inS.addEventListener("input", livre);
+  inS.addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  document.getElementById("a14vol-reset").addEventListener("click", function(){ inS.value = P.s0; livre(); });
+
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (e) {}
+    return false;
+  }
+  function modoImpressao(){
+    root.classList.add("impressao");
+    document.getElementById("a14vol-estatico").innerHTML = "σ = " + fmt(P.sImp, 0) + " (tracejado e círculos vazios: σ = " + fmt(P.s0, 0) + ")";
+    desenha(P.sImp, P.s0); cap.innerHTML = legendaImpressao();
+  }
+  function modoSala(){ root.classList.remove("impressao"); livre(); }
+  function sincroniza(){ if (emImpressao()) modoImpressao(); else modoSala(); }
+  window.addEventListener("beforeprint", modoImpressao);
+  window.addEventListener("afterprint", sincroniza);
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+    sincroniza();
+  });
+  root.a14vol = {call:call, probPaga:probPaga, perdaEvitada:perdaEvitada};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-6))) f.push(n + ": " + a + " != " + b); }
+    // fórmula fechada × integral numérica
+    [[P.Kfora, 20], [P.Kdentro, 20], [P.Kdentro, 33]].forEach(function(c){
+      var K = c[0], s = c[1], n = 4000, a = P.mu - 9*s, b = P.mu + 9*s, h = (b - a)/n, I = 0;
+      for (var i = 0; i <= n; i++){ var S = a + h*i, w = (i === 0 || i === n) ? .5 : 1; I += w*Math.max(S - K, 0)*dens(S, s); }
+      ap("call K=" + K + " σ=" + s, call(K, s), I*h, 1e-4);
+    });
+    ap("simetria: perda evitada (K=50) = call (K=90)", perdaEvitada(P.mu - (P.Kfora - P.mu), 17), call(P.Kfora, 17), 1e-9);
+    ap("σ→0 dentro", call(P.Kdentro, 1e-6), P.mu - P.Kdentro, 1e-6);
+    for (var s = 1; s < P.sMax; s++){
+      if (call(P.Kfora, s + 1) < call(P.Kfora, s) || call(P.Kdentro, s + 1) < call(P.Kdentro, s)) f.push("valor não monótono em σ = " + s);
+      if (probPaga(P.Kdentro, s + 1) > probPaga(P.Kdentro, s)) f.push("prob. dentro deveria cair em σ = " + s);
+    }
+    if (f.length) console.error("Autoteste (Aula 14, opção e volatilidade) FALHOU:\n" + f.join("\n"));
+  })();
+
+  sincroniza();
+})();
+</script>
+</section>
+<section id="por-que-até-a-opção-dentro-do-dinheiro-ganha" class="slide level2 smaller">
+<h2>Por que até a opção dentro do dinheiro ganha?</h2>
+<!-- ADICIONADO (28/10/2026): intuição para o caso dentro do dinheiro, sem teoria de opções. Identidade
+     max(S − K, 0) = (S − K) + max(K − S, 0); a média do primeiro termo é mu − K, fixa quando só sigma muda. -->
+<p><span class="math display">\[\max(S-K,0)=\underbrace{(S-K)}_{\text{média }\mu-K\text{: não depende de }\sigma}+\underbrace{\max(K-S,0)}_{\text{perda evitada: cresce com }\sigma}\]</span></p>
+<ul>
+<li>Sem o corte em zero, o acionista receberia <span class="math inline">\(S-K\)</span>: o risco não mudaria a média</li>
+<li>A responsabilidade limitada <span class="destaque">corta as perdas</span> abaixo de <span class="math inline">\(K\)</span></li>
+<li>Mais risco, perdas maiores nos cenários ruins — e todas são cortadas</li>
+<li>Fora do dinheiro, pesa a cauda direita: cenários acima de <span class="math inline">\(K\)</span> passam a existir</li>
+</ul>
+<p><span class="fonte"><a href="#//apx-opcao">Demonstração formal: Apêndice A</a></span></p>
 </section>
 <section id="exemplo-dois-projetos" class="slide level2 smaller">
 <h2>Exemplo: dois projetos</h2>
@@ -640,8 +899,8 @@ flowchart LR
 <p>Payoff esperado do acionista em cada projeto, dado <span class="math inline">\(F\)</span>:</p>
 <p><span class="math display">\[V_E^{seguro}(F)=\max(0,70-F) \qquad V_E^{arriscado}(F)=\tfrac{1}{2}\max(0,100-F)\]</span></p>
 <p>Na região em que ambos os projetos ainda pagam ao acionista, <span class="math inline">\(\tfrac{1}{2}(100-F)&gt;70-F\)</span> quando <span class="math inline">\(F&gt;40\)</span>. Considerando os <code>max</code>:</p>
-<div id="fc69599f" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
+<div id="ccfb57f4" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <p><span class="math display">\[F^*=40 &lt; F &lt; 100\]</span></p>
 </div>
 </div>
@@ -651,8 +910,8 @@ flowchart LR
 <h2>Quem ganha e quem perde com <span class="math inline">\(F=50\)</span>?</h2>
 <!-- ADICIONADO: solução completa da pergunta de V, V_D, V_E do exemplo original, usando F=50 ilustrativo. Diferente da comparação de média fixa: aqui o projeto arriscado paga 0/100, média 50. -->
 <p>Agora, o projeto arriscado paga <strong>0 ou 100</strong>; seu valor esperado é menor.</p>
-<div id="f1ac03f1" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
+<div id="7532c0b8" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -687,11 +946,11 @@ flowchart LR
 </section>
 <section id="risk-shifting-o-cruzamento" class="slide level2 smaller">
 <h2>Risk shifting: o cruzamento</h2>
-<div id="5081cf63" class="cell" data-execution_count="10">
+<div id="57c4cf33" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -793,11 +1052,12 @@ flowchart LR
 </section>
 <section id="limite-de-crédito-renda-penhorável" class="slide level2 smaller">
 <h2>Limite de crédito: renda penhorável</h2>
+<!-- CORREÇÃO: p_H R é receita esperada, não VPL. No exemplo, receita=120, VPL=20 e renda penhorável=88. O .lyx diz "renda empenhável"; o curso usa "penhorável" (Aulas 14–16). -->
 <p>Isolando <span class="math inline">\(R_{E}\)</span> na condição de incentivos, com <span class="math inline">\(\Delta p\equiv p_{H}-p_{L}\)</span>:</p>
 <p><span class="math display">\[R_{L}\leq\left(R-\frac{B}{\Delta p}\right)\]</span></p>
 <ul>
-<li><p>Definimos <span class="math inline">\(\rho_{0}=p_{H}\left(R-\dfrac{B}{\Delta p}\right)\)</span>: <span class="destaque">renda empenhável (pledgeable)</span>, o limite de crédito <!-- CORREÇÃO: p_H R é receita esperada, não VPL. No exemplo, receita=120, VPL=20 e renda empenhável=88. --></p></li>
-<li><p>Como <span class="math inline">\(\rho_{0}&lt;p_{H}R\)</span>, parte da <strong>receita esperada</strong> deve ficar com o empreendedor para preservar os incentivos</p></li>
+<li>Definimos <span class="math inline">\(\rho_{0}=p_{H}\left(R-\dfrac{B}{\Delta p}\right)\)</span>: <span class="destaque">renda penhorável (pledgeable)</span>, o limite de crédito</li>
+<li>Como <span class="math inline">\(\rho_{0}&lt;p_{H}R\)</span>, parte da <strong>receita esperada</strong> deve ficar com o empreendedor para preservar os incentivos</li>
 </ul>
 </section>
 <section id="quando-o-projeto-é-financiado" class="slide level2 smaller">
@@ -806,6 +1066,7 @@ flowchart LR
 <ul>
 <li>Projeto é financiado <span class="destaque">se e somente se</span> essa condição vale</li>
 <li>Empreendedores com <span class="math inline">\(A\)</span> baixo não conseguem crédito suficiente — mesmo com VPL &gt; 0</li>
+<li>O crédito passa a depender da capacidade própria de investimento</li>
 <li>Recursos próprios/patrimônio líquido (<span class="math inline">\(A\)</span>) ajudam a aliviar essa fricção</li>
 </ul>
 </section>
@@ -813,22 +1074,7 @@ flowchart LR
 <h2>Dividindo o retorno: sem ação oculta</h2>
 <!-- RECUPERADO: Graficos para MH.pdf, p.1. Ação H contratável: p_H R_E≥A (retorno de reserva do empreendedor) e p_H R_L≥I−A (participação do financiador). R=R_E+R_L; existência equivale a p_H R≥I. O caso VPL<0 é benchmark gráfico e relaxa deliberadamente a hipótese p_H R−I>0 do modelo principal. -->
 <p>Com <span class="math inline">\(H\)</span> contratável: <span class="math inline">\(p_HR_E-A\geq0\)</span> e <span class="math inline">\(p_HR_L\geq I-A\)</span>, com <span class="math inline">\(R_E+R_L=R\)</span>.</p>
-<div id="be9f8ec9" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="fonte">Exemplo: <span class="math inline">\(I=100\)</span>, <span class="math inline">\(p_H=0{,}8\)</span>, <span class="math inline">\(A=8\)</span>. O piso <span class="math inline">\(R_E=A/p_H\)</span> repõe o aporte. Cinza: reservas; verde: contratos viáveis. Sem IC, há contrato se <span class="math inline">\(p_HR\geq I\)</span>.</span></p>
-</section>
-<section id="dividindo-o-retorno-com-ação-oculta" class="slide level2 smaller">
-<h2>Dividindo o retorno: com ação oculta</h2>
-<!-- RECUPERADO: Graficos para MH.pdf, p.2. IC R_E≥B/Δp, comparada à reserva A/p_H. Nos dois painéis IC domina a reserva (40>10 ou 20). Mantemos R=150 e VPL=20: só muda A. O mínimo ao financiador cai de115 para105 e viabiliza o contrato. -->
-<p>Agora <span class="math inline">\(R_E\geq B/\Delta p=40\)</span>: a renda de incentivos supera <span class="math inline">\(A/p_H\)</span> nos dois casos.</p>
-<div id="9d72f5dc" class="cell" data-execution_count="12">
+<div id="711f0481" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -837,17 +1083,271 @@ flowchart LR
 </div>
 </div>
 </div>
-<p><span class="fonte"><span class="math inline">\(I=100\)</span>, <span class="math inline">\(R=150\)</span>, <span class="math inline">\(p_H=0{,}8\)</span>, <span class="math inline">\(p_L=0{,}3\)</span>, <span class="math inline">\(B=20\)</span>. Nos dois casos o VPL é 20; mais patrimônio reduz a quantia que o financiador precisa receber.</span></p>
-<!-- PLANNING: reservar 15–20 min para interpretar as duas figuras: identidade de recursos (inclinação −1), participação, retorno de reserva e IC. Diario 2024.xlsx Sheet1 C28 ensinou quase tudo de Tirole menos gráfico com interpretação; C29 continuou MH Tirole, gráficos. O bloco transbordou para a sessão seguinte: preservar conteúdo e geometria, não cortar como suposta duplicação da Aula 15. -->
+<p><span class="fonte">Exemplo: <span class="math inline">\(I=100\)</span>, <span class="math inline">\(p_H=0{,}8\)</span>, <span class="math inline">\(A=8\)</span>. O piso <span class="math inline">\(R_E=A/p_H\)</span> repõe o aporte (cinza); azul: mínimo do financiador; verde: contratos viáveis. Sem IC, há contrato se <span class="math inline">\(p_HR\geq I\)</span>.</span></p>
+</section>
+<section id="tirole-ic" class="slide level2 smaller">
+<h2>Dividindo o retorno: com ação oculta</h2>
+<!-- RECUPERADO: Graficos para MH.pdf, p.2. IC R_E≥B/Δp, comparada à reserva A/p_H. Mantemos I=100, R=150, p_H=0,8,
+     p_L=0,3 (VPL=20). ADICIONADO (28/10/2026): artefato a14tir com B e A controláveis, no lugar dos dois painéis estáticos
+     (A=8: 40+115=155>150, sem contrato; A=16: 40+105=145<150, há contrato). Eixos ampliados na região de interesse
+     (R_E de 0 a 100, R_L de 50 a 160), folga R − (mínimos) marcada no plano e na barra "a conta".
+     Limiares: com A dado, há contrato se B ≤ Δp·(R − (I−A)/p_H) (A=8: 17,5; A=16: 22,5);
+     com B dado, se A ≥ I − p_H(R − B/Δp) = I − ρ0 (B=20: 12, o mesmo do slide "Racionamento: ilustração").
+     No PDF (decktape, fragments:false), ?print-pdf e Ctrl+P, vira o quadro estático de A=8, B=20, com o canto de A=16 como fantasma. -->
+<!-- PLANNING: reservar 15–20 min para interpretar: identidade de recursos (reta R_E + R_L = R, inclinação −1), participação
+     do financiador, retorno de reserva e IC. Sequência sugerida: (1) B = 0: só reservas, sobra 25; (2) B = 20: IC domina,
+     falta 5; (3) "quanto patrimônio resolve?" → A = 16 (ou o limiar 12); (4) com A = 8, qual o maior B financiável? (17,5).
+     Diario 2024.xlsx Sheet1 C28 ensinou quase tudo de Tirole menos gráfico com interpretação; C29 continuou MH Tirole,
+     gráficos. O bloco transbordou para a sessão seguinte: preservar conteúdo e geometria, não cortar como suposta
+     duplicação da Aula 15. -->
+<script>window.A14TIR = {"I": 100.0, "R": 150.0, "pH": 0.8, "pL": 0.3, "B": 20.0, "A": 8.0, "Aalt": 16.0};</script>
+<style>
+.a14tir{ --t-azul:#6a9bcc; --t-laranja:#d97757; --t-verde:#788c5d; --t-tinta:#141413; --t-cinza:#5f5e5a; --t-linha:#e8e6dc; --t-papel:#faf9f5;
+  width:100%; max-width:1200px; margin:0 auto; color:var(--t-tinta); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3; }
+.a14tir *{box-sizing:border-box;}
+.a14tir svg{display:block; width:100%; max-width:1080px; height:auto; margin:0 auto;}
+.a14tir-controls{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto; align-items:end; gap:6px 20px; padding:6px 14px;
+  border:1px solid var(--t-linha); border-radius:10px; background:var(--t-papel);}
+.a14tir-field{min-width:0;}
+.a14tir-field label{display:flex; justify-content:space-between; gap:10px; color:var(--t-cinza); font-size:13px; font-weight:600;}
+.a14tir-field output{color:var(--t-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a14tir-field input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--t-laranja); cursor:pointer;}
+.a14tir-botoes{display:flex; gap:6px;}
+.a14tir-botoes button{font:inherit; font-size:13px; font-weight:600; color:var(--t-cinza); background:#fff;
+  border:1px solid var(--t-linha); border-radius:8px; padding:4px 10px; cursor:pointer;}
+.a14tir-estatico{display:none; padding:6px 14px; font-size:15px; color:var(--t-cinza);}
+.a14tir.impressao .a14tir-controls{display:none;}
+.a14tir.impressao .a14tir-estatico{display:block;}
+.a14tir-cap{font-size:17px; line-height:1.35; min-height:2.7em; margin-top:2px;}
+.reveal .a14tir-cap p{font-family:inherit; margin:0;}
+</style>
+
+<div class="a14tir" id="a14tir-root" data-artefato="a14-tirole-ic" data-pdf-check="os mínimos somam">
+  <div class="a14tir-controls">
+    <div class="a14tir-field">
+      <label for="a14tir-b"><span>B: benefício privado (não pecuniário) da ação ineficiente</span><output id="a14tir-lbl-b">20</output></label>
+      <input type="range" id="a14tir-b" min="0" max="40" step="0.5" value="20">
+    </div>
+    <div class="a14tir-field">
+      <label for="a14tir-a"><span>A: patrimônio próprio do empreendedor</span><output id="a14tir-lbl-a">8</output></label>
+      <input type="range" id="a14tir-a" min="0" max="30" step="1" value="8">
+    </div>
+    <div class="a14tir-botoes">
+      <button type="button" id="a14tir-p1">A = 8</button>
+      <button type="button" id="a14tir-p2">A = 16</button>
+      <button type="button" id="a14tir-reset">B = 20</button>
+    </div>
+  </div>
+  <div class="a14tir-estatico" id="a14tir-estatico"></div>
+  <svg id="a14tir-svg" viewbox="0 0 1200 480" role="img" aria-label="Modelo de Tirole: plano das divisões do retorno R entre empreendedor e financiador, com a reta R_E + R_L = R, a condição de incentivos, a reserva do empreendedor e o mínimo do financiador; à direita, a soma dos mínimos comparada a R"></svg>
+  <div class="a14tir-cap" id="a14tir-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById("a14tir-root");
+  if (!root) return;
+  var P = window.A14TIR;
+  if (!P){ console.error("Aula 14 (Tirole com B e A): parâmetros ausentes; usando os do deck de 2026."); P = {I:100, R:150, pH:0.8, pL:0.3, B:20, A:8, Aalt:16}; }
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {azul:"#6a9bcc", laranja:"#d97757", verde:"#788c5d", tinta:"#141413", cinza:"#5f5e5a", cinzaClaro:"#b0aea5", clay:"#c25a3c", branco:"#ffffff", fundo:"#faf9f5", grade:"#ece9e0"};
+  function fmt(x, casas){ casas = casas === undefined ? 1 : casas; if (Math.abs(x) < 5e-9) x = 0;
+    var t = x.toLocaleString("pt-BR", {minimumFractionDigits:casas, maximumFractionDigits:casas}).replace("-", "−");
+    return casas > 0 ? t.replace(/,0+$/, "") : t; }
+  function el(tag, at, pai){ var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, html, at){ var a = {x:x, y:y, fill:C.tinta, "font-size":18}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.innerHTML = html; return e; }
+  function set(e, at){ for (var k in at) e.setAttribute(k, at[k]); }
+  function sub(s){ return '<tspan baseline-shift="sub" font-size="70%">' + s + '</tspan>'; }
+  var RE = "R" + sub("E"), RL = "R" + sub("L"), PH = "p" + sub("H");
+  var HALO = {stroke:C.fundo, "stroke-width":4, "paint-order":"stroke"};
+  function comHalo(at){ for (var k in HALO) at[k] = HALO[k]; return at; }
+
+  // MODELO-INICIO --- Tirole (2006), notação do deck. Sucesso paga R; o contrato divide R = R_E + R_L.
+  var dp = P.pH - P.pL;
+  function reserva(A){ return A/P.pH; }                    // p_H R_E ≥ A: o empreendedor recupera o aporte
+  function ic(B){ return B/dp; }                           // p_H R_E ≥ p_L R_E + B  ⇔  R_E ≥ B/Δp
+  function minE(A, B){ return Math.max(reserva(A), ic(B)); }
+  function minL(A){ return (P.I - A)/P.pH; }               // p_H R_L ≥ I − A: participação do financiador
+  function folga(A, B){ return P.R - minE(A, B) - minL(A); }   // ≥ 0: há contrato
+  function Bmax(A){ return dp*(P.R - minL(A)); }           // maior B financiável dado A (quando p_H R ≥ I)
+  function Amin(B){ return Math.max(0, P.I - P.pH*(P.R - ic(B))); }   // = I − ρ0(B)
+  // MODELO-FIM
+
+  // --- geometria: plano (R_E, R_L) ampliado na região de interesse; barra "a conta" à direita
+  var X0 = 100, X1 = 600, Y0 = 50, Y1 = 410, EMAX = 100, LMIN = 50, LMAX = 160;
+  function px(e){ return X0 + (X1 - X0)*e/EMAX; }
+  function py(l){ return Y1 - (Y1 - Y0)*(l - LMIN)/(LMAX - LMIN); }
+  var BX0 = 720, BX1 = 1150, VMAX = 175;
+  function bx(v){ return BX0 + (BX1 - BX0)*v/VMAX; }
+
+  var svg = document.getElementById("a14tir-svg"), cap = document.getElementById("a14tir-cap");
+  var inB = document.getElementById("a14tir-b"), inA = document.getElementById("a14tir-a");
+  var lbB = document.getElementById("a14tir-lbl-b"), lbA = document.getElementById("a14tir-lbl-a");
+  var G = {};
+  (function init(){
+    var cp = el("clipPath", {id:"a14tir-clip"}, svg); el("rect", {x:X0, y:Y0, width:X1 - X0, height:Y1 - Y0}, cp);
+    var g = el("g", {"clip-path":"url(#a14tir-clip)"}, svg);
+    [75, 100, 125, 150].forEach(function(l){ el("line", {x1:X0, x2:X1, y1:py(l), y2:py(l), stroke:C.grade}, g); });
+    [25, 50, 75].forEach(function(e){ el("line", {x1:px(e), x2:px(e), y1:Y0, y2:Y1, stroke:C.grade}, g); });
+    G.regiao = el("rect", {fill:C.verde, opacity:.12}, g);                                  // exigências atendidas
+    G.res = el("line", {y1:Y0, y2:Y1, stroke:C.cinza, "stroke-width":1.8, "stroke-dasharray":"2 4"}, g);
+    G.ic = el("line", {y1:Y0, y2:Y1, stroke:C.laranja, "stroke-width":2.4, "stroke-dasharray":"8 5"}, g);
+    G.fin = el("line", {x1:X0, x2:X1, stroke:C.azul, "stroke-width":2.4, "stroke-dasharray":"8 5"}, g);
+    el("line", {x1:px(0), y1:py(P.R), x2:px(P.R - LMIN), y2:py(LMIN), stroke:C.tinta, "stroke-width":3}, g);   // R_E + R_L = R
+    G.seg = el("line", {stroke:C.verde, "stroke-width":9, "stroke-linecap":"round"}, g);
+    G.gap = el("line", {"stroke-width":3}, g);
+    G.fant = el("g", {}, g);
+    el("path", {d:"M-7 -7L7 7M-7 7L7 -7", stroke:C.cinza, "stroke-width":2, opacity:.6}, G.fant);
+    G.canto = el("g", {}, g);
+    el("path", {d:"M-9 -9L9 9M-9 9L9 -9", stroke:C.clay, "stroke-width":3.2}, G.canto);
+    // eixos
+    el("line", {x1:X0, x2:X1, y1:Y1, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    el("line", {x1:X0, x2:X0, y1:Y0, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    el("path", {d:"M" + (X0 - 7) + " " + (Y1 - 14) + "l14 -5M" + (X0 - 7) + " " + (Y1 - 8) + "l14 -5", stroke:C.cinza, "stroke-width":1.3}, svg);   // eixo cortado
+    [0, 25, 50, 75, 100].forEach(function(e){
+      el("line", {x1:px(e), x2:px(e), y1:Y1, y2:Y1 + 6, stroke:C.cinza}, svg);
+      tx(svg, px(e), Y1 + 24, String(e), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    });
+    [50, 75, 100, 125, 150].forEach(function(l){
+      el("line", {x1:X0 - 6, x2:X0, y1:py(l), y2:py(l), stroke:C.cinza}, svg);
+      tx(svg, X0 - 10, py(l) + 5, String(l), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    });
+    tx(svg, (X0 + X1)/2, Y1 + 50, RE + ": o que o empreendedor recebe no sucesso", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    tx(svg, 0, 0, RL + ": o que o financiador recebe no sucesso", {"text-anchor":"middle", "font-size":15, fill:C.cinza, transform:"translate(" + (X0 - 52) + "," + ((Y0 + Y1)/2) + ") rotate(-90)"});
+    // rótulo da reta, ao longo dela
+    var ang = Math.atan2(py(P.R - 85) - py(P.R - 60), px(85) - px(60))*180/Math.PI;
+    tx(svg, px(55), py(P.R - 55) + 24, RE + " + " + RL + " = R: divisões possíveis",
+       comHalo({"font-size":15, "font-weight":600, transform:"rotate(" + ang.toFixed(2) + " " + px(55) + " " + (py(P.R - 55) + 24) + ")"}));
+    G.icT = tx(svg, 0, Y0 + 18, "", comHalo({"font-size":14, "font-weight":600, fill:C.laranja}));
+    G.resT = tx(svg, 0, Y1 - 10, "", comHalo({"font-size":14, fill:C.cinza}));
+    G.finT = tx(svg, X1 - 4, 0, "", comHalo({"font-size":14, "font-weight":600, fill:C.azul, "text-anchor":"end"}));
+    G.cantoT = tx(svg, 0, 0, "mínimos exigidos", comHalo({"font-size":14, fill:C.clay, "font-weight":600}));
+    G.gapT = tx(svg, 0, 0, "", comHalo({"font-size":16, "font-weight":700}));
+    G.fantT = tx(svg, 0, 0, "", comHalo({"font-size":13, fill:C.cinza}));
+
+    // --- barra: a conta
+    tx(svg, BX0, 70, "a conta: o projeto paga R no sucesso; as partes exigem", {"font-size":16, fill:C.cinza});
+    tx(svg, BX0, 112, "o projeto paga", {"font-size":14, fill:C.cinza});
+    el("rect", {x:bx(0), y:120, width:bx(P.R) - bx(0), height:44, fill:C.tinta, opacity:.85}, svg);
+    tx(svg, bx(P.R/2), 148, "R = " + fmt(P.R, 0), {"text-anchor":"middle", "font-size":18, "font-weight":700, fill:C.branco});
+    tx(svg, BX0, 206, "as partes exigem (no mínimo)", {"font-size":14, fill:C.cinza});
+    G.bL = el("rect", {x:bx(0), y:214, height:44, fill:C.azul}, svg);
+    G.bE = el("rect", {y:214, height:44, fill:C.laranja}, svg);
+    G.bLt = tx(svg, 0, 242, "", {"text-anchor":"middle", "font-size":16, "font-weight":700, fill:C.branco});
+    G.bEt = tx(svg, 0, 242, "", {"text-anchor":"middle", "font-size":16, "font-weight":700, fill:C.branco});
+    G.bX = el("rect", {y:214, height:44, fill:"none", "stroke-width":2.5}, svg);
+    el("line", {x1:bx(P.R), x2:bx(P.R), y1:108, y2:272, stroke:C.tinta, "stroke-width":1.6, "stroke-dasharray":"5 4"}, svg);
+    G.legL = tx(svg, BX0, 292, "", {"font-size":15, fill:C.azul, "font-weight":600});
+    G.legE = tx(svg, BX0, 316, "", {"font-size":15, fill:C.laranja, "font-weight":600});
+    G.soma = tx(svg, BX0, 362, "", {"font-size":21, "font-weight":700});
+    G.lim = tx(svg, BX0, 396, "", {"font-size":15, fill:C.cinza});
+    G.lim2 = tx(svg, BX0, 420, "", {"font-size":15, fill:C.cinza});
+  })();
+
+  function desenha(A, B, Afant){
+    var e = minE(A, B), l = minL(A), f = folga(A, B), ok = f >= -1e-9, icAtiva = ic(B) >= reserva(A);
+    set(G.regiao, {x:px(e), y:Y0, width:Math.max(0, X1 - px(e)), height:Math.max(0, py(l) - Y0)});
+    set(G.res, {x1:px(reserva(A)), x2:px(reserva(A))});
+    set(G.ic, {x1:px(ic(B)), x2:px(ic(B)), opacity:B > 0 ? 1 : 0});
+    set(G.fin, {y1:py(l), y2:py(l)});
+    set(G.canto, {transform:"translate(" + px(e) + "," + py(l) + ")"});
+    if (ok) set(G.seg, {x1:px(e), y1:py(P.R - e), x2:px(P.R - l), y2:py(l), opacity:1}); else set(G.seg, {opacity:0});
+    set(G.gap, {x1:px(e), x2:px(e), y1:py(l), y2:py(P.R - e), stroke:ok ? C.verde : C.clay, opacity:Math.abs(f) > .05 ? 1 : 0});
+    set(G.gapT, {x:px(e) + 12, y:(py(l) + py(P.R - e))/2 + 6, fill:ok ? C.verde : C.clay});
+    G.gapT.textContent = Math.abs(f) < .05 ? "" : (ok ? "sobra " : "falta ") + fmt(Math.abs(f));
+    set(G.icT, {x:px(ic(B)) + 6}); G.icT.innerHTML = B > 0 ? "IC: " + RE + " ≥ B/Δp = " + fmt(ic(B)) : "";
+    set(G.resT, {x:px(reserva(A)) + 6}); G.resT.innerHTML = "reserva: " + RE + " ≥ A/" + PH + " = " + fmt(reserva(A));
+    set(G.finT, {y:py(l) - 8}); G.finT.innerHTML = "financiador: " + RL + " ≥ (I − A)/" + PH + " = " + fmt(l);
+    set(G.cantoT, {x:px(e) - 12, y:py(l) + 26, "text-anchor":"end"});
+    var temF = Afant !== undefined && Math.abs(Afant - A) > 1e-9;
+    set(G.fant, {opacity:temF ? 1 : 0}); G.fantT.textContent = "";
+    if (temF){
+      set(G.fant, {transform:"translate(" + px(minE(Afant, B)) + "," + py(minL(Afant)) + ")"});
+      set(G.fantT, {x:px(minE(Afant, B)) + 10, y:py(minL(Afant)) + 22}); G.fantT.textContent = "A = " + fmt(Afant, 0);
+    }
+    // barra
+    set(G.bL, {width:bx(l) - bx(0)}); set(G.bE, {x:bx(l), width:bx(l + e) - bx(l)});
+    set(G.bLt, {x:bx(l/2)}); G.bLt.textContent = fmt(l);
+    set(G.bEt, {x:bx(l + e/2), opacity:bx(l + e) - bx(l) > 34 ? 1 : 0}); G.bEt.textContent = fmt(e);
+    if (ok) set(G.bX, {x:bx(l + e), width:bx(P.R) - bx(l + e), stroke:C.verde, fill:C.verde, "fill-opacity":.15, opacity:f > .05 ? 1 : 0});
+    else set(G.bX, {x:bx(P.R), width:bx(l + e) - bx(P.R), stroke:C.clay, fill:C.clay, "fill-opacity":.35, opacity:1});
+    G.legL.innerHTML = "financiador: (I − A)/" + PH + " = " + fmt(l);
+    G.legE.innerHTML = "empreendedor: " + (icAtiva ? "B/Δp = " + fmt(e) + " (incentivo)" : "A/" + PH + " = " + fmt(e) + " (reserva)");
+    set(G.soma, {fill:ok ? C.verde : C.clay});
+    G.soma.textContent = fmt(e) + " + " + fmt(l) + " = " + fmt(e + l) + (ok ? " ≤ " : " > ") + fmt(P.R, 0) + (ok ? ": há contrato" : ": sem contrato");
+    G.lim.textContent = "com A = " + fmt(A, 0) + ", financia se B ≤ " + fmt(Bmax(A));
+    var am = Amin(B);
+    G.lim2.textContent = am >= P.I ? "com B = " + fmt(B) + ", nenhum A < I basta" : "com B = " + fmt(B) + ", financia se A ≥ " + fmt(am);
+  }
+  function legenda(A, B){
+    var e = minE(A, B), l = minL(A), f = folga(A, B);
+    var t = "<p>O contrato precisa deixar ao empreendedor ao menos " + fmt(e) + (ic(B) >= reserva(A) ? " (para ele preferir a ação eficiente)" : " (para recuperar o aporte A)") +
+      " e ao financiador ao menos " + fmt(l) + ". ";
+    t += f >= -1e-9 ? "Cabem em R = " + fmt(P.R, 0) + ": o trecho verde da reta são os contratos possíveis." :
+      "Somam mais que R = " + fmt(P.R, 0) + ": o projeto tem VPL " + fmt(P.pH*P.R - P.I, 0) + " > 0, mas não é financiado.";
+    return t + "</p>";
+  }
+  function legendaImpressao(){
+    var A = P.A, B = P.B, A2 = P.Aalt;
+    return "<p>Com B = " + fmt(B) + ": com A = " + fmt(A, 0) + ", os mínimos somam " + fmt(minE(A, B) + minL(A)) + " > R = " + fmt(P.R, 0) + " (sem contrato); com A = " +
+      fmt(A2, 0) + " (×), somam " + fmt(minE(A2, B) + minL(A2)) + " < R (há contrato). Com A = " + fmt(A, 0) + ", só há contrato se B ≤ " + fmt(Bmax(A)) +
+      "; com B = " + fmt(B) + ", só se A ≥ " + fmt(Amin(B)) + ".</p>";
+  }
+
+  // --- estado e controles
+  function livre(){ var A = +inA.value, B = +inB.value; lbA.textContent = fmt(A, 0); lbB.textContent = fmt(B); desenha(A, B); cap.innerHTML = legenda(A, B); }
+  [inA, inB].forEach(function(inp){ inp.addEventListener("input", livre); inp.addEventListener("keydown", function(ev){ ev.stopPropagation(); }); });
+  document.getElementById("a14tir-p1").addEventListener("click", function(){ inA.value = P.A; livre(); });
+  document.getElementById("a14tir-p2").addEventListener("click", function(){ inA.value = P.Aalt; livre(); });
+  document.getElementById("a14tir-reset").addEventListener("click", function(){ inB.value = P.B; livre(); });
+
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (e) {}
+    return false;
+  }
+  function modoImpressao(){
+    root.classList.add("impressao");
+    document.getElementById("a14tir-estatico").innerHTML = "B = " + fmt(P.B) + ", A = " + fmt(P.A, 0) + " (× cinza: o canto com A = " + fmt(P.Aalt, 0) + ")";
+    desenha(P.A, P.B, P.Aalt); cap.innerHTML = legendaImpressao();
+  }
+  function modoSala(){ root.classList.remove("impressao"); livre(); }
+  function sincroniza(){ if (emImpressao()) modoImpressao(); else modoSala(); }
+  window.addEventListener("beforeprint", modoImpressao);
+  window.addEventListener("afterprint", sincroniza);
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+    sincroniza();
+  });
+  root.a14tir = {folga:folga, Bmax:Bmax, Amin:Amin, minE:minE, minL:minL};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b){ if (!(Math.abs(a - b) < 1e-9)) f.push(n + ": " + a + " != " + b); }
+    ap("Δp", dp, .5); ap("IC com B=20", ic(20), 40); ap("mín. financiador A=8", minL(8), 115); ap("mín. financiador A=16", minL(16), 105);
+    ap("folga A=8", folga(8, 20), -5); ap("folga A=16", folga(16, 20), 5); ap("Bmax(8)", Bmax(8), 17.5); ap("Amin(20) = I − ρ0", Amin(20), 12);
+    ap("folga no limiar B", folga(8, Bmax(8)), 0); ap("folga no limiar A", folga(Amin(20), 20), 0);
+    if (f.length) console.error("Autoteste (Aula 14, Tirole com B e A) FALHOU:\n" + f.join("\n"));
+  })();
+
+  sincroniza();
+})();
+</script>
+<p><span class="fonte"><span class="math inline">\(I=100\)</span>, <span class="math inline">\(R=150\)</span>, <span class="math inline">\(p_H=0{,}8\)</span>, <span class="math inline">\(p_L=0{,}3\)</span>: VPL <span class="math inline">\(=p_HR-I=20\)</span> em todos os casos. Eixos ampliados: <span class="math inline">\(R_L\)</span> começa em 50.</span></p>
 </section>
 <section id="racionamento-ilustração" class="slide level2 smaller">
 <h2>Racionamento: ilustração</h2>
 <!-- ADICIONADO: parâmetros ilustrativos (I, R, p_H, p_L, B) não constam do .lyx-fonte, que só apresenta o modelo em símbolos. Ver dados/14-info-assimetrica-2/SNAPSHOT_INFO.txt. -->
-<div id="5f0bff25" class="cell" data-execution_count="13">
+<div id="aff380bc" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-15-output-1.svg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -883,18 +1383,52 @@ flowchart LR
 <li>Próxima aula: <span class="secundario">moral hazard e política de remuneração</span></li>
 </ul>
 </section>
-<section id="apêndice-opção-dispersão-e-a-derivada" class="slide level2 smaller">
-<h2>Apêndice: opção, dispersão e a derivada</h2>
-<!-- RECUPERADO/CORREÇÃO: manuscrito Valor da Opção e Incerteza...2014.pdf, p.1. A última integral omite epsilon; a derivada correta leva epsilon f(epsilon). Em geral o sinal é fraco; normal não degenerada e sigma>0 dão sinal estrito. Intercâmbio derivada/integral requer E|epsilon| finito; distribuição com densidade fixa. -->
-<p>Na medida de apreçamento fixa: retorno bruto livre de risco <span class="math inline">\(R_f&gt;0\)</span> fixo, <span class="math inline">\(\sigma&gt;0\)</span>, densidade <span class="math inline">\(f\)</span>, <span class="math inline">\(\mathbb E[\epsilon]=0\)</span> e <span class="math inline">\(\mathbb E|\epsilon|&lt;\infty\)</span>.</p>
-<p><span class="math display">\[V(\sigma)=\frac1{R_f}\int_{a(\sigma)}^\infty(\mu+\sigma\epsilon-K)f(\epsilon)\,d\epsilon,\qquad a(\sigma)=\frac{K-\mu}{\sigma}.\]</span></p>
-<p>Pela regra de Leibniz, o termo de fronteira é zero: <span class="math inline">\(\mu+\sigma a-K=0\)</span>.</p>
-<p><span class="math display">\[V'(\sigma)=\frac1{R_f}\int_{a(\sigma)}^\infty\epsilon f(\epsilon)\,d\epsilon\ \geq\ 0.\]</span></p>
+<section id="apx-opcao" class="slide level2 smaller">
+<h2>Apêndice A: a mudança de variável</h2>
+<!-- RECUPERADO/CORREÇÃO: manuscrito "Valor da Opção e Incerteza uma Demonstração Fácil_Outubro 2014.pdf" (o mesmo arquivo
+     nas pastas de 2016, 2019, 2020, 2022 e 2024; não há versão em LaTeX/LyX). O esboço do manuscrito já separa a > 0,
+     a = 0 e a < 0. A última integral do scan omite epsilon; a derivada correta leva epsilon f(epsilon). Intercâmbio
+     derivada/integral requer E|epsilon| finito; distribuição com densidade fixa. Figura: mu = 70, sigma = 20, K = 90 e 50. -->
+<p><span class="math inline">\(V=\frac1{R_f}\mathbb E[\max(S-K,0)]\)</span>, com <span class="math inline">\(S=\mu+\sigma\epsilon\)</span>, <span class="math inline">\(\mathbb E[\epsilon]=0\)</span> e densidade <span class="math inline">\(f\)</span> de <span class="math inline">\(\epsilon\)</span> <span class="destaque">fixa</span>.</p>
 <ul>
-<li>Se <span class="math inline">\(a\geq0\)</span>, o integrando na região de exercício é não negativo</li>
-<li>Se <span class="math inline">\(a&lt;0\)</span>, use <span class="math inline">\(\int_a^\infty\epsilon f(\epsilon)d\epsilon=-\int_{-\infty}^a\epsilon f(\epsilon)d\epsilon\geq0\)</span></li>
+<li>Em <span class="math inline">\(S\)</span>, aumentar <span class="math inline">\(\sigma\)</span> muda a densidade inteira; em <span class="math inline">\(\epsilon\)</span>, ela fica parada</li>
+<li><span class="math inline">\(\sigma\)</span> só move o corte: <span class="math inline">\(S&gt;K\iff\epsilon&gt;a(\sigma)=\frac{K-\mu}{\sigma}\)</span></li>
 </ul>
-<p><span class="fonte">Para <span class="math inline">\(\epsilon\sim N(0,1)\)</span>, com densidade <span class="math inline">\(\phi\)</span>, <span class="math inline">\(V'(\sigma)=\phi(a)/R_f&gt;0\)</span>. Em geral pode haver igualdade quando a dispersão não cruza o preço de exercício.</span></p>
+<p><span class="math display">\[V(\sigma)=\frac1{R_f}\int_{a(\sigma)}^\infty(\mu+\sigma\epsilon-K)\,f(\epsilon)\,d\epsilon\]</span></p>
+<div id="4e3381cf" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-16-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="apêndice-a-a-derivada" class="slide level2 smaller">
+<h2>Apêndice A: a derivada</h2>
+<p>Pela regra de Leibniz, o termo de fronteira some, pois no corte <span class="math inline">\(\mu+\sigma a-K=0\)</span>:</p>
+<p><span class="math display">\[V'(\sigma)=\frac1{R_f}\int_{a(\sigma)}^\infty\epsilon\, f(\epsilon)\,d\epsilon\ \geq\ 0\]</span></p>
+<ul>
+<li>Fora do dinheiro (<span class="math inline">\(a\geq0\)</span>): só entram choques positivos, e o integrando é <span class="math inline">\(\geq0\)</span></li>
+<li>Dentro do dinheiro (<span class="math inline">\(a&lt;0\)</span>): como <span class="math inline">\(\mathbb E[\epsilon]=0\)</span>, <span class="math inline">\(\int_a^\infty\epsilon f\,d\epsilon=-\int_{-\infty}^a\epsilon f\,d\epsilon\geq0\)</span></li>
+<li>O último termo são os choques ruins que a opção <span class="destaque">corta</span>: a perda evitada crescendo</li>
+</ul>
+<p><span class="fonte">Normal padrão: <span class="math inline">\(V'(\sigma)=\phi(a)/R_f&gt;0\)</span>. Hipóteses: <span class="math inline">\(R_f&gt;0\)</span> e <span class="math inline">\(f\)</span> fixos, <span class="math inline">\(\mathbb E|\epsilon|&lt;\infty\)</span>. Em geral pode haver igualdade, se nenhum cenário cruza <span class="math inline">\(K\)</span>.</span></p>
+<p><span class="fonte"><a href="#//opcao-volatilidade">← voltar ao artefato</a></span></p>
+</section>
+<section id="apêndice-a-uma-prova-sem-derivadas" class="slide level2 smaller">
+<h2>Apêndice A: uma prova sem derivadas</h2>
+<!-- ADICIONADO (28/10/2026): prova alternativa por convexidade e Jensen. Vale para qualquer distribuição de epsilon
+     com E[epsilon] = 0, sem densidade nem regra de Leibniz. -->
+<p>Para cada choque <span class="math inline">\(\epsilon\)</span>, <span class="math inline">\(\sigma\mapsto\max(\mu+\sigma\epsilon-K,0)\)</span> é <span class="destaque">convexa</span>: o máximo de duas funções lineares.</p>
+<ul>
+<li>A média de funções convexas é convexa: <span class="math inline">\(V(\sigma)\)</span> é convexa</li>
+<li>Jensen: <span class="math inline">\(V(\sigma)\geq\frac1{R_f}\max(\mu-K,0)=V(0)\)</span></li>
+<li>Convexa e nunca abaixo de <span class="math inline">\(V(0)\)</span>, então não decrescente: para <span class="math inline">\(0&lt;\sigma_1&lt;\sigma_2\)</span>,</li>
+</ul>
+<p><span class="math display">\[V(\sigma_1)\leq\Big(1-\tfrac{\sigma_1}{\sigma_2}\Big)V(0)+\tfrac{\sigma_1}{\sigma_2}V(\sigma_2)\leq V(\sigma_2)\]</span></p>
+<p><span class="fonte"><a href="#//opcao-volatilidade">← voltar ao artefato</a></span></p>
 
 </section>
     </div>
