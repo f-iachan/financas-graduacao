@@ -232,7 +232,7 @@ flowchart LR
 <section id="payoffs-de-dívida-e-patrimônio" class="slide level2 smaller">
 <h2>Payoffs de dívida e patrimônio</h2>
 <!-- ADICIONADO: figura e analogia com put/call não estão no .lyx-fonte (que só traz as fórmulas de CF^D e CF^E); ilustram essas mesmas fórmulas. -->
-<div id="8a2e59a3" class="cell" data-execution_count="2">
+<div id="244a201e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -535,7 +535,7 @@ flowchart LR
 <!-- ADICIONADO: não está na fonte (o .lyx só formula a pergunta). Ver dados/14-info-assimetrica-2/SNAPSHOT_INFO.txt. -->
 <p>Se investir: <span class="math inline">\(CF^F=2\)</span>, e o acionista fica com <span class="math inline">\(\max(0,2-1{,}7)-1=\)</span> -0,70</p>
 <p>Se não investir: acionista fica com 0,00</p>
-<div id="780dfa8c" class="cell" data-execution_count="4">
+<div id="113eb69f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[-0{,}70 &lt; 0{,}00 \implies \text{acionista}\ \textbf{não investe}\]</span></p>
 </div>
@@ -546,7 +546,7 @@ flowchart LR
 <section id="debt-overhang-quanto-valor-se-perde" class="slide level2 smaller">
 <h2>Debt overhang: quanto valor se perde?</h2>
 <!-- ADICIONADO: comparação numérica investir vs. não investir com F = 1,7 (valores em t=0); não está na fonte. -->
-<div id="877be9e9" class="cell" data-execution_count="5">
+<div id="7bcc0a87" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -557,6 +557,42 @@ flowchart LR
 </div>
 <p>Regra geral: o acionista só investe se <span class="math inline">\(F\leq F^{*}=X-I=\)</span> 1,0. Com <span class="math inline">\(F=1{,}7&gt;1\)</span>, o investimento nunca ocorre.</p>
 <p><span class="fonte">Valores antes de a oportunidade surgir (prob. ½); <span class="math inline">\(V_E\)</span> é líquido do aporte <span class="math inline">\(I\)</span> do acionista.</span></p>
+</section>
+<section id="debt-overhang-por-que-renegociar" class="slide level2 smaller">
+<h2>Debt overhang: por que renegociar?</h2>
+<!-- ADICIONADO: explicita a ressalva de renegociação do .lyx de 2024 e o último passo do diagrama. Valores em t=0, líquidos do aporte do acionista. -->
+<p>Com <span class="math inline">\(F=1{,}7\)</span>, ninguém recebe: o acionista não investe.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Antes de surgir a oportunidade (R$ mi)</th>
+<th style="text-align: right;">Sem acordo</th>
+<th style="text-align: right;">Face reduzida para <span class="math inline">\(0{,}8\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Credor: <span class="math inline">\(V_D\)</span></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><span class="math inline">\(\tfrac12\times0{,}8=0{,}4\)</span></td>
+</tr>
+<tr class="even">
+<td>Acionista: <span class="math inline">\(V_E\)</span></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><span class="math inline">\(\tfrac12\times(2-0{,}8-1)=0{,}1\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Renunciar a parte da face aumenta o valor da dívida: o projeto passa a existir</li>
+<li>Ambos ganham; a divisão do excedente depende da barganha</li>
+</ul>
+<p><span class="destaque">A ineficiência persiste se a renegociação estiver impedida ou for custosa.</span></p>
 </section>
 <section id="risk-shifting" class="slide level2 smaller">
 <h2>Risk Shifting</h2>
@@ -572,7 +608,7 @@ flowchart LR
 <h2>Primeiro: mais risco, mesma média</h2>
 <!-- ADICIONADO: exemplo de média fixa, para isolar convexidade antes do exemplo-fonte com destruição de valor. R$ milhões, agentes neutros ao risco, sem desconto; dívida predeterminada F=50. -->
 <p>Com dívida <span class="math inline">\(F=50\)</span>, compare <strong>70 com certeza</strong> a <strong>0 ou 140</strong>, cada um com probabilidade <span class="math inline">\(1/2\)</span>.</p>
-<div id="e232c706" class="cell" data-execution_count="6">
+<div id="95bf29d7" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <table class="caption-top">
 <thead>
@@ -621,7 +657,7 @@ flowchart LR
 <li>O patrimônio é uma call sobre a firma, com <span class="math inline">\(K=F\)</span></li>
 </ul>
 </div><div class="column" style="width:48%;">
-<div id="5d9f46dd" class="cell" data-execution_count="7">
+<div id="baff57e2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -899,7 +935,7 @@ flowchart LR
 <p>Payoff esperado do acionista em cada projeto, dado <span class="math inline">\(F\)</span>:</p>
 <p><span class="math display">\[V_E^{seguro}(F)=\max(0,70-F) \qquad V_E^{arriscado}(F)=\tfrac{1}{2}\max(0,100-F)\]</span></p>
 <p>Na região em que ambos os projetos ainda pagam ao acionista, <span class="math inline">\(\tfrac{1}{2}(100-F)&gt;70-F\)</span> quando <span class="math inline">\(F&gt;40\)</span>. Considerando os <code>max</code>:</p>
-<div id="eb372195" class="cell" data-execution_count="9">
+<div id="7c429696" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <p><span class="math display">\[F^*=40 &lt; F &lt; 100\]</span></p>
 </div>
@@ -910,7 +946,7 @@ flowchart LR
 <h2>Quem ganha e quem perde com <span class="math inline">\(F=50\)</span>?</h2>
 <!-- ADICIONADO: solução completa da pergunta de V, V_D, V_E do exemplo original, usando F=50 ilustrativo. Diferente da comparação de média fixa: aqui o projeto arriscado paga 0/100, média 50. -->
 <p>Agora, o projeto arriscado paga <strong>0 ou 100</strong>; seu valor esperado é menor.</p>
-<div id="42b9aebc" class="cell" data-execution_count="10">
+<div id="c051d791" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <table class="caption-top">
 <thead>
@@ -946,7 +982,7 @@ flowchart LR
 </section>
 <section id="risk-shifting-o-cruzamento" class="slide level2 smaller">
 <h2>Risk shifting: o cruzamento</h2>
-<div id="b3a56a74" class="cell" data-execution_count="11">
+<div id="98e511ba" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -955,6 +991,47 @@ flowchart LR
 </div>
 </div>
 </div>
+</section>
+<section id="risk-shifting-e-se-houver-renegociação" class="slide level2 smaller">
+<h2>Risk shifting: e se houver renegociação?</h2>
+<!-- ADICIONADO: desenvolve a ressalva do .lyx de 2024. Extensão numérica do exemplo 70 certo vs. 0/100; F'=35 faz o seguro estritamente preferível (35 > 32,5). -->
+<p>Reduzir a face de <span class="math inline">\(F=50\)</span> para <span class="math inline">\(F'=35\)</span> muda a escolha do acionista:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Valores esperados (R$ mi)</th>
+<th style="text-align: right;">Sem acordo: arriscado</th>
+<th style="text-align: right;">Com acordo: seguro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Credor: <span class="math inline">\(V_D\)</span></td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="even">
+<td>Acionista: <span class="math inline">\(V_E\)</span></td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td>Firma: <span class="math inline">\(V\)</span></td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">70</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Com <span class="math inline">\(F'=35\)</span>, o acionista prefere o seguro: <span class="math inline">\(35&gt;\tfrac12(100-35)=32{,}5\)</span></li>
+<li>Há ganho para ambos; com informação comum, o acordo pode evitar a perda</li>
+</ul>
+<p><span class="destaque">Informação assimétrica ou obstáculos à renegociação podem impedir esse acordo.</span></p>
 </section>
 <section id="comparando-os-dois-problemas" class="slide level2 smaller">
 <h2>Comparando os dois problemas</h2>
@@ -991,7 +1068,7 @@ flowchart LR
 <tr class="even">
 <td>Solução no modelo</td>
 <td>renegociar a dívida</td>
-<td>limitar/monitorar o risco assumido</td>
+<td>renegociar a dívida; limitar/monitorar o risco</td>
 </tr>
 </tbody>
 </table>
@@ -1074,7 +1151,7 @@ flowchart LR
 <h2>Dividindo o retorno: sem ação oculta</h2>
 <!-- RECUPERADO: Graficos para MH.pdf, p.1. Ação H contratável: p_H R_E≥A (retorno de reserva do empreendedor) e p_H R_L≥I−A (participação do financiador). R=R_E+R_L; existência equivale a p_H R≥I. O caso VPL<0 é benchmark gráfico e relaxa deliberadamente a hipótese p_H R−I>0 do modelo principal. -->
 <p>Com <span class="math inline">\(H\)</span> contratável: <span class="math inline">\(p_HR_E-A\geq0\)</span> e <span class="math inline">\(p_HR_L\geq I-A\)</span>, com <span class="math inline">\(R_E+R_L=R\)</span>.</p>
-<div id="c52af74a" class="cell" data-execution_count="12">
+<div id="1ac56078" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1343,7 +1420,7 @@ flowchart LR
 <section id="racionamento-ilustração" class="slide level2 smaller">
 <h2>Racionamento: ilustração</h2>
 <!-- ADICIONADO: parâmetros ilustrativos (I, R, p_H, p_L, B) não constam do .lyx-fonte, que só apresenta o modelo em símbolos. Ver dados/14-info-assimetrica-2/SNAPSHOT_INFO.txt. -->
-<div id="f424b357" class="cell" data-execution_count="14">
+<div id="8c95268c" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1395,7 +1472,7 @@ flowchart LR
 <li><span class="math inline">\(\sigma\)</span> só move o corte: <span class="math inline">\(S&gt;K\iff\epsilon&gt;a(\sigma)=\frac{K-\mu}{\sigma}\)</span></li>
 </ul>
 <p><span class="math display">\[V(\sigma)=\frac1{R_f}\int_{a(\sigma)}^\infty(\mu+\sigma\epsilon-K)\,f(\epsilon)\,d\epsilon\]</span></p>
-<div id="d69d920a" class="cell" data-execution_count="15">
+<div id="3238d1c2" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
