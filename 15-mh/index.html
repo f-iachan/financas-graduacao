@@ -148,7 +148,8 @@ Felipe Iachan
 <h2>Onde estamos</h2>
 <ul>
 <li>Aula 13: <span class="secundario">seleção adversa</span> — tipos ocultos (qualidade da firma)</li>
-<li>Aula 14: ações ocultas <em>depois</em> do crédito tomado (debt overhang, risk shifting) e ações ocultas que <em>limitam o crédito</em> (renda penhorável, racionamento)</li>
+<li>Aula 14: conflitos de agência entre acionistas e credores (<em>debt overhang</em>, <em>risk shifting</em>)</li>
+<li>Ações ocultas no modelo de crédito: renda penhorável e racionamento</li>
 <li>Hoje: ações ocultas <strong>dentro do contrato de remuneração</strong> — como pagar um gestor cujo esforço ninguém observa?</li>
 </ul>
 <!-- PLANNING: ~3 min de recap; não re-derivar debt overhang/risk shifting/renda penhorável da Aula 14. -->
@@ -183,7 +184,7 @@ flowchart LR
 </section>
 <section id="motivação" class="slide level2 smaller">
 <h2>Motivação</h2>
-<p><em>CARA_Normal_MH.lyx</em></p>
+<!-- FONTE: CARA_Normal_MH.lyx, notas do professor de 2024. -->
 <ul>
 <li>Ações do gestor não são observáveis</li>
 <li>Como garantir que os gestores <span class="destaque">se empenhem</span>?</li>
@@ -214,6 +215,17 @@ flowchart LR
 <li><span class="math inline">\(e\)</span>: esforço do gestor (escolha oculta)</li>
 <li><span class="math inline">\(\epsilon\)</span>: fatores fora do controle do gestor — ruído, condições agregadas</li>
 </ul>
+<!-- ADICIONADO: explicita as condições implícitas das CPOs de esforço e dos resultados estritos. Concavidade do problema reduzido é condição adicional; c^{(3)}>=0 é apenas uma suficiente, detalhada nas notas da CPO. -->
+</section>
+<section id="hipóteses-para-as-soluções-interiores" class="slide level2 smaller">
+<h2>Hipóteses para as soluções interiores</h2>
+<ul>
+<li>Esforço <span class="math inline">\(e\geq e_{min}\)</span>; analisamos ótimos interiores</li>
+<li>Custo suave, crescente e estritamente convexo: <span class="math inline">\(c'&gt;0\)</span>, <span class="math inline">\(c''&gt;0\)</span> no interior</li>
+<li>Aversão ao risco <span class="math inline">\(\alpha&gt;0\)</span> e ruído <span class="math inline">\(\sigma^2&gt;0\)</span></li>
+<li>Para unicidade, supomos estritamente côncavo o problema reduzido do principal</li>
+</ul>
+<p><span class="fonte">Se <span class="math inline">\(\sigma^2=0\)</span>, dar incentivos não impõe risco: recuperamos o esforço eficiente.</span></p>
 </section>
 <section id="timing-do-contrato" class="slide level2">
 <h2>Timing do contrato</h2>
@@ -243,8 +255,10 @@ flowchart LR
 <ul>
 <li>Pagamento é linear no produto observado <span class="math inline">\(y\)</span></li>
 <li><span class="math inline">\(a\)</span>: parte fixa; <span class="math inline">\(b\)</span>: <strong>potência</strong> do contrato (sensibilidade ao desempenho)</li>
+<li><span class="math inline">\(a,b\)</span> livres: salário sem piso, podendo ser negativo</li>
 </ul>
-<p><span class="fonte">Contratos lineares são a forma canônica de estudar o trade-off risco-incentivo — e são ótimos em ambientes CARA-Normal dinâmicos.</span></p>
+<!-- CORREÇÃO: CARA-Normal sozinho não garante optimalidade irrestrita de contratos lineares. A análise é dentro da classe linear, sem responsabilidade limitada do agente. -->
+<p><span class="fonte">Contratos lineares permitem estudar o trade-off risco-incentivo. Aqui buscamos o melhor contrato <strong>nessa classe</strong>, sem responsabilidade limitada do agente.</span></p>
 </section>
 <section id="first-best-divisão-ótima-de-risco" class="slide level2 smaller">
 <h2>First-best: divisão ótima de risco</h2>
@@ -338,7 +352,23 @@ flowchart LR
 <p><span class="math display">\[ 1=c^{'}\left(e^{SB}\right)+\alpha\sigma^{2}c^{'}\left(e^{SB}\right)c^{''}\left(e^{SB}\right) \]</span></p>
 <p>Logo,</p>
 <p><span class="math display">\[ c^{'}\left(e^{SB}\right)=\frac{1}{1+\alpha\sigma^{2}c^{''}\left(e^{SB}\right)} \]</span></p>
-<p><span class="fonte">Compare com o first-best: <span class="math inline">\(c'(e^{FB})=1\)</span>. Como o denominador é <span class="math inline">\(&gt;1\)</span>, <span class="math inline">\(c'(e^{SB})&lt;c'(e^{FB})\)</span>: <span class="destaque"><span class="math inline">\(e^{SB}&lt;e^{FB}\)</span></span> sempre que <span class="math inline">\(c\)</span> é convexa.</span></p>
+<p><span class="fonte">Com <span class="math inline">\(\alpha&gt;0\)</span>, <span class="math inline">\(\sigma^2&gt;0\)</span>, <span class="math inline">\(c''&gt;0\)</span> e soluções interiores: <span class="math inline">\(c'(e^{SB})&lt;1=c'(e^{FB})\)</span>, logo <span class="destaque"><span class="math inline">\(e^{SB}&lt;e^{FB}\)</span></span>.</span></p>
+<aside class="notes">
+<p>Defina <span class="math inline">\(J(e)=e-c(e)-\frac{\alpha\sigma^2}{2}[c'(e)]^2\)</span>.</p>
+<p><span class="math display">\[J'(e)=1-c'(e)-\alpha\sigma^2 c'(e)c''(e)\]</span></p>
+<p><span class="math display">\[J''(e)=-c''(e)-\alpha\sigma^2\left([c''(e)]^2+c'(e)c^{(3)}(e)\right)\]</span></p>
+<p>Para suficiência e unicidade da CPO, assumimos <span class="math inline">\(J''&lt;0\)</span>. Uma condição suficiente simples é <span class="math inline">\(c'\geq0\)</span>, <span class="math inline">\(c''&gt;0\)</span>, <span class="math inline">\(c^{(3)}\geq0\)</span>; não é necessária. Convexidade de <span class="math inline">\(c\)</span> isolada não implica concavidade de <span class="math inline">\(J\)</span>. A comparação de esforço não exige <span class="math inline">\(c^{(3)}\geq0\)</span>: para <span class="math inline">\(e\geq e^{FB}\)</span>, <span class="math inline">\(c'\geq1\)</span> e <span class="math inline">\(J'&lt;0\)</span> quando o custo de risco é positivo. Em cantos, usar as condições de Kuhn–Tucker em lugar da IC interior <span class="math inline">\(b=c'(e)\)</span>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="caso-quadrático" class="slide level2 smaller">
 <h2>Caso quadrático</h2>
@@ -353,25 +383,436 @@ flowchart LR
 <h2>Exemplo numérico ilustrativo</h2>
 <!-- ADICIONADO: números não constam do .lyx-fonte (inteiramente simbólico). Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
 <p>Com <span class="math inline">\(\alpha=\)</span> 1, <span class="math inline">\(\sigma^{2}=\)</span> 1, <span class="math inline">\(c=\)</span> 1:</p>
-<div id="88e19e5e" class="cell" data-execution_count="2">
+<div id="d6864b50" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <p><span class="math display">\[e^{FB}=\frac{1}{c}=1,0 \qquad b^{SB}=\frac{1}{1+\alpha\sigma^2 c}=0,5 \qquad e^{SB}=\frac{b^{SB}}{c}=0,5\]</span></p>
 </div>
 </div>
 <p><span class="destaque">Risco moral corta o esforço pela metade neste exemplo: <span class="math inline">\(e^{SB}\)</span> é metade do esforço eficiente <span class="math inline">\(e^{FB}\)</span>. Com esforço observável não seria preciso incentivo algum (<span class="math inline">\(b=0\)</span>, seguro completo).</span></p>
+<!-- ADICIONADO: artefato novo. Parte dos parâmetros do CSV quadratico_exemplo; define também os helpers (window.A15H) usados pelos demais artefatos do deck. Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
+<!-- PLANNING: pergunta antes de arrastar σ²: "mais ruído significa mais risco no salário?" Depende: dp(w)=bσ tem pico em σ²=1/(αc). -->
 </section>
-<section id="ce-first-best-vs.-second-best" class="slide level2 smaller">
-<h2><span class="math inline">\(c'(e)\)</span>: first-best vs.&nbsp;second-best</h2>
-<div id="ac8e0849" class="cell" data-execution_count="3">
+<section id="o-contrato-em-movimento" class="slide level2 smaller">
+<h2>O contrato em movimento</h2>
+<script>window.A15P = {"alpha": 1.0, "sigma2": 1.0, "c": 1.0, "alphaB": 1.0, "sigma1_2": 1.0, "cB": 1.0};</script>
+<style>
+.a15art{ --a15-laranja:#d97757; --a15-tinta:#141413; --a15-cinza:#5f5e5a; --a15-papel:#faf9f5; --a15-linha:#e8e6dc;
+  width:100%; max-width:1200px; margin:0 auto; color:var(--a15-tinta); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3; }
+.a15art *{box-sizing:border-box;}
+.a15art svg{display:block; width:100%; max-width:1080px; height:auto; margin:0 auto;}
+.a15-controls{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:6px 20px; padding:6px 14px;
+  border:1px solid var(--a15-linha); border-radius:10px; background:var(--a15-papel);}
+.a15-controls.a15-c3{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;}
+.a15-field{min-width:0;}
+.a15-field label{display:flex; justify-content:space-between; gap:10px; color:var(--a15-cinza); font-size:13px; font-weight:600;}
+.a15-field output{color:var(--a15-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a15-field input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--a15-laranja); cursor:pointer;}
+.a15-botoes{display:flex; gap:6px;}
+.a15-botao{font:inherit; font-size:13px; font-weight:600; color:var(--a15-cinza); background:#fff; white-space:nowrap;
+  border:1px solid var(--a15-linha); border-radius:8px; padding:4px 10px; cursor:pointer;}
+.a15-estatico{display:none; padding:6px 14px; font-size:15px; color:var(--a15-cinza);}
+.a15art.impressao .a15-controls{display:none;}
+.a15art.impressao .a15-estatico{display:block;}
+.a15-cap{font-size:18px; line-height:1.35; min-height:2.7em; margin-top:2px;}
+.a15-cap p{margin:0 0 4px;}
+.reveal .a15-cap p{font-family:inherit;}
+.a15-efeito{color:var(--a15-cinza); font-size:16px;}
+</style>
+
+<script>
+// Helpers comuns aos artefatos da Aula 15.
+window.A15H = (function(){
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {azul:"#6a9bcc", laranja:"#d97757", verde:"#788c5d", tinta:"#141413", cinza:"#5f5e5a", cinzaClaro:"#b0aea5", branco:"#ffffff", grade:"#ece9e0"};
+  function fmt(x, casas){ casas = casas === undefined ? 2 : casas; if (Math.abs(x) < 5e-9) x = 0;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits:casas, maximumFractionDigits:casas}).replace("-", "−"); }
+  function set(e, at){ for (var k in at) e.setAttribute(k, at[k]); return e; }
+  function el(tag, at, pai){ var e = set(document.createElementNS(NS, tag), at); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, html, at){ var a = {x:x, y:y, fill:C.tinta, "font-size":18}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.innerHTML = html; return e; }
+  function sub(s){ return '<tspan baseline-shift="sub" font-size="70%">' + s + "</tspan>"; }
+  function halo(at){ at.stroke = C.branco; at["stroke-width"] = 4; at["paint-order"] = "stroke"; return at; }
+  function pdf(z, m, s){ var u = (z - m)/s; return Math.exp(-u*u/2)/(s*Math.sqrt(2*Math.PI)); }
+  function teclas(e){ e.addEventListener("keydown", function(ev){ ev.stopPropagation(); }); }
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (e) {}
+    return false;
+  }
+  function liga(root, sala, impressao){
+    function imprime(){ root.classList.add("impressao"); impressao(); }
+    function sincroniza(){ if (emImpressao()) imprime(); else { root.classList.remove("impressao"); sala(); } }
+    window.addEventListener("beforeprint", imprime);
+    window.addEventListener("afterprint", sincroniza);
+    window.addEventListener("load", function(){
+      if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+      sincroniza();
+    });
+  }
+  return {C:C, fmt:fmt, set:set, el:el, tx:tx, sub:sub, halo:halo, pdf:pdf, teclas:teclas, liga:liga};
+})();
+</script>
+
+<div class="a15art" id="a15cn-root" data-artefato="a15-contrato" data-pdf-check="b cai de 0,50 para 0,25">
+  <div class="a15-controls a15-c3">
+    <div class="a15-field">
+      <label for="a15cn-a"><span>α: aversão ao risco do gestor</span><output id="a15cn-lbl-a">1,00</output></label>
+      <input type="range" id="a15cn-a" min="0" max="5" step="0.05" value="1">
+    </div>
+    <div class="a15-field">
+      <label for="a15cn-s"><span>σ²: ruído do produto</span><output id="a15cn-lbl-s">1,00</output></label>
+      <input type="range" id="a15cn-s" min="0.05" max="4" step="0.05" value="1">
+    </div>
+    <button type="button" class="a15-botao" id="a15cn-reset">α = 1, σ² = 1</button>
+  </div>
+  <div class="a15-estatico" id="a15cn-estatico"></div>
+  <svg id="a15cn-svg" viewbox="0 0 1200 450" role="img" aria-label="À esquerda, o contrato linear no plano produto versus salário, com a distribuição do produto no eixo horizontal e a do salário no eixo vertical. À direita, a potência ótima em função da aversão ao risco, decrescente."></svg>
+  <div class="a15-cap" id="a15cn-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var H = window.A15H, C = H.C, fmt = H.fmt, el = H.el, tx = H.tx, set = H.set, pdf = H.pdf;
+  var root = document.getElementById("a15cn-root");
+  if (!root) return;
+  var P = window.A15P;
+
+  // MODELO-INICIO --- caso quadrático: c(e) = ce²/2, IC b = ce, PC ativa E[w] = c(e) + αb²σ²/2.
+  function bOt(a, s2){ return 1/(1 + a*P.c*s2); }
+  function estado(a, s2){
+    var b = bOt(a, s2), e = b/P.c, Ew = P.c*e*e/2 + a*b*b*s2/2, s = Math.sqrt(s2);
+    return {b:b, e:e, Ew:Ew, sd:s, sdW:b*s};
+  }
+  var eFB = 1/P.c, wFB = P.c*eFB*eFB/2;
+  // MODELO-FIM
+
+  var X0 = 78, X1 = 640, Y0 = 66, Y1 = 396, YMIN = -6, YMAX = 8, WMIN = -6, WMAX = 7;
+  function xy(v){ return X0 + (X1 - X0)*(v - YMIN)/(YMAX - YMIN); }
+  function yw(v){ return Y1 - (Y1 - Y0)*(v - WMIN)/(WMAX - WMIN); }
+  var AMAX = 5, RX0 = 760, RX1 = 1170;
+  function ra(a){ return RX0 + (RX1 - RX0)*a/AMAX; }
+  function rb(b){ return Y1 - (Y1 - Y0)*b; }
+  // densidades: mesma escala nos dois eixos, com teto para não invadir o painel
+  var K = 130, TETO_Y = 118, TETO_W = 215;
+  function escala(sd, teto){ return Math.min(K, teto/pdf(0, 0, sd)); }
+  function densY(m, sd){
+    var k = escala(sd, TETO_Y), d = "M" + xy(Math.max(YMIN, m - 3.5*sd)).toFixed(1) + " " + Y1;
+    for (var i = 0; i <= 70; i++){ var v = m - 3.5*sd + 7*sd*i/70; if (v < YMIN || v > YMAX) continue; d += "L" + xy(v).toFixed(1) + " " + (Y1 - k*pdf(v, m, sd)).toFixed(1); }
+    return d + "L" + xy(Math.min(YMAX, m + 3.5*sd)).toFixed(1) + " " + Y1 + "Z";
+  }
+  function densW(m, sd){
+    var k = escala(sd, TETO_W), d = "M" + X0 + " " + yw(Math.max(WMIN, m - 3.5*sd)).toFixed(1);
+    for (var i = 0; i <= 70; i++){ var v = m - 3.5*sd + 7*sd*i/70; if (v < WMIN || v > WMAX) continue; d += "L" + (X0 + k*pdf(v, m, sd)).toFixed(1) + " " + yw(v).toFixed(1); }
+    return d + "L" + X0 + " " + yw(Math.min(WMAX, m + 3.5*sd)).toFixed(1) + "Z";
+  }
+  var svg = document.getElementById("a15cn-svg"), cap = document.getElementById("a15cn-cap");
+  var inA = document.getElementById("a15cn-a"), inS = document.getElementById("a15cn-s");
+  var lbA = document.getElementById("a15cn-lbl-a"), lbS = document.getElementById("a15cn-lbl-s");
+  var G = {};
+  (function init(){
+    tx(svg, X0 - 40, 20, "contrato w = a + by: o risco do produto vira risco no salário", {"font-size":16, fill:C.cinza});
+    var cp = el("clipPath", {id:"a15cn-clip"}, svg); el("rect", {x:X0, y:Y0, width:X1 - X0, height:Y1 - Y0}, cp);
+    el("rect", {x:X0 + 4, y:34, width:13, height:13, fill:C.azul, opacity:.45}, svg); tx(svg, X0 + 22, 46, "produto y", {"font-size":14, fill:C.cinza});
+    el("rect", {x:X0 + 104, y:34, width:13, height:13, fill:C.laranja, opacity:.5}, svg); tx(svg, X0 + 122, 46, "salário w", {"font-size":14, fill:C.cinza});
+    el("line", {x1:X0 + 204, x2:X0 + 230, y1:40, y2:40, stroke:C.verde, "stroke-width":2.2, "stroke-dasharray":"7 4"}, svg); tx(svg, X0 + 236, 46, "first-best: salário fixo", {"font-size":14, fill:C.cinza});
+    G.lgF = el("g", {}, svg);
+    el("line", {x1:X0 + 408, x2:X0 + 434, y1:40, y2:40, stroke:C.cinzaClaro, "stroke-width":2.4}, G.lgF); tx(G.lgF, X0 + 440, 46, "α = 1, σ² = 1", {"font-size":14, fill:C.cinza});
+    for (var v = -6; v <= 8; v += 2){
+      el("line", {x1:xy(v), x2:xy(v), y1:Y1, y2:Y1 + 6, stroke:C.cinza}, svg);
+      tx(svg, xy(v), Y1 + 24, fmt(v, 0), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    }
+    for (var w = -6; w <= 6; w += 2){
+      el("line", {x1:X0 - 6, x2:X0, y1:yw(w), y2:yw(w), stroke:C.cinza}, svg);
+      tx(svg, X0 - 10, yw(w) + 5, fmt(w, 0), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    }
+    tx(svg, (X0 + X1)/2, Y1 + 48, "produto y", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    tx(svg, 0, 0, "salário w", {"text-anchor":"middle", "font-size":15, fill:C.cinza, transform:"translate(" + (X0 - 44) + "," + ((Y0 + Y1)/2) + ") rotate(-90)"});
+    var g = el("g", {"clip-path":"url(#a15cn-clip)"}, svg);
+    G.dY = el("path", {fill:C.azul, opacity:.4}, g);
+    G.dWf = el("path", {fill:"none", stroke:C.cinzaClaro, "stroke-width":1.6, "stroke-dasharray":"5 4"}, g);
+    G.dW = el("path", {fill:C.laranja, opacity:.45}, g);
+    el("line", {x1:X0, x2:X1, y1:yw(wFB), y2:yw(wFB), stroke:C.verde, "stroke-width":2.2, "stroke-dasharray":"7 4"}, g);
+    G.lF = el("line", {stroke:C.cinzaClaro, "stroke-width":2.4}, g);
+    G.proj = [0, 1, 2, 3].map(function(){ return el("line", {stroke:C.cinza, "stroke-width":1.2, "stroke-dasharray":"2 4"}, g); });
+    G.l = el("line", {stroke:C.tinta, "stroke-width":3.4}, g);
+    G.pt = el("circle", {r:7, fill:C.tinta, stroke:C.branco, "stroke-width":2}, g);
+    el("line", {x1:X0, x2:X1, y1:Y1, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    el("line", {x1:X0, x2:X0, y1:Y0, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+
+    tx(svg, RX0 - 54, 20, "potência ótima: b* = 1/(1 + αcσ²)", {"font-size":16, fill:C.cinza});
+    el("line", {x1:RX0 - 50, x2:RX0 - 24, y1:40, y2:40, stroke:C.azul, "stroke-width":3.2}, svg); tx(svg, RX0 - 18, 46, "σ² atual", {"font-size":14, fill:C.cinza});
+    el("line", {x1:RX0 + 70, x2:RX0 + 96, y1:40, y2:40, stroke:C.cinzaClaro, "stroke-width":2, "stroke-dasharray":"5 4"}, svg); tx(svg, RX0 + 102, 46, "σ² = 1", {"font-size":14, fill:C.cinza});
+    [0, .25, .5, .75, 1].forEach(function(b){
+      el("line", {x1:RX0, x2:RX1, y1:rb(b), y2:rb(b), stroke:b ? C.grade : C.cinza, "stroke-width":b ? 1 : 1.3}, svg);
+      tx(svg, RX0 - 8, rb(b) + 5, fmt(b, 2), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    });
+    for (var a = 0; a <= AMAX; a++){
+      el("line", {x1:ra(a), x2:ra(a), y1:Y1, y2:Y1 + 6, stroke:C.cinza}, svg);
+      tx(svg, ra(a), Y1 + 24, fmt(a, 0), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    }
+    tx(svg, (RX0 + RX1)/2, Y1 + 48, "α: aversão ao risco do gestor", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    G.cF = el("path", {fill:"none", stroke:C.cinzaClaro, "stroke-width":2, "stroke-dasharray":"5 4"}, svg);
+    G.c = el("path", {fill:"none", stroke:C.azul, "stroke-width":3.2}, svg);
+    G.rMk = el("line", {y2:Y1, stroke:C.laranja, "stroke-width":1.5, opacity:.6}, svg);
+    G.rP = el("circle", {r:8, fill:C.azul, stroke:C.branco, "stroke-width":2}, svg);
+    G.rT = tx(svg, 0, 0, "", H.halo({"font-size":17, "font-weight":700}));
+  })();
+
+  function curva(s2){ var d = ""; for (var i = 0; i <= 80; i++){ var a = AMAX*i/80; d += (i ? "L" : "M") + ra(a).toFixed(1) + " " + rb(bOt(a, s2)).toFixed(1); } return d; }
+  function desenha(a, s2){
+    var s = estado(a, s2), f = estado(P.alpha, P.sigma2), temF = Math.abs(a - P.alpha) + Math.abs(s2 - P.sigma2) > 1e-9;
+    set(G.dY, {d:densY(s.e, s.sd)}); set(G.dW, {d:densW(s.Ew, s.sdW)});
+    function linha(e, st){ set(e, {x1:xy(YMIN), y1:yw(st.Ew + st.b*(YMIN - st.e)), x2:xy(YMAX), y2:yw(st.Ew + st.b*(YMAX - st.e))}); }
+    linha(G.l, s); linha(G.lF, f);
+    [G.lF, G.dWf, G.lgF].forEach(function(e){ set(e, {opacity:temF ? 1 : 0}); });
+    set(G.dWf, {d:densW(f.Ew, f.sdW)}); set(G.cF, {d:curva(P.sigma2)});
+    set(G.pt, {cx:xy(s.e), cy:yw(s.Ew)});
+    // projeção de e ± σ: produto → contrato → salário
+    [-1, 1].forEach(function(sn, i){
+      var yv = s.e + sn*s.sd, wv = s.Ew + sn*s.sdW;
+      set(G.proj[2*i], {x1:xy(yv), y1:Y1, x2:xy(yv), y2:yw(wv)});
+      set(G.proj[2*i + 1], {x1:xy(yv), y1:yw(wv), x2:X0, y2:yw(wv)});
+    });
+    set(G.c, {d:curva(s2)});
+    set(G.rMk, {x1:ra(a), x2:ra(a), y1:rb(s.b)});
+    set(G.rP, {cx:ra(a), cy:rb(s.b)});
+    var dir = a > 3.6;
+    set(G.rT, {x:ra(a) + (dir ? -14 : 14), y:rb(s.b) + (s.b > .88 ? 28 : -14), "text-anchor":dir ? "end" : "start"}); G.rT.textContent = "b* = " + fmt(s.b);
+    return s;
+  }
+  function legenda(a, s2, s){
+    var t = "<p>Potência b = " + fmt(s.b) + "; esforço e = " + fmt(s.e) + " (first-best: " + fmt(eFB) + "). Risco no salário: dp(w) = bσ = " + fmt(s.sdW) + ", contra dp(y) = " + fmt(s.sd) + ".</p>";
+    var x = a*P.c*s2;
+    if (a < 1e-9) return t + '<p class="a15-efeito">Gestor neutro ao risco: b = 1. Ele carrega todo o risco e o esforço é eficiente.</p>';
+    if (Math.abs(x - 1) < 1e-9) return t + '<p class="a15-efeito">Aqui αcσ² = 1: o risco no salário está no pico em relação a σ².</p>';
+    return t + (x < 1 ? '<p class="a15-efeito">Aqui, mais ruído aumenta dp(w): σ sobe mais rápido do que b cai.</p>'
+                      : '<p class="a15-efeito">Aqui, mais ruído reduz dp(w): b cai mais rápido do que σ sobe.</p>');
+  }
+  function livre(){
+    var a = +inA.value, s2 = +inS.value;
+    lbA.textContent = fmt(a); lbS.textContent = fmt(s2);
+    cap.innerHTML = legenda(a, s2, desenha(a, s2));
+  }
+  [inA, inS].forEach(function(e){ e.addEventListener("input", livre); H.teclas(e); });
+  document.getElementById("a15cn-reset").addEventListener("click", function(){ inA.value = P.alpha; inS.value = P.sigma2; livre(); });
+  H.liga(root, livre, function(){
+    document.getElementById("a15cn-estatico").innerHTML = "α = 3, σ² = " + fmt(P.sigma2, 0) + " (em cinza: α = 1)";
+    var s = desenha(3, P.sigma2), f = estado(P.alpha, P.sigma2);
+    cap.innerHTML = "<p>Quando α sobe de 1 para 3, b cai de " + fmt(f.b) + " para " + fmt(s.b) + ", o esforço de " + fmt(f.e) + " para " + fmt(s.e) +
+      " e dp(w) de " + fmt(f.sdW) + " para " + fmt(s.sdW) + ": menos incentivo, mais seguro.</p>";
+  });
+  root.a15cn = {bOt:bOt, estado:estado};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-9))) f.push(n + ": " + a + " != " + b); }
+    ap("b do exemplo numérico", bOt(1, 1), .5); ap("e do exemplo numérico", estado(1, 1).e, .5);
+    for (var i = 0; i <= 100; i++) for (var j = 1; j <= 80; j++){
+      var a = i/20, s2 = j/20, s = estado(a, s2);
+      ap("CPO", 1 - s.b, a*s2*P.c*s.b);
+      ap("E[w] = b/(2c)", s.Ew, s.b/(2*P.c));
+      if (s.Ew + 3*s.sdW > WMAX || s.Ew - 3*s.sdW < WMIN) f.push("salário fora do painel em a=" + a + ", s2=" + s2);
+    }
+    if (f.length) console.error("Autoteste (Aula 15, contrato) FALHOU:\n" + f.slice(0, 10).join("\n"));
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+  })();
+
+  livre();
+})();
+</script>
+<!-- ADICIONADO: decompõe perda total relativa ao first-best; os valores vêm do CSV quadratico_exemplo, não de uma nova calibração. Prêmio de risco é só uma parcela da perda total. -->
+</section>
+<section id="a-perda-total-tem-duas-parcelas" class="slide level2 smaller">
+<h2>A perda total tem duas parcelas</h2>
+<p><span class="math display">\[L=\underbrace{[e^{FB}-c(e^{FB})]-[e^{SB}-c(e^{SB})]}_{\text{excedente perdido com menor esforço}}+\underbrace{\frac{\alpha b^2\sigma^2}{2}}_{\text{prêmio de risco}}\]</span></p>
+<div id="58bbe03a" class="cell" data-fig-height="2.2" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><span class="fonte">Recriação esquemática do gráfico do .lyx-fonte (Graf1.pdf) — curva <span class="math inline">\(c'(e)\)</span> genérica; forma exata é ILUSTRATIVA, o arquivo-fonte não amarra essa figura a nenhuma função de custo específica.</span></p>
+<p><span class="fonte">Mesmo exemplo: <span class="math inline">\(\alpha=\)</span> 1, <span class="math inline">\(\sigma^2=\)</span> 1, <span class="math inline">\(c=\)</span> 1. A perda inclui produzir menos e remunerar o risco imposto.</span></p>
+<!-- ADICIONADO: artefato novo. Benefício marginal (1−b)/c e custo marginal αbσ² de b; as áreas são exatamente as duas parcelas de L. Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
+<!-- PLANNING: antes de arrastar, perguntar: "se o gestor fica mais avesso ao risco, o prêmio de risco sobe?" Resposta: só até b = 0,5. -->
+</section>
+<section id="a-perda-em-um-único-gráfico" class="slide level2 smaller">
+<h2>A perda em um único gráfico</h2>
+<div class="a15art" id="a15pd-root" data-artefato="a15-perda" data-pdf-check="o prêmio cai, mas a perda total sobe">
+  <div class="a15-controls">
+    <div class="a15-field">
+      <label for="a15pd-a"><span>α: aversão ao risco do gestor</span><output id="a15pd-lbl-a">1,00</output></label>
+      <input type="range" id="a15pd-a" min="0" max="8" step="0.05" value="1">
+    </div>
+    <button type="button" class="a15-botao" id="a15pd-reset">α = 1</button>
+  </div>
+  <div class="a15-estatico" id="a15pd-estatico"></div>
+  <svg id="a15pd-svg" viewbox="0 0 1200 450" role="img" aria-label="À esquerda, benefício e custo marginais da potência b, cujas áreas decompõem o excedente de first-best em excedente mantido, prêmio de risco e perda por menor esforço. À direita, as perdas em função da aversão ao risco: o prêmio de risco sobe, atinge o pico e cai, enquanto a perda total sempre sobe."></svg>
+  <div class="a15-cap" id="a15pd-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var H = window.A15H, C = H.C, fmt = H.fmt, el = H.el, tx = H.tx, set = H.set, sub = H.sub;
+  var root = document.getElementById("a15pd-root");
+  if (!root) return;
+  var P = window.A15P;
+
+  // MODELO-INICIO --- caso quadrático, e = b/c. Excedente sem risco T(b) = b/c − b²/(2c), custo do risco R(b) = αb²σ²/2.
+  //   T'(b) = (1 − b)/c    R'(b) = αbσ²    b* = 1/(1 + αcσ²)
+  //   perda por menor esforço = (1 − b*)²/(2c): área sob T' à direita de b*
+  //   prêmio de risco = b*(1 − b*)/(2c): área sob R' à esquerda de b*  (pico em b* = 1/2)
+  function bOt(a){ return 1/(1 + a*P.c*P.sigma2); }
+  function perdaEsforco(a){ var b = bOt(a); return (1 - b)*(1 - b)/(2*P.c); }
+  function premio(a){ var b = bOt(a); return a*b*b*P.sigma2/2; }
+  function total(a){ return perdaEsforco(a) + premio(a); }
+  var FB = 1/(2*P.c), APICO = 1/(P.c*P.sigma2);
+  // MODELO-FIM
+
+  var X0 = 78, X1 = 560, Y0 = 66, Y1 = 396, MAXM = 1.08/P.c;
+  function xb(b){ return X0 + (X1 - X0)*b; }
+  function ym(v){ return Y1 - (Y1 - Y0)*v/MAXM; }
+  var RX0 = 700, RX1 = 1170, AMAX = 8, PMAX = .55*(1/P.c);
+  function ra(a){ return RX0 + (RX1 - RX0)*a/AMAX; }
+  function rp(v){ return Y1 - (Y1 - Y0)*v/PMAX; }
+  var svg = document.getElementById("a15pd-svg"), cap = document.getElementById("a15pd-cap");
+  var inA = document.getElementById("a15pd-a"), lbA = document.getElementById("a15pd-lbl-a");
+  var G = {};
+  (function init(){
+    tx(svg, X0 - 40, 20, "marginais de b: as áreas somam o excedente de first-best", {"font-size":16, fill:C.cinza});
+    var cp = el("clipPath", {id:"a15pd-clip"}, svg); el("rect", {x:X0, y:Y0, width:X1 - X0, height:Y1 - Y0}, cp);
+    [0, .25, .5, .75, 1].forEach(function(b){
+      el("line", {x1:xb(b), x2:xb(b), y1:Y1, y2:Y1 + 6, stroke:C.cinza}, svg);
+      tx(svg, xb(b), Y1 + 24, fmt(b, 2), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    });
+    [0, .5, 1].forEach(function(v){ tx(svg, X0 - 10, ym(v/P.c) + 5, fmt(v/P.c, 1), {"text-anchor":"end", "font-size":14, fill:C.cinza}); });
+    tx(svg, (X0 + X1)/2, Y1 + 50, "b: potência do contrato", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    G.mant = el("path", {fill:C.verde, opacity:.32}, svg);
+    G.prem = el("path", {fill:C.laranja, opacity:.5}, svg);
+    G.esf = el("path", {fill:C.azul, opacity:.5}, svg);
+    el("line", {x1:X0, x2:X1, y1:Y1, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    el("line", {x1:X0, x2:X0, y1:Y0, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    el("line", {x1:xb(0), y1:ym(1/P.c), x2:xb(1), y2:ym(0), stroke:C.azul, "stroke-width":3}, svg);
+    G.mc = el("line", {x1:xb(0), y1:ym(0), stroke:C.laranja, "stroke-width":3, "clip-path":"url(#a15pd-clip)"}, svg);
+    tx(svg, xb(.72), ym(.42/P.c), "benefício marginal", H.halo({fill:C.azul, "font-size":15, "font-weight":600}));
+    tx(svg, xb(.72), ym(.34/P.c), "(1 − b)/c", H.halo({fill:C.azul, "font-size":15}));
+    G.mcT = tx(svg, 0, 0, "custo marginal: αbσ²", H.halo({fill:C.laranja, "font-size":15, "font-weight":600, "text-anchor":"end"}));
+    G.gv = el("line", {y1:Y1, stroke:C.tinta, "stroke-width":1.2, "stroke-dasharray":"4 3"}, svg);
+    G.pt = el("circle", {r:7.5, fill:C.tinta, stroke:C.branco, "stroke-width":2}, svg);
+    G.ptT = tx(svg, 0, 0, "", H.halo({"font-size":16, "font-weight":700}));
+    G.tM = tx(svg, 0, 0, "", H.halo({"font-size":14, fill:C.tinta}));
+    G.tP = tx(svg, 0, 0, "", H.halo({"font-size":14, fill:C.tinta, "text-anchor":"middle"}));
+    G.tE = tx(svg, 0, 0, "", H.halo({"font-size":14, fill:C.tinta, "text-anchor":"middle"}));
+
+    tx(svg, RX0 - 54, 20, "o que acontece quando α sobe", {"font-size":16, fill:C.cinza});
+    [0, .1, .2, .3, .4, .5].forEach(function(v){
+      el("line", {x1:RX0, x2:RX1, y1:rp(v/P.c), y2:rp(v/P.c), stroke:v ? C.grade : C.cinza, "stroke-width":v ? 1 : 1.3}, svg);
+      tx(svg, RX0 - 8, rp(v/P.c) + 5, fmt(v/P.c, 1), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    });
+    for (var a = 0; a <= AMAX; a += 2){
+      el("line", {x1:ra(a), x2:ra(a), y1:Y1, y2:Y1 + 6, stroke:C.cinza}, svg);
+      tx(svg, ra(a), Y1 + 24, fmt(a, 0), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    }
+    tx(svg, (RX0 + RX1)/2, Y1 + 50, "α: aversão ao risco do gestor", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    function curva(f){ var d = ""; for (var i = 0; i <= 160; i++){ var v = AMAX*i/160; d += (i ? "L" : "M") + ra(v).toFixed(1) + " " + rp(f(v)).toFixed(1); } return d; }
+    el("path", {d:curva(total), fill:"none", stroke:C.tinta, "stroke-width":3}, svg);
+    el("path", {d:curva(perdaEsforco), fill:"none", stroke:C.azul, "stroke-width":3}, svg);
+    el("path", {d:curva(premio), fill:"none", stroke:C.laranja, "stroke-width":3}, svg);
+    tx(svg, ra(6), rp(total(6)) - 12, "perda total", H.halo({"font-size":15, "font-weight":600}));
+    tx(svg, ra(5.5), rp(perdaEsforco(5.5)) + 24, "menor esforço", H.halo({"font-size":15, "font-weight":600, fill:C.azul}));
+    tx(svg, ra(5.5), rp(premio(5.5)) - 12, "prêmio de risco", H.halo({"font-size":15, "font-weight":600, fill:C.laranja}));
+    el("circle", {cx:ra(APICO), cy:rp(premio(APICO)), r:5, fill:C.branco, stroke:C.laranja, "stroke-width":2}, svg);
+    G.rMk = el("line", {y1:Y0, y2:Y1, stroke:C.tinta, "stroke-width":1.2, "stroke-dasharray":"4 3"}, svg);
+    G.rT = el("circle", {r:6.5, fill:C.tinta, stroke:C.branco, "stroke-width":2}, svg);
+    G.rE = el("circle", {r:6.5, fill:C.azul, stroke:C.branco, "stroke-width":2}, svg);
+    G.rP = el("circle", {r:6.5, fill:C.laranja, stroke:C.branco, "stroke-width":2}, svg);
+  })();
+
+  function desenha(a){
+    var b = bOt(a), h = (1 - b)/P.c;
+    set(G.mant, {d:"M" + xb(0) + " " + ym(0) + "L" + xb(0) + " " + ym(1/P.c) + "L" + xb(b) + " " + ym(h) + "Z"});
+    set(G.prem, {d:"M" + xb(0) + " " + ym(0) + "L" + xb(b) + " " + ym(h) + "L" + xb(b) + " " + ym(0) + "Z"});
+    set(G.esf, {d:"M" + xb(b) + " " + ym(0) + "L" + xb(b) + " " + ym(h) + "L" + xb(1) + " " + ym(0) + "Z"});
+    // reta do custo marginal: sai do painel pelo topo ou pela direita
+    var bFim = a*P.sigma2 > MAXM ? MAXM/(a*P.sigma2) : 1, vFim = a*P.sigma2*bFim;
+    set(G.mc, {x2:xb(bFim), y2:ym(vFim)});
+    if (bFim < .6) set(G.mcT, {x:xb(bFim) + 10, y:Y0 + 16, "text-anchor":"start"});
+    else if (vFim*P.c < .3) set(G.mcT, {x:xb(.3), y:ym(vFim*.6) - 12, "text-anchor":"start"});
+    else set(G.mcT, {x:xb(1) - 6, y:ym(vFim) - 10, "text-anchor":"end"});
+    set(G.gv, {x1:xb(b), x2:xb(b), y2:ym(h)});
+    set(G.pt, {cx:xb(b), cy:ym(h)});
+    set(G.ptT, {x:xb(b) + 12, y:ym(h) - 12}); G.ptT.textContent = "b* = " + fmt(b);
+    // rótulos nas áreas (some quando a área é pequena demais)
+    function rotulo(t, x, y, s, cabe){ set(t, {x:x, y:y, opacity:cabe ? 1 : 0}); t.textContent = s; }
+    rotulo(G.tM, X0 + 8, ym(Math.max(h, .3/P.c)) + 5, "mantido " + fmt(FB - total(a), 3), b >= .2);
+    rotulo(G.tP, xb(b*.68), ym(h*.2), "prêmio " + fmt(premio(a), 3), b >= .2 && h >= .12/P.c);
+    rotulo(G.tE, xb(b + (1 - b)*.34), ym(h*.2), "esforço " + fmt(perdaEsforco(a), 3), 1 - b >= .3);
+    set(G.rMk, {x1:ra(a), x2:ra(a)});
+    set(G.rT, {cx:ra(a), cy:rp(total(a))}); set(G.rE, {cx:ra(a), cy:rp(perdaEsforco(a))}); set(G.rP, {cx:ra(a), cy:rp(premio(a))});
+  }
+  function legenda(a){
+    var b = bOt(a), t = "<p>α = " + fmt(a) + ": b* = " + fmt(b) + ". Perda total " + fmt(total(a), 3) + " = menor esforço " + fmt(perdaEsforco(a), 3) +
+      " + prêmio de risco " + fmt(premio(a), 3) + ", de um excedente de first-best de " + fmt(FB, 3) + ".</p>";
+    if (a < 1e-9) return t + '<p class="a15-efeito">Gestor neutro ao risco: b = 1, sem perda.</p>';
+    if (Math.abs(a - APICO) < 1e-9) return t + '<p class="a15-efeito">Prêmio de risco no pico: b* = 0,50.</p>';
+    return t + (a < APICO ? '<p class="a15-efeito">Com α baixo, mais aversão aumenta o prêmio: o gestor ainda carrega muito risco.</p>'
+                          : '<p class="a15-efeito">Com α alto, mais aversão reduz o prêmio: o contrato tira risco do gestor. A perda total continua subindo.</p>');
+  }
+  function livre(){ var a = +inA.value; lbA.textContent = fmt(a); desenha(a); cap.innerHTML = legenda(a); }
+  inA.addEventListener("input", livre); H.teclas(inA);
+  document.getElementById("a15pd-reset").addEventListener("click", function(){ inA.value = P.alpha; livre(); });
+  H.liga(root, livre, function(){
+    document.getElementById("a15pd-estatico").innerHTML = "α = 3 (σ² = " + fmt(P.sigma2, 0) + ", c = " + fmt(P.c, 0) + ")";
+    desenha(3);
+    cap.innerHTML = "<p>De α = 1 para α = 3, o prêmio cai, mas a perda total sobe: prêmio de " + fmt(premio(1), 3) + " para " + fmt(premio(3), 3) +
+      ", menor esforço de " + fmt(perdaEsforco(1), 3) + " para " + fmt(perdaEsforco(3), 3) + ", total de " + fmt(total(1), 3) + " para " + fmt(total(3), 3) + ".</p>";
+  });
+  root.a15pd = {bOt:bOt, perdaEsforco:perdaEsforco, premio:premio, total:total};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-9))) f.push(n + ": " + a + " != " + b); }
+    ap("b*(1)", bOt(1), .5); ap("esforço(1)", perdaEsforco(1), .125); ap("prêmio(1)", premio(1), .125); ap("total(1)", total(1), .25);
+    ap("b*(3)", bOt(3), .25); ap("prêmio(3)", premio(3), .09375); ap("total(3)", total(3), .375);
+    var ant = -1;
+    for (var i = 0; i <= 800; i++){
+      var a = i/100, b = bOt(a);
+      ap("CPO, a=" + a, (1 - b)/P.c, a*b*P.sigma2);
+      ap("total = (1 − b)/(2c), a=" + a, total(a), (1 - b)/(2*P.c));
+      ap("prêmio = b(1 − b)/(2c), a=" + a, premio(a), b*(1 - b)/(2*P.c));
+      if (!(total(a) > ant)) f.push("perda total deveria subir com α");
+      ant = total(a);
+      if (a > 0 && !(premio(a) <= premio(APICO) + 1e-12)) f.push("pico do prêmio fora de APICO");
+    }
+    if (f.length) console.error("Autoteste (Aula 15, perda) FALHOU:\n" + f.slice(0, 10).join("\n"));
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+  })();
+
+  livre();
+})();
+</script>
+</section>
+<section id="ce-first-best-vs.-second-best" class="slide level2 smaller">
+<h2><span class="math inline">\(c'(e)\)</span>: first-best vs.&nbsp;second-best</h2>
+<div id="3d446475" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- FONTE: Graf1.pdf/Graf1.pptx, notas de 2024. A curva original não especifica custo; este redesenho usa c'(e)=(e/2,6)^3, distinto do caso quadrático anterior. -->
+<p><span class="fonte">Felipe Iachan, notas de aula (2024). Curva genérica ilustrativa; no caso quadrático anterior, <span class="math inline">\(c'(e)=ce\)</span> seria uma reta.</span></p>
 </section>
 <section id="estática-comparativa-fb-vs.-sb" class="slide level2 smaller">
 <h2>Estática comparativa: FB vs.&nbsp;SB</h2>
@@ -400,14 +841,14 @@ flowchart LR
 <td><span class="math inline">\(b^2\sigma^2&gt;0\)</span></td>
 </tr>
 <tr class="odd">
-<td>Perda de bem-estar</td>
+<td>Prêmio de risco no salário</td>
 <td>zero</td>
 <td><span class="math inline">\(\dfrac{\alpha b^2\sigma^2}{2}&gt;0\)</span></td>
 </tr>
 <tr class="even">
 <td>Comparado ao FB</td>
 <td>—</td>
-<td><span class="destaque">menos esforço, sempre</span></td>
+<td><span class="destaque">menos esforço</span>, sob as hipóteses anteriores</td>
 </tr>
 </tbody>
 </table>
@@ -416,7 +857,7 @@ flowchart LR
 <section id="determinação-de-b-o-poder-do-contrato" class="slide level2">
 <h2>Determinação de <span class="math inline">\(b\)</span>: o “poder” do contrato</h2>
 <ul>
-<li>First-best, second-best: a diferença toda está em quanto risco o gestor absorve</li>
+<li>O custo de impor risco reduz a potência do contrato e o esforço do gestor</li>
 <li><span class="math inline">\(b\)</span> resume a <strong>potência</strong> do contrato — quanto do desempenho da firma o gestor carrega</li>
 <li><span class="destaque">Quanto maior <span class="math inline">\(\alpha\sigma^2\)</span></span>, mais caro é dar incentivos, e menor o <span class="math inline">\(b\)</span> ótimo</li>
 </ul>
@@ -430,12 +871,13 @@ flowchart LR
 <section id="por-que-uma-versão-discreta" class="slide level2 center">
 <h2>Por que uma versão discreta?</h2>
 <div class="r-fit-text">
-<p>O modelo CARA-Normal supõe esforço contínuo e utilidade exponencial. <span class="destaque">O que sobra do resultado</span> num ambiente totalmente geral — outra utilidade, produto discreto?</p>
+<p>O modelo CARA-Normal supõe esforço contínuo e utilidade exponencial. <span class="destaque">O que sobra do resultado</span> num ambiente sem a forma CARA-Normal — outra utilidade, produto discreto?</p>
 </div>
 </section>
 <section id="ambiente-duas-ações" class="slide level2 smaller">
 <h2>Ambiente: duas ações</h2>
-<p><em>MH_duas ações.lyx</em> — agente e principal, problema estático.</p>
+<!-- FONTE: MH_duas ações.lyx, problema estático de implementação de a1. -->
+<p>Agente e principal em um problema estático.</p>
 <ul>
 <li>Duas ações para o agente: <span class="math inline">\(a_{1}\)</span> <span class="destaque">domina</span> <span class="math inline">\(a_{0}\)</span> — produto esperado maior</li>
 <li><span class="math inline">\(a_1\)</span> é mais custosa: <span class="math inline">\(c\left(a_{1}\right)\equiv c&gt;c\left(a_{0}\right)=0\)</span></li>
@@ -443,6 +885,17 @@ flowchart LR
 <li>Produto da firma <span class="math inline">\(y\)</span>: retirado de <span class="math inline">\(\left\{ y_{1},y_{2},...,y_{n}\right\}\)</span> ordenado, com distribuições <span class="math inline">\(\pi\left(y,a_{i}\right)\)</span></li>
 </ul>
 <p>Acionista quer <strong>implementar</strong> <span class="math inline">\(a_1\)</span>.</p>
+<!-- ADICIONADO: regularidade para dividir a CPO pelas probabilidades, inverter u' e obter monotonicidade salarial. A implementação de a1 é um problema condicionado à ação desejada, não escolha automática de a1. -->
+</section>
+<section id="hipóteses-para-o-perfil-de-salários" class="slide level2 smaller">
+<h2>Hipóteses para o perfil de salários</h2>
+<ul>
+<li>Principal neutro ao risco; agente com <span class="math inline">\(u'&gt;0\)</span> e <span class="math inline">\(u''&lt;0\)</span></li>
+<li>Suporte comum positivo: <span class="math inline">\(\pi(y_i,a_0)&gt;0\)</span>, <span class="math inline">\(\pi(y_i,a_1)&gt;0\)</span></li>
+<li>Salários sem restrições adicionais ativas; solução interior</li>
+<li><span class="math inline">\(a_1\)</span> é a ação a implementar; sua IC será ativa no ótimo</li>
+</ul>
+<p><span class="fonte">Concavidade estrita permite inverter <span class="math inline">\(u'\)</span>; suporte comum permite comparar os estados pela razão de verossimilhança.</span></p>
 </section>
 <section id="o-problema-do-acionista-1" class="slide level2 smaller">
 <h2>O problema do acionista</h2>
@@ -466,7 +919,7 @@ flowchart LR
      na digitação do .lyx. -->
 <p>Para cada <span class="math inline">\(w_i\)</span>:</p>
 <p><span class="math display">\[ \pi_{i}\left(y_{i},a_{1}\right)=\lambda_{PC}\,\pi_{i}\left(y_{i},a_{1}\right)u^{'}\left(w_{i}\right) \implies \frac{1}{u^{'}\left(w_{i}\right)}=\lambda_{PC} \]</span></p>
-<p><span class="math display">\[ \implies w_{i}=u^{'-1}\left(\lambda_{PC}^{-1}\right)\quad\text{(constante em }i\text{)} \]</span></p>
+<p><span class="math display">\[ \implies w_{i}=\left(u^{'}\right)^{-1}\left(\lambda_{PC}^{-1}\right)\quad\text{(constante em }i\text{)} \]</span></p>
 <p><span class="destaque">Há seguro perfeito</span> — o lado direito não depende de <span class="math inline">\(i\)</span>, então o salário também não pode depender.</p>
 </section>
 <section id="second-best-a-razão-de-verossimilhança" class="slide level2 smaller">
@@ -483,14 +936,15 @@ flowchart LR
 <p>é a <strong>razão de verossimilhança</strong> (likelihood ratio) do estado <span class="math inline">\(y\)</span>.</p>
 <ul>
 <li>Estados <span class="math inline">\(y_i\)</span> <span class="destaque">mais prováveis sob <span class="math inline">\(a_0\)</span></span> do que sob <span class="math inline">\(a_1\)</span> levam a <strong>consumo menor</strong></li>
-<li>Intuição: observar esse estado é “má notícia” sobre o esforço — o principal pune</li>
+<li>Intuição: observar esse estado é “má notícia” sobre o esforço</li>
+<li>“Punição” é salário menor no perfil relativo; não significa salário negativo</li>
 </ul>
 </section>
 <section id="exemplo-ilustrativo-2-estados" class="slide level2 smaller">
 <h2>Exemplo ilustrativo: 2 estados</h2>
 <!-- ADICIONADO: números não constam do .lyx-fonte (inteiramente abstrato, com {y_1,...,y_n} e π(y,a_i) genéricos). Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
-<div id="bcecabc1" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<div id="d76877a9" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -503,14 +957,14 @@ flowchart LR
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">y_baixo</td>
+<td style="text-align: left;">baixo</td>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;">0,2</td>
 <td style="text-align: left;">0,7</td>
 <td style="text-align: left;">3,50</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">y_alto</td>
+<td style="text-align: left;">alto</td>
 <td style="text-align: left;">10</td>
 <td style="text-align: left;">0,8</td>
 <td style="text-align: left;">0,3</td>
@@ -532,13 +986,229 @@ flowchart LR
 <section id="resposta-razão-de-verossimilhança-monótona" class="slide level2 smaller">
 <h2>Resposta: razão de verossimilhança monótona</h2>
 <!-- ADICIONADO: o .lyx-fonte apenas formula a pergunta, sem resposta. Resultado clássico da literatura, citado (não derivado aqui). Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
-<p>Implementar <span class="math inline">\(a_1\)</span> exige a IC ativa (<span class="math inline">\(\lambda_{IC}&gt;0\)</span>, já que <span class="math inline">\(a_1\)</span> é mais custosa e só vale a pena impor via incentivo). Nesse caso, se a razão de verossimilhança <span class="math inline">\(\pi\left(y,a_{0}\right)/\pi\left(y,a_{1}\right)\)</span> é <span class="destaque">decrescente</span> em <span class="math inline">\(y\)</span> — <strong>MLRP</strong>, monotone likelihood ratio property —, a própria CPO já implica que <span class="math inline">\(1/u'(w_i)\)</span> é crescente em <span class="math inline">\(y_i\)</span> (o termo <span class="math inline">\(1-\pi(y_i,a_0)/\pi(y_i,a_1)\)</span> cresce, e <span class="math inline">\(\lambda_{IC}&gt;0\)</span>), logo <span class="math inline">\(w_i\)</span> é não-decrescente em <span class="math inline">\(y_i\)</span> (Milgrom, 1981; Grossman e Hart, 1983).</p>
+<p><strong>MLRP:</strong> quanto maior <span class="math inline">\(y\)</span>, melhor a notícia sobre o esforço.</p>
+<p><span class="math display">\[ \frac{\pi(y,a_0)}{\pi(y,a_1)}\;\downarrow\text{ em }y \quad\Longrightarrow\quad \frac{1}{u'(w)}\;\uparrow \quad\Longrightarrow\quad w\;\uparrow \]</span></p>
+<p>Salário ótimo <span class="destaque">não decrescente</span> em <span class="math inline">\(y\)</span>.</p>
+<p><span class="fonte">Passa pela CPO, com <span class="math inline">\(\lambda_{IC}&gt;0\)</span> e <span class="math inline">\(u''&lt;0\)</span>. Milgrom (1981); Grossman e Hart (1983).</span></p>
+<!-- ADICIONADO: artefato novo, parâmetros ilustrativos. Com u=√w, a CPO dá forma fechada; conferida contra otimizador numérico. Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
+<!-- PLANNING: arrastar δ devagar e parar quando a linha ficar laranja. Pergunta à turma antes: "um produto maior pode render salário menor?" -->
+</section>
+<section id="razão-de-verossimilhança-em-movimento" class="slide level2 smaller">
+<h2>Razão de verossimilhança em movimento</h2>
+<div class="a15art" id="a15lr-root" data-artefato="a15-mlrp" data-pdf-check="o salário cai de">
+  <div class="a15-controls a15-c3">
+    <div class="a15-field">
+      <label for="a15lr-d"><span>Δ: quanto a₁ desloca o produto</span><output id="a15lr-lbl-d">0,20</output></label>
+      <input type="range" id="a15lr-d" min="0.16" max="0.30" step="0.01" value="0.2">
+    </div>
+    <div class="a15-field">
+      <label for="a15lr-x"><span>δ: sem esforço, o gestor aposta em y₆</span><output id="a15lr-lbl-x">0,000</output></label>
+      <input type="range" id="a15lr-x" min="0" max="0.12" step="0.002" value="0">
+    </div>
+    <div class="a15-botoes">
+      <button type="button" class="a15-botao" id="a15lr-quebra">δ = 0,10</button>
+      <button type="button" class="a15-botao" id="a15lr-reset">MLRP vale</button>
+    </div>
+  </div>
+  <div class="a15-estatico" id="a15lr-estatico"></div>
+  <svg id="a15lr-svg" viewbox="0 0 1200 450" role="img" aria-label="Três painéis por estado de produto: probabilidades sob as duas ações, razão de verossimilhança em escala logarítmica e salário ótimo. Quando a aposta quebra a MLRP, a razão sobe e o salário cai entre y5 e y6."></svg>
+  <div class="a15-cap" id="a15lr-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var H = window.A15H, C = H.C, fmt = H.fmt, el = H.el, tx = H.tx, set = H.set, sub = H.sub;
+  var root = document.getElementById("a15lr-root");
+  if (!root) return;
+
+  // MODELO-INICIO --- duas ações, u = √w, parâmetros ilustrativos.
+  // v_i = u(w_i). Com PC e IC ativas, a CPO 1/u'(w_i) = 2v_i = λ + μ(1 − LR_i) dá forma fechada:
+  //   v_i = V + (c/χ²)(1 − LR_i),  V = Ū + c,  χ² = Σ π₁(1 − LR)²
+  //   custo de agência = E₁[w] − V² = Var₁(v) = c²/χ²
+  var V = 5, CUSTO = 0.5, N = 6, ORIG = 2, DEST = 5;            // δ sai de y₃ (k = 2) e vai para y₆ (k = 5)
+  function comb(n, k){ var r = 1; for (var i = 1; i <= k; i++) r *= (n - k + i)/i; return r; }
+  function binom(p){ var a = []; for (var k = 0; k <= N; k++) a.push(comb(N, k)*Math.pow(p, k)*Math.pow(1 - p, N - k)); return a; }
+  function resolve(D, x){
+    var p0 = binom(.5 - D/2), p1 = binom(.5 + D/2);
+    p0[ORIG] -= x; p0[DEST] += x;
+    var LR = p0.map(function(v, i){ return v/p1[i]; }), chi = 0, i;
+    for (i = 0; i <= N; i++) chi += p1[i]*Math.pow(1 - LR[i], 2);
+    var v = LR.map(function(l){ return V + (CUSTO/chi)*(1 - l); });
+    var w = v.map(function(a){ return a*a; }), Ew = 0, dY = 0;
+    for (i = 0; i <= N; i++){ Ew += p1[i]*w[i]; dY += (p1[i] - p0[i])*i; }
+    var quebra = [];
+    for (i = 0; i < N; i++) if (LR[i + 1] > LR[i] + 1e-12) quebra.push(i);
+    return {p0:p0, p1:p1, LR:LR, chi:chi, v:v, w:w, Ew:Ew, custo:Ew - V*V, dY:dY, quebra:quebra};
+  }
+  function limiar(D){ var s = resolve(D, 0); return s.LR[DEST - 1]*s.p1[DEST] - s.p0[DEST]; }   // δ em que LR(y₆) = LR(y₅)
+  // MODELO-FIM
+
+  // --- geometria: três painéis
+  var TOPO = 66, BASE = 396, PAIN = [{x0:44, x1:370}, {x0:452, x1:778}, {x0:862, x1:1188}];
+  function xc(p, i){ return PAIN[p].x0 + (i + .5)*(PAIN[p].x1 - PAIN[p].x0)/(N + 1); }
+  var PMAX = .42, WMAX = 40, LMIN = .01, LMAX = 60;
+  function yP(v){ return BASE - (BASE - TOPO)*v/PMAX; }
+  function yW(v){ return BASE - (BASE - TOPO)*v/WMAX; }
+  function yL(v){ return TOPO + (BASE - TOPO)*(Math.log(LMAX) - Math.log(v))/(Math.log(LMAX) - Math.log(LMIN)); }
+  var svg = document.getElementById("a15lr-svg"), cap = document.getElementById("a15lr-cap");
+  var inD = document.getElementById("a15lr-d"), inX = document.getElementById("a15lr-x");
+  var lbD = document.getElementById("a15lr-lbl-d"), lbX = document.getElementById("a15lr-lbl-x");
+  var G = {};
+  function eixoX(p){
+    el("line", {x1:PAIN[p].x0, x2:PAIN[p].x1, y1:BASE, y2:BASE, stroke:C.cinza, "stroke-width":1.3}, svg);
+    for (var i = 0; i <= N; i++) tx(svg, xc(p, i), BASE + 24, "y" + sub(i + 1), {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+  }
+  function caminho(p, Y, a){ var d = ""; for (var i = 0; i < a.length; i++) d += (i ? "L" : "M") + xc(p, i).toFixed(1) + " " + Y(a[i]).toFixed(1); return d; }
+  (function init(){
+    // painel 1: probabilidades
+    tx(svg, PAIN[0].x0, 20, "probabilidade de cada produto", {"font-size":16, fill:C.cinza});
+    el("rect", {x:PAIN[0].x0, y:33, width:13, height:13, fill:C.laranja}, svg); tx(svg, PAIN[0].x0 + 19, 45, "sem esforço, a" + sub(0), {"font-size":14, fill:C.cinza});
+    el("rect", {x:PAIN[0].x0 + 164, y:33, width:13, height:13, fill:C.azul}, svg); tx(svg, PAIN[0].x0 + 183, 45, "com esforço, a" + sub(1), {"font-size":14, fill:C.cinza});
+    [0, .1, .2, .3, .4].forEach(function(v){
+      el("line", {x1:PAIN[0].x0, x2:PAIN[0].x1, y1:yP(v), y2:yP(v), stroke:C.grade}, svg);
+      tx(svg, PAIN[0].x0 - 8, yP(v) + 5, fmt(v, 1), {"text-anchor":"end", "font-size":13, fill:C.cinza});
+    });
+    G.b0 = []; G.b1 = [];
+    for (var i = 0; i <= N; i++){
+      G.b0.push(el("rect", {x:xc(0, i) - 17, width:17, fill:C.laranja}, svg));
+      G.b1.push(el("rect", {x:xc(0, i), width:17, fill:C.azul}, svg));
+    }
+    eixoX(0);
+    // painel 2: razão de verossimilhança, escala log
+    tx(svg, PAIN[1].x0, 20, "razão de verossimilhança π(y,a" + sub(0) + ") / π(y,a" + sub(1) + ")", {"font-size":16, fill:C.cinza});
+    tx(svg, PAIN[1].x0, 45, "escala logarítmica", {"font-size":14, fill:C.cinzaClaro});
+    el("rect", {x:PAIN[1].x0, y:TOPO, width:PAIN[1].x1 - PAIN[1].x0, height:yL(1) - TOPO, fill:C.laranja, opacity:.07}, svg);
+    el("rect", {x:PAIN[1].x0, y:yL(1), width:PAIN[1].x1 - PAIN[1].x0, height:BASE - yL(1), fill:C.azul, opacity:.07}, svg);
+    tx(svg, PAIN[1].x1 - 8, TOPO + 20, "má notícia", {"text-anchor":"end", "font-size":14, fill:C.laranja, "font-weight":600});
+    tx(svg, PAIN[1].x0 + 8, BASE - 10, "boa notícia", {"font-size":14, fill:C.azul, "font-weight":600});
+    [[.01, "0,01"], [.1, "0,1"], [1, "1"], [10, "10"]].forEach(function(t){
+      el("line", {x1:PAIN[1].x0, x2:PAIN[1].x1, y1:yL(t[0]), y2:yL(t[0]), stroke:t[0] === 1 ? C.cinza : C.grade, "stroke-width":t[0] === 1 ? 1.4 : 1}, svg);
+      tx(svg, PAIN[1].x0 - 8, yL(t[0]) + 5, t[1], {"text-anchor":"end", "font-size":13, fill:C.cinza});
+    });
+    G.lrF = el("path", {fill:"none", stroke:C.cinzaClaro, "stroke-width":2, "stroke-dasharray":"5 4"}, svg);
+    G.lr = el("path", {fill:"none", stroke:C.tinta, "stroke-width":2.6}, svg);
+    G.lrQ = el("line", {stroke:C.laranja, "stroke-width":6, "stroke-linecap":"round"}, svg);
+    G.lrP = [];
+    for (i = 0; i <= N; i++) G.lrP.push(el("circle", {cx:xc(1, i), r:5.5, fill:C.tinta, stroke:C.branco, "stroke-width":1.5}, svg));
+    eixoX(1);
+    // painel 3: salário
+    tx(svg, PAIN[2].x0, 20, "salário ótimo que implementa a" + sub(1) + " (u = √w)", {"font-size":16, fill:C.cinza});
+    el("line", {x1:PAIN[2].x0, x2:PAIN[2].x0 + 24, y1:39, y2:39, stroke:C.verde, "stroke-width":2.2, "stroke-dasharray":"7 4"}, svg);
+    tx(svg, PAIN[2].x0 + 30, 45, "seguro perfeito", {"font-size":14, fill:C.cinza});
+    el("line", {x1:PAIN[2].x0 + 156, x2:PAIN[2].x0 + 180, y1:39, y2:39, stroke:C.cinza, "stroke-width":1.5, "stroke-dasharray":"2 4"}, svg);
+    tx(svg, PAIN[2].x0 + 186, 45, "reta y" + sub(1) + "–y" + sub(7), {"font-size":14, fill:C.cinza});
+    [0, 10, 20, 30, 40].forEach(function(v){
+      el("line", {x1:PAIN[2].x0, x2:PAIN[2].x1, y1:yW(v), y2:yW(v), stroke:C.grade}, svg);
+      tx(svg, PAIN[2].x0 - 8, yW(v) + 5, fmt(v, 0), {"text-anchor":"end", "font-size":13, fill:C.cinza});
+    });
+    el("line", {x1:PAIN[2].x0, x2:PAIN[2].x1, y1:yW(V*V), y2:yW(V*V), stroke:C.verde, "stroke-width":2.2, "stroke-dasharray":"7 4"}, svg);
+    G.cord = el("line", {stroke:C.cinza, "stroke-width":1.5, "stroke-dasharray":"2 4"}, svg);
+    G.wF = el("path", {fill:"none", stroke:C.cinzaClaro, "stroke-width":2, "stroke-dasharray":"5 4"}, svg);
+    G.w = el("path", {fill:"none", stroke:C.azul, "stroke-width":3}, svg);
+    G.wQ = el("line", {stroke:C.laranja, "stroke-width":6, "stroke-linecap":"round"}, svg);
+    G.wP = [];
+    for (i = 0; i <= N; i++) G.wP.push(el("circle", {cx:xc(2, i), r:6, fill:C.azul, stroke:C.branco, "stroke-width":1.5}, svg));
+    eixoX(2);
+  })();
+
+  function desenha(D, x){
+    var s = resolve(D, x), f = resolve(D, 0), i;
+    for (i = 0; i <= N; i++){
+      set(G.b0[i], {y:yP(s.p0[i]), height:BASE - yP(s.p0[i])});
+      set(G.b1[i], {y:yP(s.p1[i]), height:BASE - yP(s.p1[i])});
+      set(G.lrP[i], {cy:yL(s.LR[i])});
+      set(G.wP[i], {cy:yW(s.w[i])});
+    }
+    set(G.lr, {d:caminho(1, yL, s.LR)}); set(G.w, {d:caminho(2, yW, s.w)});
+    var temF = x > 1e-9;
+    set(G.lrF, {d:caminho(1, yL, f.LR), opacity:temF ? 1 : 0}); set(G.wF, {d:caminho(2, yW, f.w), opacity:temF ? 1 : 0});
+    set(G.cord, {x1:xc(2, 0), y1:yW(s.w[0]), x2:xc(2, N), y2:yW(s.w[N])});
+    var q = s.quebra.length ? s.quebra[0] : -1;
+    set(G.lrQ, {opacity:q < 0 ? 0 : 1}); set(G.wQ, {opacity:q < 0 ? 0 : 1});
+    if (q >= 0){
+      set(G.lrQ, {x1:xc(1, q), y1:yL(s.LR[q]), x2:xc(1, q + 1), y2:yL(s.LR[q + 1])});
+      set(G.wQ, {x1:xc(2, q), y1:yW(s.w[q]), x2:xc(2, q + 1), y2:yW(s.w[q + 1])});
+    }
+    return s;
+  }
+  function legenda(D, x, s){
+    var q = s.quebra.length ? s.quebra[0] : -1, t;
+    t = "<p>Custo de agência, E[w] − w<sup>FB</sup>: " + fmt(s.custo) + ". E[y|a₁] − E[y|a₀] = " + fmt(s.dY) + ": a₁ segue com produto esperado maior. ";
+    t += (q < 0 ? "MLRP vale até δ = " + fmt(limiar(D), 3) + "." : "MLRP quebrou em δ = " + fmt(limiar(D), 3) + ".") + "</p>";
+    if (q < 0) t += '<p class="a15-efeito">A razão cai em y e o salário sobe: de ' + fmt(s.w[0], 1) + " em y₁ a " + fmt(s.w[N], 1) + " em y₇, mas longe da reta.</p>";
+    else t += '<p class="a15-efeito">y<sub>' + (q + 2) + "</sub> é pior notícia que y<sub>" + (q + 1) + "</sub> (razão " + fmt(s.LR[q + 1]) + " &gt; " + fmt(s.LR[q]) + "): o salário cai de " + fmt(s.w[q], 1) + " para " + fmt(s.w[q + 1], 1) + ", com produto maior.</p>";
+    return t;
+  }
+  function livre(){
+    var D = +inD.value, x = +inX.value;
+    lbD.textContent = fmt(D); lbX.textContent = fmt(x, 3);
+    cap.innerHTML = legenda(D, x, desenha(D, x));
+  }
+  [inD, inX].forEach(function(e){ e.addEventListener("input", livre); H.teclas(e); });
+  document.getElementById("a15lr-quebra").addEventListener("click", function(){ inX.value = .1; livre(); });
+  document.getElementById("a15lr-reset").addEventListener("click", function(){ inX.value = 0; livre(); });
+  H.liga(root, livre, function(){
+    document.getElementById("a15lr-estatico").innerHTML = "Δ = 0,20; δ = 0,10 (tracejado cinza: δ = 0, com MLRP)";
+    var s = desenha(.2, .1), f = resolve(.2, 0), q = s.quebra[0];
+    cap.innerHTML = "<p>Com MLRP (δ = 0), o salário cresce de " + fmt(f.w[0], 1) + " a " + fmt(f.w[N], 1) + ", sem ser linear. Com δ = 0,10, y<sub>" + (q + 2) + "</sub> vira pior notícia que y<sub>" + (q + 1) + "</sub>" +
+      ' e o salário cai de ' + fmt(s.w[q], 1) + " para " + fmt(s.w[q + 1], 1) + ".</p>";
+  });
+  root.a15lr = {resolve:resolve, limiar:limiar};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-9))) f.push(n + ": " + a + " != " + b); }
+    // referências de um otimizador independente (Python, SLSQP nas utilidades v_i)
+    ap("custo(0,2; 0)", resolve(.2, 0).custo, 0.164298, 1e-4);
+    ap("custo(0,2; 0,05)", resolve(.2, .05).custo, 0.185479, 1e-4);
+    ap("custo(0,3; 0,12)", resolve(.3, .12).custo, 0.043165, 1e-4);
+    for (var d = 16; d <= 30; d++) for (var k = 0; k <= 60; k++){
+      var D = d/100, x = k*.002, s = resolve(D, x), i, pc = 0, ic = 0;
+      for (i = 0; i <= N; i++){ pc += s.p1[i]*s.v[i]; ic += (s.p1[i] - s.p0[i])*s.v[i]; if (s.p0[i] <= 0) f.push("π₀ ≤ 0"); if (s.v[i] <= 0) f.push("v ≤ 0 em D=" + D + ", x=" + x); }
+      ap("PC ativa", pc, V); ap("IC ativa", ic, CUSTO);
+      ap("custo = c²/χ²", s.custo, CUSTO*CUSTO/s.chi);
+      if (!(s.dY > 0)) f.push("a₁ deveria ter produto esperado maior");
+      if (s.quebra.length > 1) f.push("mais de uma quebra em D=" + D + ", x=" + x);
+      for (i = 0; i < N; i++) if ((s.LR[i + 1] > s.LR[i]) !== (s.w[i + 1] < s.w[i])) f.push("salário deveria inverter junto com a razão");
+    }
+    if (f.length) console.error("Autoteste (Aula 15, MLRP) FALHOU:\n" + f.slice(0, 10).join("\n"));
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+  })();
+
+  livre();
+})();
+</script>
+<p><span class="fonte">Binomiais com <span class="math inline">\(n=6\)</span> e <span class="math inline">\(p=0{,}5\mp\Delta/2\)</span>; <span class="math inline">\(\underline{U}+c=5\)</span>, <span class="math inline">\(c=0{,}5\)</span>. Parâmetros ilustrativos.</span></p>
+</section>
+<section id="crescente-não-significa-linear" class="slide level2 smaller">
+<h2>Crescente não significa linear</h2>
+<p>A própria CPO permite escrever:</p>
+<p><span class="math display">\[w_i=(u')^{-1}\!\left(\frac{1}{\lambda_{PC}+\lambda_{IC}[1-\pi(y_i,a_0)/\pi(y_i,a_1)]}\right)\]</span></p>
 <ul>
-<li>Relacionado ao princípio da informatividade de Holmström (1979): sinais informativos sobre o esforço devem entrar no contrato; o MLRP é a condição específica que garante, além disso, que o salário resultante seja <em>monótono</em> em <span class="math inline">\(y\)</span></li>
-<li>Com <strong>duas ações</strong> (este modelo), o MLRP já basta — garante monotonicidade diretamente pela CPO acima</li>
-<li>A condição de convexidade da distribuição acumulada (CDFC, Rogerson, 1985) é diferente: entra em modelos de <strong>esforço contínuo</strong>, para validar a abordagem de primeira ordem — não é o caso aqui</li>
-<li>Sem MLRP, bônus lineares podem não ser ótimos — o salário pode não ser monótono</li>
+<li>MLRP garante a ordenação dos salários; <span class="destaque">não garante bônus linear</span></li>
+<li>Linearidade exige hipóteses adicionais sobre utilidade e informação</li>
+<li>Sem MLRP, o perfil ótimo pode até deixar de ser monótono</li>
 </ul>
+<!-- CORREÇÃO: responde à pergunta original sobre bônus lineares. A implicação é monotonicidade, não linearidade; preservada também a ressalva sem MLRP. -->
+</section>
+<section id="princípio-da-informatividade" class="slide level2">
+<h2>Princípio da informatividade</h2>
+<ul>
+<li>Sinal útil sobre o esforço, dado <span class="math inline">\(y\)</span>: <span class="destaque">entra no contrato</span></li>
+<li>O sinal nem precisa depender do esforço</li>
+<li>Um benchmark revela sorte ou azar em <span class="math inline">\(y\)</span></li>
+</ul>
+<p><span class="fonte">Holmström (1979).</span></p>
+</section>
+<section id="e-com-esforço-contínuo" class="slide level2">
+<h2>E com esforço contínuo?</h2>
+<ul>
+<li>Duas ações: a IC compara <span class="math inline">\(a_1\)</span> e <span class="math inline">\(a_0\)</span> diretamente</li>
+<li>Esforço contínuo: a IC vira uma CPO, que pode não bastar</li>
+<li>CDFC (convexidade da distribuição acumulada) valida esse atalho</li>
+</ul>
+<p><span class="fonte">Rogerson (1985).</span></p>
 </section></section>
 <section>
 <section id="benchmarking-usando-informação-externa" class="title-slide slide level1 center">
@@ -553,13 +1223,25 @@ flowchart LR
 </section>
 <section id="ambiente-um-benchmark" class="slide level2 smaller">
 <h2>Ambiente: um benchmark</h2>
-<p><em>Benchmarking.lyx</em> — extensão do problema CARA-Normal.</p>
+<!-- FONTE: Benchmarking.lyx e manuscrito MH_ext1.pdf. -->
+<p>Extensão do problema CARA-Normal.</p>
 <p><span class="math display">\[ y=e+\epsilon_{1},\qquad z=\overline{z}+\epsilon_{2} \]</span></p>
 <ul>
 <li><span class="math inline">\(z\)</span>: desempenho de outra firma, índice setorial, ou índice agregado (ex.: Ibovespa)</li>
 <li><span class="math inline">\(\left(\epsilon_{1},\epsilon_{2}\right)\sim N\left(0,\Sigma\right)\)</span>, potencialmente correlacionados:</li>
 </ul>
 <p><span class="math display">\[ \Sigma=\begin{bmatrix}\sigma_{1}^{2} &amp; \sigma_{1,2}\\ \sigma_{1,2} &amp; \sigma_{2}^{2}\end{bmatrix} \]</span></p>
+<!-- ADICIONADO: σ2²>0 é necessário para o coeficiente de regressão; benchmark não responde à ação; a distribuição dos choques fica fixa ao variar e. -->
+</section>
+<section id="hipóteses-do-benchmark" class="slide level2 smaller">
+<h2>Hipóteses do benchmark</h2>
+<ul>
+<li><span class="math inline">\(\sigma_1,\sigma_2&gt;0\)</span> e <span class="math inline">\(|\rho_{1,2}|\leq1\)</span></li>
+<li>O esforço afeta <span class="math inline">\(y\)</span>, mas não o benchmark <span class="math inline">\(z\)</span></li>
+<li>A distribuição conjunta dos choques não muda com o esforço</li>
+<li>Mantemos o contrato linear, sem piso salarial nem limites nos coeficientes</li>
+</ul>
+<p><span class="fonte">O benchmark ajuda a separar desempenho do gestor de condições que ele não controla.</span></p>
 </section>
 <section id="o-contrato-com-benchmark" class="slide level2 smaller">
 <h2>O contrato com benchmark</h2>
@@ -625,6 +1307,31 @@ flowchart LR
 <p><span class="math display">\[ Var\left(w\right)=b_{y}^{2}\underbrace{\left(1-\rho_{1,2}^{2}\right)\sigma_{1}^{2}}_{Var\left(y-\beta_{y\rightarrow z}z\right)} \]</span></p>
 <p>em que <span class="math inline">\(\rho_{1,2}\)</span> é a correlação entre os dois ruídos.</p>
 <p><span class="destaque"><span class="math inline">\(\left(1-\rho^{2}\right)\sigma_{1}^{2}&lt;\sigma_{1}^{2}\)</span> sempre que <span class="math inline">\(\rho\neq0\)</span></span>: o benchmark filtra parte do risco, sem custo em termos de incentivo.</p>
+<!-- RESTAURADO: interpretação por mínima variância e ortogonalidade do manuscrito MH_ext1.pdf, p.3. Gráfico novo da fórmula, sem traçar pixels nem importar erros da derivação manuscrita. -->
+</section>
+<section id="por-que-o-coeficiente-de-regressão" class="slide level2 smaller">
+<h2>Por que o coeficiente de regressão?</h2>
+<p>Considere o ruído ajustado <span class="math inline">\(\epsilon_1-k\epsilon_2\)</span>:</p>
+<p><span class="math display">\[V(k)=\sigma_1^2+k^2\sigma_2^2-2k\sigma_{1,2}\]</span></p>
+<ul>
+<li>Mínimo em <span class="math inline">\(k=\beta=\sigma_{1,2}/\sigma_2^2\)</span></li>
+<li>Resíduo ortogonal ao benchmark: <span class="math inline">\(Cov(\epsilon_1-\beta\epsilon_2,\epsilon_2)=0\)</span></li>
+<li>Para cada <span class="math inline">\(b_y\)</span> fixo, <span class="math inline">\(b_z=-b_y\beta\)</span> minimiza <span class="math inline">\(Var(w)\)</span></li>
+</ul>
+</section>
+<section id="o-resíduo-tem-variância-mínima" class="slide level2 smaller">
+<h2>O resíduo tem variância mínima</h2>
+<div id="0c6a6f5e" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg"></p>
+<figcaption>Ilustração: σ₁²=σ₂²=1; correlações ρ=±0,6. As variâncias e correlações são parâmetros hipotéticos.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">Em ambos os exemplos, o mínimo é <span class="math inline">\(0{,}64\)</span>: o sinal do ajuste muda, o ganho depende de <span class="math inline">\(\rho^2\)</span>.</span></p>
 </section>
 <section id="o-problema-final-do-acionista" class="slide level2">
 <h2>O problema final do acionista</h2>
@@ -639,27 +1346,206 @@ flowchart LR
 <p><span class="math display">\[ b_{y}=c^{'}\left(e\right)=\frac{1}{1+\alpha c^{''}\left(e\right)\left(1-\rho^{2}\right)\sigma_{1}^{2}} \]</span></p>
 <p>comparado a, sem benchmark (ou <span class="math inline">\(\rho=0\)</span>):</p>
 <p><span class="math display">\[ \hat{b}_{y}=c^{'}\left(\hat{e}\right)=\frac{1}{1+\alpha c^{''}\left(\hat{e}\right)\sigma_{1}^{2}} \]</span></p>
-<p><span class="destaque"><span class="math inline">\(b_y&gt;\hat b_y\)</span></span>: usar o benchmark induz um contrato de <strong>maior potência</strong> — e mais esforço — do que ignorá-lo.</p>
+<!-- CORREÇÃO: ganho estrito exclui rho=0; comparação entre esforços distintos é por redução do custo de incentivos, não só por denominadores com c'' avaliado em lugares diferentes. -->
+<ul>
+<li>Se <span class="math inline">\(\rho\neq0\)</span>, <span class="destaque"><span class="math inline">\(b_y&gt;\hat b_y\)</span></span>: maior potência e esforço, sob nossas hipóteses interiores</li>
+<li>Se <span class="math inline">\(\rho=0\)</span>, <span class="math inline">\(b_y=\hat b_y\)</span>: o benchmark não reduz o risco residual</li>
+</ul>
+<aside class="notes">
+<p>Para qualquer esforço fixo, a redução de <span class="math inline">\(\sigma_1^2\)</span> para <span class="math inline">\((1-\rho^2)\sigma_1^2\)</span> reduz o custo de incentivos. Como <span class="math inline">\(c'&gt;0\)</span> e <span class="math inline">\(c''&gt;0\)</span>, essa redução é maior nos esforços altos. Com unicidade e interioridade, o ótimo com benchmark tem mais esforço para <span class="math inline">\(\rho\ne0\)</span>. Não comparar isoladamente denominadores que avaliam <span class="math inline">\(c''\)</span> em esforços diferentes. No caso quadrático a curvatura é constante e a comparação de denominadores é direta.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="poder-do-contrato-vs.-correlação" class="slide level2 smaller">
 <h2>Poder do contrato vs.&nbsp;correlação</h2>
 <!-- ADICIONADO: figura inteiramente nova (parâmetros ilustrativos), não está no .lyx-fonte. Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
-<div id="6cc42059" class="cell" data-execution_count="5">
+<div id="6ef780f4" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><span class="fonte">Ilustrativo: <span class="math inline">\(\alpha=\)</span> 1, <span class="math inline">\(\sigma_1^2=\)</span> 1, <span class="math inline">\(c''=\)</span> 1 (custo quadrático, <span class="math inline">\(c''\)</span> constante — a fórmula de <span class="math inline">\(b_y(\rho)\)</span> usada aqui pressupõe esse caso). “First-best” aqui é um sentido diferente do <span class="math inline">\(b=0\)</span> do slide “Estática comparativa: FB vs.&nbsp;SB”: o esforço continua não-contratável (risco moral não desaparece); <span class="math inline">\(b_y\to1\)</span> é o valor de <span class="math inline">\(c'(e^{FB})\)</span> que o contrato precisaria implementar, e que se torna gratuito de prover quando o risco residual <span class="math inline">\(\to0\)</span>.</span></p>
+<!-- ADICIONADO: artefato novo. Nuvem simulada com semente fixa e correlação amostral exata; parâmetros do CSV benchmarking_exemplo. Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
+<!-- PLANNING: levar ρ a +0,6 e depois a −0,6: a reta inverte, a variância residual e a potência não mudam. -->
+</section>
+<section id="o-benchmark-filtra-o-ruído" class="slide level2 smaller">
+<h2>O benchmark filtra o ruído</h2>
+<div class="a15art" id="a15bm-root" data-artefato="a15-benchmark" data-pdf-check="a variância residual cai para 0,64">
+  <div class="a15-controls">
+    <div class="a15-field">
+      <label for="a15bm-r"><span>ρ: correlação entre o ruído da firma e o do benchmark</span><output id="a15bm-lbl-r">0,00</output></label>
+      <input type="range" id="a15bm-r" min="-0.95" max="0.95" step="0.05" value="0">
+    </div>
+    <div class="a15-botoes">
+      <button type="button" class="a15-botao" id="a15bm-p">ρ = 0,6</button>
+      <button type="button" class="a15-botao" id="a15bm-n">ρ = −0,6</button>
+      <button type="button" class="a15-botao" id="a15bm-z">ρ = 0</button>
+    </div>
+  </div>
+  <div class="a15-estatico" id="a15bm-estatico"></div>
+  <svg id="a15bm-svg" viewbox="0 0 1200 450" role="img" aria-label="À esquerda, nuvem de pontos do ruído da firma contra o ruído do benchmark, com a reta de regressão, os resíduos e, na margem, a distribuição do ruído sem e com o filtro. À direita, a potência do contrato em função da correlação, crescente em módulo de rho."></svg>
+  <div class="a15-cap" id="a15bm-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var H = window.A15H, C = H.C, fmt = H.fmt, el = H.el, tx = H.tx, set = H.set, sub = H.sub, pdf = H.pdf;
+  var root = document.getElementById("a15bm-root");
+  if (!root) return;
+  var P = window.A15P;
+
+  // MODELO-INICIO --- benchmarking com σ₂² = 1 na nuvem: β = ρσ₁; Var residual = (1 − ρ²)σ₁²;
+  // b_y = 1/(1 + αc(1 − ρ²)σ₁²);  b_z = −β b_y.
+  var S1 = Math.sqrt(P.sigma1_2);
+  function beta(r){ return r*S1; }
+  function varRes(r){ return (1 - r*r)*P.sigma1_2; }
+  function by(r){ return 1/(1 + P.alphaB*P.cB*varRes(r)); }
+  function bz(r){ return -beta(r)*by(r); }
+  // nuvem com semente fixa; z1 e z2 padronizados e ortogonalizados: a correlação amostral é exatamente ρ
+  var NP = 70, Z = (function(){
+    var s = 15, a = [], b = [], i, k;
+    function u(){ s = (s + 0x6D2B79F5) | 0; var t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0)/4294967296; }
+    for (i = 0; i < NP; i++){ var r = Math.sqrt(-2*Math.log(u() + 1e-12)), th = 2*Math.PI*u(); a.push(r*Math.cos(th)); b.push(r*Math.sin(th)); }
+    function pad(v){ var m = 0, q = 0; for (k = 0; k < NP; k++) m += v[k]/NP; for (k = 0; k < NP; k++) q += (v[k] - m)*(v[k] - m)/NP; return v.map(function(x){ return (x - m)/Math.sqrt(q); }); }
+    a = pad(a); b = pad(b);
+    var pr = 0; for (k = 0; k < NP; k++) pr += a[k]*b[k]/NP;
+    b = pad(b.map(function(x, j){ return x - pr*a[j]; }));
+    return {e2:a, u:b};
+  })();
+  function ruido1(i, r){ return S1*(r*Z.e2[i] + Math.sqrt(1 - r*r)*Z.u[i]); }
+  // MODELO-FIM
+
+  var X0 = 78, X1 = 500, Y0 = 66, Y1 = 396, LIM = 3.2;
+  function xz(v){ return X0 + (X1 - X0)*(v + LIM)/(2*LIM); }
+  function ye(v){ return Y1 - (Y1 - Y0)*(v + LIM)/(2*LIM); }
+  var MX0 = X1 + 10, MK = 88;                                   // margem: densidades do ruído
+  var RX0 = 760, RX1 = 1170;
+  function rr(r){ return RX0 + (RX1 - RX0)*(r + 1)/2; }
+  function rb(b){ return Y1 - (Y1 - Y0)*b; }
+  var svg = document.getElementById("a15bm-svg"), cap = document.getElementById("a15bm-cap");
+  var inR = document.getElementById("a15bm-r"), lbR = document.getElementById("a15bm-lbl-r");
+  var G = {res:[], pts:[]};
+  (function init(){
+    tx(svg, X0 - 40, 20, "ruído da firma contra o do benchmark (ex.: Ibovespa)", {"font-size":16, fill:C.cinza});
+    el("line", {x1:X0 + 4, x2:X0 + 30, y1:40, y2:40, stroke:C.tinta, "stroke-width":3}, svg); tx(svg, X0 + 36, 46, "o que z explica", {"font-size":14, fill:C.cinza});
+    el("line", {x1:X0 + 164, x2:X0 + 190, y1:40, y2:40, stroke:C.laranja, "stroke-width":2.4}, svg); tx(svg, X0 + 196, 46, "resíduo: o que o gestor carrega", {"font-size":14, fill:C.cinza});
+    var cp = el("clipPath", {id:"a15bm-clip"}, svg); el("rect", {x:X0, y:Y0, width:X1 - X0, height:Y1 - Y0}, cp);
+    [-2, 0, 2].forEach(function(v){
+      el("line", {x1:xz(v), x2:xz(v), y1:Y0, y2:Y1, stroke:C.grade}, svg);
+      el("line", {x1:X0, x2:X1, y1:ye(v), y2:ye(v), stroke:C.grade}, svg);
+      tx(svg, xz(v), Y1 + 24, fmt(v, 0), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+      tx(svg, X0 - 10, ye(v) + 5, fmt(v, 0), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    });
+    tx(svg, (X0 + X1)/2, Y1 + 44, "ε" + sub(2) + ": ruído do benchmark", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    tx(svg, 0, 0, "ε" + sub(1) + ": ruído da firma", {"text-anchor":"middle", "font-size":15, fill:C.cinza, transform:"translate(" + (X0 - 44) + "," + ((Y0 + Y1)/2) + ") rotate(-90)"});
+    var g = el("g", {"clip-path":"url(#a15bm-clip)"}, svg);
+    for (var i = 0; i < NP; i++){
+      G.res.push(el("line", {x1:xz(Z.e2[i]), x2:xz(Z.e2[i]), stroke:C.laranja, "stroke-width":1.3, opacity:.55}, g));
+      G.pts.push(el("circle", {cx:xz(Z.e2[i]), r:4, fill:C.azul, stroke:C.branco, "stroke-width":.8}, g));
+    }
+    G.reta = el("line", {stroke:C.tinta, "stroke-width":3}, g);
+    el("line", {x1:X0, x2:X1, y1:Y1, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    el("line", {x1:X0, x2:X0, y1:Y0, y2:Y1, stroke:C.cinza, "stroke-width":1.3}, svg);
+    // margem
+    function densid(sd){ var d = "M" + MX0 + " " + ye(-3.2*S1); for (var j = 0; j <= 80; j++){ var v = -3.2 + 6.4*j/80; d += "L" + (MX0 + MK*pdf(v, 0, sd)).toFixed(1) + " " + ye(v).toFixed(1); } return d + "L" + MX0 + " " + ye(3.2) + "Z"; }
+    G.densid = densid;
+    el("path", {d:densid(S1), fill:"none", stroke:C.cinza, "stroke-width":1.8, "stroke-dasharray":"5 4"}, svg);
+    G.dRes = el("path", {fill:C.laranja, opacity:.45}, svg);
+    tx(svg, MX0 + 2, Y1 + 24, "sem filtro: tracejado", {"font-size":12, fill:C.cinza});
+    tx(svg, MX0 + 2, Y1 + 40, "com filtro: laranja", {"font-size":12, fill:C.cinza});
+
+    tx(svg, RX0 - 54, 20, "potência: b" + sub("y") + " = 1/(1 + αc(1 − ρ²)σ" + sub("1") + "²)", {"font-size":16, fill:C.cinza});
+    el("line", {x1:RX0 - 50, x2:RX0 - 24, y1:40, y2:40, stroke:C.cinzaClaro, "stroke-width":2, "stroke-dasharray":"5 4"}, svg);
+    tx(svg, RX0 - 18, 46, "sem benchmark, b̂" + sub("y"), {"font-size":14, fill:C.cinza});
+    [0, .25, .5, .75, 1].forEach(function(b){
+      el("line", {x1:RX0, x2:RX1, y1:rb(b), y2:rb(b), stroke:b ? C.grade : C.cinza, "stroke-width":b ? 1 : 1.3}, svg);
+      tx(svg, RX0 - 8, rb(b) + 5, fmt(b, 2), {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    });
+    [-1, -.5, 0, .5, 1].forEach(function(r){
+      el("line", {x1:rr(r), x2:rr(r), y1:Y1, y2:Y1 + 6, stroke:C.cinza}, svg);
+      tx(svg, rr(r), Y1 + 24, fmt(r, 1), {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    });
+    tx(svg, (RX0 + RX1)/2, Y1 + 48, "ρ: correlação com o benchmark", {"text-anchor":"middle", "font-size":15, fill:C.cinza});
+    el("line", {x1:RX0, x2:RX1, y1:rb(by(0)), y2:rb(by(0)), stroke:C.cinzaClaro, "stroke-width":2, "stroke-dasharray":"5 4"}, svg);
+    var d = ""; for (var k = 0; k <= 120; k++){ var r0 = -1 + 2*k/120; d += (k ? "L" : "M") + rr(r0).toFixed(1) + " " + rb(by(r0)).toFixed(1); }
+    el("path", {d:d, fill:"none", stroke:C.azul, "stroke-width":3.2}, svg);
+    G.rMk = el("line", {y2:Y1, stroke:C.laranja, "stroke-width":1.5, opacity:.6}, svg);
+    G.rP = el("circle", {r:8, fill:C.azul, stroke:C.branco, "stroke-width":2}, svg);
+    G.rT = tx(svg, 0, 0, "", H.halo({"font-size":17, "font-weight":700, "text-anchor":"middle"}));
+  })();
+
+  function desenha(r){
+    var b = beta(r);
+    set(G.reta, {x1:xz(-LIM), y1:ye(-b*LIM), x2:xz(LIM), y2:ye(b*LIM)});
+    for (var i = 0; i < NP; i++){
+      var e1 = ruido1(i, r);
+      set(G.pts[i], {cy:ye(e1)});
+      set(G.res[i], {y1:ye(e1), y2:ye(b*Z.e2[i])});
+    }
+    set(G.dRes, {d:G.densid(Math.sqrt(varRes(r)))});
+    set(G.rMk, {x1:rr(r), x2:rr(r), y1:rb(by(r))});
+    set(G.rP, {cx:rr(r), cy:rb(by(r))});
+    set(G.rT, {x:Math.min(Math.max(rr(r), RX0 + 30), RX1 - 30), y:rb(by(r)) - 16}); G.rT.textContent = fmt(by(r));
+  }
+  function legenda(r){
+    var t = "<p>ρ = " + fmt(r) + ": β = " + fmt(beta(r)) + ", b<sub>z</sub> = −βb<sub>y</sub> = " + fmt(bz(r)) + ". Variância residual " + fmt(varRes(r)) +
+      " (sem benchmark: " + fmt(P.sigma1_2) + "); potência b<sub>y</sub> = " + fmt(by(r)) + " (sem benchmark: " + fmt(by(0)) + ").</p>";
+    if (Math.abs(r) < 1e-9) return t + '<p class="a15-efeito">Benchmark não informativo: nada a filtrar, e b<sub>z</sub> = 0.</p>';
+    return t + (r > 0 ? '<p class="a15-efeito">O contrato desconta o benchmark (b<sub>z</sub> &lt; 0): o gestor é pago pelo que excede o que z explica.</p>'
+                      : '<p class="a15-efeito">Com ρ &lt; 0, b<sub>z</sub> &gt; 0: o sinal do ajuste inverte, mas o ganho depende só de ρ².</p>');
+  }
+  function livre(){ var r = +inR.value; lbR.textContent = fmt(r); desenha(r); cap.innerHTML = legenda(r); }
+  inR.addEventListener("input", livre); H.teclas(inR);
+  [["a15bm-p", .6], ["a15bm-n", -.6], ["a15bm-z", 0]].forEach(function(b){
+    document.getElementById(b[0]).addEventListener("click", function(){ inR.value = b[1]; livre(); });
+  });
+  H.liga(root, livre, function(){
+    document.getElementById("a15bm-estatico").innerHTML = "ρ = 0,60 (σ₁² = σ₂² = " + fmt(P.sigma1_2, 0) + ")";
+    desenha(.6);
+    cap.innerHTML = "<p>Com ρ = 0,60, a variância residual cai para " + fmt(varRes(.6)) + " e a potência sobe de " + fmt(by(0)) + " para " + fmt(by(.6)) + ", com b<sub>z</sub> = " + fmt(bz(.6)) + ".</p>";
+  });
+  root.a15bm = {by:by, bz:bz, varRes:varRes, ruido1:ruido1, Z:Z};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-9))) f.push(n + ": " + a + " != " + b); }
+    // valores registrados em dados/15-mh/SNAPSHOT_INFO.txt
+    ap("b_y(0)", by(0), .5); ap("b_y(0,6)", by(.6), .6097560976, 1e-9); ap("b_z(0,6)", bz(.6), -.3658536585, 1e-9); ap("b_y(−0,6)", by(-.6), .6097560976, 1e-9);
+    [-.9, -.6, 0, .3, .6, .95].forEach(function(r){
+      var c = 0, v1 = 0, res = 0;
+      for (var i = 0; i < NP; i++){ var e = ruido1(i, r); c += e*Z.e2[i]/NP; v1 += e*e/NP; res += Math.pow(e - beta(r)*Z.e2[i], 2)/NP; }
+      ap("correlação amostral, r=" + r, c/Math.sqrt(v1), r, 1e-9);
+      ap("variância residual amostral, r=" + r, res, varRes(r), 1e-9);
+    });
+    if (f.length) console.error("Autoteste (Aula 15, benchmark) FALHOU:\n" + f.slice(0, 10).join("\n"));
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+  })();
+
+  livre();
+})();
+</script>
+<p><span class="fonte">Nuvem simulada, <span class="math inline">\(n=70\)</span>. Mesmos parâmetros do gráfico anterior: <span class="math inline">\(\alpha=\)</span> 1, <span class="math inline">\(\sigma_1^2=\)</span> 1, <span class="math inline">\(c=\)</span> 1.</span></p>
 </section>
 <section id="quando-o-benchmarking-ajuda" class="slide level2 smaller">
 <h2>Quando o benchmarking ajuda</h2>
 <ul>
 <li>Quanto maior <span class="math inline">\(\left|\rho\right|\)</span>, <span class="destaque">menor o “risco residual”</span>, mais barato induzir o mesmo esforço</li>
 <li>Se <span class="math inline">\(\rho=0\)</span> (benchmark não informativo), volta ao caso sem benchmark</li>
+<li>O risco cai para <span class="math inline">\(b_y\)</span> fixo; a variância do salário ótimo também depende da nova potência</li>
 <li>Aplicação típica: opções sobre ações vs.&nbsp;desempenho ajustado ao setor/mercado — remove o componente comum (ciclo, setor) que o gestor não controla</li>
 </ul>
 </section>
@@ -701,7 +1587,7 @@ flowchart LR
 </tr>
 <tr class="even">
 <td>Ganho de eficiência</td>
-<td>nenhum vs.&nbsp;FB (sempre <span class="math inline">\(e^{SB}&lt;e^{FB}\)</span>)</td>
+<td>esforço abaixo do FB sob as hipóteses anteriores</td>
 <td>seguro imperfeito nos estados informativos</td>
 <td>aproxima do FB quando <span class="math inline">\(\rho\to\pm1\)</span></td>
 </tr>
@@ -712,8 +1598,8 @@ flowchart LR
 <h2>O que aprendemos</h2>
 <ul>
 <li>Risco moral: contrato ótimo troca <span class="destaque">seguro perfeito</span> por incentivos, porque o esforço não é observável</li>
-<li>CARA-Normal: potência do contrato <span class="math inline">\(b=c'(e^{SB})=1/(1+\alpha\sigma^2c'')&lt;1=c'(e^{FB})\)</span> — sempre menos esforço que o first-best</li>
-<li>Duas ações: o salário pune estados mais prováveis sob a ação errada (razão de verossimilhança)</li>
+<li>CARA-Normal: potência <span class="math inline">\(b=c'(e^{SB})=1/(1+\alpha\sigma^2c'')&lt;1=c'(e^{FB})\)</span> — menos esforço com risco positivo e ótimo interior</li>
+<li>Duas ações: estados com maior razão de verossimilhança recebem salário menor; MLRP não implica linearidade</li>
 <li>Benchmarking: medidas de desempenho relativo <span class="secundario">filtram risco comum</span> e aproximam do first-best</li>
 </ul>
 </section>
@@ -723,6 +1609,7 @@ flowchart LR
 <li>Risco moral distorce o contrato <em>dentro</em> da firma — mas as decisões de payout também são moldadas por conflitos de agência e informação assimétrica</li>
 <li>Aula 16: <span class="secundario">política de dividendos</span> — por que firmas pagam dividendos, e o que isso sinaliza</li>
 </ul>
+<!-- ERRATA-FONTE: MH_ext1.pdf, pp.1–3, usa α² onde o prêmio monetário de risco deve usar α (α/2 Var). O deck conserva α correto; não recuperar α² do manuscrito. A fonte Benchmarking p.3 também omite 1/2 em uma glosa, mas o objetivo e o deck usam α/2. -->
 
 </section></section>
     </div>
