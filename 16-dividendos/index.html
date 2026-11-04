@@ -180,7 +180,8 @@ Felipe Iachan
 <ul>
 <li><strong>JSCP</strong>: <span class="secundario">já visto na Aula 11</span> como forma de reduzir a vantagem fiscal da dívida no WACC; aqui, é uma forma de remuneração ao acionista, dedutível para a firma
 <ul>
-<li>Teto legal dado pela Taxa de Juros de Longo Prazo (TJLP) — descrição fiel à fonte de 2022; <span class="destaque">a Lei 14.789/2023 alterou materialmente o regime de JSCP a partir de 2024</span>, então esta regra não deve ser tomada como o regime vigente sem checagem</li>
+<li>Teto: TJLP sobre contas do patrimônio líquido, com base restringida pela Lei 14.789/2023</li>
+<li>Retenção de 17,5% na fonte desde 2026 (Lei Complementar 224/2025)</li>
 </ul></li>
 <li><strong>Dividendo obrigatório</strong>, na Lei das S.A.: 25% do lucro líquido é o padrão comum, mas o estatuto da companhia pode fixar outro nível</li>
 </ul>
@@ -202,7 +203,7 @@ Felipe Iachan
 <section id="payout-hoje-quem-paga-o-quê" class="slide level2 smaller">
 <h2>Payout hoje: quem paga o quê</h2>
 <!-- ADICIONADO: artefato de dados atuais (yfinance), não está na fonte. Ver dados/16-dividendos/SNAPSHOT_INFO.txt para a checagem de qualidade do dado (checagem via soma manual de Ticker.dividends; JSCP; payoutRatio não usado). -->
-<div id="6aa18477" class="cell" data-execution_count="2">
+<div id="f3cd7686" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -211,7 +212,7 @@ Felipe Iachan
 </div>
 </div>
 </div>
-<p><span class="fonte">Snapshot yfinance de 2026-07-27: <code>trailingAnnualDividendRate / preço</code>. É um indicador do Yahoo, não caixa efetivamente pago em 12 meses: <code>Ticker.dividends</code> usa data ex e mistura dividendos com JSCP nos tickers brasileiros. WEG, por exemplo, inclui dividendo extraordinário com parcelas pagáveis até 2028. Classificação e datas foram conferidas nos RIs; detalhes em <code>dados/16-dividendos/SNAPSHOT_INFO.txt</code>.</span></p>
+<p><span class="fonte">Fonte: Yahoo Finance, 2026-07-27. *Empresas brasileiras: proventos incluem JSCP. O indicador da WEG inclui dividendo extraordinário.</span></p>
 </section>
 <section id="tendências-nos-eua" class="slide level2">
 <h2>Tendências nos EUA</h2>
@@ -243,22 +244,29 @@ Felipe Iachan
 </ul></li>
 </ul>
 </section>
-<section id="tendência-agregada-mais-recente" class="slide level2 smaller">
+<section id="tendência-agregada-mais-recente" class="slide level2">
 <h2>Tendência agregada mais recente</h2>
-<div id="5e2ddbb7" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="figs/bdm-fig17-4.png" style="width:76.0%"></p>
+<figcaption>Fração de firmas industriais dos EUA que pagam dividendo e que recompram ações</figcaption>
 </figure>
 </div>
+<p><span class="fonte">Fonte: Berk e DeMarzo (2024), Fig. 17.4; Compustat. A fração que paga dividendo cai até os anos 2000 e se recupera após o corte de imposto de 2003.</span></p>
+</section>
+<section id="recompras-viraram-a-maior-parcela-do-payout" class="slide level2">
+<h2>Recompras viraram a maior parcela do <em>payout</em></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/bdm-fig17-5.png" style="width:76.0%"></p>
+<figcaption>Recompras como fração do <em>payout</em> total, firmas industriais dos EUA</figcaption>
+</figure>
 </div>
-</div>
-<p><span class="fonte">Berk e DeMarzo, Fig. 17.4 (“Trends in the Use of Dividends and Repurchases”, edição mais antiga usada nas notas originais — <strong>não confundir</strong> com a Fig. 17.4 de impostos internacionais, duas telas adiante, que tem o mesmo número numa edição diferente): apenas os dois pontos-âncora citados na legenda original são marcados — nenhuma linha os conecta, pois a trajetória exata não consta do texto da legenda. O “75%” da legenda corresponde ao <strong>pico da série, por volta de 1978</strong> (a curva sobe a partir de 1975, antes de declinar até 35% em 2002) — não ao nível de 1975. A legenda original também informa que a fração de firmas que <strong>recompram</strong> ações a cada ano ficou em torno de <strong>30%</strong>, em média, no período. Adicionalmente (Fig. 17.5): desde o fim dos anos 1990, a recompra já é a <strong>maior</strong> parcela do payout total — logo, supera 50%.</span></p>
+<p><span class="fonte">Fonte: Berk e DeMarzo (2024), Fig. 17.5; Compustat. Desde o fim dos anos 1990, recompras são cerca de 60% do <em>payout</em> e caem nas recessões.</span></p>
 </section>
 <section id="mudanças-fiscais-nos-eua" class="slide level2 smaller">
 <h2>Mudanças fiscais nos EUA</h2>
-<p>Alíquotas de imposto de renda, ganho de capital vs.&nbsp;dividendos (Berk e DeMarzo, Tabela 17.2):</p>
+<p>Alíquotas federais máximas sobre ganho de capital e dividendos:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -319,23 +327,118 @@ Felipe Iachan
 <td style="text-align: right;">15%</td>
 </tr>
 <tr class="odd">
-<td>2013–</td>
-<td style="text-align: right;">20%</td>
-<td style="text-align: right;">20%</td>
+<td>2013–2026</td>
+<td style="text-align: right;">20% + 3,8%*</td>
+<td style="text-align: right;">20% + 3,8%*</td>
 </tr>
 </tbody>
 </table>
-<p><span class="fonte">Alíquotas marginais mais altas, para ativos mantidos por mais de um ano. Ver <a href="https://en.wikipedia.org/wiki/Qualified_dividend">tratamento atual de “qualified dividend”</a>.</span></p>
+<p><span class="fonte">Fonte: Berk e DeMarzo (2024), Tab. 17.2; IRS (2026). Ativos mantidos por mais de um ano. *Adicional sobre renda de investimento, acima de US$ 200 mil por ano (US$ 250 mil para casais). Com alíquotas iguais desde 2003, a vantagem da recompra está em adiar o imposto.</span></p>
 </section>
 <section id="impostos-pelo-mundo" class="slide level2 smaller">
 <h2>Impostos pelo mundo</h2>
-<p>Berk e DeMarzo, Fig. 17.4 (“Dividend and Capital Gains Tax Rates Around the World”, dados OECD 2007 — mesma numeração da Fig. 17.4 de tendências, telas atrás, mas de uma edição diferente) — fatos qualitativos da legenda original:</p>
+<!-- ADICIONADO: substitui os fatos qualitativos da Fig. 17.4 de edição antiga (OECD 2007), que ficaram defasados: México e Índia hoje tributam dividendo e ganho de capital. Fontes conferidas em 04/11/2026: páginas da PwC revisadas em 2026 e texto legal no Planalto. Reino Unido: ganho de capital de 2025/26. -->
+<p>Alíquotas máximas sobre o acionista pessoa física, ações em bolsa:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>País</th>
+<th style="text-align: right;">Dividendos</th>
+<th style="text-align: right;">Ganho de capital</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reino Unido</td>
+<td style="text-align: right;">39,4%</td>
+<td style="text-align: right;">24%</td>
+</tr>
+<tr class="even">
+<td>França</td>
+<td style="text-align: right;">31,4%</td>
+<td style="text-align: right;">31,4%</td>
+</tr>
+<tr class="odd">
+<td>Índia</td>
+<td style="text-align: right;">30%*</td>
+<td style="text-align: right;">12,5%</td>
+</tr>
+<tr class="even">
+<td>Alemanha</td>
+<td style="text-align: right;">26,4%</td>
+<td style="text-align: right;">26,4%</td>
+</tr>
+<tr class="odd">
+<td>EUA</td>
+<td style="text-align: right;">23,8%</td>
+<td style="text-align: right;">23,8%</td>
+</tr>
+<tr class="even">
+<td>Japão</td>
+<td style="text-align: right;">20,3%</td>
+<td style="text-align: right;">20,3%</td>
+</tr>
+<tr class="odd">
+<td><strong>Brasil</strong></td>
+<td style="text-align: right;"><strong>10%</strong></td>
+<td style="text-align: right;"><strong>15%</strong></td>
+</tr>
+<tr class="even">
+<td>Singapura</td>
+<td style="text-align: right;">0%</td>
+<td style="text-align: right;">0%</td>
+</tr>
+</tbody>
+</table>
+<p>Em geral, o dividendo paga tanto ou mais que o ganho de capital. <span class="destaque">No Brasil, paga menos.</span></p>
+<p><span class="fonte">Fonte: PwC, Worldwide Tax Summaries (2026); IRS (2026); Lei 15.270/2025; Lei 11.033/2004. Não inclui o imposto da firma. *Antes de sobretaxas.</span></p>
+</section>
+<section id="brasil-a-reforma-de-2026" class="slide level2 smaller">
+<h2>Brasil: a reforma de 2026</h2>
+<!-- ADICIONADO: não está na fonte de 2022. -->
+<!-- PLANNING: se perguntarem. Os 10% incidem sobre o total pago no mês, não só sobre o excedente (Lei 9.250, art. 6º-A). Lucros até 2025 com distribuição aprovada até 31/12/2025 ficam fora. Os 10% retidos abatem o imposto mínimo. -->
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Até 2025</th>
+<th>Desde 2026</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dividendo</td>
+<td>Isento</td>
+<td>10% na fonte, acima de R$ 50 mil/mês da mesma empresa</td>
+</tr>
+<tr class="even">
+<td>JSCP</td>
+<td>15% na fonte</td>
+<td>17,5% na fonte</td>
+</tr>
+<tr class="odd">
+<td>Ganho de capital em bolsa</td>
+<td>15%; isento se vendas ≤ R$ 20 mil/mês</td>
+<td>Igual</td>
+</tr>
+<tr class="even">
+<td>Imposto mínimo</td>
+<td>Não havia</td>
+<td>Até 10%, para renda acima de R$ 600 mil/ano</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Na maioria dos países, a alíquota sobre dividendos é <strong>maior ou igual</strong> à de ganho de capital — favorecendo recompras</li>
-<li>Algumas exceções: no <strong>Chile</strong>, o ganho de capital é tributado <strong>mais</strong> que o dividendo</li>
-<li>Vários países — Singapura, México, Índia, Hong Kong — não tributam <strong>nenhum</strong> dos dois</li>
+<li>Até 2025, a isenção favorecia o dividendo frente à recompra: o <span class="destaque">oposto dos EUA</span></li>
+<li>A reforma reduz essa diferença, mas não a elimina</li>
+<li>JSCP segue dedutível para a firma</li>
 </ul>
-<!-- Valores exatos de alíquota por país não são transcritos: o gráfico-fonte é um gráfico de barras sem rótulo numérico, e estimar a altura das barras a partir da imagem seria "chutar" o dado — evitado deliberadamente aqui. -->
+<p><span class="fonte">Fonte: Lei 15.270/2025; Lei Complementar 224/2025; Lei 11.033/2004.</span></p>
 </section>
 <section id="transição-e-a-teoria" class="slide level2 center">
 <h2>Transição: e a teoria?</h2>
@@ -383,11 +486,11 @@ Felipe Iachan
 <section id="o-preço-cai-exatamente-o-dividendo" class="slide level2 smaller">
 <h2>O preço cai exatamente o dividendo</h2>
 <!-- ADICIONADO: gráfico não está na fonte (Divid.lyx só descreve a queda automática em texto, no quadro "Dividendos, JSCP"); construído a partir dos números computados do exemplo Acme. -->
-<div id="746e9813" class="cell" data-execution_count="4">
+<div id="730d3538" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-5-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
@@ -452,7 +555,6 @@ Felipe Iachan
 </section>
 <section id="resumo-dividendos-vs.-recompras" class="slide level2 smaller">
 <h2>Resumo: dividendos vs.&nbsp;recompras</h2>
-<p>Berk e DeMarzo, Tabela 17.3:</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -489,6 +591,7 @@ Felipe Iachan
 </tr>
 </tbody>
 </table>
+<p><span class="fonte">Fonte: adaptado de Berk e DeMarzo, edição anterior, Tab. 17.3. Tributação dos EUA.</span></p>
 </section>
 <section id="usando-o-resultado" class="slide level2">
 <h2>Usando o resultado</h2>
@@ -559,6 +662,7 @@ Felipe Iachan
 <p>Manipulando a condição de não arbitragem:</p>
 <p><span class="math display">\[P_{cum}-P_{ex}=D\frac{\left(1-\tau_{D}\right)}{\left(1-\tau_{g}\right)}=D\left(1-\underset{=:\ \tau_{D}^{*}}{\underbrace{\frac{\tau_{D}-\tau_{g}}{1-\tau_{g}}}}\right)\]</span></p>
 <p><span class="destaque"><span class="math inline">\(\tau_D^*\)</span></span> é o <strong>tributo equivalente</strong>: mede o quanto o dividendo é desfavorecido frente ao ganho de capital.</p>
+<p>Brasil, acima de R$ 50 mil/mês: <span class="math inline">\(\tau_D=10\%\)</span> e <span class="math inline">\(\tau_g=15\%\)</span> dão <span class="math inline">\(\tau_D^*\approx-5{,}9\%\)</span>. O dividendo é favorecido.</p>
 </section>
 <section id="outras-formas-de-pagamento" class="slide level2">
 <h2>Outras formas de pagamento</h2>
@@ -573,7 +677,7 @@ Felipe Iachan
 <li>Regularidade empírica, para firmas que pagam dividendo: dividendos são <strong>menos voláteis</strong> que a receita</li>
 <li><strong>Lintner (1956)</strong>: acionistas desejam dividendo suavizado; firmas perseguem uma razão-alvo dividendo/receita
 <ul>
-<li><span class="fonte">Isso é compatível com M-M? Pergunta em aberto no material-fonte — M-M não faz previsão sobre suavização, mas motiva perguntar por que ela ocorreria se a política fosse irrelevante.</span></li>
+<li><span class="secundario">M-M não prevê suavização: por que ela ocorreria se a política é irrelevante?</span></li>
 </ul></li>
 </ul>
 </section>
@@ -585,21 +689,44 @@ Felipe Iachan
 <li>Quando dividendos <strong>descem</strong>, sinalizam perspectivas negativas</li>
 </ul>
 <p><span class="destaque">Hipótese da sinalização</span>: ajuda a explicar reações de preço a anúncios de mudança de dividendo.</p>
+<!-- RESTAURADO: print da matéria usado nas notas de 2024 (Oi_div.pdf), que o porte havia trocado por texto. O novo mínimo (maior entre 25% do lucro, 3% do PL ou 6% do capital) segue legível no print. -->
 </section>
 <section id="na-prática-oi-2013" class="slide level2 smaller">
 <h2>Na prática: Oi (2013)</h2>
-<p>Em agosto de 2013, a Oi reduziu sua política de dividendos projetada de R$2 bilhões/ano para R$500 milhões/ano (2013–2016) — o novo mínimo seria o maior valor entre 25% do lucro líquido, 3% do patrimônio líquido ou 6% do capital social.</p>
-<blockquote>
-<p>“Oi reduz pagamento de dividendos em 75%” — <em>O Globo</em>, 14/08/2013 (Bruno Rosa).</p>
-</blockquote>
-<p>Às 11h30 do dia da notícia, as ações ordinárias caíam 8,32% e as preferenciais recuavam 6,73% — consistente com a leitura de que corte de dividendo é <span class="destaque">má notícia</span> (cotação intradiária; não é o fechamento do pregão).</p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p><img data-src="figs/oi-oglobo-2013.png" style="width:100.0%"></p>
+</div><div class="column" style="width:44%;">
+<ul>
+<li>De R$ 2 bi para R$ 500 mi por ano</li>
+<li>Às 11h30: ON −8,32%, PN −6,73%</li>
+<li>Corte lido como <span class="destaque">má notícia</span></li>
+</ul>
+<p><span class="fonte"><em>O Globo</em>, 14/08/2013 (Bruno Rosa). Cotação intradiária, no dia do balanço do 2º trimestre.</span></p>
+</div></div>
+<!-- ADICIONADO: exemplo recente pedido pelo Felipe. Queda de fechamento: US$ 21,48, Reuters. Dividendo, demissões e projeção saíram juntos: não atribuir a queda só ao dividendo. -->
+</section>
+<section id="na-prática-intel-2024" class="slide level2 smaller">
+<h2>Na prática: Intel (2024)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/intel-reuters-2024.png" class="quarto-figure quarto-figure-center" style="width:72.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Dividendo suspenso a partir do 4º trimestre de 2024</li>
+<li>No dia seguinte, a ação fecha em −26%, a US$ 21,48</li>
+<li>Junto vieram demissões e projeção fraca: <span class="destaque">não dá para isolar o efeito do dividendo</span></li>
+</ul>
+<p><span class="fonte">Reuters, reproduzida no <em>South China Morning Post</em>, 02/08/2024; fechamento: Reuters.</span></p>
 </section>
 <section id="transição-de-volta-ao-modelo-formal" class="slide level2 center">
 <h2>Transição: de volta ao modelo formal</h2>
 <div class="r-fit-text">
 <p>Política de dividendos e política de <strong>incentivos</strong> aos agentes interagem.</p>
 </div>
-<p><span class="fonte">Tirole, Cap. 6, Ap. 7</span> — de volta ao ambiente de risco moral com informação privada e benefício <span class="math inline">\(B\)</span> (Aula 14; a Aula 15 usa o contrato linear <span class="math inline">\((a,b)\)</span>, não este <em>setup</em>).</p>
+<p>De volta ao risco moral com informação privada e benefício <span class="math inline">\(B\)</span> (Aula 14).</p>
+<p><span class="fonte">Fonte: Tirole (2006), cap. 6, ap. 7.</span></p>
 </section>
 <section id="o-ambiente-do-modelo" class="slide level2 smaller">
 <h2>O ambiente do modelo</h2>
@@ -633,7 +760,7 @@ Felipe Iachan
 </tr>
 </tbody>
 </table>
-<p><span class="fonte">Recriado nativamente a partir de Tirole (2006), Fig. 6.2 — não é a imagem do livro.</span></p>
+<p><span class="fonte">Fonte: adaptado de Tirole (2006), Fig. 6.2.</span></p>
 </section>
 <section id="risco-moral-e-tipo-privado" class="slide level2 smaller">
 <h2>Risco moral e tipo privado</h2>
