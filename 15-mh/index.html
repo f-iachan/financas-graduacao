@@ -383,7 +383,7 @@ flowchart LR
 <h2>Exemplo numérico ilustrativo</h2>
 <!-- ADICIONADO: números não constam do .lyx-fonte (inteiramente simbólico). Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
 <p>Com <span class="math inline">\(\alpha=\)</span> 1, <span class="math inline">\(\sigma^{2}=\)</span> 1, <span class="math inline">\(c=\)</span> 1:</p>
-<div id="d6864b50" class="cell" data-execution_count="2">
+<div id="6b0edde4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <p><span class="math display">\[e^{FB}=\frac{1}{c}=1,0 \qquad b^{SB}=\frac{1}{1+\alpha\sigma^2 c}=0,5 \qquad e^{SB}=\frac{b^{SB}}{c}=0,5\]</span></p>
 </div>
@@ -630,7 +630,7 @@ window.A15H = (function(){
 <section id="a-perda-total-tem-duas-parcelas" class="slide level2 smaller">
 <h2>A perda total tem duas parcelas</h2>
 <p><span class="math display">\[L=\underbrace{[e^{FB}-c(e^{FB})]-[e^{SB}-c(e^{SB})]}_{\text{excedente perdido com menor esforço}}+\underbrace{\frac{\alpha b^2\sigma^2}{2}}_{\text{prêmio de risco}}\]</span></p>
-<div id="58bbe03a" class="cell" data-fig-height="2.2" data-execution_count="4">
+<div id="ff022d28" class="cell" data-fig-height="2.2" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -802,7 +802,7 @@ window.A15H = (function(){
 </section>
 <section id="ce-first-best-vs.-second-best" class="slide level2 smaller">
 <h2><span class="math inline">\(c'(e)\)</span>: first-best vs.&nbsp;second-best</h2>
-<div id="3d446475" class="cell" data-execution_count="5">
+<div id="0f19387e" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -943,7 +943,7 @@ window.A15H = (function(){
 <section id="exemplo-ilustrativo-2-estados" class="slide level2 smaller">
 <h2>Exemplo ilustrativo: 2 estados</h2>
 <!-- ADICIONADO: números não constam do .lyx-fonte (inteiramente abstrato, com {y_1,...,y_n} e π(y,a_i) genéricos). Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
-<div id="d76877a9" class="cell" data-execution_count="6">
+<div id="b26a261f" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <table class="caption-top">
 <thead>
@@ -1318,10 +1318,193 @@ window.A15H = (function(){
 <li>Resíduo ortogonal ao benchmark: <span class="math inline">\(Cov(\epsilon_1-\beta\epsilon_2,\epsilon_2)=0\)</span></li>
 <li>Para cada <span class="math inline">\(b_y\)</span> fixo, <span class="math inline">\(b_z=-b_y\beta\)</span> minimiza <span class="math inline">\(Var(w)\)</span></li>
 </ul>
+<!-- ADICIONADO: diagrama novo, a geometria da projeção. Cov = produto interno, dp = comprimento, ρ = cos θ; Var(ε₁) = ρ²σ₁² + (1−ρ²)σ₁² é Pitágoras. Pedido do Felipe em 2026-11-04. -->
+<!-- PLANNING: abrir em k = β. Depois mover k: o ângulo reto some e o resíduo cresce. Pergunta: "que k deixa o gestor com o menor risco?" -->
+</section>
+<section id="projeção-e-resíduo-a-geometria-do-filtro" class="slide level2 smaller">
+<h2>Projeção e resíduo: a geometria do filtro</h2>
+<div class="a15art" id="a15pj-root" data-artefato="a15-projecao" data-pdf-check="as áreas somam">
+  <div class="a15-controls a15-c3">
+    <div class="a15-field">
+      <label for="a15pj-r"><span>ρ: correlação com o benchmark</span><output id="a15pj-lbl-r">0,60</output></label>
+      <input type="range" id="a15pj-r" min="0.05" max="0.95" step="0.05" value="0.6">
+    </div>
+    <div class="a15-field">
+      <label for="a15pj-k"><span>k: quanto do benchmark o contrato desconta</span><output id="a15pj-lbl-k">0,60</output></label>
+      <input type="range" id="a15pj-k" min="0" max="1.2" step="0.05" value="0.6">
+    </div>
+    <button type="button" class="a15-botao" id="a15pj-beta">k = β</button>
+  </div>
+  <div class="a15-estatico" id="a15pj-estatico"></div>
+  <svg id="a15pj-svg" viewbox="0 0 1200 450" role="img" aria-label="Triângulo retângulo: o ruído da firma é a hipotenusa, a parte explicada pelo benchmark é o cateto sobre a direção de z e o resíduo é o cateto perpendicular. Os quadrados sobre os lados têm área igual às variâncias. À direita, o que cada parte do produto faz no salário."></svg>
+  <div class="a15-cap" id="a15pj-cap" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var H = window.A15H, C = H.C, fmt = H.fmt, el = H.el, tx = H.tx, set = H.set, sub = H.sub;
+  var root = document.getElementById("a15pj-root");
+  if (!root) return;
+  var P = window.A15P;
+
+  // MODELO-INICIO --- ruídos como vetores: comprimento = desvio-padrão, produto interno = covariância, cos θ = ρ.
+  // Base com ε₂ no eixo horizontal e σ₂ = 1 (como na figura seguinte): ε₁ = σ₁(ρ, √(1 − ρ²)).
+  var S1 = Math.sqrt(P.sigma1_2);
+  function ponta(r){ return {x:S1*r, y:S1*Math.sqrt(1 - r*r)}; }
+  function beta(r){ return r*S1; }
+  function V(k, r){ return P.sigma1_2 + k*k - 2*k*r*S1; }             // Var(ε₁ − kε₂)
+  function by(r){ return 1/(1 + P.alphaB*P.cB*(1 - r*r)*P.sigma1_2); }
+  // MODELO-FIM
+
+  // --- geometria
+  var OX = 250, BASE = 268, L = 160;
+  function sx(v){ return OX + L*v; }
+  function sy(v){ return BASE - L*v; }
+  function quad(a){ return a.map(function(p, i){ return (i ? "L" : "M") + sx(p[0]).toFixed(1) + " " + sy(p[1]).toFixed(1); }).join("") + "Z"; }
+  var RX = 720, BX = 720, BW = 400;
+  var svg = document.getElementById("a15pj-svg"), cap = document.getElementById("a15pj-cap");
+  var inR = document.getElementById("a15pj-r"), inK = document.getElementById("a15pj-k");
+  var lbR = document.getElementById("a15pj-lbl-r"), lbK = document.getElementById("a15pj-lbl-k");
+  var G = {};
+  function seta(id, cor){
+    var m = el("marker", {id:id, viewBox:"0 0 10 10", refX:9, refY:5, markerWidth:4.6, markerHeight:4.6, orient:"auto-start-reverse"}, G.defs);
+    el("path", {d:"M0 0L10 5L0 10Z", fill:cor}, m);
+  }
+  (function init(){
+    G.defs = el("defs", {}, svg);
+    seta("a15pj-s-t", C.tinta); seta("a15pj-s-a", C.azul); seta("a15pj-s-l", C.laranja);
+    tx(svg, 60, 20, "cada ruído é um vetor: comprimento = desvio-padrão, área = variância", {"font-size":16, fill:C.cinza});
+    // quadrados de Pitágoras
+    G.qH = el("path", {fill:C.cinza, opacity:.16, stroke:C.cinza, "stroke-width":1}, svg);
+    G.qE = el("path", {fill:C.azul, opacity:.3, stroke:C.azul, "stroke-width":1}, svg);
+    G.qR = el("path", {fill:C.laranja, opacity:.34, stroke:C.laranja, "stroke-width":1}, svg);
+    // direção do benchmark
+    el("line", {x1:sx(-1.05), x2:sx(2.2), y1:BASE, y2:BASE, stroke:C.cinzaClaro, "stroke-width":1.4, "stroke-dasharray":"2 4"}, svg);
+    tx(svg, sx(2.2), BASE + 20, "direção de z", {"text-anchor":"end", "font-size":14, fill:C.cinza});
+    G.perp = el("line", {stroke:C.cinza, "stroke-width":1.4, "stroke-dasharray":"4 4"}, svg);
+    G.pPe = el("circle", {r:4.5, fill:C.branco, stroke:C.cinza, "stroke-width":1.6}, svg);
+    G.ang = el("path", {fill:"none", stroke:C.tinta, "stroke-width":1.4}, svg);
+    G.arco = el("path", {fill:"none", stroke:C.tinta, "stroke-width":1.3}, svg);
+    G.teta = tx(svg, 0, 0, "θ", H.halo({"font-size":15}));
+    // vetores
+    G.vE = el("line", {x1:sx(0), y1:BASE, y2:BASE, stroke:C.azul, "stroke-width":4, "marker-end":"url(#a15pj-s-a)"}, svg);
+    G.vR = el("line", {stroke:C.laranja, "stroke-width":4, "marker-end":"url(#a15pj-s-l)"}, svg);
+    G.vH = el("line", {x1:sx(0), y1:BASE, stroke:C.tinta, "stroke-width":4, "marker-end":"url(#a15pj-s-t)"}, svg);
+    el("circle", {cx:sx(0), cy:BASE, r:5, fill:C.tinta}, svg);
+    G.lH = tx(svg, 0, 0, "ε" + sub(1), H.halo({"font-size":19, "font-weight":700, "text-anchor":"end"}));
+    G.lE = tx(svg, 0, 0, "", H.halo({"font-size":17, "font-weight":700, fill:C.azul, "text-anchor":"middle"}));
+    G.lR = tx(svg, 0, 0, "", H.halo({"font-size":17, "font-weight":700, fill:C.laranja}));
+    G.aH = tx(svg, 0, 0, "", H.halo({"font-size":15, "text-anchor":"middle"}));
+    G.aE = tx(svg, 0, 0, "", H.halo({"font-size":15, "text-anchor":"middle"}));
+    G.aR = tx(svg, 0, 0, "", H.halo({"font-size":15, "text-anchor":"middle"}));
+    // painel direito: cada pedaço de y no salário
+    el("line", {x1:RX - 40, x2:RX - 40, y1:30, y2:430, stroke:C.grade}, svg);
+    tx(svg, RX, 20, "y = esforço + explicado por z + resíduo", {"font-size":16, fill:C.cinza});
+    function linha(y, cor, nome, efeito){
+      el("circle", {cx:RX + 8, cy:y - 6, r:8, fill:cor}, svg);
+      var t = tx(svg, RX + 26, y, nome, {"font-size":19, "font-weight":700});
+      var e = tx(svg, RX + 26, y + 26, efeito, {"font-size":16, fill:C.cinza});
+      return {t:t, e:e};
+    }
+    linha(72, C.verde, "esforço, e", "fica no salário: é o que o contrato premia");
+    G.r2 = linha(160, C.azul, "", "sai do salário: o gestor não controla");
+    G.r3 = linha(274, C.laranja, "", "fica no salário: o risco que ele carrega");
+    function barra(y, cor){
+      el("rect", {x:BX, y:y, width:BW, height:18, fill:C.grade}, svg);
+      var b = el("rect", {x:BX, y:y, height:18, fill:cor}, svg);
+      var t = tx(svg, BX + BW + 8, y + 15, "", {"font-size":15, "font-weight":700});
+      return {b:b, t:t};
+    }
+    G.b2 = barra(198, C.azul); G.b3 = barra(312, C.laranja);
+    tx(svg, BX, 372, "barras: variância, em unidades de σ" + sub(1) + "² = " + fmt(P.sigma1_2, 0), {"font-size":13, fill:C.cinzaClaro});
+    G.pot = tx(svg, RX, 412, "", {"font-size":19, "font-weight":700});
+  })();
+
+  function desenha(r, k){
+    var T = ponta(r), b = beta(r), noAngulo = Math.abs(k - b) < 1e-3, vk = V(k, r), theta = Math.acos(r/1);
+    set(G.vH, {x2:sx(T.x), y2:sy(T.y)});
+    set(G.vE, {x2:sx(k), opacity:k > .02 ? 1 : 0});
+    set(G.vR, {x1:sx(k), y1:BASE, x2:sx(T.x), y2:sy(T.y)});
+    // quadrados só no ângulo reto: é quando as áreas somam
+    var n = {x:-T.y, y:T.x};
+    set(G.qH, {d:quad([[0, 0], [T.x, T.y], [T.x + n.x, T.y + n.y], [n.x, n.y]]), opacity:noAngulo ? .16 : .06});
+    set(G.qE, {d:quad([[0, 0], [b, 0], [b, -b], [0, -b]]), opacity:noAngulo ? .3 : 0});
+    set(G.qR, {d:quad([[b, 0], [b + T.y, 0], [b + T.y, T.y], [b, T.y]]), opacity:noAngulo ? .34 : 0});
+    set(G.ang, {d:"M" + (sx(b) + 13) + " " + BASE + "v-13h-13", opacity:noAngulo ? 1 : 0});
+    set(G.perp, {x1:sx(b), y1:BASE, x2:sx(b), y2:sy(T.y), opacity:noAngulo ? 0 : 1});
+    set(G.pPe, {cx:sx(b), cy:BASE, opacity:noAngulo ? 0 : 1});
+    var ra = 34, ax = OX + ra*Math.cos(theta), ay = BASE - ra*Math.sin(theta);
+    set(G.arco, {d:"M" + (OX + ra) + " " + BASE + "A" + ra + " " + ra + " 0 0 0 " + ax.toFixed(1) + " " + ay.toFixed(1)});
+    set(G.teta, {x:OX + (ra + 12)*Math.cos(theta/2) - 4, y:BASE - (ra + 12)*Math.sin(theta/2) + 6});
+    // rótulos
+    set(G.lH, {x:sx(T.x/2) - 8 - 10*T.y, y:sy(T.y/2) - 6 - 14*T.x});
+    G.lE.innerHTML = (noAngulo ? "β" : "k") + "ε" + sub(2);
+    set(G.lE, {x:sx(k/2), y:BASE + 21, opacity:k > .2 ? 1 : 0});
+    G.lR.innerHTML = "ε" + sub(1) + " − " + (noAngulo ? "β" : "k") + "ε" + sub(2);
+    set(G.lR, {x:noAngulo ? sx(b + T.y) + 10 : sx((k + T.x)/2) + 10, y:noAngulo ? sy(T.y/2) + 6 : sy(T.y/2)});
+    G.aH.innerHTML = "σ" + sub(1) + "² = " + fmt(P.sigma1_2);
+    set(G.aH, {x:sx((T.x + n.x)/2), y:sy((T.y + n.y)/2) + 5, opacity:noAngulo ? 1 : 0});
+    G.aE.innerHTML = "ρ²σ" + sub(1) + "² = " + fmt(b*b);
+    set(G.aE, {x:sx(b/2), y:sy(-b*.62) + 5, opacity:noAngulo && b >= .5 ? 1 : 0});
+    G.aR.innerHTML = "(1 − ρ²)σ" + sub(1) + "² = " + fmt(T.y*T.y);
+    set(G.aR, {x:sx(b + T.y/2), y:sy(T.y/2) + 5, opacity:noAngulo && T.y >= .75 ? 1 : 0});
+    // painel direito
+    G.r2.t.innerHTML = "explicado por z, " + (noAngulo ? "β" : "k") + "ε" + sub(2);
+    G.r3.t.innerHTML = "resíduo, ε" + sub(1) + " − " + (noAngulo ? "β" : "k") + "ε" + sub(2);
+    var ve = k*k, ESC = BW/2.4;
+    set(G.b2.b, {width:Math.min(BW, ESC*ve)}); G.b2.t.textContent = fmt(ve);
+    set(G.b3.b, {width:Math.min(BW, ESC*vk)}); G.b3.t.textContent = fmt(vk);
+    G.pot.innerHTML = noAngulo ? "potência: b" + sub("y") + " = " + fmt(by(r)) + " (sem benchmark: " + fmt(by(0)) + ")" : "sem ângulo reto: o resíduo ainda depende de z";
+  }
+  function legenda(r, k){
+    var b = beta(r);
+    if (Math.abs(k - b) < 1e-3)
+      return "<p>Ângulo reto: resíduo ortogonal ao benchmark. A variância " + fmt(P.sigma1_2) + " se divide em " + fmt(b*b) + " que z explica e " + fmt(V(b, r)) + " de resíduo: as áreas somam.</p>" +
+             '<p class="a15-efeito">cos θ = ρ. Quanto mais fechado o ângulo, menor o resíduo e maior a potência. Com ρ &lt; 0, a projeção aponta para o outro lado; as áreas não mudam.</p>';
+    return "<p>k = " + fmt(k) + " e β = " + fmt(b) + ": resíduo com variância " + fmt(V(k, r)) + ", acima do mínimo de " + fmt(V(b, r)) + ". As áreas só somam no ângulo reto.</p>" +
+           '<p class="a15-efeito">O menor resíduo é a menor distância até a direção de z: a perpendicular, em k = β.</p>';
+  }
+  function pinta(r, k){ lbR.textContent = fmt(r); lbK.textContent = fmt(k); desenha(r, k); cap.innerHTML = legenda(r, k); }
+  var travado = true;                                                  // k acompanha β até o professor mover k
+  function aoR(){ var r = +inR.value; if (travado) inK.value = beta(r); pinta(r, +inK.value); }
+  function aoK(){ var r = +inR.value, k = +inK.value; travado = Math.abs(k - beta(r)) < 1e-3; pinta(r, k); }
+  inR.addEventListener("input", aoR); inK.addEventListener("input", aoK); H.teclas(inR); H.teclas(inK);
+  document.getElementById("a15pj-beta").addEventListener("click", function(){ travado = true; aoR(); });
+  H.liga(root, function(){ pinta(+inR.value, +inK.value); }, function(){
+    document.getElementById("a15pj-estatico").innerHTML = "ρ = 0,60; k = β (σ₁² = σ₂² = " + fmt(P.sigma1_2, 0) + ")";
+    pinta(.6, beta(.6));
+  });
+  root.a15pj = {ponta:ponta, beta:beta, V:V, by:by};
+
+  (function autoteste(){
+    var f = [];
+    function ap(n, a, b, tol){ if (!(Math.abs(a - b) < (tol || 1e-9))) f.push(n + ": " + a + " != " + b); }
+    ap("V(β) em ρ = 0,6, igual à figura seguinte", V(beta(.6), .6), .64);
+    ap("V(0)", V(0, .6), P.sigma1_2);
+    ap("b_y(0,6)", by(.6), .6097560976, 1e-9);
+    for (var i = 1; i < 20; i++){
+      var r = i*.05, T = ponta(r), b = beta(r);
+      ap("comprimento de ε₁, r=" + r, T.x*T.x + T.y*T.y, P.sigma1_2);
+      ap("resíduo ortogonal a z, r=" + r, T.x - b, 0);
+      ap("Pitágoras, r=" + r, b*b + V(b, r), P.sigma1_2);
+      for (var j = 0; j <= 24; j++){
+        var k = j*.05, d2 = (T.x - k)*(T.x - k) + T.y*T.y;
+        ap("V(k) = distância², r=" + r + ", k=" + k, V(k, r), d2);
+        if (V(k, r) < V(b, r) - 1e-12) f.push("mínimo fora de β em r=" + r);
+      }
+    }
+    if (f.length) console.error("Autoteste (Aula 15, projeção) FALHOU:\n" + f.slice(0, 10).join("\n"));
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+  })();
+
+  pinta(+inR.value, +inK.value);
+})();
+</script>
 </section>
 <section id="o-resíduo-tem-variância-mínima" class="slide level2 smaller">
 <h2>O resíduo tem variância mínima</h2>
-<div id="0c6a6f5e" class="cell" data-execution_count="7">
+<div id="09d5e536" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1368,7 +1551,7 @@ window.A15H = (function(){
 <section id="poder-do-contrato-vs.-correlação" class="slide level2 smaller">
 <h2>Poder do contrato vs.&nbsp;correlação</h2>
 <!-- ADICIONADO: figura inteiramente nova (parâmetros ilustrativos), não está no .lyx-fonte. Ver dados/15-mh/SNAPSHOT_INFO.txt. -->
-<div id="6ef780f4" class="cell" data-execution_count="8">
+<div id="14f58d3e" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
