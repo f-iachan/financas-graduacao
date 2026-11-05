@@ -397,7 +397,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="a-mesma-regra-em-todo-estado" class="slide level2 smaller">
 <h2>A mesma regra em todo estado</h2>
 <p>Para <span class="math inline">\(\omega_1=0{,}6\)</span> e <span class="math inline">\(\omega_2=0{,}4\)</span>:</p>
-<div id="2f187a5b" class="cell" data-execution_count="2">
+<div id="dd21e6f0" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <table class="caption-top">
 <thead>
@@ -437,13 +437,13 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Retorno esperado: a linearidade é uma consequência</h2>
 <p><span class="math display">\[ E\left[R_{p}\right]=\sum_{s}\pi_{s}R_{p}(s)=\sum_{s}\pi_{s}\sum_{i}\omega_{i}R_{i}(s)=\sum_{i}\omega_{i}\sum_{s}\pi_{s}R_{i}(s)=\sum_{i}\omega_{i}E\left[R_{i}\right] \]</span></p>
 <p><span class="destaque">A troca da ordem das somas é o único passo: <span class="math inline">\(E[\cdot]\)</span> é linear porque é uma soma ponderada.</span></p>
-<div id="a174c1dd" class="cell" data-execution_count="3">
+<div id="84f43971" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p>No exemplo: <span class="math inline">\(E[R_1]=5\%\)</span>, <span class="math inline">\(E[R_2]=11\%\)</span>, <span class="math inline">\(E[R_p]=0{,}6\times5\%+0{,}4\times11\%=7,4\%\)</span> — confere com a tabela anterior.</p>
 </div>
 </div>
 <p>Exemplo de uma linha: R$ 25 mil a 18% e R$ 35 mil a 25%:</p>
-<div id="830a2b8f" class="cell" data-execution_count="4">
+<div id="07462546" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[E[R_p] = 0,4167\times 0{,}18 + 0,5833\times 0{,}25 = 22,1\%\]</span></p>
 </div>
@@ -465,7 +465,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Correlação</h2>
 <p>Mede o risco comum entre duas ações, independente das suas volatilidades:</p>
 <p><span class="math display">\[ Corr\left(R_{i},R_{j}\right)=\dfrac{Cov\left(R_{i},R_{j}\right)}{SD\left(R_{i}\right)SD\left(R_{j}\right)} \]</span></p>
-<div id="244dfe8e" class="cell" data-execution_count="5">
+<div id="7f773e00" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -489,7 +489,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Média é reta, variância é parábola</h2>
 <p><span class="math display">\[ SD\left(R_{p}\right)\leq\sum_{i}\left|\omega_{i}\right|\sigma_{i} \]</span></p>
 <p><span class="destaque">Desigualdade triangular: com posições compradas e correlações inferiores a 1, a desigualdade é estrita.</span></p>
-<div id="dfdc1c17" class="cell" data-execution_count="6">
+<div id="2da5db3a" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -509,7 +509,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="exemplo-numérico-pesos-iguais" class="slide level2 smaller">
 <h2>Exemplo numérico: pesos iguais</h2>
 <p>Desvio-padrão médio das ações: 10% a.m.; correlação média: 0,40. Investindo o mesmo montante em cada ação, qual a variância do portfólio quando <span class="math inline">\(n\to\infty\)</span>? E se a correlação fosse 0? E 1?</p>
-<div id="80827bce" class="cell" data-execution_count="7">
+<div id="96155885" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[Cov\left(R_i,R_j\right) = 0{,}40\times0{,}10\times0{,}10 = 0,004\]</span></p>
 <p><span class="math display">\[\sigma_p \underset{n\to\infty}{\approx} \sqrt{0,004} = 6,3\%\]</span></p>
@@ -969,7 +969,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 </section>
 <section id="gráfico-combinando-duas-em-duas" class="slide level2 smaller">
 <h2>Gráfico: combinando duas em duas</h2>
-<div id="7494a78b" class="cell" data-execution_count="8">
+<div id="7fed1ac6" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -981,7 +981,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 </section>
 <section id="fronteira-eficiente-com-três-ativos" class="slide level2 smaller">
 <h2>Fronteira eficiente com três ativos</h2>
-<div id="c41521b1" class="cell" data-execution_count="9">
+<div id="822a4974" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -995,7 +995,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 <section id="mais-ações-expandem-a-fronteira" class="slide level2 smaller">
 <h2>Mais ações expandem a fronteira</h2>
 <p>Cada ativo adicional, se não perfeitamente correlacionado com os demais, amplia as possibilidades de diversificação.</p>
-<div id="a2f54da4" class="cell" data-execution_count="10">
+<div id="33020a5f" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1032,7 +1032,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 <h2>Gráfico: alavancando um portfólio arriscado</h2>
 <!-- ADICIONADO: exemplo numérico com r_f=1% e carteira igualmente ponderada;
      a fonte apresenta o resultado simbolicamente, sem esse parâmetro. -->
-<div id="416c2e98" class="cell" data-execution_count="11">
+<div id="0074213f" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1378,7 +1378,7 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
 \]</span></p>
 <ul>
 <li><span class="math inline">\(S_P'(0)&gt;0 \iff \mathbb E\left[R_i\right]-r_{f}&gt;S_P(0)\cdot\sigma_{i}\rho_{iP}\)</span></li>
-<li><span class="destaque">O “Sharpe marginal” de <span class="math inline">\(i\)</span> supera o de <span class="math inline">\(P\)</span>: aumentar <span class="math inline">\(\varepsilon\)</span> a partir de zero melhora o Sharpe de <span class="math inline">\(P\)</span>.</span></li>
+<li><span class="destaque">A contribuição marginal líquida de <span class="math inline">\(i\)</span> é positiva: aumentar seu peso, financiado no ativo livre de risco, melhora localmente o Sharpe de <span class="math inline">\(P\)</span>.</span></li>
 </ul>
 </section>
 <section id="beta-e-a-condição-de-sharpe-máximo" class="slide level2 smaller">
@@ -1395,11 +1395,12 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
 </ul>
 <p><span class="destaque">O lado direito é o <strong>retorno exigido</strong>: o retorno necessário para compensar o risco que <span class="math inline">\(i\)</span> acrescenta a <span class="math inline">\(P\)</span>.</span></p>
 </section>
-<section id="artefato-sharpe-marginal-e-relação-beta-retorno" class="slide level2 smaller">
-<h2>Artefato: Sharpe marginal e relação beta-retorno</h2>
+<section id="artefato-uma-perturbação-marginal-em-p" class="slide level2 smaller">
+<h2>Artefato: uma perturbação marginal em <span class="math inline">\(P\)</span></h2>
 <style>
 #a9ps-root .a9ps-charts{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:10px;}
 #a9ps-root .a9ps-card{margin-top:12px;}
+#a9ps-root .a9ps-panel-title{text-align:center; font-size:.62em; font-weight:700; color:#5f5e5a; margin-bottom:2px;}
 @media (max-width: 700px){ #a9ps-root .a9ps-charts{grid-template-columns:1fr;} }
 </style>
 
@@ -1421,21 +1422,23 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
 
   <div class="a9ps-charts">
     <div class="a9p-chart">
+      <div class="a9ps-panel-title">Perturbação local: S<sub>P</sub>(ε)</div>
       <svg id="a9ps-svg-left" viewbox="0 0 460 320" role="img" aria-label="Índice de Sharpe S de epsilon ao acrescentar um peso epsilon no ativo i, financiado pelo ativo livre de risco"></svg>
     </div>
     <div class="a9p-chart">
-      <svg id="a9ps-svg-right" viewbox="0 0 460 320" role="img" aria-label="Relação beta-retorno em relação à carteira P, com os três ativos reais e o ativo hipotético i"></svg>
+      <div class="a9ps-panel-title">CPO da carteira tangente P</div>
+      <svg id="a9ps-svg-right" viewbox="0 0 460 320" role="img" aria-label="Condição de primeira ordem para uma perturbação marginal da carteira P, com os três ativos que formam P e o ativo hipotético i"></svg>
     </div>
   </div>
 
   <div class="a9p-card" id="a9ps-card" aria-live="polite">
     <div class="a9p-badge" id="a9ps-badge"></div>
     <dl>
-      <dt>β<sub>i</sub> (em relação a P)</dt><dd id="a9ps-beta"></dd>
-      <dt>α<sub>i</sub><sup>P</sup></dt><dd id="a9ps-alpha"></dd>
-      <dt>S'(0)</dt><dd id="a9ps-sprime"></dd>
+      <dt>β<sub>i</sub><sup>P</sup> (risco marginal)</dt><dd id="a9ps-beta"></dd>
+      <dt>α<sub>i</sub><sup>P</sup> = σ<sub>P</sub>S'<sub>P</sub>(0)</dt><dd id="a9ps-alpha"></dd>
+      <dt>S'<sub>P</sub>(0)</dt><dd id="a9ps-sprime"></dd>
     </dl>
-    <div class="a9p-message">Com negociação sem restrições: α<sub>i</sub><sup>P</sup> &gt; 0 ⇔ aumente ε (compre i); α<sub>i</sub><sup>P</sup> &lt; 0 ⇔ reduza ε (venda i a descoberto).</div>
+    <div class="a9p-message">Perturbação dω = ε(e<sub>i</sub>−e<sub>f</sub>): α<sub>i</sub><sup>P</sup> &gt; 0 ⇔ aumente o peso de i; α<sub>i</sub><sup>P</sup> &lt; 0 ⇔ reduza-o. O ajuste oposto ocorre no ativo livre de risco.</div>
   </div>
 </div>
 
@@ -1493,9 +1496,9 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
     return num / Math.sqrt(Math.max(varE, 1e-12));
   }
   function classify(s){
-    if (s > 1e-3) return {color:A9P_VERDE, texto:"S'(0) > 0: compre i"};
-    if (s < -1e-3) return {color:A9P_LARANJA, texto:"S'(0) < 0: venda i a descoberto"};
-    return {color:A9P_CINZA, texto:"S'(0) ≈ 0: efeito marginal mínimo"};
+    if (s > 1e-3) return {color:A9P_VERDE, texto:"S′ₚ(0) > 0: aumente o peso de i"};
+    if (s < -1e-3) return {color:A9P_LARANJA, texto:"S′ₚ(0) < 0: reduza o peso de i"};
+    return {color:A9P_CINZA, texto:"S′ₚ(0) ≈ 0: sem ganho de primeira ordem"};
   }
 
   // ---- gráfico esquerdo: S(ε) ----
@@ -1551,7 +1554,7 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
     svgL.innerHTML = s;
   }
 
-  // ---- gráfico direito: relação beta-retorno em relação a P ----
+  // ---- gráfico direito: CPO para uma perturbação marginal em torno de P ----
   var WR=460, HR=320, mR={l:46, r:14, t:14, b:36};
   var BETA0=-0.5, BETA1=2.2, RET0=-10, RET1=35;
   function sxR(b){ return mR.l + (WR-mR.l-mR.r)*(b-BETA0)/(BETA1-BETA0); }
@@ -1571,15 +1574,15 @@ S_P'(0)&amp;=\dfrac{\left(\mathbb E\left[R_i\right]-r_{f}\right)-S_P(0)\cdot\sig
       s += '<line x1="'+mR.l+'" y1="'+syR(v)+'" x2="'+(WR-mR.r)+'" y2="'+syR(v)+'" stroke="'+A9P_GRADE+'"/>';
       s += '<text x="'+(mR.l-6)+'" y="'+(syR(v)+4)+'" text-anchor="end" font-size="10.5" fill="'+A9P_CINZA+'">'+v+'%</text>';
     });
-    s += '<text x="'+(mR.l+(WR-mR.l-mR.r)/2)+'" y="'+(HR-6)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'">β (em relação a P)</text>';
+    s += '<text x="'+(mR.l+(WR-mR.l-mR.r)/2)+'" y="'+(HR-6)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'">βᵢᴾ = Cov(Rᵢ,Rₚ)/σ²ₚ (risco marginal)</text>';
     s += '<text x="12" y="'+(mR.t+(HR-mR.t-mR.b)/2)+'" text-anchor="middle" font-size="11.5" fill="'+A9P_CINZA+'" transform="rotate(-90 12 '+(mR.t+(HR-mR.t-mR.b)/2)+')">retorno esperado (%)</text>';
 
-    // relação beta-retorno em relação a P
+    // lócus em que a perturbação não altera o Sharpe em primeira ordem
     s += '<line x1="'+sxR(BETA0)+'" y1="'+syR(smlPct(BETA0))+'" x2="'+sxR(BETA1)+'" y2="'+syR(smlPct(BETA1))+
          '" stroke="'+A9P_AZUL+'" stroke-width="2.6"/>';
-    s += '<text x="'+(sxR(BETA1)-4)+'" y="'+(syR(smlPct(BETA1))-8)+'" text-anchor="end" font-size="11" fill="'+A9P_AZUL+'">beta-retorno</text>';
+    s += '<text x="'+(sxR(BETA1)-4)+'" y="'+(syR(smlPct(BETA1))-8)+'" text-anchor="end" font-size="11" fill="'+A9P_AZUL+'">lócus S′ₚ(0) = 0</text>';
 
-    // três ativos reais sobre a relação beta-retorno
+    // ativos usados para formar a carteira tangente P: todos satisfazem a CPO
     for (var k=0; k<3; k++){
       var bx = sxR(P.betas[k]), by = syR(MU[k]*100);
       s += '<circle cx="'+bx+'" cy="'+by+'" r="5" fill="#141413"/>';
