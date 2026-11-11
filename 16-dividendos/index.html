@@ -148,7 +148,7 @@ Felipe Iachan
 <li>Hoje: como a firma remunera <strong>acionistas</strong> — e isso muda o valor da firma?</li>
 <li>Roteiro: instituições → evidência → Modigliani-Miller → impostos → sinalização</li>
 </ul>
-<!-- PLANNING: última aula do curso — reservar ~5 min ao final para o fechamento do curso todo, não só desta aula. -->
+<!-- PLANNING: 2026.2 — duas sessões. Qui 12/11: do início até "A tese do pássaro na mão" (impostos, se sobrar tempo). Ter 17/11: impostos → sinalização (Oi, Intel) → modelo de Tirole (~45 min); o tempo restante já entra no deck de captação (VC/IPO). O fechamento do curso foi movido para o fim do deck de captação. -->
 </section>
 <section id="a-pergunta" class="slide level2 center">
 <h2>A pergunta</h2>
@@ -203,7 +203,7 @@ Felipe Iachan
 <section id="payout-hoje-quem-paga-o-quê" class="slide level2 smaller">
 <h2>Payout hoje: quem paga o quê</h2>
 <!-- ADICIONADO: artefato de dados atuais (yfinance), não está na fonte. Ver dados/16-dividendos/SNAPSHOT_INFO.txt para a checagem de qualidade do dado (checagem via soma manual de Ticker.dividends; JSCP; payoutRatio não usado). -->
-<div id="f3cd7686" class="cell" data-execution_count="2">
+<div id="a63f9543" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -486,7 +486,7 @@ Felipe Iachan
 <section id="o-preço-cai-exatamente-o-dividendo" class="slide level2 smaller">
 <h2>O preço cai exatamente o dividendo</h2>
 <!-- ADICIONADO: gráfico não está na fonte (Divid.lyx só descreve a queda automática em texto, no quadro "Dividendos, JSCP"); construído a partir dos números computados do exemplo Acme. -->
-<div id="730d3538" class="cell" data-execution_count="3">
+<div id="043e51a4" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -623,6 +623,7 @@ Felipe Iachan
 <li>Se gestores conseguissem levantar fundos com emissão para financiar projetos de <span class="math inline">\(VPL&lt;0\)</span>, nada se altera</li>
 </ul></li>
 </ul>
+<!-- PLANNING: fim provável da sessão de 12/11. Se ainda houver ~20 min, seguir até a taxa efetiva τ_D* e parar antes de "Outras formas de pagamento". -->
 </div>
 </section>
 <section id="pagamento-ou-retenção" class="slide level2 smaller">
@@ -719,6 +720,7 @@ Felipe Iachan
 <li>Junto vieram demissões e projeção fraca: <span class="destaque">não dá para isolar o efeito do dividendo</span></li>
 </ul>
 <p><span class="fonte">Reuters, reproduzida no <em>South China Morning Post</em>, 02/08/2024; fechamento: Reuters.</span></p>
+<!-- PLANNING: 17/11 — chegar aqui com ~45 min de aula. O modelo de Tirole é o bloco a preservar: se o tempo apertar, comprimir a evidência e os casos acima, não o modelo. -->
 </section>
 <section id="transição-de-volta-ao-modelo-formal" class="slide level2 center">
 <h2>Transição: de volta ao modelo formal</h2>
@@ -853,8 +855,8 @@ Felipe Iachan
 </ul>
 <p><span class="fonte">O sinal do efeito depende dos parâmetros do modelo — não é uma implicação universal.</span></p>
 </section>
-<section id="o-que-aprendemos-hoje" class="slide level2 smaller">
-<h2>O que aprendemos hoje</h2>
+<section id="o-que-aprendemos" class="slide level2 smaller">
+<h2>O que aprendemos</h2>
 <ul>
 <li>Sob as hipóteses de M-M (política de investimento fixa), <span class="destaque">a política de pagamento é irrelevante</span> para o valor da firma</li>
 <li>Impostos criam uma cunha efetiva <span class="math inline">\(\tau_D^*\)</span> entre dividendo e ganho de capital</li>
@@ -862,22 +864,14 @@ Felipe Iachan
 <li>No modelo formal, pagar dividendo (em vez de reinvestir) pode <strong>revelar tipo</strong> em equilíbrio separador — em geral, notícia boa</li>
 </ul>
 </section>
-<section id="encerramento-do-curso" class="slide level2 smaller">
-<h2>Encerramento do curso</h2>
-<!-- ADICIONADO: última aula do curso — fechamento do arco completo, não está na fonte (Divid.lyx termina no slide anterior). -->
-<p>O curso percorreu, do início ao fim, a mesma lógica:</p>
+<section id="rumo-ao-próximo-tema" class="slide level2 smaller">
+<h2>Rumo ao próximo tema</h2>
+<!-- ADICIONADO: ponte para o deck de captação (VC, IPO, SEO). O fechamento do curso foi movido para o fim daquele deck, que passou a ser o último. -->
 <ul>
-<li><strong>Avaliação</strong>: títulos, ações, projetos — tudo é valor presente de fluxos de caixa</li>
-<li><strong>Risco</strong>: CAPM, APT — o preço do risco vem de covariância com o que é caro nos estados ruins</li>
-<li><strong>Financiamento</strong>: M-M mostra que, sem fricções, <span class="destaque">nada disso — dívida, dividendo — muda o valor</span></li>
-<li><strong>Fricções</strong>: impostos, falência, informação assimétrica, risco moral — é aí que as respostas do “mundo real” se afastam do <em>benchmark</em></li>
+<li>Neste tema: como o caixa <span class="destaque">sai</span> da firma para o acionista</li>
+<li>A seguir: como o capital próprio <span class="destaque">entra</span>: venture capital, IPO e ofertas subsequentes</li>
+<li>O mesmo Tirole volta: no IPO, o emissor informado pode sinalizar deixando <span class="destaque">dinheiro na mesa</span></li>
 </ul>
-</section>
-<section id="a-pergunta-que-fica" class="slide level2 center">
-<h2>A pergunta que fica</h2>
-<div class="r-fit-text">
-<p>Não é a fórmula que muda a resposta — é a <span class="destaque">fricção</span> que está por trás dela.</p>
-</div>
 
 </section>
     </div>
