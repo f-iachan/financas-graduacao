@@ -148,7 +148,7 @@ Felipe Iachan
 <li>Hoje: como a firma remunera <strong>acionistas</strong> — e isso muda o valor da firma?</li>
 <li>Roteiro: instituições → evidência → Modigliani-Miller → impostos → sinalização</li>
 </ul>
-<!-- PLANNING: 2026.2 — duas sessões. Qui 12/11: do início até "A tese do pássaro na mão" (impostos, se sobrar tempo). Ter 17/11: impostos → sinalização (Oi, Intel) → modelo de Tirole (~45 min); o tempo restante já entra no deck de captação (VC/IPO). O fechamento do curso foi movido para o fim do deck de captação. -->
+<!-- PLANNING: 2026.2 — duas sessões. Qui 12/11: do início até "A falácia do pássaro na mão" (impostos, se sobrar tempo). Ter 17/11: impostos → sinalização (Oi, Intel) → modelo de Tirole (~45 min); o tempo restante já entra no deck de captação (VC/IPO). O fechamento do curso foi movido para o fim do deck de captação. -->
 </section>
 <section id="a-pergunta" class="slide level2 center">
 <h2>A pergunta</h2>
@@ -203,7 +203,7 @@ Felipe Iachan
 <section id="payout-hoje-quem-paga-o-quê" class="slide level2 smaller">
 <h2>Payout hoje: quem paga o quê</h2>
 <!-- ADICIONADO: artefato de dados atuais (yfinance), não está na fonte. Ver dados/16-dividendos/SNAPSHOT_INFO.txt para a checagem de qualidade do dado (checagem via soma manual de Ticker.dividends; JSCP; payoutRatio não usado). -->
-<div id="a63f9543" class="cell" data-execution_count="2">
+<div id="8d8fcb71" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -213,52 +213,27 @@ Felipe Iachan
 </div>
 </div>
 <p><span class="fonte">Fonte: Yahoo Finance, 2026-07-27. *Empresas brasileiras: proventos incluem JSCP. O indicador da WEG inclui dividendo extraordinário.</span></p>
-</section>
-<section id="tendências-nos-eua" class="slide level2">
-<h2>Tendências nos EUA</h2>
-<ul>
-<li>Historicamente, vantagem fiscal para recompras frente a dividendos nos EUA</li>
-<li>Volume total pago em recompras cresceu de forma expressiva ao longo das últimas décadas</li>
-</ul>
 <!-- PLANNING: ponto natural de parada — depois entramos na evidência acadêmica e agregada. -->
+<!-- Consolidado em 11/11/2026: "Tendências nos EUA", os dois slides de evidência acadêmica e os dois de figura viraram dois slides, cada artigo junto da figura que ilustra o mesmo fato. -->
 </section>
-<section id="evidência-acadêmica-composição-do-payout" class="slide level2 smaller">
-<h2>Evidência acadêmica: composição do payout</h2>
-<!-- CORREÇÃO: a fonte (Divid.lyx) grafa "Grullon-Micaelli"; o nome correto é Michaely (Grullon e Michaely, *Journal of Finance*, 2002, "Dividends, Share Repurchases, and the Substitution Hypothesis"). -->
-<p><strong>Grullon e Michaely (JF, 2002)</strong>, com firmas americanas (Compustat, 1972–2000):</p>
-<ul>
-<li>O <em>payout</em> <strong>total</strong> (dividendo + recompra) como fração dos <strong>lucros</strong> (<em>payout ratio</em>) muda pouco no período</li>
-<li>Mas a <strong>composição</strong> se desloca: a fatia paga como dividendo cai, a fatia paga como recompra sobe</li>
-<li>Consistente com <strong>substituição</strong>: recompra passa a fazer o papel que antes era do dividendo</li>
-</ul>
-</section>
-<section id="evidência-acadêmica-quem-paga-dividendo" class="slide level2 smaller">
-<h2>Evidência acadêmica: quem paga dividendo?</h2>
-<p><strong>Fama e French (JFE, 2001)</strong>, com firmas do CRSP (NYSE/AMEX/Nasdaq):</p>
-<ul>
-<li>A fração de firmas pagando dividendo caiu de forma acentuada entre o fim dos anos 1970 e 1999</li>
-<li>Duas explicações, não excludentes:
-<ul>
-<li><span class="destaque">Efeito de composição</span>: entrada de firmas de crescimento acelerado, que não pagam dividendo</li>
-<li>Firmas passaram a pagar dividendo com <strong>probabilidade menor</strong>, mesmo controlando por características (<em>“disappearing dividends”</em>)</li>
-</ul></li>
-</ul>
-</section>
-<section id="tendência-agregada-mais-recente" class="slide level2">
-<h2>Tendência agregada mais recente</h2>
+<section id="quem-paga-dividendo" class="slide level2 smaller">
+<h2>Quem paga dividendo?</h2>
+<p><strong>Fama e French (JFE, 2001)</strong>, CRSP: a fração de firmas pagantes cai do fim dos anos 1970 a 1999, por <span class="destaque">composição</span> (entram firmas de crescimento) e por menor propensão a pagar (<em>disappearing dividends</em>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figs/bdm-fig17-4.png" style="width:76.0%"></p>
+<p><img data-src="figs/bdm-fig17-4.png" style="width:58.0%"></p>
 <figcaption>Fração de firmas industriais dos EUA que pagam dividendo e que recompram ações</figcaption>
 </figure>
 </div>
 <p><span class="fonte">Fonte: Berk e DeMarzo (2024), Fig. 17.4; Compustat. A fração que paga dividendo cai até os anos 2000 e se recupera após o corte de imposto de 2003.</span></p>
 </section>
-<section id="recompras-viraram-a-maior-parcela-do-payout" class="slide level2">
+<section id="recompras-viraram-a-maior-parcela-do-payout" class="slide level2 smaller">
 <h2>Recompras viraram a maior parcela do <em>payout</em></h2>
+<!-- CORREÇÃO: a fonte (Divid.lyx) grafa "Grullon-Micaelli"; o nome correto é Michaely (Grullon e Michaely, *Journal of Finance*, 2002, "Dividends, Share Repurchases, and the Substitution Hypothesis"). -->
+<p><strong>Grullon e Michaely (JF, 2002)</strong>, Compustat 1972–2000: o <em>payout</em> total como fração dos lucros muda pouco, mas a recompra <span class="destaque">substitui</span> o dividendo na composição.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figs/bdm-fig17-5.png" style="width:76.0%"></p>
+<p><img data-src="figs/bdm-fig17-5.png" style="width:58.0%"></p>
 <figcaption>Recompras como fração do <em>payout</em> total, firmas industriais dos EUA</figcaption>
 </figure>
 </div>
@@ -440,30 +415,18 @@ Felipe Iachan
 </ul>
 <p><span class="fonte">Fonte: Lei 15.270/2025; Lei Complementar 224/2025; Lei 11.033/2004.</span></p>
 </section>
-<section id="transição-e-a-teoria" class="slide level2 center">
-<h2>Transição: e a teoria?</h2>
-<!-- ADICIONADO: framing de transição, não está na fonte. -->
-<div class="r-fit-text">
-<p>Antes de perguntar <strong>por que</strong> cada firma escolhe sua política, vale perguntar se a escolha <span class="destaque">importa</span> para o valor.</p>
-</div>
-</section>
-<section id="lembrando-modigliani-miller-aula-11" class="slide level2">
-<h2>Lembrando: Modigliani-Miller (Aula 11)</h2>
-<ul>
-<li>Vimos: em mercado de capitais perfeito, a <strong>estrutura de capital</strong> (D/E) não afeta o valor da firma</li>
-<li>Hoje: sob hipóteses análogas — sobretudo, <strong>política de investimento fixa</strong> — a <strong>política de pagamento</strong> também não afeta</li>
-</ul>
-</section>
-<section id="modigliani-miller-e-pagamentos" class="slide level2">
+<section id="modigliani-miller-e-pagamentos" class="slide level2 smaller">
 <h2>Modigliani-Miller e pagamentos</h2>
+<!-- Consolidado em 11/11/2026: "Transição: e a teoria?" e "Lembrando: Modigliani-Miller (Aula 11)" entraram neste slide. -->
 <ul>
-<li>Sob as hipóteses usuais (principalmente, mantendo fixa a política de investimentos), o <span class="destaque">valor da firma independe da política de pagamentos</span> aos acionistas</li>
+<li><span class="secundario">Lembrando (Aula 11): em mercado de capitais perfeito, a estrutura de capital não afeta o valor da firma.</span></li>
+<li>Sob hipóteses análogas, sobretudo <span class="destaque">política de investimento fixa</span>, a <strong>política de pagamento</strong> também não afeta</li>
 </ul>
 <div class="fragment">
 <p><strong>Argumento:</strong> imagine duas firmas com ativos idênticos.</p>
 <ul>
-<li>Com mercados de capital perfeitos, um investidor que deseje fluxo de caixa pode imitar dividendos vendendo parte de suas ações em uma companhia que não pague dividendos</li>
-<li>Um investidor que <strong>não</strong> deseje esse fluxo pode reinvestir dividendos recebidos, comprando ações de uma firma que os pague</li>
+<li>Quem deseja caixa e tem ações de uma firma que não paga dividendo pode vender parte das ações</li>
+<li>Quem não deseja caixa pode reinvestir o dividendo recebido, comprando ações da firma que paga</li>
 </ul>
 </div>
 </section>
@@ -477,81 +440,264 @@ Felipe Iachan
 <li>Retorno requerido ao acionista: 10% a.a. (sem dívida; alavancagem não muda)</li>
 <li>1.000.000 ações emitidas</li>
 </ul>
-<p><strong>Política 1</strong>: pagar todo o fluxo de caixa livre como dividendo.</p>
-<ul>
-<li>Dividendo por ação: R$10</li>
-<li>Valor de mercado: (cum-dividendo) R$110 milhões — (ex-dividendo) R$100 milhões</li>
-</ul>
-</section>
-<section id="o-preço-cai-exatamente-o-dividendo" class="slide level2 smaller">
-<h2>O preço cai exatamente o dividendo</h2>
-<!-- ADICIONADO: gráfico não está na fonte (Divid.lyx só descreve a queda automática em texto, no quadro "Dividendos, JSCP"); construído a partir dos números computados do exemplo Acme. -->
-<div id="043e51a4" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="três-políticas-para-a-mesma-firma" class="slide level2 smaller">
-<h2>Três políticas para a mesma firma</h2>
-<p><strong>Política 2</strong>: pagar R$12 de dividendo por ação, levantando R$2 milhões em nova emissão de ações.</p>
-<p><strong>Política 3</strong>: recomprar R$10 milhões em ações (em vez de pagar dividendo).</p>
+<p>Três políticas para o caixa de hoje:</p>
+<ol type="1">
+<li><strong>Dividendo</strong> de R$10 por ação: todo o fluxo de caixa livre</li>
+<li><strong>Dividendo</strong> de R$12 por ação, levantando R$2 milhões em nova emissão de ações</li>
+<li><strong>Recompra</strong> de R$10 milhões em ações, sem dividendo</li>
+</ol>
 <p><span class="destaque">M-M garante equivalência entre as três.</span></p>
-<!-- PLANNING: a fonte lista as três políticas e para (mesmo dizendo "M-M garante equivalência"), sem fazer as contas — a próxima etapa completa isso. -->
 </section>
-<section id="verificando-a-equivalência" class="slide level2 smaller">
-<h2>Verificando a equivalência</h2>
-<!-- ADICIONADO: a fonte deixa "(...)" e, no quadro seguinte, apenas enumera as tarefas ("computar preço cum e ex", "equivalência entre políticas") como exercício. As contas abaixo as resolvem, com números redondos e auto-consistentes. Ver setup em Python no topo do arquivo. -->
-<table class="caption-top">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 26%">
-</colgroup>
+<section id="três-políticas-a-mesma-riqueza" class="slide level2 smaller">
+<h2>Três políticas, a mesma riqueza</h2>
+<!-- ADICIONADO: artefato a16-payout. Consolida, em 11/11/2026, os slides "O preço cai exatamente
+     o dividendo", "Três políticas para a mesma firma", "Verificando a equivalência" e
+     "Replicação: homemade dividends". A fonte (Divid.lyx) lista as três políticas, deixa "(...)" e
+     só enumera as tarefas ("computar preço cum e ex", "equivalência entre políticas"); as contas
+     são nossas. Parte do preview "Três políticas, a mesma riqueza" (artifact Finanças em
+     Movimento, 30/09/2026) e acrescenta o lado da firma: o valor sempre cai para R$100 mi, e o
+     preço depende do que acontece com o número de ações.
+     Cliques: Antes → Política 1 → Política 2 → Política 3 → dividendo caseiro.
+     Números: lidos das variáveis Python do topo do index.qmd (window.A16PG); a versão impressa
+     é escrita pela mesma célula, sem cálculo em JavaScript. -->
+<!-- PLANNING: perguntas antes de cada clique.
+     0→1: se a Acme paga R$10 de dividendo, onde estão os mesmos R$110?
+     1→2: e se pagar R$12 por ação? De onde vêm os R$2 a mais, e a que preço entram as ações novas?
+     2→3: numa recompra de R$10 mi, o que acontece com o valor da firma, com o número de ações e com o preço?
+     3→4: quem não vendeu na recompra quer R$10 em caixa por ação. Quanto deve vender? -->
+<script>window.A16PG = {"Vex": 100.0, "fcf": 10.0, "N0": 1000000, "Pcum": 110.0, "Pex": 100.0, "d1": 10.0, "d2": 12.0, "raise2": 2.0, "nNew2": 20408.163265306124, "P2": 98.0, "buy3": 90909.09090909091, "N3": 909090.9090909091, "P3": 110.0, "frac": 0.09090909090909091, "fracLbl": "1/11"};</script>
+<div class="a16pg" id="a16pg-root" data-artefato="a16-payout" data-pdf-check="Por ação original, a riqueza é sempre R$110">
+  <div class="a16pg-live">
+    <svg id="a16pg-svg" viewbox="0 0 1200 395" role="img" aria-label="Valor da firma, número de ações, preço e riqueza do acionista original sob três políticas de pagamento da Acme"></svg>
+    <div class="a16pg-caption" id="a16pg-caption" aria-live="polite"></div>
+    <div class="a16pg-instruction">Avance: antes → Política 1 → Política 2 → Política 3 → dividendo caseiro.</div>
+  </div>
+  <div class="a16pg-print">
+    <div class="a16pg-summary"><b>Por ação original, a riqueza é sempre R$110.</b> O valor da firma cai para R$100 mi nas três políticas; o preço depende do número de ações.</div>
+    
+<table class="a16pg-table caption-top" aria-label="Comparação das três políticas de pagamento da Acme">
 <thead>
 <tr class="header">
-<th></th>
-<th style="text-align: right;">Política 1 (dividendo R$10)</th>
-<th style="text-align: right;">Política 2 (dividendo R$12 + emissão)</th>
-<th style="text-align: right;">Política 3 (recompra R$10 mi)</th>
+<th data-quarto-table-cell-role="th" scope="col"></th>
+<th data-quarto-table-cell-role="th" scope="col">Antes</th>
+<th data-quarto-table-cell-role="th" scope="col">Política 1</th>
+<th data-quarto-table-cell-role="th" scope="col">Política 2</th>
+<th data-quarto-table-cell-role="th" scope="col">Política 3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Caixa recebido hoje/ação</td>
-<td style="text-align: right;">R$10</td>
-<td style="text-align: right;">R$12</td>
-<td style="text-align: right;">R$0</td>
+<th data-quarto-table-cell-role="th" scope="row">Caixa pago pela firma (R$ mi)</th>
+<td>—</td>
+<td>10</td>
+<td>12</td>
+<td>10</td>
 </tr>
 <tr class="even">
-<td>Preço por ação remanescente</td>
-<td style="text-align: right;">R$100,00</td>
-<td style="text-align: right;">R$98,00</td>
-<td style="text-align: right;">R$110,00</td>
+<th data-quarto-table-cell-role="th" scope="row">Ações novas (+) ou recompradas (−)</th>
+<td>—</td>
+<td>0</td>
+<td>+20.408</td>
+<td>−90.909</td>
 </tr>
 <tr class="odd">
-<td>Riqueza total do acionista original</td>
-<td style="text-align: right;">R$110,00 mi</td>
-<td style="text-align: right;">R$110,00 mi</td>
-<td style="text-align: right;">R$110,00 mi</td>
+<th data-quarto-table-cell-role="th" scope="row">Ações em circulação</th>
+<td>1.000.000</td>
+<td>1.000.000</td>
+<td>1.020.408</td>
+<td>909.091</td>
+</tr>
+<tr class="a16pg-value even">
+<th data-quarto-table-cell-role="th" scope="row">Valor da firma (R$ mi)</th>
+<td>110</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr class="a16pg-value odd">
+<th data-quarto-table-cell-role="th" scope="row">Preço por ação = valor ÷ ações</th>
+<td>R$110,00</td>
+<td>R$100,00</td>
+<td>R$98,00</td>
+<td>R$110,00</td>
+</tr>
+<tr class="a16pg-divider even">
+<th data-quarto-table-cell-role="th" scope="row">Caixa por ação original (quem não vende)</th>
+<td>R$0,00</td>
+<td>R$10,00</td>
+<td>R$12,00</td>
+<td>R$0,00</td>
+</tr>
+<tr class="a16pg-value odd">
+<th data-quarto-table-cell-role="th" scope="row">Riqueza por ação original</th>
+<td>R$110,00</td>
+<td>R$110,00</td>
+<td>R$110,00</td>
+<td>R$110,00</td>
 </tr>
 </tbody>
 </table>
-<p>Na Política 2, 20.408 novas ações são emitidas a R$98,00 (preço ex-dividendo, autoconsistente). Na Política 3, 90.909 ações são recompradas ao preço <strong>cum</strong>-dividendo de R$110 — por isso o preço remanescente <strong>não cai</strong>.</p>
-</section>
-<section id="replicação-homemade-dividends" class="slide level2 smaller">
-<h2>Replicação: “homemade dividends”</h2>
-<p>Um acionista passivo sob a <strong>Política 3</strong> (recompra) pode replicar a Política 1 sozinho:</p>
-<ul>
-<li>Vende 9,09% de suas ações ao preço de R$110 — embolsa R$10 por ação original, igual ao dividendo da Política 1</li>
-<li>Mantém o resto, valendo R$100 por ação original — igual ao valor ex-dividendo da Política 1</li>
-</ul>
-<p><span class="fonte">Mesma lógica no sentido inverso: quem recebeu dividendo e não quer o caixa pode reinvesti-lo, recomprando ações.</span></p>
+
+    <div class="a16pg-summary">Na Política 2, as ações novas entram a R$98,00, preço ex-dividendo. Na Política 3, a recompra é feita a R$110,00, preço cum-dividendo, e por isso o preço não cai.</div>
+    <div class="a16pg-summary"><b>Dividendo caseiro.</b> Na Política 3, quem vende 9,09% (1/11) das ações a R$110 fica com R$10 em caixa e R$100 em ações, como na Política 1. No sentido inverso, quem recebe dividendo e não quer o caixa compra ações.</div>
+  </div>
+  <span class="fragment" data-a16pg-step="1" aria-hidden="true"></span>
+  <span class="fragment" data-a16pg-step="2" aria-hidden="true"></span>
+  <span class="fragment" data-a16pg-step="3" aria-hidden="true"></span>
+  <span class="fragment" data-a16pg-step="4" aria-hidden="true"></span>
+</div>
+<style>
+.a16pg{font-family:"Poppins",Arial,sans-serif;font-size:18px;line-height:1.35;width:100%;color:#141413;}
+.a16pg *{box-sizing:border-box;}
+.a16pg svg{width:100%;height:auto;display:block;}
+.a16pg-caption{min-height:2.7em;font-size:18px;margin:4px 0 0;}
+.a16pg-instruction{font-size:15px;color:#5f5e5a;margin-top:2px;}
+.a16pg-print{display:none;}
+.a16pg.impressao .a16pg-live{display:none;}
+.a16pg.impressao .a16pg-print{display:block;}
+.reveal .a16pg-table{width:100%;font:19px/1.3 "Poppins",Arial,sans-serif;border-collapse:collapse;margin:10px 0;}
+.reveal .a16pg-table th,.reveal .a16pg-table td{padding:4px 12px;text-align:center;}
+.reveal .a16pg-table th:first-child{text-align:left;}
+.reveal .a16pg-table .a16pg-value{font-weight:600;}
+.reveal .a16pg-table .a16pg-divider>*{border-top:2px solid #b0aea5;}
+.a16pg-summary{font-size:18px;margin-top:8px;}
+@media print{.a16pg-live{display:none!important;}.a16pg-print{display:block!important;}}
+</style>
+
+<script>
+(function(){
+  "use strict";
+  let root = document.getElementById("a16pg-root");
+  if (!root || !window.A16PG) return;
+  let svg = root.querySelector("#a16pg-svg"), caption = root.querySelector("#a16pg-caption"), section = root.closest("section");
+  // O modo de rolagem móvel do Reveal pode substituir os nós ao voltar aos slides.
+  function refresh(){
+    const latest=document.getElementById("a16pg-root");
+    if(latest&&latest!==root){root=latest;svg=root.querySelector("#a16pg-svg");caption=root.querySelector("#a16pg-caption");section=root.closest("section");}
+  }
+  const A = window.A16PG, NS = "http://www.w3.org/2000/svg";
+  const C = {ops:"#6a9bcc", cash:"#788c5d", issue:"#d97757", ink:"#141413", gray:"#5f5e5a", line:"#b0aea5", hi:"#c25a3c"};
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function fmt(x,d=0){return (Math.abs(x)<1e-8?0:x).toLocaleString("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d});}
+  const rs=(x,d=2)=>"R$"+fmt(x,d);
+
+  // Estados. Firma em R$ mi: continuação (Vex), caixa ainda dentro, caixa pago (g1) e emissão paga (g2).
+  // Acionista: por ação original, ações (sh) e caixa (cg).
+  const holdSale = A.P3*A.frac;
+  const S = [
+    {cash:A.fcf, g1:0, g2:0, N:A.N0, P:A.Pcum, sh:A.Pcum, cg:0,
+     paid:"caixa "+fmt(A.fcf), arrow:null,
+     cap:"Antes do pagamento: R$"+fmt(A.Vex)+" mi de valor de continuação e R$"+fmt(A.fcf)+" mi de caixa livre. Cada ação vale "+rs(A.Pcum,0)+" (cum-dividendo)."},
+    {cash:0, g1:A.fcf, g2:0, N:A.N0, P:A.Pex, sh:A.Pex, cg:A.d1,
+     paid:"pagos "+fmt(A.fcf), arrow:["dividendo", rs(A.d1,0)+" por ação"],
+     cap:"Política 1: o caixa sai como dividendo. A firma passa a valer R$"+fmt(A.Vex)+" mi e o preço cai exatamente o dividendo: "+rs(A.Pcum,0)+" → "+rs(A.Pex,0)+"."},
+    {cash:0, g1:A.fcf, g2:A.raise2, N:A.N0+A.nNew2, P:A.P2, sh:A.P2, cg:A.d2,
+     paid:"pagos "+fmt(A.fcf+A.raise2), arrow:["dividendo "+rs(A.d2,0)+" por ação", "R$"+fmt(A.raise2)+" mi vêm da emissão"],
+     cap:"Política 2: ≈ "+fmt(A.nNew2)+" ações novas a "+rs(A.P2)+" trazem os R$"+fmt(A.raise2)+" mi extras. A firma vale de novo R$"+fmt(A.Vex)+" mi, agora com mais ações: "+fmt(A.P2)+" + "+fmt(A.d2)+" = "+fmt(A.P2+A.d2)+"."},
+    {cash:0, g1:A.fcf, g2:0, N:A.N3, P:A.P3, sh:A.P3, cg:0,
+     paid:"pagos "+fmt(A.fcf), arrow:["R$"+fmt(A.fcf)+" mi a quem vende:", "≈ "+fmt(A.buy3)+" ações a "+rs(A.Pcum,0)],
+     cap:"Política 3: a firma também passa a valer R$"+fmt(A.Vex)+" mi, mas com menos ações. Como a recompra é feita ao preço cum, "+rs(A.Pcum,0)+", o preço não cai."},
+    {cash:0, g1:A.fcf, g2:0, N:A.N3, P:A.P3, sh:A.P3-holdSale, cg:holdSale,
+     paid:"pagos "+fmt(A.fcf), arrow:["vende "+A.fracLbl+" das ações", "a "+rs(A.P3,0)+", no mercado"],
+     cap:"Dividendo caseiro: quem não vendeu na recompra vende "+A.fracLbl+" das ações e recria a Política 1. No sentido inverso, quem recebe dividendo e não quer o caixa compra ações."}
+  ];
+  const chips=["Antes","Política 1: dividendo","Política 2: dividendo + emissão","Política 3: recompra","Dividendo caseiro"];
+
+  function node(tag,attrs,parent,content){
+    const e=document.createElementNS(NS,tag);
+    Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));
+    if(content!==undefined)e.textContent=content;
+    parent.appendChild(e);return e;
+  }
+  function text(parent,x,y,value,extra={}){return node("text",{x,y,fill:C.ink,"font-size":18,...extra},parent,value);}
+  const base=330, k=2.0, fx=110, hx=790, bw=150;
+
+  // Desenha o estado s (inteiro) com as barras interpoladas em v.
+  function paint(s,v){
+    svg.replaceChildren();const st=S[s];
+    // Fichas dos passos
+    let cx=60;
+    chips.forEach((c,i)=>{
+      const w=c.length*8.6+28, on=i===s;
+      node("rect",{x:cx,y:8,width:w,height:30,rx:15,fill:on?C.issue:"none",stroke:on?C.issue:C.line,"stroke-width":1.5},svg);
+      text(svg,cx+w/2,28,c,{"text-anchor":"middle","font-size":15,fill:on?"#ffffff":C.gray,"font-weight":on?600:400});
+      cx+=w+10;
+    });
+    // Firma
+    text(svg,60,74,"Firma hoje (R$ milhões)",{"font-size":20,"font-weight":600});
+    node("line",{x1:fx-15,x2:fx+bw+15,y1:base,y2:base,stroke:C.gray,"stroke-width":1.5},svg);
+    const yOps=base-A.Vex*k;
+    node("rect",{x:fx,y:yOps,width:bw,height:A.Vex*k,fill:C.ops},svg);
+    text(svg,fx+bw/2,yOps+A.Vex*k/2-6,"continuação",{"text-anchor":"middle",fill:"#ffffff","font-size":16});
+    text(svg,fx+bw/2,yOps+A.Vex*k/2+22,fmt(A.Vex),{"text-anchor":"middle",fill:"#ffffff","font-size":24,"font-weight":600});
+    if(v.g1>.05)node("rect",{x:fx+1,y:yOps-v.g1*k,width:bw-2,height:v.g1*k,fill:C.cash,"fill-opacity":.12,stroke:C.cash,"stroke-width":2,"stroke-dasharray":"6 4"},svg);
+    if(v.g2>.05)node("rect",{x:fx+1,y:yOps-(v.g1+v.g2)*k,width:bw-2,height:v.g2*k,fill:C.issue,"fill-opacity":.2,stroke:C.issue,"stroke-width":2,"stroke-dasharray":"6 4"},svg);
+    if(v.cash>.05)node("rect",{x:fx,y:yOps-v.cash*k,width:bw,height:v.cash*k,fill:C.cash},svg);
+    const top=yOps-Math.max(v.cash,v.g1+v.g2)*k;
+    text(svg,fx-10,yOps-(st.g1+st.g2+st.cash)*k/2+6,st.paid,{"text-anchor":"end","font-size":16,fill:st.cash>0?C.cash:C.gray});
+    if(st.g2>0)text(svg,fx+bw/2,top-8,"+"+fmt(st.g2)+" da emissão",{"text-anchor":"middle","font-size":15,fill:C.issue});
+    const nx=fx+bw+28, changed=Math.abs(st.N-A.N0)>.5;
+    text(svg,nx,140,"Valor: R$"+fmt(A.Vex+st.cash)+" mi",{"font-size":19});
+    text(svg,nx,174,"Ações: "+fmt(st.N),{"font-size":19,fill:changed?C.hi:C.ink,"font-weight":changed?600:400});
+    text(svg,nx,214,"Preço = valor ÷ ações",{"font-size":15,fill:C.gray});
+    text(svg,nx,250,rs(st.P),{"font-size":30,"font-weight":600});
+    // Fluxo
+    if(st.arrow){
+      node("line",{x1:500,x2:735,y1:240,y2:240,stroke:C.line,"stroke-width":3},svg);
+      node("path",{d:"M735 231 L751 240 L735 249 Z",fill:C.line},svg);
+      text(svg,625,198,st.arrow[0],{"text-anchor":"middle","font-size":16});
+      text(svg,625,222,st.arrow[1],{"text-anchor":"middle","font-size":16,fill:C.gray});
+    }
+    // Acionista original
+    text(svg,hx-30,74,s===3?"Acionista que não vendeu, por ação":"Acionista original, por ação que tinha",{"font-size":19,"font-weight":600});
+    node("line",{x1:hx-15,x2:hx+bw+15,y1:base,y2:base,stroke:C.gray,"stroke-width":1.5},svg);
+    node("rect",{x:hx,y:base-v.sh*k,width:bw,height:v.sh*k,fill:C.ops},svg);
+    if(v.cg>.05)node("rect",{x:hx,y:base-(v.sh+v.cg)*k,width:bw,height:v.cg*k,fill:C.cash},svg);
+    text(svg,hx+bw/2,base-v.sh*k/2-6,"ações",{"text-anchor":"middle",fill:"#ffffff","font-size":16});
+    text(svg,hx+bw/2,base-v.sh*k/2+22,fmt(st.sh),{"text-anchor":"middle",fill:"#ffffff","font-size":24,"font-weight":600});
+    if(st.cg>0)text(svg,hx-10,base-(v.sh+v.cg/2)*k+6,"caixa "+fmt(st.cg),{"text-anchor":"end","font-size":16,fill:C.cash,"font-weight":600});
+    const y110=base-A.Pcum*k;
+    node("line",{x1:hx-15,x2:hx+bw+15,y1:y110,y2:y110,stroke:C.hi,"stroke-width":2,"stroke-dasharray":"7 5"},svg);
+    const rx=hx+bw+28;
+    text(svg,rx,140,"Riqueza",{"font-size":17,fill:C.gray});
+    text(svg,rx,178,rs(st.sh+st.cg),{"font-size":30,"font-weight":600,fill:C.hi});
+    text(svg,rx,210,"ações "+fmt(st.sh)+" + caixa "+fmt(st.cg),{"font-size":16,fill:C.gray});
+    if(s===3){text(svg,rx,244,"quem vendeu:",{"font-size":15,fill:C.gray});text(svg,rx,264,rs(A.Pcum,0)+" em caixa",{"font-size":15,fill:C.gray});}
+    // Rodapé
+    text(svg,60,384,"Hipóteses: investimento fixo, preço justo, sem impostos nem custos de transação.",{"font-size":15,fill:C.gray});
+    [[C.ops,"ações / continuação"],[C.cash,"caixa"]].forEach(([c,l],i)=>{
+      const x=880+i*200;node("rect",{x,y:370,width:16,height:16,fill:c},svg);text(svg,x+24,384,l,{"font-size":15,fill:C.gray});
+    });
+  }
+
+  const keys=["cash","g1","g2","sh","cg"];
+  let current=0, shown={...S[0]}, frame=null;
+  function draw(s,v){refresh();paint(s,v);caption.textContent=S[s].cap;root.dataset.step=String(s);root.dataset.price=String(S[s].P);root.dataset.wealth=String(S[s].sh+S[s].cg);}
+  function go(s,animate=false){
+    s=Math.max(0,Math.min(S.length-1,s));if(frame!==null){cancelAnimationFrame(frame);frame=null;}
+    const from={...shown}, to=S[s];current=s;
+    if(!animate||reduced){keys.forEach(q=>shown[q]=to[q]);draw(s,shown);return;}
+    const t0=performance.now();
+    function tick(now){const u=Math.min(1,(now-t0)/450),e=u*u*(3-2*u);
+      keys.forEach(q=>shown[q]=from[q]+(to[q]-from[q])*e);draw(s,shown);
+      if(u<1)frame=requestAnimationFrame(tick);else frame=null;}
+    frame=requestAnimationFrame(tick);
+  }
+  function printMode(){return /[?&](print-pdf|impressao)\b/.test(location.search)||(window.matchMedia&&window.matchMedia("print").matches)||(window.Reveal&&Reveal.getConfig().fragments===false);}
+  function step(){refresh();return section?section.querySelectorAll(".fragment.visible[data-a16pg-step]").length:0;}
+  function sync(){refresh();const print=Boolean(printMode());root.classList.toggle("impressao",print);root.querySelector(".a16pg-print").setAttribute("aria-hidden",String(!print));root.querySelector(".a16pg-live").setAttribute("aria-hidden",String(print));if(!print)go(step());}
+  window.addEventListener("beforeprint",()=>{refresh();root.classList.add("impressao");});
+  window.addEventListener("afterprint",sync);
+  function bindReveal(){
+    if(!window.Reveal||typeof Reveal.on!=="function"){requestAnimationFrame(bindReveal);return;}
+    Reveal.on("ready",sync);Reveal.on("slidechanged",sync);
+    ["fragmentshown","fragmenthidden"].forEach(event=>Reveal.on(event,e=>{refresh();if(section&&section.contains(e.fragment)&&e.fragment.hasAttribute("data-a16pg-step"))go(step(),true);}));
+    if(Reveal.isReady())sync();
+  }
+  bindReveal();
+  go(0);
+})();
+</script>
 </section>
 <section id="resumo-dividendos-vs.-recompras" class="slide level2 smaller">
 <h2>Resumo: dividendos vs.&nbsp;recompras</h2>
@@ -605,23 +751,23 @@ Felipe Iachan
 </ul></li>
 </ul>
 </section>
-<section id="a-tese-do-pássaro-na-mão" class="slide level2 smaller">
-<h2>A tese do pássaro na mão</h2>
-<p><strong>Argumento comum:</strong></p>
-<ul>
-<li>Dividendo pago hoje é mais seguro que promessa de pagamento futuro</li>
-<li>Investidores pagariam um prêmio por firmas que pagam mais dividendo</li>
-<li>Logo, dividendos aumentariam o valor da firma</li>
-</ul>
+<section id="a-falácia-do-pássaro-na-mão" class="slide level2 smaller">
+<h2>A falácia do pássaro na mão</h2>
+<!-- ADICIONADO: a refutação passa a usar a Acme (Política 1 e dividendo caseiro). Clientelas e Jensen vêm da fonte (Divid.lyx, "A Tese do Pássaro na Mão"); a nota sobre emissão para projetos de VPL<0 ficou como fala. -->
+<!-- PLANNING: perguntar antes do primeiro clique: "na Acme, de onde veio o pássaro na mão?". Ponto central: o argumento confunde o risco dos fluxos (dado pelo investimento) com a data em que o acionista recebe. Se perguntarem sobre agência: se o gestor pudesse emitir ações para financiar os mesmos projetos de VPL<0, pagar dividendo não mudaria nada. -->
+<p><strong>O argumento:</strong> dividendo hoje é certo; ganho de capital futuro é arriscado. Logo, investidores pagariam um <span class="destaque">prêmio</span> por firmas que pagam mais dividendo.</p>
 <div class="fragment">
-<p><strong>Problemas:</strong></p>
+<p><strong>Na Acme:</strong> o acionista recebe R$10 e a ação cai de R$110 para R$100.</p>
 <ul>
-<li>Política de dividendos não muda o “tamanho do bolo” — não pode mudar o valor da firma</li>
-<li>Mesmo que existam nichos (“clientelas”), isso não implica prêmio, nem que a firma na margem se beneficie</li>
-<li>Mesmo com problemas de agência (fluxo de caixa livre de Jensen), o ganho vem da <strong>mudança na política de investimento</strong>, não do pagamento em si
+<li>O pássaro na mão saiu do preço da ação: o bolo é o mesmo</li>
+<li>O risco dos R$100 que ficam vem dos fluxos futuros, fixados pelo <strong>investimento</strong></li>
+<li>Quem quer caixa hoje vende ações, ao mesmo preço justo</li>
+</ul>
+</div>
+<div class="fragment">
 <ul>
-<li>Se gestores conseguissem levantar fundos com emissão para financiar projetos de <span class="math inline">\(VPL&lt;0\)</span>, nada se altera</li>
-</ul></li>
+<li><strong>Clientelas</strong> que preferem dividendo não geram prêmio: basta haver firmas que as atendam</li>
+<li><strong>Agência</strong> (Jensen): pagar pode evitar projetos de <span class="math inline">\(VPL&lt;0\)</span>, mas o ganho vem do <strong>investimento</strong></li>
 </ul>
 <!-- PLANNING: fim provável da sessão de 12/11. Se ainda houver ~20 min, seguir até a taxa efetiva τ_D* e parar antes de "Outras formas de pagamento". -->
 </div>
@@ -741,6 +887,7 @@ Felipe Iachan
 </section>
 <section id="linha-do-tempo-do-modelo" class="slide level2 smaller">
 <h2>Linha do tempo do modelo</h2>
+<!-- CORREÇÃO: a fonte (Divid.lyx) listava o esforço antes do tipo e do dividendo. Na Fig. 6.2 de Tirole o esforço vem depois, o que justifica uma IC de esforço para cada ramo. -->
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -757,7 +904,7 @@ Felipe Iachan
 <tbody>
 <tr class="odd">
 <td>Empreendedor tem caixa próprio <span class="math inline">\(A\)</span>, capta <span class="math inline">\(I-A\)</span>. Contrato.</td>
-<td><span class="math inline">\(r\)</span> acumula (determinístico). Risco moral: esforço (<span class="math inline">\(p=p_H\)</span> ou <span class="math inline">\(p_L\)</span>). Empreendedor aprende, privadamente, seu tipo <span class="math inline">\(i\in\{G,B\}\)</span>. Dividendo <span class="math inline">\(d\)</span> é pago; <span class="math inline">\(r-d\)</span> é reinvestido.</td>
+<td><span class="math inline">\(r\)</span> acumula (determinístico). Empreendedor aprende, privadamente, seu tipo <span class="math inline">\(i\in\{G,B\}\)</span>. Dividendo <span class="math inline">\(d\)</span> é pago; <span class="math inline">\(r-d\)</span> é reinvestido. Depois, risco moral: esforço (<span class="math inline">\(p=p_H\)</span> ou <span class="math inline">\(p_L\)</span>).</td>
 <td>Lucro <span class="math inline">\(R\)</span> com probabilidade <span class="math inline">\(p+\tau_i(r-d)\)</span>; <span class="math inline">\(0\)</span> caso contrário.</td>
 </tr>
 </tbody>
@@ -787,6 +934,81 @@ Felipe Iachan
 <p><strong>H2</strong> (<span class="math inline">\(G\)</span> é boa notícia, em média): <span class="math inline">\(\tau_G(J)&gt;\tau_B(J),\ \forall J\in[0,r]\)</span></p>
 <p><strong>H3</strong> (na margem, <span class="math inline">\(G\)</span> é menos produtivo; reinvestir só é eficiente para <span class="math inline">\(B\)</span>):</p>
 <p><span class="math display">\[\left[\tau_{B}(r)-\tau_{B}(0)\right]R&gt;r&gt;\left[\tau_{G}(r)-\tau_{G}(0)\right]R\]</span></p>
+<!-- ADICIONADO: não está na fonte. Exemplo numérico do modelo (parâmetros escolhidos para satisfazer H1–H3) e árvores paralelas por tipo. Notas do professor em notas-professor/tirole-dividendos.tex. -->
+</section>
+<section id="exemplo-numérico" class="slide level2 smaller">
+<h2>Exemplo numérico</h2>
+<ul>
+<li><span class="math inline">\(R=\)</span> 100, <span class="math inline">\(\ r=\)</span> 10, <span class="math inline">\(\ p_H=\)</span> 0,5, <span class="math inline">\(\ p_L=\)</span> 0,3, <span class="math inline">\(\ B=\)</span> 4 (logo <span class="math inline">\(B/\Delta p=\)</span> 20), <span class="math inline">\(\ \alpha=\)</span> 0,5</li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Sem reinvestir: <span class="math inline">\(\tau_i(0)\)</span></th>
+<th style="text-align: center;">Reinvestindo: <span class="math inline">\(\tau_i(r)\)</span></th>
+<th style="text-align: center;">Ganho de reinvestir 10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tipo <span class="math inline">\(G\)</span></td>
+<td style="text-align: center;">0,20</td>
+<td style="text-align: center;">0,25</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td>Tipo <span class="math inline">\(B\)</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0,20</td>
+<td style="text-align: center;">20</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>H2:</strong> <span class="math inline">\(G\)</span> tem mais chance de sucesso nas duas colunas</li>
+<li><strong>H3:</strong> reinvestir só compensa em <span class="math inline">\(B\)</span> (20 <span class="math inline">\(&gt;\)</span> 10 <span class="math inline">\(&gt;\)</span> 5). Eficiente: <span class="destaque"><span class="math inline">\(G\)</span> paga, <span class="math inline">\(B\)</span> reinveste</span></li>
+</ul>
+</section>
+<section id="duas-árvores-uma-para-cada-tipo" class="slide level2 smaller">
+<h2>Duas árvores, uma para cada tipo</h2>
+<!-- ADICIONADO: não está na fonte. Árvores paralelas (uma por tipo) do exemplo numérico do modelo de
+     Tirole (2006, cap. 6, ap. 7), no formato usado no quadro: quadrado = decisão do gestor, linhas
+     tracejadas = natureza. Os números vêm da célula Python "Exemplo numérico" do index.qmd. -->
+<!-- PLANNING: perguntas antes de cada clique.
+     (0) Só a árvore de G: "Vale a pena reinvestir os 10?" (rende 5).
+     (1) Árvore de B: "E aqui?" (rende 20). Notar: depois das escolhas, as duas têm p = 0,70.
+     (2) Gestor com 20% das ações: "O gestor de B poderia pagar e ser confundido com G. Por que não faz?"
+     (3) Preço: "O que o mercado aprende ao ver o dividendo?" -->
+<div class="a16tr"><svg viewbox="0 0 1200 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Árvores de decisão dos tipos G e B" style="font-family:Poppins,Arial,sans-serif"><rect x="85" y="6" width="430" height="46" rx="6" fill="#f0eee6" stroke="#5f5e5a" stroke-width="1.5"></rect><text x="300" y="37" font-size="22" text-anchor="middle" fill="#141413" font-weight="600">Tipo G (prob. 0,5): gestor escolhe</text><line x1="260" y1="52" x2="150" y2="104" stroke="#5f5e5a" stroke-width="2"></line><rect x="32" y="104" width="236" height="44" rx="6" fill="#ffffff" stroke="#5f5e5a" stroke-width="1.5"></rect><text x="150" y="133" font-size="21" text-anchor="middle" fill="#141413" font-weight="400">Paga dividendo 10</text><line x1="130" y1="148" x2="88" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><line x1="170" y1="148" x2="212" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><text x="98" y="180" font-size="19" text-anchor="end" fill="#5f5e5a" font-weight="400">0,70</text><text x="202" y="180" font-size="19" text-anchor="start" fill="#5f5e5a" font-weight="400">0,30</text><text x="88" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">100</text><text x="212" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">0</text><text x="150" y="276" font-size="25" text-anchor="middle" fill="#141413" font-weight="600">Firma: 80</text><text x="150" y="302" font-size="18" text-anchor="middle" fill="#5f5e5a" font-weight="400">10 + 0,70 × 100</text><line x1="340" y1="52" x2="450" y2="104" stroke="#5f5e5a" stroke-width="2"></line><rect x="332" y="104" width="236" height="44" rx="6" fill="#ffffff" stroke="#5f5e5a" stroke-width="1.5"></rect><text x="450" y="133" font-size="21" text-anchor="middle" fill="#141413" font-weight="400">Reinveste 10</text><line x1="430" y1="148" x2="388" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><line x1="470" y1="148" x2="512" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><text x="398" y="180" font-size="19" text-anchor="end" fill="#5f5e5a" font-weight="400">0,75</text><text x="502" y="180" font-size="19" text-anchor="start" fill="#5f5e5a" font-weight="400">0,25</text><text x="388" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">100</text><text x="512" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">0</text><text x="450" y="276" font-size="25" text-anchor="middle" fill="#141413" font-weight="600">Firma: 75</text><text x="450" y="302" font-size="18" text-anchor="middle" fill="#5f5e5a" font-weight="400">0,75 × 100</text><g class="fragment" data-fragment-index="0"><rect x="685" y="6" width="430" height="46" rx="6" fill="#f0eee6" stroke="#5f5e5a" stroke-width="1.5"></rect><text x="900" y="37" font-size="22" text-anchor="middle" fill="#141413" font-weight="600">Tipo B (prob. 0,5): gestor escolhe</text><line x1="860" y1="52" x2="750" y2="104" stroke="#5f5e5a" stroke-width="2"></line><rect x="632" y="104" width="236" height="44" rx="6" fill="#ffffff" stroke="#5f5e5a" stroke-width="1.5"></rect><text x="750" y="133" font-size="21" text-anchor="middle" fill="#141413" font-weight="400">Paga dividendo 10</text><line x1="730" y1="148" x2="688" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><line x1="770" y1="148" x2="812" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><text x="698" y="180" font-size="19" text-anchor="end" fill="#5f5e5a" font-weight="400">0,50</text><text x="802" y="180" font-size="19" text-anchor="start" fill="#5f5e5a" font-weight="400">0,50</text><text x="688" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">100</text><text x="812" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">0</text><text x="750" y="276" font-size="25" text-anchor="middle" fill="#141413" font-weight="600">Firma: 60</text><text x="750" y="302" font-size="18" text-anchor="middle" fill="#5f5e5a" font-weight="400">10 + 0,50 × 100</text><line x1="940" y1="52" x2="1050" y2="104" stroke="#5f5e5a" stroke-width="2"></line><rect x="932" y="104" width="236" height="44" rx="6" fill="#ffffff" stroke="#5f5e5a" stroke-width="1.5"></rect><text x="1050" y="133" font-size="21" text-anchor="middle" fill="#141413" font-weight="400">Reinveste 10</text><line x1="1030" y1="148" x2="988" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><line x1="1070" y1="148" x2="1112" y2="206" stroke="#5f5e5a" stroke-width="1.5" stroke-dasharray="6 5"></line><text x="998" y="180" font-size="19" text-anchor="end" fill="#5f5e5a" font-weight="400">0,70</text><text x="1102" y="180" font-size="19" text-anchor="start" fill="#5f5e5a" font-weight="400">0,30</text><text x="988" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">100</text><text x="1112" y="232" font-size="22" text-anchor="middle" fill="#141413" font-weight="400">0</text><text x="1050" y="276" font-size="25" text-anchor="middle" fill="#141413" font-weight="600">Firma: 70</text><text x="1050" y="302" font-size="18" text-anchor="middle" fill="#5f5e5a" font-weight="400">0,70 × 100</text></g><g class="fragment" data-fragment-index="1"><text x="150" y="348" font-size="23" text-anchor="middle" fill="#c25a3c" font-weight="600">Gestor: 16</text><line x1="260" y1="52" x2="150" y2="104" stroke="#c25a3c" stroke-width="5"></line><rect x="32" y="104" width="236" height="44" rx="6" fill="none" stroke="#c25a3c" stroke-width="4"></rect><text x="450" y="348" font-size="23" text-anchor="middle" fill="#5f5e5a" font-weight="400">Gestor: 15</text><text x="750" y="348" font-size="23" text-anchor="middle" fill="#5f5e5a" font-weight="400">Gestor: 12</text><text x="1050" y="348" font-size="23" text-anchor="middle" fill="#c25a3c" font-weight="600">Gestor: 14</text><line x1="940" y1="52" x2="1050" y2="104" stroke="#c25a3c" stroke-width="5"></line><rect x="932" y="104" width="236" height="44" rx="6" fill="none" stroke="#c25a3c" stroke-width="4"></rect></g><g class="fragment" data-fragment-index="2"><rect x="30" y="374" width="540" height="48" rx="6" fill="#ffffff" stroke="#788c5d" stroke-width="3"></rect><text x="300" y="406" font-size="23" text-anchor="middle" fill="#141413" font-weight="600">Mercado vê dividendo: preço 75 → 80</text><rect x="630" y="374" width="540" height="48" rx="6" fill="#ffffff" stroke="#c25a3c" stroke-width="3"></rect><text x="900" y="406" font-size="23" text-anchor="middle" fill="#141413" font-weight="600">Mercado vê retenção: preço 75 → 70</text></g></svg></div>
+<style>
+.a16tr{width:100%;}
+.a16tr svg{width:100%;height:auto;display:block;}
+</style>
+<p><span class="fonte">Quadrado: decisão do gestor. Tracejado: natureza (sucesso paga 100, fracasso paga 0). Esforço alto em todos os ramos. O gestor tem 20% das ações.</span></p>
+</section>
+<section id="no-exemplo-quem-paga-e-quem-retém" class="slide level2 smaller">
+<h2>No exemplo: quem paga e quem retém</h2>
+<!-- ADICIONADO: intuição das restrições de incentivo com os números do exemplo. -->
+<!-- PLANNING: extensão para discussão: "e se o gestor pudesse vender suas ações logo após o anúncio?" Aí o preço enganado vale dinheiro e B pode querer imitar (vesting, lock-up; Miller–Rock). -->
+<p>O gestor tem 20% das ações: leva 20% do dividendo e 20% do lucro final.</p>
+<ul>
+<li><strong>Esforço:</strong> 20% <span class="math inline">\(\times\)</span> 100 <span class="math inline">\(=\)</span> 20 <span class="math inline">\(= B/\Delta p\)</span>, o mínimo da Aula 14</li>
+<li><strong><span class="math inline">\(G\)</span> paga:</strong> ganha 2 hoje e perde 0,05 <span class="math inline">\(\times\)</span> 20 <span class="math inline">\(=\)</span> 1 de ganho esperado</li>
+<li><strong><span class="math inline">\(B\)</span> reinveste:</strong> pagar daria os mesmos 2, mas custaria 0,20 <span class="math inline">\(\times\)</span> 20 <span class="math inline">\(=\)</span> 4</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><span class="destaque"><span class="math inline">\(B\)</span> nem quer se passar por <span class="math inline">\(G\)</span></span>: o mesmo dividendo lhe custa mais</li>
+<li>O gestor ganha com caixa realizado, não com o preço em <span class="math inline">\(t=1\)</span>: enganar o mercado não rende nada</li>
+</ul>
+</div>
 </section>
 <section id="contrato-candidato-separação-por-dividendo" class="slide level2 smaller">
 <h2>Contrato candidato: separação por dividendo</h2>
@@ -816,9 +1038,10 @@ Felipe Iachan
 <p><span class="math display">\[r_{e}^{d=r}+\left[p_{H}+\tau_{G}(0)\right]R_{e}^{d=r}\geq\left[p_{H}+\tau_{G}(r)\right]R_{e}^{d=0}\]</span></p>
 </div>
 <p>Para que o tipo <span class="math inline">\(B\)</span> prefira reinvestir a se passar por <span class="math inline">\(G\)</span>:</p>
+<!-- CORREÇÃO: a fonte (Divid.lyx:2103) dizia que desvios duplos ficam "folgados"; o desvio de G (reter e fazer esforço baixo) fica exatamente indiferente quando R_e^{d=0}=B/Δp, então está satisfeito mas não folgado. -->
 <!-- CORREÇÃO: a fonte (Divid.lyx:2090) escreve "τ(0)" sem subscrito; deveria ser τ_B(0), pois o tipo B mimetizando G paga d=r e portanto NÃO reinveste (J=0), usando sua própria função τ_B. Corrigido abaixo. -->
 <p><span class="math display">\[\left[p_{H}+\tau_{B}(r)\right]R_{e}^{d=0}\geq r_{e}^{d=r}+\left[p_{H}+\tau_{B}(0)\right]R_{e}^{d=r}\]</span></p>
-<p><span class="fonte">A segunda restrição (tipo <span class="math inline">\(B\)</span> mimetizar <span class="math inline">\(G\)</span>) fica folgada na determinação da renda penhorável (bem como desvios duplos). A restrição destacada acima — tipo <span class="math inline">\(G\)</span> não desviar para reinvestir — é a <strong>outra</strong> que binds.</span></p>
+<p><span class="fonte">A segunda restrição (tipo <span class="math inline">\(B\)</span> mimetizar <span class="math inline">\(G\)</span>) fica folgada na determinação da renda penhorável; os desvios duplos ficam satisfeitos, implicados pelas outras. A restrição destacada acima — tipo <span class="math inline">\(G\)</span> não desviar para reinvestir — é a <strong>outra</strong> que binds.</span></p>
 </section>
 <section id="renda-penhorável-do-modelo" class="slide level2 smaller">
 <h2>Renda penhorável do modelo</h2>
@@ -830,11 +1053,13 @@ Felipe Iachan
 <li>IC de <strong>não-desvio do tipo <span class="math inline">\(G\)</span></strong> (dividendo vs.&nbsp;reinvestir): <span class="math inline">\(r_{e}^{d=r}+\left[p_{H}+\tau_{G}(0)\right]R_{e}^{d=r}=\left[p_{H}+\tau_{G}(r)\right]R_{e}^{d=0}\)</span></li>
 </ul>
 <p>Substituindo as duas na expressão acima:</p>
-<p><span class="math display">\[{\cal P}=\alpha\left[r+\left[p_{H}+\tau_{G}(0)\right]R-\left[p_{H}+\tau_{G}(r)\right]\frac{B}{\Delta p}\right]+(1-\alpha)\left[p_{H}+\tau_{B}(r)\right]\left(R-\frac{B}{\Delta p}\right)\]</span></p>
+<p><span class="math display">\[P^{*}=\alpha\left[r+\left[p_{H}+\tau_{G}(0)\right]R-\left[p_{H}+\tau_{G}(r)\right]\frac{B}{\Delta p}\right]+(1-\alpha)\left[p_{H}+\tau_{B}(r)\right]\left(R-\frac{B}{\Delta p}\right)\]</span></p>
+<!-- ADICIONADO: ponte entre o exemplo (gestor com 20% de tudo) e a renda penhorável máxima. -->
+<p><span class="fonte">No exemplo: com o gestor tendo 20% de tudo, os investidores ficam com 60. Cortar a fatia dele no dividendo para 10% mantém os incentivos e sobe para 60,5.</span></p>
 </section>
 <section id="valor-da-firma-antes-e-depois-do-anúncio" class="slide level2 smaller">
 <h2>Valor da firma antes e depois do anúncio</h2>
-<p>Implementação: empreendedor detém uma fração das ações em <span class="math inline">\(t=1\)</span> e outra em <span class="math inline">\(t=2\)</span> (ver livro-texto).</p>
+<p>Implementação: o gestor recebe a fração <span class="math inline">\(s_1\)</span> do dividendo e a fração <span class="math inline">\(s_2\)</span> do lucro final (ver livro-texto). Com <span class="math inline">\(s_1=s_2\)</span>, é um acionista que não vende.</p>
 <p>Valor da firma (ação) em <span class="math inline">\(t=0\)</span>:</p>
 <p><span class="math display">\[V_{0}=\alpha\left[r+\left(p_{H}+\tau_{G}(0)\right)R\right]+(1-\alpha)\left[p_{H}+\tau_{B}(r)\right]R\]</span></p>
 <p>Após o anúncio de dividendos (<span class="math inline">\(d=r\)</span>, revela tipo <span class="math inline">\(G\)</span>):</p>
@@ -847,13 +1072,32 @@ Felipe Iachan
 <p><span class="math display">\[V_{1}^{d=r}&gt;V_{0}\]</span></p>
 <p><span class="destaque">Dividendos são, em média, notícia positiva sobre o produto esperado da firma — o ganho da revelação supera o custo de abrir mão do reinvestimento na margem.</span></p>
 </section>
+<section id="duas-notícias-no-mesmo-anúncio" class="slide level2 smaller">
+<h2>Duas notícias no mesmo anúncio</h2>
+<!-- PLANNING: dizer em voz alta a leitura de "desespero": quem precisa muito reter caixa sugere que o que já está lá vai mal. É uma leitura de τ_B(0) < τ_G(0), não uma decisão passada explícita no modelo. -->
+<!-- ADICIONADO: intuição do resultado. Decomposição: V_G − V_B = (r − [τ_G(r)−τ_G(0)]R) + [τ_G(r)−τ_B(r)]R, o primeiro termo positivo por H3 e o segundo por H2. -->
+<p>O dividendo revela o tipo <span class="math inline">\(G\)</span>. Isso diz duas coisas ao mercado:</p>
+<ul>
+<li><strong>Ruim:</strong> reinvestir rende pouco, a firma não tem bons projetos novos</li>
+<li><strong>Boa:</strong> os ativos que já existem vão bem, a firma não precisa do caixa</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>A boa domina: mesmo reinvestindo tudo, <span class="math inline">\(B\)</span> não alcança <span class="math inline">\(G\)</span> (H2)</li>
+<li>O reinvestimento de <span class="math inline">\(B\)</span> é um <span class="destaque">resgate</span>, não uma oportunidade de crescimento</li>
+<li><span class="destaque">Retorno marginal alto não é retorno médio alto</span>: os ativos que já existem de <span class="math inline">\(B\)</span> rendem menos</li>
+</ul>
+<p><span class="fonte">No exemplo: o preço vai de 75 a 80 com dividendo e a 70 sem.</span></p>
+</div>
+</section>
 <section id="quando-a-notícia-pode-ser-ruim" class="slide level2 smaller">
 <h2>Quando a notícia pode ser ruim</h2>
 <ul>
 <li>É possível construir exemplos em que o impacto de uma notícia sobre dividendos seja <strong>negativo</strong></li>
 <li>Má notícia, nesse caso: a <strong>ausência</strong> de reinvestimentos com VPL positivo que justificassem a retenção</li>
 </ul>
-<p><span class="fonte">O sinal do efeito depende dos parâmetros do modelo — não é uma implicação universal.</span></p>
+<!-- CORREÇÃO: a fonte (Divid.lyx) dizia que o sinal "depende dos parâmetros do modelo". Sob H2–H3 o sinal é sempre positivo (V_G − V_B = H3-termo + H2-termo > 0); o caso negativo de Tirole é outro ambiente: valor dos ativos existentes conhecido, incerteza só sobre novas oportunidades. -->
+<p><span class="fonte">Sob H2–H3 o anúncio é sempre boa notícia. O caso negativo é outro ambiente: o mercado já conhece os ativos existentes e só não sabe se há bons projetos novos (Tirole, 2006).</span></p>
 </section>
 <section id="o-que-aprendemos" class="slide level2 smaller">
 <h2>O que aprendemos</h2>
