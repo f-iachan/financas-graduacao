@@ -148,7 +148,7 @@ Felipe Iachan
 <li>Hoje: como a firma remunera <strong>acionistas</strong> — e isso muda o valor da firma?</li>
 <li>Roteiro: instituições → evidência → Modigliani-Miller → impostos → sinalização</li>
 </ul>
-<!-- PLANNING: 2026.2 — duas sessões. Qui 12/11: do início até "A falácia do pássaro na mão" (impostos, se sobrar tempo). Ter 17/11: impostos → sinalização (Oi, Intel) → modelo de Tirole (~45 min); o tempo restante já entra no deck de captação (VC/IPO). O fechamento do curso foi movido para o fim do deck de captação. -->
+<!-- PLANNING: 2026.2 — duas sessões. Dado em qui 12/11: do início até a taxa efetiva τ_D*, pulando "A falácia do pássaro na mão". Ter 17/11: sinalização (suavização, Oi, Intel) → modelo de Tirole (~45 min); o tempo restante já entra no deck de captação (VC/IPO). O fechamento do curso foi movido para o fim do deck de captação. -->
 </section>
 <section id="a-pergunta" class="slide level2 center">
 <h2>A pergunta</h2>
@@ -203,7 +203,7 @@ Felipe Iachan
 <section id="payout-hoje-quem-paga-o-quê" class="slide level2 smaller">
 <h2>Payout hoje: quem paga o quê</h2>
 <!-- ADICIONADO: artefato de dados atuais (yfinance), não está na fonte. Ver dados/16-dividendos/SNAPSHOT_INFO.txt para a checagem de qualidade do dado (checagem via soma manual de Ticker.dividends; JSCP; payoutRatio não usado). -->
-<div id="8d8fcb71" class="cell" data-execution_count="2">
+<div id="13acdabe" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -810,6 +810,60 @@ Felipe Iachan
 <p><span class="math display">\[P_{cum}-P_{ex}=D\frac{\left(1-\tau_{D}\right)}{\left(1-\tau_{g}\right)}=D\left(1-\underset{=:\ \tau_{D}^{*}}{\underbrace{\frac{\tau_{D}-\tau_{g}}{1-\tau_{g}}}}\right)\]</span></p>
 <p><span class="destaque"><span class="math inline">\(\tau_D^*\)</span></span> é o <strong>tributo equivalente</strong>: mede o quanto o dividendo é desfavorecido frente ao ganho de capital.</p>
 <p>Brasil, acima de R$ 50 mil/mês: <span class="math inline">\(\tau_D=10\%\)</span> e <span class="math inline">\(\tau_g=15\%\)</span> dão <span class="math inline">\(\tau_D^*\approx-5{,}9\%\)</span>. O dividendo é favorecido.</p>
+<!-- ADICIONADO (12/11/2026, pedido do Felipe): não está na fonte. Berk e DeMarzo (2024) dizem só em palavras que a recompra aumenta o valor da firma (Seç. 17.3, nota 9 cita Brennan 1970) e dão o valor por dólar no Ex. 17.3 (US$ 1 de dividendo vale US$ 0,7625 em ganho de capital); a fórmula em valor presente é a Eq. 17.2 somada no tempo, no mesmo espírito das Eqs. 17.4–17.7 (custo de reter caixa). Investidores dos EUA: Seç. 17.4 (alíquotas federais, sem o adicional de 3,8%). -->
+<!-- PLANNING: abrir a sessão de 17/11 com este slide (~5 min), antes da sinalização. Derivação para o quadro: o acionista marginal exige o mesmo retorno líquido, (1−τ_g)(P_1−P_0) + (1−τ_D)D = (1−τ_g) r_E P_0, logo P_0 = [P_1 + (1−τ_D*)D]/(1+r_E); iterar. Supõe ganho de capital tributado ano a ano: com diferimento, o τ_g efetivo cai e a vantagem da recompra cresce (é o caso "até a herança"). -->
+</section>
+<section id="quanto-vale-trocar-dividendo-por-recompra" class="slide level2 smaller">
+<h2>Quanto vale trocar dividendo por recompra</h2>
+<p>Cada real pago como dividendo vale só <span class="math inline">\((1-\tau_D^*)\)</span> real de ganho de capital. Somando no tempo:</p>
+<p><span class="math display">\[V^{\text{recompra}}=V^{\text{dividendo}}+\tau_D^{*}\cdot VP\left(\text{pagamentos}\right)\]</span></p>
+<ul>
+<li>Espelho do benefício fiscal da dívida, <span class="math inline">\(V^L=V^U+\tau_c D\)</span>, com <span class="math inline">\(\tau_D^*\)</span> no lugar de <span class="math inline">\(\tau_c\)</span></li>
+<li>Mas o desconto é a <span class="math inline">\(r_E\)</span>: os pagamentos têm o risco da operação, não o da dívida</li>
+</ul>
+<p>Na Acme, R$10 mi por ano a 10%: <span class="math inline">\(VP=\)</span> R$100 mi.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Investidor</th>
+<th style="text-align: center;"><span class="math inline">\(\tau_D\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\tau_g\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\tau_D^*\)</span></th>
+<th style="text-align: center;">Só recomprar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EUA, 2002</td>
+<td style="text-align: center;">39%</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">23,8%</td>
+<td style="text-align: center;">+R$ 23,8 mi</td>
+</tr>
+<tr class="even">
+<td>EUA, venda em 1 ano</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">0,0%</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td>EUA, até a herança</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">0%</td>
+<td style="text-align: center;">20,0%</td>
+<td style="text-align: center;">+R$ 20,0 mi</td>
+</tr>
+<tr class="even">
+<td>Brasil, &gt; R$ 50 mil/mês</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">-5,9%</td>
+<td style="text-align: center;">−R$ 5,9 mi</td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Fonte: elaboração própria; Berk e DeMarzo (2024), Eq. 17.2, Ex. 17.3 e Seç. 17.4; Brennan (1970). Para fundos de pensão, <span class="math inline">\(\tau_D^*=0\)</span>.</span></p>
 </section>
 <section id="outras-formas-de-pagamento" class="slide level2">
 <h2>Outras formas de pagamento</h2>
