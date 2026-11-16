@@ -150,7 +150,8 @@ Felipe Iachan
 <p>Do <span class="destaque">capital próprio</span> do fundador ao mercado de capitais</p>
 </div>
 <p>Venture capital → IPO → oferta subsequente (SEO)</p>
-<!-- PLANNING: deck por tópico. Fonte-âncora: Notas 2019 (IPO-SEO.lyx, 29 págs.) + nota manuscrita IPO_ext.pdf (Rock) + Berk e DeMarzo (2024), cap. 23. 2026.2: começa no fim da sessão de 17/11 (depois do Tirole de dividendos) e ocupa a de 19/11, a última do curso. Núcleo a preservar: contratos de VC (cascata) e o underpricing como sinal (Tirole). Rock é opcional; decidir em aula. -->
+<!-- PLANNING: deck por tópico. Fonte-âncora: Notas 2019 (IPO-SEO.lyx, 29 págs.) + nota manuscrita IPO_ext.pdf (Rock) + Berk e DeMarzo (2024), cap. 23. Núcleo a preservar: contratos de VC (cascata) e o underpricing como sinal (Tirole). -->
+<!-- PLANNING: 2026.2 (revisto em 16/11/2026): uma sessão de 1h40 em 19/11, a última do curso. Caminho fixo: abertura, capital privado, pre/post-money, contratos, "Venda ou IPO?", SEO e fecho (~22 slides, ~55 min). Bloco condicional "IPO e underpricing" (~14 slides, ~35 min): entrar só se os contratos terminarem por volta da metade da aula (~50 min); senão, o atalho no slide "Venda ou IPO?" leva direto ao SEO. Terminar antes da hora é melhor do que não terminar. Rock, maldição do vencedor, puzzles 2–4 e detalhes do IPO ficam no apêndice; Benveniste-Spindt foi para archive/benveniste-spindt.qmd. -->
 </section>
 <section id="lembrando-assimetria-de-informação-aula-13" class="slide level2 smaller">
 <h2>Lembrando: assimetria de informação (Aula 13)</h2>
@@ -189,15 +190,6 @@ flowchart LR
 <h1>Capital privado</h1>
 
 </section>
-<section id="financiamento-inicial" class="slide level2 smaller">
-<h2>Financiamento inicial</h2>
-<ul>
-<li>Começa com recursos próprios: empreendedores e famílias</li>
-<li>Negócios privados de sucesso precisam de <span class="destaque">financiamento externo</span> para crescer</li>
-<li>Fontes, da menor para a maior escala: angels, venture capital, institucionais, corporativos</li>
-<li>Depois, o mercado de capitais (IPO)</li>
-</ul>
-</section>
 <section id="angels-e-venture-capital" class="slide level2 smaller">
 <h2>Angels e venture capital</h2>
 <ul>
@@ -206,15 +198,34 @@ flowchart LR
 <li>Vantagens do VC: diversificação; conhecimento e experiência específicos</li>
 <li>Desvantagens do VC: custos (taxa de administração e participação no retorno, a seguir)</li>
 </ul>
-<!-- ADICIONADO: slide sobre a remuneração do fundo de VC, com o Problema 4 do cap. 23 de Berk e DeMarzo (2024). TIRs calculadas no chunk de setup. -->
+<!-- ADICIONADO: três slides sobre a remuneração do fundo de VC (motivação, enunciado, solução), com o Problema 4 do cap. 23 de Berk e DeMarzo (2024). TIRs calculadas no chunk de setup. -->
 </section>
 <section id="o-fundo-de-vc-2-e-20" class="slide level2 smaller">
 <h2>O fundo de VC: “2 e 20”</h2>
 <ul>
-<li>Taxa de administração: <span class="destaque">1,5–2,5% ao ano</span> do capital comprometido</li>
+<li>Os cotistas (<em>limited partners</em>) aportam o capital; os gestores (<em>general partners</em>) escolhem as startups</li>
+<li>Taxa de administração: 1,5–2,5% ao ano do capital comprometido</li>
 <li><em>Carried interest</em>: 20% (às vezes 30%) do lucro do fundo</li>
+<li>Em troca, o cotista ganha diversificação e a experiência dos gestores</li>
 </ul>
-<div id="9b5b79ba" class="cell" data-execution_count="2">
+<p>2% e 20% parecem pouco. <span class="destaque">Quantos pontos de retorno por ano isso tira do cotista?</span></p>
+</section>
+<section id="problema-um-fundo-de-10-anos" class="slide level2 smaller">
+<h2>Problema: um fundo de 10 anos</h2>
+<ul>
+<li>Os cotistas comprometem US$ 100 mi no ano 0</li>
+<li>Taxa de administração: 2% ao ano sobre os 100, durante 10 anos</li>
+<li>O que sobra depois das taxas é investido nas startups no ano 0</li>
+<li>No ano 10, as participações valem US$ 400 mi</li>
+<li><em>Carried interest</em>: 20% do lucro, isto é, do que passar dos 100 comprometidos</li>
+</ul>
+<p><span class="destaque">Qual é a TIR dos investimentos do fundo? E a TIR dos cotistas?</span></p>
+<!-- PLANNING: pedir o palpite da turma sobre a diferença entre as duas TIRs antes de passar ao próximo slide. -->
+<p><span class="fonte">Berk e DeMarzo (2024), cap. 23, Problema 4. Simplificação: todo o aporte no ano 0 e um único resgate no ano 10.</span></p>
+</section>
+<section id="solução-tir-bruta-e-tir-do-cotista" class="slide level2 smaller">
+<h2>Solução: TIR bruta e TIR do cotista</h2>
+<div id="bd153f50" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -252,23 +263,22 @@ flowchart LR
 </table>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="destaque">TIR dos investimentos: 17,5% ao ano. TIR dos cotistas: 13,0% ao ano.</span></p>
-</div>
-</div>
-<p><span class="fonte">Berk e DeMarzo (2024), cap. 23, Problema 4. Supõe aportes no ano 0 e um único resgate no ano 10.</span></p>
-</section>
-<section id="private-equity" class="slide level2 smaller">
-<h2>Private equity</h2>
 <ul>
-<li>O termo deveria valer para qualquer participação em empresas de capital fechado</li>
-<li>Ficou associado a firmas especializadas em LBO (<em>leveraged buyout</em>)</li>
+<li>TIR dos investimentos: <span class="math inline">\((400/80)^{1/10} - 1 =\)</span> 17,5% ao ano</li>
+<li>TIR dos cotistas: <span class="math inline">\((340/100)^{1/10} - 1 =\)</span> 13,0% ao ano</li>
 </ul>
-<!-- PLANNING: a fonte (2019) traz aqui os gráficos 23.1 (VC nos EUA, 1995–2015) e 23.2 (LBO global) do Berk e DeMarzo, que não podem ser publicados. Substituí o 23.1 por série atual de Ritter (IPOs apoiados por VC). Não há substituto verificável para o 23.2 (volume global de LBO): ficou sem figura; pedir ao professor se quer. -->
-<!-- ADICIONADO: o gráfico do Berk e DeMarzo (VC e LBO, até 2015) foi substituído por dado atual de Jay Ritter (Tabela 4c, versão 18/06/2026), em dados/ipo/ritter_tabela4c_vc.csv -->
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="destaque">As taxas tiram 4,4 pontos por ano do cotista: é o preço de delegar.</span></p>
+</div>
+</div>
+<p><span class="fonte">Berk e DeMarzo (2024), cap. 23, Problema 4.</span></p>
 </section>
 <section id="vc-e-ipo-hoje" class="slide level2 smaller">
 <h2>VC e IPO hoje</h2>
-<div id="9f5cfffe" class="cell" data-execution_count="3">
+<!-- PLANNING: a fonte (2019) traz aqui os gráficos 23.1 (VC nos EUA, 1995–2015) e 23.2 (LBO global) do Berk e DeMarzo, que não podem ser publicados. Substituí o 23.1 por série atual de Ritter (IPOs apoiados por VC). Não há substituto verificável para o 23.2 (volume global de LBO): ficou sem figura; pedir ao professor se quer. -->
+<!-- ADICIONADO: o gráfico do Berk e DeMarzo (VC e LBO, até 2015) foi substituído por dado atual de Jay Ritter (Tabela 4c, versão 18/06/2026), em dados/ipo/ritter_tabela4c_vc.csv -->
+<div id="c64c362d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -280,6 +290,587 @@ flowchart LR
 </div>
 <p><span class="destaque">Pico em número em 1999–2000 (264 e 242 IPOs com VC); maior participação em 2019 (66%). Em 2025: 90 IPOs, 39 com VC (43%).</span></p>
 <p><span class="fonte">Amostra de Ritter: preço ≥ US$ 5, sem SPACs, REITs, ADRs. O NVCA conta 49 IPOs de VC em 2025 por outro critério (veja o slide sobre saída).</span></p>
+</section>
+<section id="rodadas-de-financiamento" class="slide level2 smaller">
+<h2>Rodadas de financiamento</h2>
+<p>Fundada em 1993 com US$ 1 milhão: 13.713.439 ações <em>Series A preferred</em>, a US$ 0,07.</p>
+<div id="3305c6da" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Série</th>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Ações</th>
+<th style="text-align: left;">Preço (US$)</th>
+<th style="text-align: left;">Captado (US$ mi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">1993</td>
+<td style="text-align: left;">13.713.439</td>
+<td style="text-align: left;">0,07</td>
+<td style="text-align: left;">0,96</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">abr/1995</td>
+<td style="text-align: left;">2.686.567</td>
+<td style="text-align: left;">0,67</td>
+<td style="text-align: left;">1,80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">out/1995</td>
+<td style="text-align: left;">2.904.305</td>
+<td style="text-align: left;">1,96</td>
+<td style="text-align: left;">5,69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">nov/1996</td>
+<td style="text-align: left;">2.381.010</td>
+<td style="text-align: left;">7,53</td>
+<td style="text-align: left;">17,93</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">jul/1997</td>
+<td style="text-align: left;">3.338.374</td>
+<td style="text-align: left;">8,99</td>
+<td style="text-align: left;">30,01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Série B: <em>angels</em>; C e D: principalmente VC; E: Microsoft</li>
+<li>Vender ações numa rodada privada <span class="destaque">não</span> abre o capital</li>
+</ul>
+<!-- ADICIONADO: tabela recriada em Python a partir dos números da fonte (ações e preços das séries B–E; o livro-texto de origem, Berk e DeMarzo, não pode ser publicado como imagem). Captado = ações × preço; confere com os totais da fonte (1,8; 5,7; 17,9; 30,0). -->
+<!-- ADICIONADO: o IPO4.png (Berk e DeMarzo) não tem erro: é a tabela de propriedade logo após a Série B, em que a Série A aparece avaliada ao preço da Série B (0,67 → US$ 9,2 mi = pre-money). A Série A foi comprada a US$ 0,07 (13.713.439 × 0,07 = 0,96 mi ≈ US$ 1 mi). Mantive a distinção no deck. -->
+</section>
+<section id="pre-money-e-post-money" class="slide level2 smaller">
+<h2><em>Pre-money</em> e <em>post-money</em></h2>
+<ul>
+<li><span class="destaque"><em>Pre-money</em></span>: valor das ações já existentes ao novo preço</li>
+<li><span class="destaque"><em>Post-money</em></span>: valor total da firma ao novo preço, depois do aporte</li>
+</ul>
+<p><span class="math display">\[\text{post-money} = \text{pre-money} + \text{novo capital}\]</span></p>
+<div id="bb7be117" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Série B (abr/1995)</th>
+<th style="text-align: left;">Conta</th>
+<th style="text-align: left;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ações da Série A</td>
+<td style="text-align: left;">13.713.439</td>
+<td style="text-align: left;">13.713.439</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Preço da Série B (US$)</td>
+<td style="text-align: left;">0,67</td>
+<td style="text-align: left;">0,67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pre-money (US$ mi)</td>
+<td style="text-align: left;">13.713.439 × 0,67</td>
+<td style="text-align: left;">9,19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Captado (US$ mi)</td>
+<td style="text-align: left;">2.686.567 × 0,67</td>
+<td style="text-align: left;">1,80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Post-money (US$ mi)</td>
+<td style="text-align: left;">16.400.006 × 0,67</td>
+<td style="text-align: left;">10,99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Participação da Série B</td>
+<td style="text-align: left;">2.686.567 / 16.400.006</td>
+<td style="text-align: left;">16,4%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section></section>
+<section>
+<section id="contratos-de-venture-capital" class="title-slide slide level1 center">
+<h1>Contratos de <em>venture capital</em></h1>
+<!-- ADICIONADO: seção nova, a partir de Berk e DeMarzo (2024), seção 23.1 (termos de contrato, Ex. 23.2, quadro "Common Mistake" e quadro "From Launch to Liquidity"). Números conferidos no chunk de setup. -->
+</section>
+<section id="o-que-o-vc-compra-preferencial-conversível" class="slide level2 smaller">
+<h2>O que o VC compra: preferencial conversível</h2>
+<ul>
+<li><span class="destaque">Preferência de liquidação</span>: numa venda, recebe 1 a 3 vezes o aporte antes das ordinárias</li>
+<li>Senioridade: a rodada nova pode receber antes das antigas (ou junto: <em>pari passu</em>)</li>
+<li>Participação: recebe a preferência <strong>e</strong> a parte de ordinária, em geral com teto</li>
+<li>Antidiluição: numa rodada a preço menor, o preço de conversão cai</li>
+<li>Assentos no conselho: direitos de controle</li>
+</ul>
+<p><span class="fonte">Antes da primeira rodada com preço, <em>angels</em> usam nota conversível ou SAFE: convertem com desconto (muitas vezes 20%) no preço da rodada seguinte. Berk e DeMarzo (2024), seção 23.1.</span></p>
+</section>
+<section id="os-termos-refletem-poder-de-barganha" class="slide level2 smaller">
+<h2>Os termos refletem poder de barganha</h2>
+<p>Startups do Vale do Silício, 2021:</p>
+<ul>
+<li>Senioridade: 24% das rodadas em alta, <span class="destaque">mais de 50%</span> das rodadas em baixa</li>
+<li>Participação: cerca de 20% das rodadas; 40% das rodadas em baixa</li>
+<li>Antidiluição: mais de 95% dos contratos</li>
+<li>Quando a firma vai mal, quem traz o dinheiro dita os termos</li>
+</ul>
+<p><span class="fonte">Wilson Sonsini (2021), via Berk e DeMarzo (2024), seção 23.1. Rodada em baixa (<em>down round</em>): preço por ação menor que o da rodada anterior.</span></p>
+</section>
+<section id="exemplo-duas-rodadas-uma-venda" class="slide level2 smaller">
+<h2>Exemplo: duas rodadas, uma venda</h2>
+<div id="e82d3909" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 19%">
+<col style="width: 23%">
+<col style="width: 15%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Série</th>
+<th style="text-align: left;">Aporte (US$ mi)</th>
+<th style="text-align: left;">Post-money (US$ mi)</th>
+<th style="text-align: left;">Preferência</th>
+<th style="text-align: left;">Fração se todos convertem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">B (sênior)</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">3 × 10 = 30</td>
+<td style="text-align: left;">25,0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">1 × 6 = 6</td>
+<td style="text-align: left;">30% × 75% = 22,5%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ordinárias</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">52,5%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>A firma é vendida por <span class="math inline">\(V\)</span>. Quanto recebe cada um?</li>
+<li>A partir de que <span class="math inline">\(V\)</span> as ordinárias (fundadores e funcionários) recebem algo?</li>
+</ul>
+<p><span class="fonte">Berk e DeMarzo (2024), Exemplo 23.2. Sem direito de participação.</span></p>
+<!-- PLANNING: pedir o palpite antes de mostrar o gráfico. Resposta: 36 (30 de B + 6 de A). -->
+</section>
+<section id="a-cascata-de-pagamentos" class="slide level2 smaller">
+<h2>A cascata de pagamentos</h2>
+<div id="acaf1382" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg"></p>
+<figcaption>Pagamento de cada série em função do preço de venda V (US$ mi), no exemplo anterior.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="lendo-a-cascata" class="slide level2 smaller">
+<h2>Lendo a cascata</h2>
+<ul>
+<li>Até 30: tudo vai para B; de 30 a 36, A completa seus 6</li>
+<li>Ordinárias só recebem acima de <span class="destaque">36</span></li>
+<li>A converte acima de 50, quando 30% do que sobra após B supera 6</li>
+<li>B só converte acima de 120, quando 25% de <span class="math inline">\(V\)</span> supera 30</li>
+<li>O pagamento das ordinárias tem a forma de uma <span class="destaque">opção de compra</span> sobre <span class="math inline">\(V\)</span></li>
+</ul>
+<p><span class="fonte">Berk e DeMarzo (2024), Ex. 23.2: em <span class="math inline">\(V=120\)</span>, B recebe 30, A 27 e as ordinárias 63. O limiar de 50 para A é conta nossa: <span class="math inline">\(0{,}3(V-30)&gt;6\)</span>.</span></p>
+<!-- ADICIONADO: o livro só pergunta os limiares 36 e 120. O limiar de conversão de A (V = 50) e o gráfico completo saem do equilíbrio de conversão calculado no setup (cada série converte se isso a beneficia, dada a escolha da outra), conferido com a forma fechada por trechos. -->
+</section>
+<section id="unicórnio-o-post-money-engana" class="slide level2 smaller">
+<h2>Unicórnio? O <em>post-money</em> engana</h2>
+<p>Startup com 100 milhões de ações (última rodada a US$ 3) capta US$ 100 milhões:</p>
+<div id="cc93c013" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 21%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Termos da nova série</th>
+<th style="text-align: left;">Preço por ação (US$)</th>
+<th style="text-align: left;">Ações novas (mi)</th>
+<th style="text-align: left;">Post-money (US$ mi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1×, <em>pari passu</em></td>
+<td style="text-align: left;">8,50</td>
+<td style="text-align: left;">11,8</td>
+<td style="text-align: left;">950</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3×, sênior</td>
+<td style="text-align: left;">10,00</td>
+<td style="text-align: left;">10,0</td>
+<td style="text-align: left;">1.100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Mesma firma, mesmo caixa: o “valor” passa de US$ 1 bi porque o novo investidor <span class="destaque">comprou mais proteção</span></li>
+<li>Numa venda por US$ 400 mi com 3×: o novo leva 300; os antigos dividem 100</li>
+</ul>
+<p><span class="fonte">Berk e DeMarzo (2024), quadro “Common Mistake”, seção 23.1. Gornall e Strebulaev (2020, <em>JFE</em>): o valor divulgado de unicórnios exagera o valor justo em mais de 50%, em média.</span></p>
+<!-- PLANNING: o slide do Facebook 2007 foi para o apêndice; se citar oralmente: lá também o "valor implícito" era post-money. -->
+</section>
+<section id="poucas-vencedoras-pagam-por-todas" class="slide level2 smaller">
+<h2>Poucas vencedoras pagam por todas</h2>
+<div id="e711b416" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-10-output-1.svg"></p>
+<figcaption>Trajetória ilustrativa: de 100 startups com capital semente, quantas chegam a cada etapa.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Na vencedora, a Série A multiplica o aporte por <span class="destaque">42</span></li>
+<li>Mas só 4 das 56 chegam lá: múltiplo esperado <span class="math inline">\(42\times 4/56=3\)</span>, cerca de 17% ao ano em 7 anos</li>
+</ul>
+<p><span class="fonte">Berk e DeMarzo (2024), quadro “From Launch to Liquidity”. Supõe perda total nas que não chegam ao IPO.</span></p>
+</section>
+<section id="venda-ou-ipo" class="slide level2 smaller">
+<h2>Venda ou IPO?</h2>
+<ul>
+<li>Saída de quem investiu cedo: venda da empresa (F&amp;A) ou IPO</li>
+<li>EUA: F&amp;A eram menos de 50% das saídas de VC nos anos 1990 e <span class="destaque">mais de 80%</span> nos anos 2000</li>
+<li>EUA, 2014–2021: cerca de <span class="destaque">72%</span> (Berk e DeMarzo, 2024)</li>
+<li>2025 (NVCA): IPOs de VC somaram US$ 105,2 bi dos US$ 217 bi de valor de saída, cerca de <span class="destaque">48%</span>, com 49 IPOs</li>
+</ul>
+<p><span class="fonte">As participações de F&amp;A nas saídas vêm de Berk e DeMarzo (2024), seções 23.1 e 23.3; o livro não diz se por contagem ou valor. Os 48% da NVCA são participação do IPO no valor de saída (105,2 / 217). NVCA 2026 Yearbook, dados até 31/12/2025. A NVCA conta 49 IPOs de VC; Ritter, 39 (outro critério de amostra).</span></p>
+<!-- ADICIONADO: 72% (2014–2021) do Berk e DeMarzo (2024, cap. 23, seção 23.1) e dado da NVCA. Não achei série de "% por F&A" da NVCA verificável. -->
+<!-- CORREÇÃO: versão anterior do deck dizia "85% das saídas por F&A em 2001–2005" (edição antiga do livro); correto: "menos de 50% nos anos 1990, mais de 80% nos anos 2000"; porque é o que traz Berk e DeMarzo (2024), seção 23.3. O slide "Estratégia de saída" foi fundido neste. -->
+<p><span class="fonte" style="text-align:right"><a href="#/seo">→ ofertas subsequentes</a></span></p>
+<!-- PLANNING: ponto de decisão. Se os contratos acabaram depois da metade da aula, clicar no atalho acima e ir direto ao SEO. -->
+</section></section>
+<section>
+<section id="ipo-e-underpricing" class="title-slide slide level1 center">
+<h1>IPO e <em>underpricing</em></h1>
+<!-- PLANNING: bloco condicional (~14 slides, ~35 min). Se faltar tempo no meio, pular de "Para pensar" direto para o resumo do bloco. -->
+</section>
+<section id="o-que-é-um-ipo" class="slide level2 smaller">
+<h2>O que é um IPO</h2>
+<p>Primeira venda de ações ao público: a saída natural de quem investiu cedo, mas também muda a firma.</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>Vantagens</strong></p>
+<ul>
+<li><span class="destaque">Liquidez</span>: diversificação e saída</li>
+<li>Acesso ao mercado de capitais</li>
+<li>Moeda para aquisições</li>
+<li>Remuneração em ações e opções</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>Desvantagens</strong></p>
+<ul>
+<li>Propriedade dispersa, monitoramento difícil</li>
+<li>Custos regulatórios: SEC/CVM</li>
+<li>Custo da operação em si</li>
+</ul>
+</div></div>
+<p><span class="fonte">O custo da operação inclui o <em>spread</em> do banco e o <em>underpricing</em>.</span></p>
+<!-- PLANNING: os três slides antigos (o que é, vantagens, desvantagens) foram fundidos neste. -->
+</section>
+<section id="procedimento-road-show-e-book-building" class="slide level2 smaller">
+<h2>Procedimento: <em>road show</em> e <em>book building</em></h2>
+<ul>
+<li><span class="destaque"><em>Road show</em></span>: gestores e subscritor promovem a companhia
+<ul>
+<li>Explicam as razões para a abertura de capital; focam os maiores clientes do subscritor, em geral institucionais</li>
+</ul></li>
+<li><span class="destaque"><em>Book building</em></span>: processo de expressão de interesse
+<ul>
+<li><em>Soft commitment</em> dos clientes</li>
+<li>Revela condições de mercado e o preço esperado</li>
+</ul></li>
+<li><span class="secundario"><em>Lockup</em></span>: acionistas existentes não vendem por 180 dias, em geral</li>
+</ul>
+<!-- ADICIONADO: definição e prazo de 180 dias ("usually 180 days"): Berk e DeMarzo (2024, cap. 23). A fonte só dizia "provisões de lockup usualmente". -->
+</section>
+<section id="firm-commitment-preço-e-risco" class="slide level2 smaller">
+<h2><em>Firm commitment</em>: preço e risco</h2>
+<ul>
+<li>A firma paga ao subscritor uma participação percentual (<em>spread</em>) sobre o preço de emissão</li>
+<li>O subscritor se compromete a comprar toda a emissão</li>
+<li>Está exposto ao risco de as ações não serem absorvidas ao preço de oferta</li>
+<li><span class="destaque">Lote suplementar</span> (<em>over-allotment</em> ou <em>greenshoe</em>): o subscritor pode emitir mais ações (normalmente 15%)</li>
+</ul>
+</section>
+<section id="puzzle-1-underpricing" class="slide level2 smaller">
+<h2>Puzzle 1: <em>underpricing</em></h2>
+<ul>
+<li>O preço escolhido costuma deixar retorno positivo no 1º dia</li>
+<li>Isso ajuda o subscritor a vender as ações</li>
+<li>Acionistas parecem <span class="destaque">deixar dinheiro na mesa</span></li>
+</ul>
+<div id="d4d8b2cf" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-12-output-1.svg"></p>
+<figcaption>Retorno médio no 1º dia dos IPOs nos EUA, por ano de emissão, e dinheiro deixado na mesa. Fonte: Jay Ritter, Tabela 1 (versão de 13/07/2026), acessada em 04/11/2026.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="destaque">1980–2025: 9.345 IPOs, retorno médio de 19,0% (mediana 7,0%); US$ 250 bi deixados na mesa contra US$ 1,2 tri captados (valores nominais, sem lote suplementar).</span></p>
+</section>
+<section id="underpricing-no-mundo-e-no-brasil" class="slide level2 smaller">
+<h2><em>Underpricing</em> no mundo e no Brasil</h2>
+<div id="21f34930" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-13-output-1.svg"></p>
+<figcaption>Retorno inicial médio (peso igual) em países com 300 ou mais IPOs. Fonte: Loughran, Ritter e Rydqvist (1994), atualizada por Jay Ritter em 30/03/2026.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ADICIONADO: substitui IPO8.png (gráfico do Berk e DeMarzo, 1960–2007, não publicável) por dado atual da tabela de Ritter (55 países, atualizada em 30/03/2026). Critério de seleção: países com amostra ≥ 300 IPOs (26 países). Vem do snapshot dados/ipo/IPOs-International.pdf; transcrição manual das linhas da tabela (conferir). Inconsistência interna de Ritter: nas notas do Brasil, 62 + 44 + 74 (sem dado) + 95 + 108 (2012–24) = 383, contra 385 na tabela; a média das 108 de 2012–24 não é dada no texto, então não a usei. -->
+<p><span class="fonte">Brasil: média puxada por 1979–1990 (62 IPOs, 78,5%). Desde 2004, retornos baixos: 6,7% (2004–06) e 3,3% (2007–11). Há 74 IPOs de 1995–2003 sem dado, e nenhum IPO desde 2021.</span></p>
+<p><span class="fonte">Os períodos variam por país (entre parênteses). Não é comparável à média de 19,0% dos slides anteriores (EUA, 1980–2025, preço ≥ US$ 5, 9.345 IPOs): aqui o EUA é 1960–2025, 14.079 IPOs, sem esse filtro.</span></p>
+</section>
+<section id="para-pensar" class="slide level2 center">
+<h2>Para pensar</h2>
+<div class="r-fit-text">
+<p>Se o <em>underpricing</em> é só dinheiro deixado na mesa, por que as firmas <span class="destaque">aceitam</span>?</p>
+</div>
+</section></section>
+<section>
+<section id="underpricing-como-sinal" class="title-slide slide level1 center">
+<h1><em>Underpricing</em> como sinal</h1>
+
+</section>
+<section id="o-emissor-sabe-mais" class="slide level2 smaller">
+<h2>O emissor sabe mais</h2>
+<p><em>Tirole (2006), cap. 6, seção 6.3, Aplicação 9</em></p>
+<ul>
+<li>O emissor (empreendedor) é o informado, como na Aula 13</li>
+<li>Pergunta: o emissor bom consegue se separar do ruim <span class="destaque">deixando dinheiro na mesa</span>?</li>
+<li>Para Tirole, o <em>underpricing</em> é um sinal primitivo, usado só quando o bom não tem meio mais barato de se distinguir</li>
+</ul>
+<!-- ADICIONADO: bloco com Tirole (2006), Aplicação 9 (era apêndice; em 2026.2 passou ao corpo do deck), seção 6.3 (pp. 262–264 do livro). Notação adaptada às Aulas 13/14: R_b de Tirole = R_e (payoff do empreendedor no sucesso). -->
+</section>
+<section id="ambiente-o-modelo-da-aula-13" class="slide level2 smaller">
+<h2>Ambiente: o modelo da Aula 13</h2>
+<ul>
+<li>Modelo da Aula 13 (tipos <span class="math inline">\(p&gt;q\)</span>, projeto <span class="math inline">\(R\)</span> ou <span class="math inline">\(0\)</span>, custo <span class="math inline">\(I\)</span>), agora com caixa do empreendedor <span class="math inline">\(A&gt;0\)</span></li>
+<li>O investidor financia <span class="math inline">\(I-A\)</span></li>
+<li>Só o tipo bom é <span class="destaque">financiável</span> com informação simétrica:</li>
+</ul>
+<p><span class="math display">\[qR&lt;I-A&lt;pR\]</span></p>
+<ul>
+<li><span class="math inline">\(R_e\)</span>: recompensa do empreendedor no sucesso (Tirole: <span class="math inline">\(R_b\)</span>)</li>
+</ul>
+</section>
+<section id="o-contrato-com-informação-simétrica" class="slide level2 smaller">
+<h2>O contrato com informação simétrica</h2>
+<p>Com tipo observável, o bom ficaria com <span class="math inline">\(R_e^G\)</span> tal que a emissão é vendida ao par:</p>
+<p><span class="math display">\[p\,(R-R_e^G)=I-A\]</span></p>
+<ul>
+<li>Hipótese: <span class="math inline">\(A&lt;qR_e^G\)</span></li>
+<li>O ruim aceitaria comprometer toda a sua riqueza <span class="math inline">\(A\)</span> para ter esses termos</li>
+<li>Então o ruim quer se passar pelo bom: <span class="destaque"><em>pooling</em></span>, e o bom perde utilidade</li>
+</ul>
+</section>
+<section id="o-sinal" class="slide level2 smaller">
+<h2>O sinal</h2>
+<p>O bom oferece ficar com menos: a maior recompensa pouco atraente ao ruim, <span class="math inline">\(R_e^*\)</span>, é dada por</p>
+<p><span class="math display">\[q\,R_e^*=A\]</span></p>
+<ul>
+<li>O ruim, ao se passar pelo bom, ganharia <span class="math inline">\(qR_e^*=A\)</span>, igual ao que arriscou</li>
+<li>Só o bom vê vantagem: oferta de <span class="math inline">\(R_e&lt;R_e^G\)</span> é credível</li>
+<li>Suposição: o empreendedor compromete toda a riqueza <span class="math inline">\(A\)</span></li>
+</ul>
+</section>
+<section id="o-preço-do-sinal" class="slide level2 smaller">
+<h2>O preço do sinal</h2>
+<p>Sabendo que a oferta só vem do bom, o investidor tem lucro esperado</p>
+<p><span class="math display">\[p\,(R-R_e^*)-(I-A)=p\,(R_e^G-R_e^*)&gt;0\]</span></p>
+<ul>
+<li>A emissão é <span class="destaque">subapreçada</span>: o investidor ganha mais que o ponto de equilíbrio</li>
+<li>Logo há racionamento da emissão</li>
+<li>O bom “queima dinheiro” (deixa na mesa) para mostrar ao mercado que é bom</li>
+</ul>
+</section>
+<section id="exemplo-numérico" class="slide level2 smaller">
+<h2>Exemplo numérico</h2>
+<div id="3a6b24e3" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Condição qR &lt; I − A &lt; pR</td>
+<td style="text-align: left;">40 &lt; 45 &lt; 80</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(R_e^G\)</span> (info. simétrica)</td>
+<td style="text-align: left;">43,75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(R_e^*=A/q\)</span> (sinal)</td>
+<td style="text-align: left;">12,50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subapreçamento absoluto, <span class="math inline">\(p(R_e^G-R_e^*)\)</span></td>
+<td style="text-align: left;">25,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Relativo, ÷ (I − A)</td>
+<td style="text-align: left;">55,6%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span class="fonte">Parâmetros ilustrativos: <span class="math inline">\(p=0{,}8\)</span>, <span class="math inline">\(q=0{,}4\)</span>, <span class="math inline">\(R=100\)</span>, <span class="math inline">\(I=50\)</span> (como na Aula 13) e <span class="math inline">\(A=5\)</span>.</span></p>
+</section>
+<section id="determinantes-e-ressalvas" class="slide level2 smaller">
+<h2>Determinantes e ressalvas</h2>
+<p><span class="math display">\[\frac{p(R_e^G-R_e^*)}{I-A}=\frac{pR-I-\frac{p-q}{q}\,A}{I-A}\]</span></p>
+<ul>
+<li>O <em>underpricing</em> relativo <span class="destaque">cai</span> com a seleção adversa, medida por <span class="math inline">\((p-q)/q\)</span></li>
+<li>Se os tipos ficam parecidos (<span class="math inline">\(q\)</span> sobe), o bom precisa subapreçar mais</li>
+<li>Não é o único equilíbrio: há <em>pooling</em> em que o ruim é pago para não investir, sem <em>underpricing</em> e melhor para ambos</li>
+<li>O sinal é uma possibilidade, não uma necessidade. Modelo relacionado: Allen e Faulhaber (1989)</li>
+</ul>
+<p><span class="fonte">Tirole (2006), pp.&nbsp;262–264. Exemplo: com <span class="math inline">\(q=0{,}4\)</span> o relativo é 55,6%; com <span class="math inline">\(q=0{,}3\)</span>, 48,1%.</span></p>
+</section>
+<section id="resumo-ipo-e-underpricing" class="slide level2 smaller">
+<h2>Resumo: IPO e <em>underpricing</em></h2>
+<!-- ADICIONADO (16/11/2026): resumo do bloco condicional; os dois primeiros itens vieram do antigo "O que aprendemos". -->
+<ul>
+<li>No IPO, o banco fixa o preço, e há <span class="destaque"><em>underpricing</em></span>: média de 19% no 1º dia desde 1980 nos EUA</li>
+<li>Tirole: o emissor bom pode deixar dinheiro na mesa para se separar do ruim</li>
+<li>Outras explicações, no apêndice: maldição do vencedor (Rock) e <em>book building</em></li>
+</ul>
+</section>
+<section id="seo" class="slide level2 smaller">
+<h2>Ofertas subsequentes (SEO)</h2>
+<!-- ADICIONADO: "Lembrando" de Myers-Majluf da Aula 13, sem re-derivar. Números de reação ao anúncio: os mesmos já usados na Aula 13 (slide "Um enigma"). -->
+<!-- ADICIONADO (16/11/2026): slide único de SEO no corpo do deck, fundindo "O lado ruim" e "Lembrando: Myers e Majluf (Aula 13)". Os dois originais estão no apêndice. -->
+<p>Uma firma listada que emite ações enfrenta o problema de Myers e Majluf (Aula 13): quem decide emitir tem informação privada, e emitir sinaliza que as ações podem estar caras.</p>
+<ul>
+<li>Reação ao anúncio de emissão de ações: <span class="destaque">−2,1%</span> nos EUA em 1996–2007 (Gao e Ritter, 2010)</li>
+<li>Emissão de dívida simples: reação pequena (Smith, 1986, como na Aula 13)</li>
+<li><em>Pecking order</em>: financiamento interno, depois dívida, por último ações</li>
+<li>Custo direto menor que no IPO: tarifas de cerca de 5% do valor captado nos EUA</li>
+</ul>
+<p><span class="fonte">Berk e DeMarzo (2024), seção 23.5.</span></p>
+<!-- PLANNING: sem modelo formal de SEO neste deck (por decisão do professor). Em 2014 e 2019 o modelo de Tirole (cap. 6, aplicação 2, variação: pooling e separação) foi dado: ver relatório. -->
+</section></section>
+<section>
+<section id="fecho" class="title-slide slide level1 center">
+<h1>Fecho</h1>
+
+</section>
+<section id="o-que-aprendemos" class="slide level2 smaller">
+<h2>O que aprendemos</h2>
+<!-- PLANNING (16/11/2026): só o que todo caminho cobre. Os itens de IPO e Tirole foram para "Resumo: IPO e underpricing"; o de Rock, para o apêndice com o modelo. -->
+<ul>
+<li>Fundos de VC: o “2 e 20” tira do cotista cerca de 4 pontos de retorno por ano</li>
+<li>Contratos de VC: preferência e senioridade decidem <span class="destaque">quem recebe o quê</span> quando a firma vai mal</li>
+<li>O <em>post-money</em> supõe que todas as séries valem o mesmo e por isso pode superestimar o valor da firma</li>
+<li>No SEO, o preço cai no anúncio: emitir ações sinaliza que elas podem estar caras</li>
+</ul>
+</section>
+<section id="encerramento-do-curso" class="slide level2 smaller">
+<h2>Encerramento do curso</h2>
+<!-- ADICIONADO: fechamento do arco completo do curso, movido do fim do deck de dividendos (este passou a ser o último deck de 2026.2). -->
+<p>O curso seguiu a mesma lógica do início ao fim:</p>
+<ul>
+<li><strong>Avaliação</strong>: títulos, ações e projetos valem o valor presente dos seus fluxos de caixa</li>
+<li><strong>Risco</strong>: no CAPM e na APT, o preço do risco vem da covariância com o que é caro nos estados ruins</li>
+<li><strong>Financiamento</strong>: sem fricções, pelo teorema de M-M, <span class="destaque">dívida e dividendos não mudam o valor da firma</span></li>
+<li><strong>Fricções</strong>: impostos, falência, informação assimétrica e risco moral afastam as respostas das de M-M</li>
+</ul>
+</section>
+<section id="uma-pergunta-para-levar" class="slide level2 center">
+<h2>Uma pergunta para levar</h2>
+<div class="r-fit-text">
+<p>Diante de um problema de finanças corporativas, pergunte primeiro:<br>
+<span class="destaque">que fricção afasta este caso de Modigliani-Miller?</span></p>
+</div>
+</section></section>
+<section>
+<section id="apêndice" class="title-slide slide level1 center">
+<h1>Apêndice</h1>
+<!-- PLANNING: material fora do caminho da aula de 19/11/2026, mantido para leitura e para outros anos. -->
+</section>
+<section id="financiamento-inicial" class="slide level2 smaller">
+<h2>Financiamento inicial</h2>
+<ul>
+<li>Começa com recursos próprios: empreendedores e famílias</li>
+<li>Negócios privados de sucesso precisam de <span class="destaque">financiamento externo</span> para crescer</li>
+<li>Fontes, da menor para a maior escala: angels, venture capital, institucionais, corporativos</li>
+<li>Depois, o mercado de capitais (IPO)</li>
+</ul>
+</section>
+<section id="private-equity" class="slide level2 smaller">
+<h2>Private equity</h2>
+<ul>
+<li>O termo deveria valer para qualquer participação em empresas de capital fechado</li>
+<li>Ficou associado a firmas especializadas em LBO (<em>leveraged buyout</em>)</li>
+</ul>
 </section>
 <section id="investidores-institucionais-e-corporativos" class="slide level2 smaller">
 <h2>Investidores institucionais e corporativos</h2>
@@ -360,7 +951,7 @@ flowchart LR
 </tr>
 <tr class="even">
 <td>Conversão</td>
-<td>possível, se o estatuto prever (art. 19)</td>
+<td>possível, se o estatuto previr (art. 19)</td>
 <td><em>convertible</em>: em ações comuns</td>
 </tr>
 </tbody>
@@ -369,135 +960,13 @@ flowchart LR
 <!-- ADICIONADO: o slide "EUA: preferred e common" foi fundido nesta tabela (conteúdo idêntico). A observação sobre preferred de VC vem de Berk e DeMarzo (2024), seção 23.1. -->
 </section></section>
 <section>
-<section id="realnetworks" class="title-slide slide level1 center">
-<h1>RealNetworks</h1>
+<section id="realnetworks-todas-as-rodadas" class="title-slide slide level1 center">
+<h1>RealNetworks: todas as rodadas</h1>
 
-</section>
-<section id="rodadas-de-financiamento" class="slide level2 smaller">
-<h2>Rodadas de financiamento</h2>
-<p>Fundada em 1993 com US$ 1 milhão: 13.713.439 ações <em>Series A preferred</em>, a US$ 0,07.</p>
-<div id="80babbc6" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display cell-output-markdown">
-<table class="caption-top">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 15%">
-<col style="width: 18%">
-<col style="width: 22%">
-<col style="width: 30%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Série</th>
-<th style="text-align: left;">Data</th>
-<th style="text-align: left;">Ações</th>
-<th style="text-align: left;">Preço (US$)</th>
-<th style="text-align: left;">Captado (US$ mi)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">A</td>
-<td style="text-align: left;">1993</td>
-<td style="text-align: left;">13.713.439</td>
-<td style="text-align: left;">0,07</td>
-<td style="text-align: left;">0,96</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">B</td>
-<td style="text-align: left;">abr/1995</td>
-<td style="text-align: left;">2.686.567</td>
-<td style="text-align: left;">0,67</td>
-<td style="text-align: left;">1,80</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">C</td>
-<td style="text-align: left;">out/1995</td>
-<td style="text-align: left;">2.904.305</td>
-<td style="text-align: left;">1,96</td>
-<td style="text-align: left;">5,69</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">D</td>
-<td style="text-align: left;">nov/1996</td>
-<td style="text-align: left;">2.381.010</td>
-<td style="text-align: left;">7,53</td>
-<td style="text-align: left;">17,93</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">E</td>
-<td style="text-align: left;">jul/1997</td>
-<td style="text-align: left;">3.338.374</td>
-<td style="text-align: left;">8,99</td>
-<td style="text-align: left;">30,01</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ul>
-<li>Série B: <em>angels</em>; C e D: principalmente VC; E: Microsoft</li>
-<li>Vender ações numa rodada privada <span class="destaque">não</span> abre o capital</li>
-</ul>
-<!-- ADICIONADO: tabela recriada em Python a partir dos números da fonte (ações e preços das séries B–E; o livro-texto de origem, Berk e DeMarzo, não pode ser publicado como imagem). Captado = ações × preço; confere com os totais da fonte (1,8; 5,7; 17,9; 30,0). -->
-<!-- ADICIONADO: o IPO4.png (Berk e DeMarzo) não tem erro: é a tabela de propriedade logo após a Série B, em que a Série A aparece avaliada ao preço da Série B (0,67 → US$ 9,2 mi = pre-money). A Série A foi comprada a US$ 0,07 (13.713.439 × 0,07 = 0,96 mi ≈ US$ 1 mi). Mantive a distinção no deck. -->
-</section>
-<section id="pre-money-e-post-money" class="slide level2 smaller">
-<h2><em>Pre-money</em> e <em>post-money</em></h2>
-<ul>
-<li><span class="destaque"><em>Pre-money</em></span>: valor das ações já existentes ao novo preço</li>
-<li><span class="destaque"><em>Post-money</em></span>: valor total da firma ao novo preço, depois do aporte</li>
-</ul>
-<p><span class="math display">\[\text{post-money} = \text{pre-money} + \text{novo capital}\]</span></p>
-<div id="df715bb2" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display cell-output-markdown">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Série B (abr/1995)</th>
-<th style="text-align: left;">Conta</th>
-<th style="text-align: left;">Resultado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ações da Série A</td>
-<td style="text-align: left;">13.713.439</td>
-<td style="text-align: left;">13.713.439</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Preço da Série B (US$)</td>
-<td style="text-align: left;">0,67</td>
-<td style="text-align: left;">0,67</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Pre-money (US$ mi)</td>
-<td style="text-align: left;">13.713.439 × 0,67</td>
-<td style="text-align: left;">9,19</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Captado (US$ mi)</td>
-<td style="text-align: left;">2.686.567 × 0,67</td>
-<td style="text-align: left;">1,80</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Post-money (US$ mi)</td>
-<td style="text-align: left;">16.400.006 × 0,67</td>
-<td style="text-align: left;">10,99</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Participação da Série B</td>
-<td style="text-align: left;">2.686.567 / 16.400.006</td>
-<td style="text-align: left;">16,4%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </section>
 <section id="pre-e-post-em-cada-rodada" class="slide level2 smaller">
 <h2>Pre e post em cada rodada</h2>
-<div id="530ede2c" class="cell" data-execution_count="6">
+<div id="6e7c559e" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -568,220 +1037,11 @@ flowchart LR
 <li>Cálculo considera só as ações das séries listadas (sem opções para funcionários)</li>
 </ul>
 <!-- ADICIONADO: pre e post de C, D e E não estão na fonte; são conta direta (ações acumuladas × preço). Série A: pre-money não se aplica (primeira rodada). -->
-<!-- PLANNING: fim provável da sessão de 17/11. Em 19/11, recomeçar pela seção de contratos com um "lembrando" de pre e post-money. -->
 </section></section>
 <section>
-<section id="contratos-de-venture-capital" class="title-slide slide level1 center">
-<h1>Contratos de <em>venture capital</em></h1>
-<!-- ADICIONADO: seção nova, a partir de Berk e DeMarzo (2024), seção 23.1 (termos de contrato, Ex. 23.2, quadro "Common Mistake" e quadro "From Launch to Liquidity"). Números conferidos no chunk de setup. -->
-</section>
-<section id="o-que-o-vc-compra-preferencial-conversível" class="slide level2 smaller">
-<h2>O que o VC compra: preferencial conversível</h2>
-<ul>
-<li><span class="destaque">Preferência de liquidação</span>: numa venda, recebe 1 a 3 vezes o aporte antes das ordinárias</li>
-<li>Senioridade: a rodada nova pode receber antes das antigas (ou junto: <em>pari passu</em>)</li>
-<li>Participação: recebe a preferência <strong>e</strong> a parte de ordinária, em geral com teto</li>
-<li>Antidiluição: numa rodada a preço menor, o preço de conversão cai</li>
-<li>Assentos no conselho: direitos de controle</li>
-</ul>
-<p><span class="fonte">Antes da primeira rodada com preço, <em>angels</em> usam nota conversível ou SAFE: convertem com desconto (muitas vezes 20%) no preço da rodada seguinte. Berk e DeMarzo (2024), seção 23.1.</span></p>
-</section>
-<section id="os-termos-refletem-poder-de-barganha" class="slide level2 smaller">
-<h2>Os termos refletem poder de barganha</h2>
-<p>Startups do Vale do Silício, 2021:</p>
-<ul>
-<li>Senioridade: 24% das rodadas em alta, <span class="destaque">mais de 50%</span> das rodadas em baixa</li>
-<li>Participação: cerca de 20% das rodadas; 40% das rodadas em baixa</li>
-<li>Antidiluição: mais de 95% dos contratos</li>
-<li>Quando a firma vai mal, quem traz o dinheiro dita os termos</li>
-</ul>
-<p><span class="fonte">Wilson Sonsini (2021), via Berk e DeMarzo (2024), seção 23.1. Rodada em baixa (<em>down round</em>): preço por ação menor que o da rodada anterior.</span></p>
-</section>
-<section id="exemplo-duas-rodadas-uma-venda" class="slide level2 smaller">
-<h2>Exemplo: duas rodadas, uma venda</h2>
-<div id="ce08b1ae" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display cell-output-markdown">
-<table class="caption-top">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 19%">
-<col style="width: 23%">
-<col style="width: 15%">
-<col style="width: 29%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Série</th>
-<th style="text-align: left;">Aporte (US$ mi)</th>
-<th style="text-align: left;">Post-money (US$ mi)</th>
-<th style="text-align: left;">Preferência</th>
-<th style="text-align: left;">Fração se todos convertem</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">B (sênior)</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">40</td>
-<td style="text-align: left;">3 × 10 = 30</td>
-<td style="text-align: left;">25,0%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">A</td>
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">20</td>
-<td style="text-align: left;">1 × 6 = 6</td>
-<td style="text-align: left;">30% × 75% = 22,5%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ordinárias</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">52,5%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ul>
-<li>A firma é vendida por <span class="math inline">\(V\)</span>. Quanto recebe cada um?</li>
-<li>A partir de que <span class="math inline">\(V\)</span> as ordinárias (fundadores e funcionários) recebem algo?</li>
-</ul>
-<p><span class="fonte">Berk e DeMarzo (2024), Exemplo 23.2. Sem direito de participação.</span></p>
-<!-- PLANNING: pedir o palpite antes de mostrar o gráfico. Resposta: 36 (30 de B + 6 de A). -->
-</section>
-<section id="a-cascata-de-pagamentos" class="slide level2 smaller">
-<h2>A cascata de pagamentos</h2>
-<div id="66bebc7e" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-9-output-1.svg"></p>
-<figcaption>Pagamento de cada série em função do preço de venda V (US$ mi), no exemplo anterior.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="lendo-a-cascata" class="slide level2 smaller">
-<h2>Lendo a cascata</h2>
-<ul>
-<li>Até 30: tudo vai para B; de 30 a 36, A completa seus 6</li>
-<li>Ordinárias só recebem acima de <span class="destaque">36</span></li>
-<li>A converte acima de 50, quando 30% do que sobra após B supera 6</li>
-<li>B só converte acima de 120, quando 25% de <span class="math inline">\(V\)</span> supera 30</li>
-<li>O pagamento das ordinárias tem a forma de uma <span class="destaque">opção de compra</span> sobre <span class="math inline">\(V\)</span></li>
-</ul>
-<p><span class="fonte">Berk e DeMarzo (2024), Ex. 23.2: em <span class="math inline">\(V=120\)</span>, B recebe 30, A 27 e as ordinárias 63. O limiar de 50 para A é conta nossa: <span class="math inline">\(0{,}3(V-30)&gt;6\)</span>.</span></p>
-<!-- ADICIONADO: o livro só pergunta os limiares 36 e 120. O limiar de conversão de A (V = 50) e o gráfico completo saem do equilíbrio de conversão calculado no setup (cada série converte se isso a beneficia, dada a escolha da outra), conferido com a forma fechada por trechos. -->
-</section>
-<section id="unicórnio-o-post-money-engana" class="slide level2 smaller">
-<h2>Unicórnio? O <em>post-money</em> engana</h2>
-<p>Startup com 100 milhões de ações (última rodada a US$ 3) capta US$ 100 milhões:</p>
-<div id="fffad4f2" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display cell-output-markdown">
-<table class="caption-top">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 21%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Termos da nova série</th>
-<th style="text-align: left;">Preço por ação (US$)</th>
-<th style="text-align: left;">Ações novas (mi)</th>
-<th style="text-align: left;">Post-money (US$ mi)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1×, <em>pari passu</em></td>
-<td style="text-align: left;">8,50</td>
-<td style="text-align: left;">11,8</td>
-<td style="text-align: left;">950</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3×, sênior</td>
-<td style="text-align: left;">10,00</td>
-<td style="text-align: left;">10,0</td>
-<td style="text-align: left;">1.100</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ul>
-<li>Mesma firma, mesmo caixa: o “valor” passa de US$ 1 bi porque o novo investidor <span class="destaque">comprou mais proteção</span></li>
-<li>Numa venda por US$ 400 mi com 3×: o novo leva 300; os antigos dividem 100</li>
-</ul>
-<p><span class="fonte">Berk e DeMarzo (2024), quadro “Common Mistake”, seção 23.1. Gornall e Strebulaev (2020, <em>JFE</em>): o valor divulgado de unicórnios exagera o valor justo em mais de 50%, em média.</span></p>
-<!-- PLANNING: ligar ao Facebook 2007: lá também o "valor implícito" era post-money. -->
-</section>
-<section id="poucas-vencedoras-pagam-por-todas" class="slide level2 smaller">
-<h2>Poucas vencedoras pagam por todas</h2>
-<div id="16c2d477" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-11-output-1.svg"></p>
-<figcaption>Trajetória ilustrativa: de 100 startups com capital semente, quantas chegam a cada etapa.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>Na vencedora, a Série A multiplica o aporte por <span class="destaque">42</span></li>
-<li>Mas só 4 das 56 chegam lá: múltiplo esperado <span class="math inline">\(42\times 4/56=3\)</span>, cerca de 17% ao ano em 7 anos</li>
-</ul>
-<p><span class="fonte">Berk e DeMarzo (2024), quadro “From Launch to Liquidity”. Supõe perda total nas que não chegam ao IPO.</span></p>
-</section></section>
-<section>
-<section id="saída" class="title-slide slide level1 center">
-<h1>Saída</h1>
+<section id="mais-sobre-o-ipo" class="title-slide slide level1 center">
+<h1>Mais sobre o IPO</h1>
 
-</section>
-<section id="venda-ou-ipo" class="slide level2 smaller">
-<h2>Venda ou IPO?</h2>
-<ul>
-<li>Saída de quem investiu cedo: venda da empresa (F&amp;A) ou IPO</li>
-<li>EUA: F&amp;A eram menos de 50% das saídas de VC nos anos 1990 e <span class="destaque">mais de 80%</span> nos anos 2000</li>
-<li>EUA, 2014–2021: cerca de <span class="destaque">72%</span> (Berk e DeMarzo, 2024)</li>
-<li>2025 (NVCA): IPOs de VC somaram US$ 105,2 bi dos US$ 217 bi de valor de saída, cerca de <span class="destaque">48%</span>, com 49 IPOs</li>
-</ul>
-<p><span class="fonte">As participações de F&amp;A nas saídas vêm de Berk e DeMarzo (2024), seções 23.1 e 23.3; o livro não diz se por contagem ou valor. Os 48% da NVCA são participação do IPO no valor de saída (105,2 / 217). NVCA 2026 Yearbook, dados até 31/12/2025. A NVCA conta 49 IPOs de VC; Ritter, 39 (outro critério de amostra).</span></p>
-<!-- ADICIONADO: 72% (2014–2021) do Berk e DeMarzo (2024, cap. 23, seção 23.1) e dado da NVCA. Não achei série de "% por F&A" da NVCA verificável. -->
-<!-- CORREÇÃO: versão anterior do deck dizia "85% das saídas por F&A em 2001–2005" (edição antiga do livro); correto: "menos de 50% nos anos 1990, mais de 80% nos anos 2000"; porque é o que traz Berk e DeMarzo (2024), seção 23.3. O slide "Estratégia de saída" foi fundido neste. -->
-</section></section>
-<section>
-<section id="ofertas-públicas-iniciais-ipo" class="title-slide slide level1 center">
-<h1>Ofertas públicas iniciais (IPO)</h1>
-
-</section>
-<section id="o-que-é-um-ipo" class="slide level2 smaller">
-<h2>O que é um IPO</h2>
-<p>Primeira venda de ações ao público: a saída natural de quem investiu cedo, mas também muda a firma.</p>
-<div class="columns">
-<div class="column" style="width:48%;">
-<p><strong>Vantagens</strong></p>
-<ul>
-<li><span class="destaque">Liquidez</span>: diversificação e saída</li>
-<li>Acesso ao mercado de capitais</li>
-<li>Moeda para aquisições</li>
-<li>Remuneração em ações e opções</li>
-</ul>
-</div><div class="column" style="width:48%;">
-<p><strong>Desvantagens</strong></p>
-<ul>
-<li>Propriedade dispersa, monitoramento difícil</li>
-<li>Custos regulatórios: SEC/CVM</li>
-<li>Custo da operação em si</li>
-</ul>
-</div></div>
-<p><span class="fonte">O custo da operação reaparece adiante: <em>spread</em> do banco e <em>underpricing</em>.</span></p>
-<!-- PLANNING: os três slides antigos (o que é, vantagens, desvantagens) foram fundidos neste. -->
 </section>
 <section id="oferta-primária-e-secundária" class="slide level2 smaller">
 <h2>Oferta primária e secundária</h2>
@@ -858,38 +1118,13 @@ flowchart LR
 </ul></li>
 </ul>
 </section>
-<section id="procedimento-road-show-e-book-building" class="slide level2 smaller">
-<h2>Procedimento: <em>road show</em> e <em>book building</em></h2>
-<ul>
-<li><span class="destaque"><em>Road show</em></span>: gestores e subscritor promovem a companhia
-<ul>
-<li>Explicam as razões para a abertura de capital; focam os maiores clientes do subscritor, em geral institucionais</li>
-</ul></li>
-<li><span class="destaque"><em>Book building</em></span>: processo de expressão de interesse
-<ul>
-<li><em>Soft commitment</em> dos clientes</li>
-<li>Revela condições de mercado e o preço esperado</li>
-</ul></li>
-<li><span class="secundario"><em>Lockup</em></span>: acionistas existentes não vendem por 180 dias, em geral</li>
-</ul>
-<!-- ADICIONADO: definição e prazo de 180 dias ("usually 180 days"): Berk e DeMarzo (2024, cap. 23). A fonte só dizia "provisões de lockup usualmente". -->
-</section>
-<section id="firm-commitment-preço-e-risco" class="slide level2 smaller">
-<h2><em>Firm commitment</em>: preço e risco</h2>
-<ul>
-<li>A firma paga ao subscritor uma participação percentual (<em>spread</em>) sobre o preço de emissão</li>
-<li>O subscritor se compromete a comprar toda a emissão</li>
-<li>Está exposto ao risco de as ações não serem absorvidas ao preço de oferta</li>
-<li><span class="destaque">Lote suplementar</span> (<em>over-allotment</em> ou <em>greenshoe</em>): o subscritor pode emitir mais ações (normalmente 15%)</li>
-</ul>
-</section>
 <section id="o-caso-da-realnetworks" class="slide level2 smaller">
 <h2>O caso da RealNetworks</h2>
-<div id="fc2d3652" class="cell" data-execution_count="12">
+<div id="f6e070f6" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-13-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-16-output-1.svg"></p>
 </figure>
 </div>
 </div>
@@ -936,26 +1171,7 @@ flowchart LR
 </ul></li>
 <li>Desempenho de longo prazo ruim (baixo retorno nos primeiros 3 e 5 anos)</li>
 </ol>
-<p><span class="fonte">Cada um com dado atualizado a seguir; o puzzle 1 é o núcleo do deck.</span></p>
-</section>
-<section id="puzzle-1-underpricing" class="slide level2 smaller">
-<h2>Puzzle 1: <em>underpricing</em></h2>
-<ul>
-<li>O preço escolhido costuma deixar retorno positivo no 1º dia</li>
-<li>Isso ajuda o subscritor a vender as ações</li>
-<li>Acionistas parecem <span class="destaque">deixar dinheiro na mesa</span></li>
-</ul>
-<div id="a9d1e27c" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-15-output-1.svg"></p>
-<figcaption>Retorno médio no 1º dia dos IPOs nos EUA, por ano de emissão, e dinheiro deixado na mesa. Fonte: Jay Ritter, Tabela 1 (versão de 13/07/2026), acessada em 04/11/2026.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="destaque">1980–2025: 9.345 IPOs, retorno médio de 19,0% (mediana 7,0%); US$ 250 bi deixados na mesa contra US$ 1,2 tri captados (valores nominais, sem lote suplementar).</span></p>
+<p><span class="fonte">O puzzle 1 está no corpo do deck; os puzzles 2 a 4, com dado atualizado, a seguir.</span></p>
 </section>
 <section id="o-que-o-número-esconde" class="slide level2 smaller">
 <h2>O que o número esconde</h2>
@@ -968,35 +1184,19 @@ flowchart LR
 <p><span class="fonte">Fonte: Ritter, Tabelas 1 e 1a (versões de 13/07/2026 e 17/03/2026).</span></p>
 <!-- PLANNING: aqui vale pedir aos alunos: se o subscritor ganha 7% fixo, por que ele deixa a firma "perder" 19% no 1º dia? Se o tempo apertar em 19/11, pular daqui direto para "Para pensar" (puzzles 2–4 só citados oralmente). -->
 </section>
-<section id="underpricing-no-mundo-e-no-brasil" class="slide level2 smaller">
-<h2><em>Underpricing</em> no mundo e no Brasil</h2>
-<div id="4d6a1b80" class="cell" data-execution_count="15">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-16-output-1.svg"></p>
-<figcaption>Retorno inicial médio (peso igual) em países com 300 ou mais IPOs. Fonte: Loughran, Ritter e Rydqvist (1994), atualizada por Jay Ritter em 30/03/2026.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<!-- ADICIONADO: substitui IPO8.png (gráfico do Berk e DeMarzo, 1960–2007, não publicável) por dado atual da tabela de Ritter (55 países, atualizada em 30/03/2026). Critério de seleção: países com amostra ≥ 300 IPOs (26 países). Vem do snapshot dados/ipo/IPOs-International.pdf; transcrição manual das linhas da tabela (conferir). Inconsistência interna de Ritter: nas notas do Brasil, 62 + 44 + 74 (sem dado) + 95 + 108 (2012–24) = 383, contra 385 na tabela; a média das 108 de 2012–24 não é dada no texto, então não a usei. -->
-<p><span class="fonte">Brasil: média puxada por 1979–1990 (62 IPOs, 78,5%). Desde 2004, retornos baixos: 6,7% (2004–06) e 3,3% (2007–11). Há 74 IPOs de 1995–2003 sem dado, e nenhum IPO desde 2021.</span></p>
-<p><span class="fonte">Os períodos variam por país (entre parênteses). Não é comparável à média de 19,0% dos slides anteriores (EUA, 1980–2025, preço ≥ US$ 5, 9.345 IPOs): aqui o EUA é 1960–2025, 14.079 IPOs, sem esse filtro.</span></p>
-</section>
 <section id="puzzle-2-emissão-em-ondas" class="slide level2 smaller">
 <h2>Puzzle 2: emissão em ondas</h2>
-<div id="8c8580d1" class="cell" data-execution_count="16">
+<div id="09746121" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-17-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-18-output-1.svg"></p>
 <figcaption>Número de IPOs (barras) e retorno médio no 1º dia (linha), EUA, 1980–2025. Fonte: Jay Ritter, Tabela 1 (13/07/2026).</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="36f9d704" class="cell" data-execution_count="17">
+<div id="789e6c84" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="destaque">IPOs vêm em ondas: o número despenca em 2001–03, 2008–09 e 2022–23. O <em>underpricing</em> só coincide em parte (1999–2000 e 2020–21 sim; 1983, 1993 e 1996 não).</span></p>
 <p><span class="fonte">Correlação anual entre número de IPOs e retorno médio: 0,20; sem 1999–2000, -0,05. A figura mostra emissões e retorno, não o ciclo de mercado. Fonte: Ritter, Tabela 1.</span></p>
@@ -1005,7 +1205,7 @@ flowchart LR
 </section>
 <section id="puzzle-3-a-regra-dos-7" class="slide level2 smaller">
 <h2>Puzzle 3: a regra dos 7%</h2>
-<div id="f22c4801" class="cell" data-execution_count="18">
+<div id="9275574f" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1049,11 +1249,11 @@ flowchart LR
 </section>
 <section id="puzzle-4-desempenho-de-longo-prazo" class="slide level2 smaller">
 <h2>Puzzle 4: desempenho de longo prazo</h2>
-<div id="039dffef" class="cell" data-execution_count="19">
+<div id="6ca2f008" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-20-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-21-output-1.svg"></p>
 <figcaption>Retorno de 3 anos (a partir do 1º fechamento), em %, de IPOs dos EUA por período. Fonte: Jay Ritter, Tabela 19 (atualizada em 16/02/2026).</figcaption>
 </figure>
 </div>
@@ -1062,12 +1262,6 @@ flowchart LR
 <p><span class="destaque">1980–2024: IPOs rendem 19,1% em 3 anos, 20,5 pontos a menos que o mercado e 8,9 a menos que firmas comparáveis.</span></p>
 <p><span class="fonte">A média depende de 1999–2000 (−58,9% ajustado ao estilo). Coortes de 2023–24 têm menos de 3 anos completos: o retorno vai até 31/12/2025. Em debate: Bessembinder e Zhang (2013) acham que o desempenho ruim some quando se compara com firmas de características parecidas.</span></p>
 <!-- ADICIONADO: dado atual (Ritter, Tabela 19). A nota só afirma "retorno baixo nos primeiros 3, 5 anos" sem número. Valores de períodos lidos do PDF; anuais em dados/ritter_tabela19.csv. -->
-</section>
-<section id="para-pensar" class="slide level2 center">
-<h2>Para pensar</h2>
-<div class="r-fit-text">
-<p>Se o <em>underpricing</em> é só dinheiro deixado na mesa, por que as firmas <span class="destaque">aceitam</span>?</p>
-</div>
 </section>
 <section id="três-explicações-de-underpricing" class="slide level2 smaller">
 <h2>Três explicações de <em>underpricing</em></h2>
@@ -1104,112 +1298,15 @@ flowchart LR
 </tbody>
 </table>
 <!-- PLANNING: 2026.2: Tirole passa a ser o modelo central (reaproveita a Aula 13); Rock fica opcional, depois da maldição do vencedor; Benveniste-Spindt em um slide. -->
-</section></section>
-<section>
-<section id="underpricing-como-sinal" class="title-slide slide level1 center">
-<h1><em>Underpricing</em> como sinal</h1>
-
 </section>
-<section id="o-emissor-sabe-mais" class="slide level2 smaller">
-<h2>O emissor sabe mais</h2>
-<p><em>Tirole (2006), cap. 6, seção 6.3, Aplicação 9</em></p>
+<section id="perguntas-em-aberto" class="slide level2 smaller">
+<h2>Perguntas em aberto</h2>
 <ul>
-<li>O emissor (empreendedor) é o informado, como na Aula 13</li>
-<li>Pergunta: o emissor bom consegue se separar do ruim <span class="destaque">deixando dinheiro na mesa</span>?</li>
-<li>Para Tirole, o <em>underpricing</em> é um sinal primitivo, usado só quando o bom não tem meio mais barato de se distinguir</li>
+<li>Se o desconto é só compensação, por que o <em>underpricing</em> é tão volátil no tempo (1999 vs.&nbsp;2023)?</li>
+<li>Por que o spread fica em 7%?</li>
+<li>Leilões e listagens diretas vão substituir o <em>book building</em>?</li>
 </ul>
-<!-- ADICIONADO: bloco com Tirole (2006), Aplicação 9 (era apêndice; em 2026.2 passou ao corpo do deck), seção 6.3 (pp. 262–264 do livro). Notação adaptada às Aulas 13/14: R_b de Tirole = R_e (payoff do empreendedor no sucesso). -->
-</section>
-<section id="ambiente-o-modelo-da-aula-13" class="slide level2 smaller">
-<h2>Ambiente: o modelo da Aula 13</h2>
-<ul>
-<li>Modelo da Aula 13 (tipos <span class="math inline">\(p&gt;q\)</span>, projeto <span class="math inline">\(R\)</span> ou <span class="math inline">\(0\)</span>, custo <span class="math inline">\(I\)</span>), agora com caixa do empreendedor <span class="math inline">\(A&gt;0\)</span></li>
-<li>O investidor financia <span class="math inline">\(I-A\)</span></li>
-<li>Só o tipo bom é <span class="destaque">financiável</span> com informação simétrica:</li>
-</ul>
-<p><span class="math display">\[qR&lt;I-A&lt;pR\]</span></p>
-<ul>
-<li><span class="math inline">\(R_e\)</span>: recompensa do empreendedor no sucesso (Tirole: <span class="math inline">\(R_b\)</span>)</li>
-</ul>
-</section>
-<section id="o-contrato-com-informação-simétrica" class="slide level2 smaller">
-<h2>O contrato com informação simétrica</h2>
-<p>Com tipo observável, o bom ficaria com <span class="math inline">\(R_e^G\)</span> tal que a emissão é vendida ao par:</p>
-<p><span class="math display">\[p\,(R-R_e^G)=I-A\]</span></p>
-<ul>
-<li>Hipótese: <span class="math inline">\(A&lt;qR_e^G\)</span></li>
-<li>O ruim aceitaria comprometer toda a sua riqueza <span class="math inline">\(A\)</span> para ter esses termos</li>
-<li>Então o ruim quer se passar pelo bom: <span class="destaque"><em>pooling</em></span>, e o bom perde utilidade</li>
-</ul>
-</section>
-<section id="o-sinal" class="slide level2 smaller">
-<h2>O sinal</h2>
-<p>O bom oferece ficar com menos: a maior recompensa pouco atraente ao ruim, <span class="math inline">\(R_e^*\)</span>, é dada por</p>
-<p><span class="math display">\[q\,R_e^*=A\]</span></p>
-<ul>
-<li>O ruim, ao se passar pelo bom, ganharia <span class="math inline">\(qR_e^*=A\)</span>, igual ao que arriscou</li>
-<li>Só o bom vê vantagem: oferta de <span class="math inline">\(R_e&lt;R_e^G\)</span> é credível</li>
-<li>Suposição: o empreendedor compromete toda a riqueza <span class="math inline">\(A\)</span></li>
-</ul>
-</section>
-<section id="o-preço-do-sinal" class="slide level2 smaller">
-<h2>O preço do sinal</h2>
-<p>Sabendo que a oferta só vem do bom, o investidor tem lucro esperado</p>
-<p><span class="math display">\[p\,(R-R_e^*)-(I-A)=p\,(R_e^G-R_e^*)&gt;0\]</span></p>
-<ul>
-<li>A emissão é <span class="destaque">subapreçada</span>: o investidor ganha mais que o ponto de equilíbrio</li>
-<li>Logo há racionamento da emissão</li>
-<li>O bom “queima dinheiro” (deixa na mesa) para mostrar ao mercado que é bom</li>
-</ul>
-</section>
-<section id="exemplo-numérico" class="slide level2 smaller">
-<h2>Exemplo numérico</h2>
-<div id="3f9f276e" class="cell" data-execution_count="20">
-<div class="cell-output cell-output-display cell-output-markdown">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Condição qR &lt; I − A &lt; pR</td>
-<td style="text-align: left;">40 &lt; 45 &lt; 80</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(R_e^G\)</span> (info. simétrica)</td>
-<td style="text-align: left;">43,75</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(R_e^*=A/q\)</span> (sinal)</td>
-<td style="text-align: left;">12,50</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subapreçamento absoluto, <span class="math inline">\(p(R_e^G-R_e^*)\)</span></td>
-<td style="text-align: left;">25,00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Relativo, ÷ (I − A)</td>
-<td style="text-align: left;">55,6%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><span class="fonte">Parâmetros ilustrativos: <span class="math inline">\(p=0{,}8\)</span>, <span class="math inline">\(q=0{,}4\)</span>, <span class="math inline">\(R=100\)</span>, <span class="math inline">\(I=50\)</span> (como na Aula 13) e <span class="math inline">\(A=5\)</span>.</span></p>
-</section>
-<section id="determinantes-e-ressalvas" class="slide level2 smaller">
-<h2>Determinantes e ressalvas</h2>
-<p><span class="math display">\[\frac{p(R_e^G-R_e^*)}{I-A}=\frac{pR-I-\frac{p-q}{q}\,A}{I-A}\]</span></p>
-<ul>
-<li>O <em>underpricing</em> relativo <span class="destaque">cai</span> com a seleção adversa, medida por <span class="math inline">\((p-q)/q\)</span></li>
-<li>Se os tipos ficam parecidos (<span class="math inline">\(q\)</span> sobe), o bom precisa subapreçar mais</li>
-<li>Não é o único equilíbrio: há <em>pooling</em> em que o ruim é pago para não investir, sem <em>underpricing</em> e melhor para ambos</li>
-<li>O sinal é uma possibilidade, não uma necessidade. Modelo relacionado: Allen e Faulhaber (1989)</li>
-</ul>
-<p><span class="fonte">Tirole (2006), pp.&nbsp;262–264. Exemplo: com <span class="math inline">\(q=0{,}4\)</span> o relativo é 55,6%; com <span class="math inline">\(q=0{,}3\)</span>, 48,1%.</span></p>
+<p><span class="fonte">Assentado: <em>underpricing</em> existe e é grande em média. Em debate: qual explicação domina.</span></p>
 </section></section>
 <section>
 <section id="maldição-do-vencedor" class="title-slide slide level1 center">
@@ -1232,7 +1329,7 @@ flowchart LR
 <section id="exemplo-o-cliente-da-thompson-brothers" class="slide level2 smaller">
 <h2>Exemplo: o cliente da Thompson Brothers</h2>
 <p>O banco garante ao cliente um pedido de 2.000 ações em todo IPO que coordena (preço médio US$ 15).</p>
-<div id="d63a1354" class="cell" data-execution_count="21">
+<div id="aaf4d73d" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1282,7 +1379,6 @@ flowchart LR
 <li>Com menos <em>underpricing</em>, ele perderia dinheiro e deixaria de participar</li>
 </ul>
 <p><span class="fonte">Berk e DeMarzo (2024), Exemplo 23.5. O modelo de Rock (1986) transforma esse racionamento em equilíbrio.</span></p>
-<!-- PLANNING: se não houver tempo para Rock, ir daqui direto para Benveniste e Spindt. -->
 </section></section>
 <section>
 <section id="modelo-de-rock-1986" class="title-slide slide level1 center">
@@ -1351,7 +1447,7 @@ flowchart LR
 </section>
 <section id="quando-o-desinformado-recebe-tudo-e-quando-é-racionado" class="slide level2 smaller">
 <h2>Quando o desinformado recebe tudo e quando é racionado</h2>
-<div id="04fa4879" class="cell" data-execution_count="22">
+<div id="dd7692c9" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1388,7 +1484,7 @@ flowchart LR
 </section>
 <section id="visualizando-o-limiar" class="slide level2 smaller">
 <h2>Visualizando o limiar</h2>
-<div id="4c96ac5f" class="cell" data-execution_count="23">
+<div id="268c5626" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1413,7 +1509,7 @@ flowchart LR
 <h2>Exemplo numérico: <span class="math inline">\(x\sim U[0,1]\)</span>, <span class="math inline">\(\alpha=0{,}5\)</span></h2>
 <p>Para a uniforme, <span class="math inline">\(\int_p^1 (x-p)\,dx=\dfrac{(1-p)^2}{2}\)</span>, e <span class="math inline">\(H(p)=0\)</span> vira</p>
 <p><span class="math display">\[\tfrac12-p-\tfrac{\alpha}{2}(1-p)^2=0 \;\Rightarrow\; p^2+2p-1=0 \;\Rightarrow\; p^*=\sqrt{2}-1\approx 0{,}414\]</span></p>
-<div id="2dbe8a1c" class="cell" data-execution_count="24">
+<div id="0f91af57" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1458,7 +1554,7 @@ flowchart LR
 </ul>
 <p>Como <span class="math inline">\(p^*=E[x]-\alpha I\)</span>, com <span class="math inline">\(I=\int_{p^*}^{\bar{x}}(x-p^*)f(x)\,dx\)</span>, as variações de preço se decompõem em</p>
 <p><span class="math display">\[P_1-p^*=\big(E[x\mid x&gt;p^*]-E[x]\big)+\alpha I&gt;0 \qquad P_2-p^*=\big(E[x\mid x&lt;p^*]-E[x]\big)+\alpha I\]</span></p>
-<div id="e5518a28" class="cell" data-execution_count="25">
+<div id="0e5dc25b" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1514,7 +1610,7 @@ flowchart LR
 </section>
 <section id="estática-comparativa-alpha" class="slide level2 smaller">
 <h2>Estática comparativa: <span class="math inline">\(\alpha\)</span></h2>
-<div id="4ee85caf" class="cell" data-execution_count="26">
+<div id="fe6061c5" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1527,7 +1623,7 @@ flowchart LR
 </section>
 <section id="mais-informados-mais-desconto" class="slide level2 smaller">
 <h2>Mais informados, mais desconto</h2>
-<div id="1d1bb9fa" class="cell" data-execution_count="27">
+<div id="f1a8900d" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1575,7 +1671,7 @@ flowchart LR
 </section>
 <section id="estática-comparativa-dispersão-do-valor" class="slide level2 smaller">
 <h2>Estática comparativa: dispersão do valor</h2>
-<div id="4e3d70e6" class="cell" data-execution_count="28">
+<div id="beb72fc3" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1627,23 +1723,11 @@ flowchart LR
 <li>O banco conhece a demanda antes de fixar <span class="math inline">\(p\)</span></li>
 <li>Isso abre outra explicação: o desconto também paga por informação revelada</li>
 </ul>
-<p><span class="fonte">Próximo slide: Benveniste e Spindt (1989), só a intuição.</span></p>
-</section>
-<section id="benveniste-e-spindt-1989-intuição" class="slide level2 smaller">
-<h2>Benveniste e Spindt (1989): intuição</h2>
-<!-- ADICIONADO: um slide de intuição de Benveniste-Spindt (1989), sem formalização. -->
-<ul>
-<li>No <em>book building</em>, investidores institucionais <span class="destaque">revelam informação</span> sobre a demanda ao banco</li>
-<li>Se o preço sempre refletisse o que dizem, ninguém teria incentivo a falar a verdade</li>
-<li>Solução: o banco paga pela revelação com <span class="destaque">desconto e alocação</span> (mais ações para quem revela)</li>
-<li>O desconto é o preço pago pela informação, não só pelo risco do desinformado</li>
-<li>O mecanismo funciona porque o banco repete o jogo com os mesmos investidores</li>
-</ul>
-<p><span class="fonte">Sem formalização. Aqui a assimetria também é entre investidores e o emissor/banco, mas o desconto é um <span class="destaque">pagamento</span>, não uma compensação pelo racionamento.</span></p>
+<p><span class="fonte">Benveniste e Spindt (1989) desenvolvem essa explicação.</span></p>
 </section></section>
 <section>
-<section id="ofertas-subsequentes-seo" class="title-slide slide level1 center">
-<h1>Ofertas subsequentes (SEO)</h1>
+<section id="ofertas-subsequentes-detalhes" class="title-slide slide level1 center">
+<h1>Ofertas subsequentes: detalhes</h1>
 
 </section>
 <section id="ofertas-posteriores" class="slide level2 smaller">
@@ -1679,47 +1763,12 @@ flowchart LR
 </ul>
 <p><span class="fonte">A mesma lógica vale para SEOs: o mercado desconta a emissão, e por isso o preço cai no anúncio.</span></p>
 <!-- PLANNING: sem modelo formal de SEO neste deck (por decisão do professor). Em 2014 e 2019 o modelo de Tirole (cap. 6, aplicação 2, variação: pooling e separação) foi dado: ver relatório. -->
-</section></section>
-<section>
-<section id="fecho" class="title-slide slide level1 center">
-<h1>Fecho</h1>
-
 </section>
-<section id="o-que-aprendemos" class="slide level2 smaller">
-<h2>O que aprendemos</h2>
-<ul>
-<li>Contratos de VC: preferência e senioridade decidem quem recebe o quê; o <em>post-money</em> engana</li>
-<li>No IPO, o preço é fixado pelo banco; há <span class="destaque"><em>underpricing</em></span> (média de 19% desde 1980 nos EUA)</li>
-<li>Tirole: o emissor bom pode <span class="destaque">deixar dinheiro na mesa</span> para se separar do ruim</li>
-<li>Maldição do vencedor (Rock): o desconto compensa o desinformado</li>
-<li>No SEO, o custo é menor e o preço cai no anúncio</li>
-</ul>
-</section>
-<section id="perguntas-em-aberto" class="slide level2 smaller">
-<h2>Perguntas em aberto</h2>
-<ul>
-<li>Se o desconto é só compensação, por que o <em>underpricing</em> é tão volátil no tempo (1999 vs.&nbsp;2023)?</li>
-<li>Por que o spread fica em 7%?</li>
-<li>Leilões e listagens diretas vão substituir o <em>book building</em>?</li>
-</ul>
-<p><span class="fonte">Assentado: <em>underpricing</em> existe e é grande em média. Em debate: qual explicação domina.</span></p>
-</section>
-<section id="encerramento-do-curso" class="slide level2 smaller">
-<h2>Encerramento do curso</h2>
-<!-- ADICIONADO: fechamento do arco completo do curso, movido do fim do deck de dividendos (este passou a ser o último deck de 2026.2). -->
-<p>O curso percorreu, do início ao fim, a mesma lógica:</p>
-<ul>
-<li><strong>Avaliação</strong>: títulos, ações, projetos — tudo é valor presente de fluxos de caixa</li>
-<li><strong>Risco</strong>: CAPM, APT — o preço do risco vem de covariância com o que é caro nos estados ruins</li>
-<li><strong>Financiamento</strong>: M-M mostra que, sem fricções, <span class="destaque">nada disso — dívida, dividendo — muda o valor</span></li>
-<li><strong>Fricções</strong>: impostos, falência, informação assimétrica, risco moral — é aí que as respostas do “mundo real” se afastam do <em>benchmark</em></li>
-</ul>
-</section>
-<section id="a-pergunta-que-fica" class="slide level2 center">
-<h2>A pergunta que fica</h2>
-<div class="r-fit-text">
-<p>Não é a fórmula que muda a resposta — é a <span class="destaque">fricção</span> que está por trás dela.</p>
-</div>
+<section id="onde-estudar" class="slide level2 center">
+<h2>Onde estudar</h2>
+<!-- ADICIONADO (16/11/2026): link para o guia de estudo único (guia/guia-estudo.qmd, publicado como guia-estudo.pdf). -->
+<p>O guia de estudo diz onde ler cada tópico desta aula: Berk e DeMarzo, Tirole ou artigos.</p>
+<p><span class="destaque"><a href="https://f-iachan.github.io/financas-graduacao/guia-estudo.pdf">Guia de estudo, Aula 17</a></span></p>
 
 </section></section>
     </div>
