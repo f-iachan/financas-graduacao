@@ -225,7 +225,7 @@ flowchart LR
 </section>
 <section id="solução-tir-bruta-e-tir-do-cotista" class="slide level2 smaller">
 <h2>Solução: TIR bruta e TIR do cotista</h2>
-<div id="1c0c1804" class="cell" data-execution_count="2">
+<div id="e4aac660" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -279,7 +279,7 @@ flowchart LR
 <h2>VC e IPO hoje</h2>
 <!-- PLANNING: a fonte (2019) traz aqui os gráficos 23.1 (VC nos EUA, 1995–2015) e 23.2 (LBO global) do Berk e DeMarzo, que não podem ser publicados. Substituí o 23.1 por série atual de Ritter (IPOs apoiados por VC). Não há substituto verificável para o 23.2 (volume global de LBO): ficou sem figura; pedir ao professor se quer. -->
 <!-- ADICIONADO: o gráfico do Berk e DeMarzo (VC e LBO, até 2015) foi substituído por dado atual de Jay Ritter (Tabela 4c, versão 18/06/2026), em dados/ipo/ritter_tabela4c_vc.csv -->
-<div id="5f81ab67" class="cell" data-execution_count="3">
+<div id="71061f5b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -295,7 +295,7 @@ flowchart LR
 <section id="rodadas-de-financiamento" class="slide level2 smaller">
 <h2>Rodadas de financiamento</h2>
 <p>Fundada em 1993 com US$ 1 milhão: 13.713.439 ações <em>Series A preferred</em>, a US$ 0,07.</p>
-<div id="01417d5d" class="cell" data-execution_count="4">
+<div id="78c4a5f7" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -367,8 +367,14 @@ flowchart LR
 <li><span class="destaque"><em>Pre-money</em></span>: valor das ações já existentes ao novo preço</li>
 <li><span class="destaque"><em>Post-money</em></span>: valor total da firma ao novo preço, depois do aporte</li>
 </ul>
-<p><span class="math display">\[\text{post-money} = \text{pre-money} + \text{novo capital}\]</span></p>
-<div id="237f6581" class="cell" data-execution_count="5">
+<!-- ADICIONADO (16/11/2026): segunda equação, a participação do novo investidor (Berk e DeMarzo 2024, Eqs. 23.1 e 23.2). -->
+<p><span class="math display">\[
+\begin{aligned}
+\text{post-money} &amp;= \text{pre-money} + \text{novo capital}\\
+\text{participação do novo investidor} &amp;= \frac{\text{novo capital}}{\text{post-money}}
+\end{aligned}
+\]</span></p>
+<div id="be6a7db6" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -406,7 +412,7 @@ flowchart LR
 </tr>
 <tr class="even">
 <td style="text-align: left;">Participação da Série B</td>
-<td style="text-align: left;">2.686.567 / 16.400.006</td>
+<td style="text-align: left;">captado / post-money</td>
 <td style="text-align: left;">16,4%</td>
 </tr>
 </tbody>
@@ -432,18 +438,22 @@ flowchart LR
 </section>
 <section id="os-termos-refletem-poder-de-barganha" class="slide level2 smaller">
 <h2>Os termos refletem poder de barganha</h2>
-<p>Startups do Vale do Silício, 2021:</p>
+<!-- ADICIONADO (16/11/2026): contexto para ler os números (o que cada porcentagem conta e as duas bases diferentes da participação); a última linha reescrita diz o mecanismo. -->
+<p>Startups do Vale do Silício, 2021: em que fração das rodadas o investidor novo conseguiu cada termo.</p>
 <ul>
-<li>Senioridade: 24% das rodadas em alta, <span class="destaque">mais de 50%</span> das rodadas em baixa</li>
-<li>Participação: cerca de 20% das rodadas; 40% das rodadas em baixa</li>
+<li>Senioridade sobre as séries antigas: 24% das rodadas em alta, <span class="destaque">mais de 50%</span> das rodadas em baixa</li>
+<li>Participação: cerca de 20% de todas as rodadas; 40% das rodadas em baixa</li>
 <li>Antidiluição: mais de 95% dos contratos</li>
-<li>Quando a firma vai mal, quem traz o dinheiro dita os termos</li>
+<li>Numa rodada em baixa a firma tem menos alternativas, e quem traz o dinheiro novo exige mais proteção</li>
 </ul>
-<p><span class="fonte">Wilson Sonsini (2021), via Berk e DeMarzo (2024), seção 23.1. Rodada em baixa (<em>down round</em>): preço por ação menor que o da rodada anterior.</span></p>
+<p><span class="fonte">Wilson Sonsini (2021), via Berk e DeMarzo (2024), seção 23.1. Rodada em alta (<em>up round</em>): preço por ação maior que o da rodada anterior; em baixa (<em>down round</em>): menor.</span></p>
+<!-- PLANNING: a amostra é a dos contratos de um escritório de advocacia, não o mercado todo. Pergunta para a turma: por que o fundador aceita 3× sênior? Para captar a um preço por ação maior e evitar a rodada em baixa; o preço maior paga a proteção. -->
 </section>
 <section id="exemplo-duas-rodadas-uma-venda" class="slide level2 smaller">
 <h2>Exemplo: duas rodadas, uma venda</h2>
-<div id="ae25c582" class="cell" data-execution_count="6">
+<!-- ADICIONADO (16/11/2026): frase de contexto com a regra de escolha de cada série e a explicação da diluição de A. -->
+<p>Uma startup fez duas rodadas e depois foi vendida. Na venda, cada série escolhe: recebe a preferência ou converte em ordinárias e recebe sua fração.</p>
+<div id="57680642" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -492,17 +502,17 @@ flowchart LR
 <li>A firma é vendida por <span class="math inline">\(V\)</span>. Quanto recebe cada um?</li>
 <li>A partir de que <span class="math inline">\(V\)</span> as ordinárias (fundadores e funcionários) recebem algo?</li>
 </ul>
-<p><span class="fonte">Berk e DeMarzo (2024), Exemplo 23.2. Sem direito de participação.</span></p>
+<p><span class="fonte">Berk e DeMarzo (2024), Exemplo 23.2. Sem direito de participação. A fração de A cai de 30% para 22,5% porque a Série B dilui todos os acionistas anteriores em 25%.</span></p>
 <!-- PLANNING: pedir o palpite antes de mostrar o gráfico. Resposta: 36 (30 de B + 6 de A). -->
 </section>
 <section id="a-cascata-de-pagamentos" class="slide level2 smaller">
 <h2>A cascata de pagamentos</h2>
-<div id="68705b55" class="cell" data-execution_count="7">
+<div id="48a9a631" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg"></p>
-<figcaption>Pagamento de cada série em função do preço de venda V (US$ mi), no exemplo anterior.</figcaption>
+<figcaption>Pagamento de cada série em função do preço de venda V (US$ mi), no exemplo anterior. Numa venda por 40, o post-money da Série B, B recebe 30, A recebe 6 e as ordinárias recebem 4, e não 52,5% × 40 = 21.</figcaption>
 </figure>
 </div>
 </div>
@@ -522,15 +532,17 @@ flowchart LR
 </section>
 <section id="unicórnio-o-post-money-engana" class="slide level2 smaller">
 <h2>Unicórnio? O <em>post-money</em> engana</h2>
-<p>Startup com 100 milhões de ações (última rodada a US$ 3) capta US$ 100 milhões:</p>
-<div id="c5d7e493" class="cell" data-execution_count="8">
+<!-- ADICIONADO (16/11/2026): contexto (o que é unicórnio, as duas propostas, como o post-money é calculado) e a venda por 400 nos dois casos. Contas conferidas: com 1×, o novo prefere a preferência (100) a converter (42,1); com 3×, 300 contra 36,4. -->
+<p><em>Unicórnio</em>: startup com <em>post-money</em> acima de US$ 1 bi. Uma startup com 100 milhões de ações (última rodada a US$ 3) quer captar US$ 100 milhões e recebe duas propostas:</p>
+<div id="465b474f" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 18%">
 <col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 21%">
-<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -538,6 +550,7 @@ flowchart LR
 <th style="text-align: left;">Preço por ação (US$)</th>
 <th style="text-align: left;">Ações novas (mi)</th>
 <th style="text-align: left;">Post-money (US$ mi)</th>
+<th style="text-align: left;">Venda por 400: novo / antigos</th>
 </tr>
 </thead>
 <tbody>
@@ -546,27 +559,31 @@ flowchart LR
 <td style="text-align: left;">8,50</td>
 <td style="text-align: left;">11,8</td>
 <td style="text-align: left;">950</td>
+<td style="text-align: left;">100 / 300</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">3×, sênior</td>
 <td style="text-align: left;">10,00</td>
 <td style="text-align: left;">10,0</td>
 <td style="text-align: left;">1.100</td>
+<td style="text-align: left;">300 / 100</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <ul>
+<li><em>Post-money</em> = preço da série nova × todas as ações, como se as antigas tivessem os mesmos direitos</li>
 <li>Mesma firma, mesmo caixa: o “valor” passa de US$ 1 bi porque o novo investidor <span class="destaque">comprou mais proteção</span></li>
-<li>Numa venda por US$ 400 mi com 3×: o novo leva 300; os antigos dividem 100</li>
+<li>Na venda por US$ 400 mi, o novo liquida nos dois casos: converter daria só 42 (1×) ou 36 (3×)</li>
+<li>Com 3× sênior, o novo leva 300 e os antigos dividem 100</li>
 </ul>
 <p><span class="fonte">Berk e DeMarzo (2024), quadro “Common Mistake”, seção 23.1. Gornall e Strebulaev (2020, <em>JFE</em>): o valor divulgado de unicórnios exagera o valor justo em mais de 50%, em média.</span></p>
 <!-- PLANNING: o slide do Facebook 2007 foi para o apêndice; se citar oralmente: lá também o "valor implícito" era post-money. -->
 </section>
 <section id="poucas-vencedoras-pagam-por-todas" class="slide level2 smaller">
 <h2>Poucas vencedoras pagam por todas</h2>
-<div id="cd3a9526" class="cell" data-execution_count="9">
+<div id="bcf1781e" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -656,7 +673,7 @@ flowchart LR
 <li>Isso ajuda o subscritor a vender as ações</li>
 <li>Acionistas parecem <span class="destaque">deixar dinheiro na mesa</span></li>
 </ul>
-<div id="3630768f" class="cell" data-execution_count="11">
+<div id="21c84508" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -670,7 +687,7 @@ flowchart LR
 </section>
 <section id="underpricing-no-mundo-e-no-brasil" class="slide level2 smaller">
 <h2><em>Underpricing</em> no mundo e no Brasil</h2>
-<div id="8f1b6292" class="cell" data-execution_count="12">
+<div id="dffcb080" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -749,7 +766,7 @@ flowchart LR
 </section>
 <section id="exemplo-numérico" class="slide level2 smaller">
 <h2>Exemplo numérico</h2>
-<div id="f397d7db" class="cell" data-execution_count="13">
+<div id="449387d9" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -820,8 +837,8 @@ flowchart LR
 <!-- PLANNING: sem modelo formal de SEO neste deck (por decisão do professor). Em 2014 e 2019 o modelo de Tirole (cap. 6, aplicação 2, variação: pooling e separação) foi dado: ver relatório. -->
 </section></section>
 <section>
-<section id="fecho" class="title-slide slide level1 center">
-<h1>Fecho</h1>
+<section id="conclusão" class="title-slide slide level1 center">
+<h1>Conclusão</h1>
 
 </section>
 <section id="o-que-aprendemos" class="slide level2 smaller">
@@ -967,7 +984,7 @@ flowchart LR
 </section>
 <section id="pre-e-post-em-cada-rodada" class="slide level2 smaller">
 <h2>Pre e post em cada rodada</h2>
-<div id="b865c436" class="cell" data-execution_count="14">
+<div id="e2b33316" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1121,7 +1138,7 @@ flowchart LR
 </section>
 <section id="o-caso-da-realnetworks" class="slide level2 smaller">
 <h2>O caso da RealNetworks</h2>
-<div id="e7749fca" class="cell" data-execution_count="15">
+<div id="aedf8db1" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1187,7 +1204,7 @@ flowchart LR
 </section>
 <section id="puzzle-2-emissão-em-ondas" class="slide level2 smaller">
 <h2>Puzzle 2: emissão em ondas</h2>
-<div id="a76df66d" class="cell" data-execution_count="17">
+<div id="1da60f24" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1197,7 +1214,7 @@ flowchart LR
 </div>
 </div>
 </div>
-<div id="95c6fba4" class="cell" data-execution_count="18">
+<div id="411edc94" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="destaque">IPOs vêm em ondas: o número despenca em 2001–03, 2008–09 e 2022–23. O <em>underpricing</em> só coincide em parte (1999–2000 e 2020–21 sim; 1983, 1993 e 1996 não).</span></p>
 <p><span class="fonte">Correlação anual entre número de IPOs e retorno médio: 0,20; sem 1999–2000, -0,05. A figura mostra emissões e retorno, não o ciclo de mercado. Fonte: Ritter, Tabela 1.</span></p>
@@ -1206,7 +1223,7 @@ flowchart LR
 </section>
 <section id="puzzle-3-a-regra-dos-7" class="slide level2 smaller">
 <h2>Puzzle 3: a regra dos 7%</h2>
-<div id="7a20966b" class="cell" data-execution_count="19">
+<div id="0461df01" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1250,7 +1267,7 @@ flowchart LR
 </section>
 <section id="puzzle-4-desempenho-de-longo-prazo" class="slide level2 smaller">
 <h2>Puzzle 4: desempenho de longo prazo</h2>
-<div id="c95f1315" class="cell" data-execution_count="20">
+<div id="976ddb55" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1330,7 +1347,7 @@ flowchart LR
 <section id="exemplo-o-cliente-da-thompson-brothers" class="slide level2 smaller">
 <h2>Exemplo: o cliente da Thompson Brothers</h2>
 <p>O banco garante ao cliente um pedido de 2.000 ações em todo IPO que coordena (preço médio US$ 15).</p>
-<div id="f1edfe67" class="cell" data-execution_count="21">
+<div id="edee2bbc" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1448,7 +1465,7 @@ flowchart LR
 </section>
 <section id="quando-o-desinformado-recebe-tudo-e-quando-é-racionado" class="slide level2 smaller">
 <h2>Quando o desinformado recebe tudo e quando é racionado</h2>
-<div id="66774bbe" class="cell" data-execution_count="22">
+<div id="3c6c73bc" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1485,7 +1502,7 @@ flowchart LR
 </section>
 <section id="visualizando-o-limiar" class="slide level2 smaller">
 <h2>Visualizando o limiar</h2>
-<div id="c52cb0db" class="cell" data-execution_count="23">
+<div id="4aa0d425" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1510,7 +1527,7 @@ flowchart LR
 <h2>Exemplo numérico: <span class="math inline">\(x\sim U[0,1]\)</span>, <span class="math inline">\(\alpha=0{,}5\)</span></h2>
 <p>Para a uniforme, <span class="math inline">\(\int_p^1 (x-p)\,dx=\dfrac{(1-p)^2}{2}\)</span>, e <span class="math inline">\(H(p)=0\)</span> vira</p>
 <p><span class="math display">\[\tfrac12-p-\tfrac{\alpha}{2}(1-p)^2=0 \;\Rightarrow\; p^2+2p-1=0 \;\Rightarrow\; p^*=\sqrt{2}-1\approx 0{,}414\]</span></p>
-<div id="a09af70f" class="cell" data-execution_count="24">
+<div id="4c2b6354" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1555,7 +1572,7 @@ flowchart LR
 </ul>
 <p>Como <span class="math inline">\(p^*=E[x]-\alpha I\)</span>, com <span class="math inline">\(I=\int_{p^*}^{\bar{x}}(x-p^*)f(x)\,dx\)</span>, as variações de preço se decompõem em</p>
 <p><span class="math display">\[P_1-p^*=\big(E[x\mid x&gt;p^*]-E[x]\big)+\alpha I&gt;0 \qquad P_2-p^*=\big(E[x\mid x&lt;p^*]-E[x]\big)+\alpha I\]</span></p>
-<div id="ec1a8cb9" class="cell" data-execution_count="25">
+<div id="fcdcecf9" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1611,7 +1628,7 @@ flowchart LR
 </section>
 <section id="estática-comparativa-alpha" class="slide level2 smaller">
 <h2>Estática comparativa: <span class="math inline">\(\alpha\)</span></h2>
-<div id="0b6bbce6" class="cell" data-execution_count="26">
+<div id="767c6ee0" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1624,7 +1641,7 @@ flowchart LR
 </section>
 <section id="mais-informados-mais-desconto" class="slide level2 smaller">
 <h2>Mais informados, mais desconto</h2>
-<div id="89a1b687" class="cell" data-execution_count="27">
+<div id="dcef8d74" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1672,7 +1689,7 @@ flowchart LR
 </section>
 <section id="estática-comparativa-dispersão-do-valor" class="slide level2 smaller">
 <h2>Estática comparativa: dispersão do valor</h2>
-<div id="553f22a0" class="cell" data-execution_count="28">
+<div id="eb500b35" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
