@@ -225,7 +225,7 @@ flowchart LR
 </section>
 <section id="solução-tir-bruta-e-tir-do-cotista" class="slide level2 smaller">
 <h2>Solução: TIR bruta e TIR do cotista</h2>
-<div id="e4aac660" class="cell" data-execution_count="2">
+<div id="b563c2dd" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -279,7 +279,7 @@ flowchart LR
 <h2>VC e IPO hoje</h2>
 <!-- PLANNING: a fonte (2019) traz aqui os gráficos 23.1 (VC nos EUA, 1995–2015) e 23.2 (LBO global) do Berk e DeMarzo, que não podem ser publicados. Substituí o 23.1 por série atual de Ritter (IPOs apoiados por VC). Não há substituto verificável para o 23.2 (volume global de LBO): ficou sem figura; pedir ao professor se quer. -->
 <!-- ADICIONADO: o gráfico do Berk e DeMarzo (VC e LBO, até 2015) foi substituído por dado atual de Jay Ritter (Tabela 4c, versão 18/06/2026), em dados/ipo/ritter_tabela4c_vc.csv -->
-<div id="71061f5b" class="cell" data-execution_count="3">
+<div id="72bbcbf2" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -295,7 +295,7 @@ flowchart LR
 <section id="rodadas-de-financiamento" class="slide level2 smaller">
 <h2>Rodadas de financiamento</h2>
 <p>Fundada em 1993 com US$ 1 milhão: 13.713.439 ações <em>Series A preferred</em>, a US$ 0,07.</p>
-<div id="78c4a5f7" class="cell" data-execution_count="4">
+<div id="b59f6301" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -374,7 +374,7 @@ flowchart LR
 \text{participação do novo investidor} &amp;= \frac{\text{novo capital}}{\text{post-money}}
 \end{aligned}
 \]</span></p>
-<div id="be6a7db6" class="cell" data-execution_count="5">
+<div id="b7f14478" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -453,7 +453,7 @@ flowchart LR
 <h2>Exemplo: duas rodadas, uma venda</h2>
 <!-- ADICIONADO (16/11/2026): frase de contexto com a regra de escolha de cada série e a explicação da diluição de A. -->
 <p>Uma startup fez duas rodadas e depois foi vendida. Na venda, cada série escolhe: recebe a preferência ou converte em ordinárias e recebe sua fração.</p>
-<div id="57680642" class="cell" data-execution_count="6">
+<div id="9d33ef43" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -507,16 +507,271 @@ flowchart LR
 </section>
 <section id="a-cascata-de-pagamentos" class="slide level2 smaller">
 <h2>A cascata de pagamentos</h2>
-<div id="48a9a631" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg"></p>
-<figcaption>Pagamento de cada série em função do preço de venda V (US$ mi), no exemplo anterior. Numa venda por 40, o post-money da Série B, B recebe 30, A recebe 6 e as ordinárias recebem 4, e não 52,5% × 40 = 21.</figcaption>
-</figure>
+<!-- ADICIONADO (16/11/2026): artefato a17cas, no lugar do gráfico estático (matplotlib) da cascata, a pedido do professor. Auditado com GPT Sol (xhigh) em 16/11/2026: empates em V = 50 (A) e V = 120 (B) explicitados (a série mantém a preferência), swipe e teclado isolados, modo de impressão do Quarto (?view=print), soma arredondada com ≈. Slider com o preço de venda V; para B e A, o ponto cheio é a opção
+     escolhida (liquidar a preferência ou converter) e o ponto vazio é o que a série receberia com a outra opção,
+     dada a escolha da outra série. No PDF (decktape, fragments:false), ?print-pdf e Ctrl+P, vira uma tabela de
+     quadros fixos em V = 20, 33, 45, 80 e 140, com o gráfico em V = 40. -->
+<!-- PLANNING: começar em V = 40 (o post-money da Série B) e perguntar quanto recebem os fundadores. Depois levar V
+     a 50 (A passa a converter) e a 120 (B passa a converter). -->
+<style>
+.a17cas{ --c-b:#d97757; --c-a:#6a9bcc; --c-c:#788c5d; --c-tinta:#141413; --c-cinza:#5f5e5a; --c-linha:#e8e6dc; --c-papel:#faf9f5;
+  width:100%; max-width:1200px; margin:0 auto; color:var(--c-tinta); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3; }
+.a17cas *{box-sizing:border-box;}
+.a17cas-controls{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:6px 20px; padding:6px 14px;
+  border:1px solid var(--c-linha); border-radius:10px; background:var(--c-papel);}
+.a17cas-controls label{display:flex; justify-content:space-between; gap:10px; color:var(--c-cinza); font-size:13px; font-weight:600;}
+.a17cas-controls output{color:var(--c-tinta); font-weight:700; font-variant-numeric:tabular-nums;}
+.a17cas-controls input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--c-b); cursor:pointer;}
+.a17cas-reset{font:inherit; font-size:13px; font-weight:600; color:var(--c-cinza); background:#fff;
+  border:1px solid var(--c-linha); border-radius:8px; padding:4px 10px; cursor:pointer;}
+.a17cas-main{display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,1fr); gap:14px; align-items:start; margin-top:8px;}
+.a17cas svg{display:block; width:100%; height:auto;}
+.a17cas-cards{display:flex; flex-direction:column; gap:7px;}
+.a17cas-card{border:1px solid var(--c-linha); border-left:5px solid var(--cor); border-radius:8px; padding:6px 10px; background:#fff;}
+.a17cas-card .hd{font-size:13px; font-weight:700; color:var(--cor);}
+.a17cas-card .opts{display:flex; gap:8px; margin-top:4px;}
+.a17cas-card .opt{flex:1; font-size:14px; padding:3px 7px; border-radius:6px; color:#9a988f; border:1px dashed #d6d3c8;
+  font-variant-numeric:tabular-nums;}
+.a17cas-card .opt.escolhida{color:var(--c-tinta); border:1.5px solid var(--cor); background:var(--c-papel); font-weight:600;}
+.a17cas-card .opt b{font-size:16px;}
+.a17cas-card .why{font-size:12.5px; color:var(--c-cinza); margin-top:3px; font-variant-numeric:tabular-nums;}
+.a17cas-total{font-size:12.5px; color:var(--c-cinza); text-align:right; font-variant-numeric:tabular-nums;}
+.a17cas-cap{font-size:16px; line-height:1.35; min-height:2.7em; margin-top:6px;}
+.reveal .a17cas-cap p{font-family:inherit; margin:0;}
+.a17cas-estatico{display:none;}
+.a17cas.impressao .a17cas-controls{display:none;}
+.a17cas.impressao .a17cas-estatico{display:block; margin-top:4px;}
+.a17cas.impressao .a17cas-cap{display:none;}
+.a17cas-estatico table{width:100%; border-collapse:collapse; font-size:12.5px; font-variant-numeric:tabular-nums;}
+.a17cas-estatico th, .a17cas-estatico td{padding:2px 6px; border-bottom:1px solid var(--c-linha); text-align:left;}
+.a17cas-estatico th{color:var(--c-cinza); font-weight:600;}
+</style>
+
+<div class="a17cas" id="a17cas-root" data-artefato="a17-cascata" data-pdf-check="Quadros fixos: V = 20, 33, 45, 80 e 140">
+  <div class="a17cas-controls" id="a17cas-controls" data-prevent-swipe="">
+    <div>
+      <label for="a17cas-v"><span>V: preço de venda da firma (US$ mi)</span><output id="a17cas-lbl">40</output></label>
+      <input type="range" id="a17cas-v" min="0" max="160" step="1" value="40">
+    </div>
+    <button type="button" class="a17cas-reset" id="a17cas-reset">V = 40</button>
+  </div>
+  <div class="a17cas-main">
+    <svg id="a17cas-svg" viewbox="0 0 640 400" role="img" aria-label="Pagamento de cada série em função do preço de venda V, com pontos na posição atual do slider: cheio para a opção escolhida, vazio para a alternativa"></svg>
+    <div>
+      <div class="a17cas-cards" id="a17cas-cards"></div>
+      <div class="a17cas-total" id="a17cas-total"></div>
+    </div>
+  </div>
+  <div class="a17cas-cap" id="a17cas-cap" aria-live="polite"></div>
+  <div class="a17cas-estatico" id="a17cas-estatico"></div>
 </div>
-</div>
-</div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById("a17cas-root");
+  if (!root) return;
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {b:"#d97757", a:"#6a9bcc", c:"#788c5d", tinta:"#141413", cinza:"#5f5e5a", cinzaClaro:"#b0aea5", fundo:"#faf9f5", grade:"#ece9e0"};
+  function fmt(x, casas){ casas = casas === undefined ? 1 : casas; if (Math.abs(x) < 5e-9) x = 0;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits:casas, maximumFractionDigits:casas}).replace("-", "−"); }
+  function el(tag, at, pai){ var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, s, at){ var a = {x:x, y:y, fill:C.tinta, "font-size":15}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.textContent = s; return e; }
+  function set(e, at){ for (var k in at) e.setAttribute(k, at[k]); }
+
+  // MODELO-INICIO --- Berk e DeMarzo (2024), Ex. 23.2; mesma regra do setup do deck 17.
+  var PREF_B = 30, PREF_A = 6, FRAC_B = 10/40, FRAC_A = (6/20)*(1 - FRAC_B), FRAC_C = 1 - FRAC_B - FRAC_A;
+  function cascata(V, ca, cb){                 // pagamentos [B, A, ordinárias], dado quem converte
+    var resto = V, pb = 0, pa = 0;
+    if (!cb){ pb = Math.min(resto, PREF_B); resto -= pb; }
+    if (!ca){ pa = Math.min(resto, PREF_A); resto -= pa; }
+    var wb = cb ? FRAC_B : 0, wa = ca ? FRAC_A : 0, tot = wb + wa + FRAC_C;
+    return [pb + resto*wb/tot, pa + resto*wa/tot, resto*FRAC_C/tot];
+  }
+  function equilibrio(V){                      // cada série converte só se isso a beneficia, dada a escolha da outra
+    var ordem = [[false, false], [true, false], [false, true], [true, true]];   // mesma ordem do Python: cb externo, ca interno
+    for (var i = 0; i < ordem.length; i++){
+      var ca = ordem[i][0], cb = ordem[i][1], p = cascata(V, ca, cb);
+      if (p[0] >= cascata(V, ca, !cb)[0] - 1e-9 && p[1] >= cascata(V, !ca, cb)[1] - 1e-9)
+        return {ca:ca, cb:cb, p:p, altB:cascata(V, ca, !cb)[0], altA:cascata(V, !ca, cb)[1]};
+    }
+    throw new Error("sem equilíbrio em V = " + V);
+  }
+  function formula(V){                         // forma fechada por trechos (conferência)
+    if (V <= 30) return [V, 0, 0];
+    if (V <= 36) return [30, V - 30, 0];
+    if (V <= 50) return [30, 6, V - 36];
+    if (V <= 120) return [30, 0.3*(V - 30), 0.7*(V - 30)];
+    return [FRAC_B*V, FRAC_A*V, FRAC_C*V];
+  }
+  // MODELO-FIM
+
+  // --- gráfico: V em [0, 160], pagamento em [0, 90]
+  var X0 = 58, X1 = 622, Y0 = 66, Y1 = 352, VMAX = 160, PMAX = 90;
+  function sx(v){ return X0 + (X1 - X0)*v/VMAX; }
+  function sy(p){ return Y1 - (Y1 - Y0)*p/PMAX; }
+  var svg = document.getElementById("a17cas-svg");
+  var SER = [
+    {k:"b", i:0, nome:"Série B", cor:C.b},
+    {k:"a", i:1, nome:"Série A", cor:C.a},
+    {k:"c", i:2, nome:"Ordinárias", cor:C.c}
+  ];
+  var linhaV, rotV;
+  (function init(){
+    [0, 30, 60, 90].forEach(function(p){
+      el("line", {x1:X0, x2:X1, y1:sy(p), y2:sy(p), stroke:p === 0 ? C.cinza : C.grade, "stroke-width":p === 0 ? 1.3 : 1}, svg);
+      tx(svg, X0 - 8, sy(p) + 5, fmt(p, 0), {"text-anchor":"end", "font-size":13, fill:C.cinza});
+    });
+    [0, 30, 36, 50, 80, 120, 160].forEach(function(v){
+      el("line", {x1:sx(v), x2:sx(v), y1:Y1, y2:Y1 + 5, stroke:C.cinza}, svg);
+      tx(svg, sx(v), Y1 + 21, fmt(v, 0), {"text-anchor":"middle", "font-size":13, fill:C.cinza});
+      if (v === 30 || v === 36 || v === 50 || v === 120)
+        el("line", {x1:sx(v), x2:sx(v), y1:Y0, y2:Y1, stroke:C.cinzaClaro, "stroke-width":1, "stroke-dasharray":"2 4"}, svg);
+    });
+    tx(svg, (X0 + X1)/2, Y1 + 44, "preço de venda da firma, V (US$ mi)", {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    var yl = tx(svg, 16, (Y0 + Y1)/2, "pagamento (US$ mi)", {"text-anchor":"middle", "font-size":14, fill:C.cinza});
+    yl.setAttribute("transform", "rotate(-90 16 " + (Y0 + Y1)/2 + ")");
+    SER.forEach(function(s){
+      var d = "";
+      for (var j = 0; j <= 320; j++){ var v = VMAX*j/320; d += (j ? "L" : "M") + sx(v).toFixed(1) + " " + sy(equilibrio(v).p[s.i]).toFixed(1); }
+      el("path", {d:d, fill:"none", stroke:s.cor, "stroke-width":2.2, opacity:.35}, svg);
+    });
+    // legenda acima do gráfico, em duas linhas
+    var LX = [X0, X0 + 205, X0 + 355];
+    SER.forEach(function(s, j){
+      el("line", {x1:LX[j], x2:LX[j] + 22, y1:12, y2:12, stroke:s.cor, "stroke-width":3}, svg);
+      tx(svg, LX[j] + 28, 17, s.nome + (s.k === "b" ? " (3×, sênior)" : s.k === "a" ? " (1×)" : ""), {"font-size":13});
+    });
+    el("circle", {cx:X0 + 8, cy:36, r:6, fill:C.cinza}, svg);
+    tx(svg, X0 + 20, 41, "opção escolhida", {"font-size":12.5, fill:C.cinza});
+    el("circle", {cx:X0 + 140, cy:36, r:5.5, fill:C.fundo, stroke:C.cinza, "stroke-width":1.8, "stroke-dasharray":"3 2"}, svg);
+    tx(svg, X0 + 152, 41, "o que receberia com a outra opção (dada a escolha da outra série)", {"font-size":12.5, fill:C.cinza});
+    linhaV = el("line", {y1:Y0, y2:Y1, stroke:C.tinta, "stroke-width":1.4, opacity:.55}, svg);
+    rotV = tx(svg, 0, Y0 - 4, "", {"text-anchor":"middle", "font-size":13, "font-weight":700});
+    SER.forEach(function(s){
+      if (s.k !== "c") s.alt = el("circle", {r:6.5, fill:C.fundo, stroke:s.cor, "stroke-width":2, "stroke-dasharray":"3 2"}, svg);
+      s.dot = el("circle", {r:8, fill:s.cor, stroke:C.fundo, "stroke-width":2}, svg);
+    });
+  })();
+
+  var cards = document.getElementById("a17cas-cards"), total = document.getElementById("a17cas-total");
+  var cap = document.getElementById("a17cas-cap");
+
+  function cartaoSerie(cor, titulo, liq, rotLiq, conv, converte, porque){
+    return '<div class="a17cas-card" style="--cor:' + cor + '"><div class="hd">' + titulo + '</div><div class="opts">' +
+      '<span class="opt' + (converte ? '' : ' escolhida') + '">' + rotLiq + ': <b>' + fmt(liq) + '</b></span>' +
+      '<span class="opt' + (converte ? ' escolhida' : '') + '">converte: <b>' + fmt(conv) + '</b></span></div>' +
+      '<div class="why">' + porque + '</div></div>';
+  }
+  // Empate entre as duas opções: a série mantém a preferência (mesma convenção do equilíbrio do setup).
+  function razaoB(V, e, liq, conv){
+    var forma = e.ca ? "25% de V" : "25/77,5 do que sobra depois dos 6 de A";     // B convertida, dada a escolha de A
+    if (V <= 0) return "venda nula: as duas opções pagam zero";
+    if (Math.abs(liq - conv) < 1e-9) return "empate: as duas opções pagam " + fmt(liq) + "; mantém a preferência";
+    if (e.cb) return "converte: " + forma + " supera os 30 da preferência";
+    if (V < 30) return "liquida: a venda inteira não chega aos 30; convertida, receberia " + forma;
+    return "liquida: a preferência supera o que receberia convertida (" + forma + ")";
+  }
+  function razaoA(V, e, liq, conv){
+    var base = e.cb ? "22,5% de V" : "30% do que sobra depois de B";
+    if (V <= 30) return "B leva toda a venda: as duas opções pagam zero";
+    if (Math.abs(liq - conv) < 1e-9) return "empate: as duas opções pagam " + fmt(liq) + "; mantém a preferência";
+    if (e.ca) return "converte: " + base + " supera os 6 da preferência";
+    if (V <= 36) return "liquida: leva tudo o que sobra depois de B; convertida, levaria só 30% disso";
+    return "liquida: convertida, receberia " + base;
+  }
+  function cartoes(V, e){
+    var liqB = e.cb ? e.altB : e.p[0], convB = e.cb ? e.p[0] : e.altB;
+    var liqA = e.ca ? e.altA : e.p[1], convA = e.ca ? e.p[1] : e.altA;
+    var h = cartaoSerie(C.b, "Série B · preferência 3× = 30 · sênior", liqB, "liquida (3×)", convB, e.cb, razaoB(V, e, liqB, convB));
+    h += cartaoSerie(C.a, "Série A · preferência 1× = 6", liqA, "liquida (1×)", convA, e.ca, razaoA(V, e, liqA, convA));
+    var papel = FRAC_C*V;
+    h += '<div class="a17cas-card" style="--cor:' + C.c + '"><div class="hd">Ordinárias · fundadores e funcionários</div>' +
+      '<div class="opts"><span class="opt escolhida">recebem o resto: <b>' + fmt(e.p[2]) + '</b></span>' +
+      '<span class="opt">no papel, 52,5% de V: <b>' + fmt(papel) + '</b></span></div>' +
+      '<div class="why">' + (e.p[2] < 1e-9 ? "nada: as preferências consomem toda a venda" : e.cb ? "todos convertem: cada um recebe a sua fração" : e.ca ? "dividem com A o que sobra depois dos 30 de B: 70% para as ordinárias" : "recebem o que sobra depois das preferências (30 + 6 = 36)") + '</div></div>';
+    return h;
+  }
+  function legenda(V, e){
+    if (V <= 30) return "<p>Até 30, toda a venda paga a preferência de B (3 × 10). A e as ordinárias não recebem nada.</p>";
+    if (V <= 36) return "<p>B já tem os seus 30. De 30 a 36, o que sobra completa a preferência de A (6). As ordinárias ainda recebem zero.</p>";
+    if (V <= 50) return "<p>As preferências somam 36; acima disso as ordinárias recebem o resto. A ainda liquida: convertida, receberia 30% de (V − 30) = " + fmt(0.3*(V - 30)) + ", que não supera 6.</p>";
+    if (V <= 120) return "<p>Acima de 50, A converte: 30% do que sobra depois de B supera 6. B continua liquidando: 25% de V = " + fmt(0.25*V) + " não supera 30.</p>";
+    return "<p>Acima de 120, B também converte: 25% de V supera 30. Todos recebem a sua fração: 25%, 22,5% e 52,5%.</p>";
+  }
+  function desenha(V){
+    var e = equilibrio(V);
+    set(linhaV, {x1:sx(V), x2:sx(V)});
+    set(rotV, {x:sx(V)}); rotV.textContent = "V = " + fmt(V, 0);
+    SER.forEach(function(s){
+      set(s.dot, {cx:sx(V), cy:sy(e.p[s.i])});
+      if (s.alt){
+        var alt = s.k === "b" ? e.altB : e.altA, mesma = Math.abs(alt - e.p[s.i]) < 1e-6;
+        set(s.alt, {cx:sx(V), cy:sy(alt), opacity:mesma ? 0 : 1});
+      }
+    });
+    cards.innerHTML = cartoes(V, e);
+    var r1 = e.p.map(function(x){ return Math.round(10*x)/10; }), fecha = Math.abs(r1[0] + r1[1] + r1[2] - V) < 1e-6;
+    total.textContent = "B + A + ordinárias = " + fmt(e.p[0]) + " + " + fmt(e.p[1]) + " + " + fmt(e.p[2]) + (fecha ? " = " : " ≈ ") + fmt(V);
+    return e;
+  }
+
+  var inV = document.getElementById("a17cas-v"), lbV = document.getElementById("a17cas-lbl");
+  function livre(){ var V = +inV.value; lbV.textContent = fmt(V, 0); var e = desenha(V); cap.innerHTML = legenda(V, e); }
+  inV.addEventListener("input", livre);
+  // teclado: setas no slider e Espaço/Enter no botão não chegam ao reveal.js
+  document.getElementById("a17cas-controls").addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  document.getElementById("a17cas-reset").addEventListener("click", function(){ inV.value = 40; livre(); });
+
+  var QUADROS = [20, 33, 45, 80, 140];
+  function tabelaImpressao(){
+    var h = "<p style=\"font-size:13px;color:#5f5e5a;margin:0 0 2px\">Quadros fixos: V = 20, 33, 45, 80 e 140 (o gráfico mostra V = 40).</p>" +
+      "<table><tr><th>V</th><th>Série B</th><th>Série A</th><th>Ordinárias</th></tr>";
+    QUADROS.forEach(function(V){
+      var e = equilibrio(V);
+      h += "<tr><td>" + fmt(V, 0) + "</td><td>" + (e.cb ? "converte" : "liquida") + ": " + fmt(e.p[0]) + " (outra: " + fmt(e.altB) + ")</td><td>" +
+        (e.ca ? "converte" : "liquida") + ": " + fmt(e.p[1]) + " (outra: " + fmt(e.altA) + ")</td><td>" + fmt(e.p[2]) + "</td></tr>";
+    });
+    return h + "</table>";
+  }
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao|view=print)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && typeof Reveal.isPrintView === "function" && Reveal.isPrintView()) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (err) {}
+    return false;
+  }
+  function modoImpressao(){ root.classList.add("impressao"); desenha(40); document.getElementById("a17cas-estatico").innerHTML = tabelaImpressao(); }
+  function modoSala(){ root.classList.remove("impressao"); livre(); }
+  function sincroniza(){ if (emImpressao()) modoImpressao(); else modoSala(); }
+  window.addEventListener("beforeprint", modoImpressao);
+  window.addEventListener("afterprint", sincroniza);
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+    sincroniza();
+  });
+  root.a17cas = {equilibrio:equilibrio, formula:formula};
+
+  (function autoteste(){
+    var f = [];
+    for (var V = 0; V <= 200; V += 0.25){
+      var e = equilibrio(V), g = formula(V);
+      for (var i = 0; i < 3; i++) if (Math.abs(e.p[i] - g[i]) > 1e-9) f.push("V = " + V + ", série " + i + ": " + e.p[i] + " != " + g[i]);
+      if (Math.abs(e.p[0] + e.p[1] + e.p[2] - V) > 1e-9) f.push("soma != V em " + V);
+      if (e.p[0] < e.altB - 1e-9 || e.p[1] < e.altA - 1e-9) f.push("escolha pior que a alternativa em V = " + V);
+    }
+    var l = equilibrio(120).p; if (Math.abs(l[0] - 30) > 1e-9 || Math.abs(l[1] - 27) > 1e-9 || Math.abs(l[2] - 63) > 1e-9) f.push("V = 120 não bate com o livro (30, 27, 63)");
+    var q = equilibrio(40).p; if (Math.abs(q[2] - 4) > 1e-9) f.push("V = 40: ordinárias deveriam receber 4");
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+    if (f.length) console.error("Autoteste (Aula 17, cascata) FALHOU:\n" + f.slice(0, 10).join("\n"));
+  })();
+
+  sincroniza();
+})();
+</script>
 </section>
 <section id="lendo-a-cascata" class="slide level2 smaller">
 <h2>Lendo a cascata</h2>
@@ -525,7 +780,7 @@ flowchart LR
 <li>Ordinárias só recebem acima de <span class="destaque">36</span></li>
 <li>A converte acima de 50, quando 30% do que sobra após B supera 6</li>
 <li>B só converte acima de 120, quando 25% de <span class="math inline">\(V\)</span> supera 30</li>
-<li>O pagamento das ordinárias tem a forma de uma <span class="destaque">opção de compra</span> sobre <span class="math inline">\(V\)</span></li>
+<li>O pagamento das ordinárias é uma <span class="destaque">carteira de opções de compra</span> sobre <span class="math inline">\(V\)</span>: começa em 36, e a inclinação cai em 50 e em 120</li>
 </ul>
 <p><span class="fonte">Berk e DeMarzo (2024), Ex. 23.2: em <span class="math inline">\(V=120\)</span>, B recebe 30, A 27 e as ordinárias 63. O limiar de 50 para A é conta nossa: <span class="math inline">\(0{,}3(V-30)&gt;6\)</span>.</span></p>
 <!-- ADICIONADO: o livro só pergunta os limiares 36 e 120. O limiar de conversão de A (V = 50) e o gráfico completo saem do equilíbrio de conversão calculado no setup (cada série converte se isso a beneficia, dada a escolha da outra), conferido com a forma fechada por trechos. -->
@@ -534,7 +789,7 @@ flowchart LR
 <h2>Unicórnio? O <em>post-money</em> engana</h2>
 <!-- ADICIONADO (16/11/2026): contexto (o que é unicórnio, as duas propostas, como o post-money é calculado) e a venda por 400 nos dois casos. Contas conferidas: com 1×, o novo prefere a preferência (100) a converter (42,1); com 3×, 300 contra 36,4. -->
 <p><em>Unicórnio</em>: startup com <em>post-money</em> acima de US$ 1 bi. Uma startup com 100 milhões de ações (última rodada a US$ 3) quer captar US$ 100 milhões e recebe duas propostas:</p>
-<div id="465b474f" class="cell" data-execution_count="8">
+<div id="919f0be0" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -583,11 +838,11 @@ flowchart LR
 </section>
 <section id="poucas-vencedoras-pagam-por-todas" class="slide level2 smaller">
 <h2>Poucas vencedoras pagam por todas</h2>
-<div id="bcf1781e" class="cell" data-execution_count="9">
+<div id="ae55aff1" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-10-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-9-output-1.svg"></p>
 <figcaption>Trajetória ilustrativa: de 100 startups com capital semente, quantas chegam a cada etapa.</figcaption>
 </figure>
 </div>
@@ -673,11 +928,11 @@ flowchart LR
 <li>Isso ajuda o subscritor a vender as ações</li>
 <li>Acionistas parecem <span class="destaque">deixar dinheiro na mesa</span></li>
 </ul>
-<div id="21c84508" class="cell" data-execution_count="11">
+<div id="be909706" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-12-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-11-output-1.svg"></p>
 <figcaption>Retorno médio no 1º dia dos IPOs nos EUA, por ano de emissão, e dinheiro deixado na mesa. Fonte: Jay Ritter, Tabela 1 (versão de 13/07/2026), acessada em 04/11/2026.</figcaption>
 </figure>
 </div>
@@ -687,11 +942,11 @@ flowchart LR
 </section>
 <section id="underpricing-no-mundo-e-no-brasil" class="slide level2 smaller">
 <h2><em>Underpricing</em> no mundo e no Brasil</h2>
-<div id="dffcb080" class="cell" data-execution_count="12">
+<div id="49357825" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-13-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-12-output-1.svg"></p>
 <figcaption>Retorno inicial médio (peso igual) em países com 300 ou mais IPOs. Fonte: Loughran, Ritter e Rydqvist (1994), atualizada por Jay Ritter em 30/03/2026.</figcaption>
 </figure>
 </div>
@@ -766,7 +1021,7 @@ flowchart LR
 </section>
 <section id="exemplo-numérico" class="slide level2 smaller">
 <h2>Exemplo numérico</h2>
-<div id="449387d9" class="cell" data-execution_count="13">
+<div id="4fea30e7" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -984,7 +1239,7 @@ flowchart LR
 </section>
 <section id="pre-e-post-em-cada-rodada" class="slide level2 smaller">
 <h2>Pre e post em cada rodada</h2>
-<div id="e2b33316" class="cell" data-execution_count="14">
+<div id="58835638" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1138,11 +1393,11 @@ flowchart LR
 </section>
 <section id="o-caso-da-realnetworks" class="slide level2 smaller">
 <h2>O caso da RealNetworks</h2>
-<div id="aedf8db1" class="cell" data-execution_count="15">
+<div id="e324fc2f" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-16-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-15-output-1.svg"></p>
 </figure>
 </div>
 </div>
@@ -1204,17 +1459,17 @@ flowchart LR
 </section>
 <section id="puzzle-2-emissão-em-ondas" class="slide level2 smaller">
 <h2>Puzzle 2: emissão em ondas</h2>
-<div id="1da60f24" class="cell" data-execution_count="17">
+<div id="cf44c6bd" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-18-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-17-output-1.svg"></p>
 <figcaption>Número de IPOs (barras) e retorno médio no 1º dia (linha), EUA, 1980–2025. Fonte: Jay Ritter, Tabela 1 (13/07/2026).</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="411edc94" class="cell" data-execution_count="18">
+<div id="584f4141" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="destaque">IPOs vêm em ondas: o número despenca em 2001–03, 2008–09 e 2022–23. O <em>underpricing</em> só coincide em parte (1999–2000 e 2020–21 sim; 1983, 1993 e 1996 não).</span></p>
 <p><span class="fonte">Correlação anual entre número de IPOs e retorno médio: 0,20; sem 1999–2000, -0,05. A figura mostra emissões e retorno, não o ciclo de mercado. Fonte: Ritter, Tabela 1.</span></p>
@@ -1223,7 +1478,7 @@ flowchart LR
 </section>
 <section id="puzzle-3-a-regra-dos-7" class="slide level2 smaller">
 <h2>Puzzle 3: a regra dos 7%</h2>
-<div id="0461df01" class="cell" data-execution_count="19">
+<div id="79391c40" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1267,11 +1522,11 @@ flowchart LR
 </section>
 <section id="puzzle-4-desempenho-de-longo-prazo" class="slide level2 smaller">
 <h2>Puzzle 4: desempenho de longo prazo</h2>
-<div id="976ddb55" class="cell" data-execution_count="20">
+<div id="79718d38" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-21-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-20-output-1.svg"></p>
 <figcaption>Retorno de 3 anos (a partir do 1º fechamento), em %, de IPOs dos EUA por período. Fonte: Jay Ritter, Tabela 19 (atualizada em 16/02/2026).</figcaption>
 </figure>
 </div>
@@ -1347,7 +1602,7 @@ flowchart LR
 <section id="exemplo-o-cliente-da-thompson-brothers" class="slide level2 smaller">
 <h2>Exemplo: o cliente da Thompson Brothers</h2>
 <p>O banco garante ao cliente um pedido de 2.000 ações em todo IPO que coordena (preço médio US$ 15).</p>
-<div id="edee2bbc" class="cell" data-execution_count="21">
+<div id="6084c76e" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1465,11 +1720,11 @@ flowchart LR
 </section>
 <section id="quando-o-desinformado-recebe-tudo-e-quando-é-racionado" class="slide level2 smaller">
 <h2>Quando o desinformado recebe tudo e quando é racionado</h2>
-<div id="3c6c73bc" class="cell" data-execution_count="22">
+<div id="e329f901" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-23-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-22-output-1.svg"></p>
 <figcaption>Exemplo: x uniforme em [0, 1], α = 0,5, p = p* = √2 − 1 ≈ 0,414.</figcaption>
 </figure>
 </div>
@@ -1502,11 +1757,11 @@ flowchart LR
 </section>
 <section id="visualizando-o-limiar" class="slide level2 smaller">
 <h2>Visualizando o limiar</h2>
-<div id="4aa0d425" class="cell" data-execution_count="23">
+<div id="f7e4f246" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-24-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-23-output-1.svg"></p>
 <figcaption>H(p) para x uniforme em [0,1]: o desinformado participa (H ≥ 0) para p ≤ p*.</figcaption>
 </figure>
 </div>
@@ -1527,7 +1782,7 @@ flowchart LR
 <h2>Exemplo numérico: <span class="math inline">\(x\sim U[0,1]\)</span>, <span class="math inline">\(\alpha=0{,}5\)</span></h2>
 <p>Para a uniforme, <span class="math inline">\(\int_p^1 (x-p)\,dx=\dfrac{(1-p)^2}{2}\)</span>, e <span class="math inline">\(H(p)=0\)</span> vira</p>
 <p><span class="math display">\[\tfrac12-p-\tfrac{\alpha}{2}(1-p)^2=0 \;\Rightarrow\; p^2+2p-1=0 \;\Rightarrow\; p^*=\sqrt{2}-1\approx 0{,}414\]</span></p>
-<div id="4c2b6354" class="cell" data-execution_count="24">
+<div id="63d33258" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1572,7 +1827,7 @@ flowchart LR
 </ul>
 <p>Como <span class="math inline">\(p^*=E[x]-\alpha I\)</span>, com <span class="math inline">\(I=\int_{p^*}^{\bar{x}}(x-p^*)f(x)\,dx\)</span>, as variações de preço se decompõem em</p>
 <p><span class="math display">\[P_1-p^*=\big(E[x\mid x&gt;p^*]-E[x]\big)+\alpha I&gt;0 \qquad P_2-p^*=\big(E[x\mid x&lt;p^*]-E[x]\big)+\alpha I\]</span></p>
-<div id="fcdcecf9" class="cell" data-execution_count="25">
+<div id="44406203" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <colgroup>
@@ -1628,11 +1883,11 @@ flowchart LR
 </section>
 <section id="estática-comparativa-alpha" class="slide level2 smaller">
 <h2>Estática comparativa: <span class="math inline">\(\alpha\)</span></h2>
-<div id="767c6ee0" class="cell" data-execution_count="26">
+<div id="f53e3f1a" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/cell-27-output-1.svg"></p>
+<p><img data-src="index_files/figure-revealjs/cell-26-output-1.svg"></p>
 <figcaption>x uniforme em [0,1], α entre 0,02 e 0,9. Mais informados (α maior) exigem mais desconto: p* cai e o retorno médio sobe.</figcaption>
 </figure>
 </div>
@@ -1641,7 +1896,7 @@ flowchart LR
 </section>
 <section id="mais-informados-mais-desconto" class="slide level2 smaller">
 <h2>Mais informados, mais desconto</h2>
-<div id="dcef8d74" class="cell" data-execution_count="27">
+<div id="b803467f" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1689,7 +1944,7 @@ flowchart LR
 </section>
 <section id="estática-comparativa-dispersão-do-valor" class="slide level2 smaller">
 <h2>Estática comparativa: dispersão do valor</h2>
-<div id="eb500b35" class="cell" data-execution_count="28">
+<div id="286ad9e5" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
