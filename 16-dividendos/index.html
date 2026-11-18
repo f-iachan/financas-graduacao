@@ -203,7 +203,7 @@ Felipe Iachan
 <section id="payout-hoje-quem-paga-o-quê" class="slide level2 smaller">
 <h2>Payout hoje: quem paga o quê</h2>
 <!-- ADICIONADO: artefato de dados atuais (yfinance), não está na fonte. Ver dados/16-dividendos/SNAPSHOT_INFO.txt para a checagem de qualidade do dado (checagem via soma manual de Ticker.dividends; JSCP; payoutRatio não usado). -->
-<div id="601dfa3c" class="cell" data-execution_count="2">
+<div id="47321c2c" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1097,7 +1097,7 @@ Felipe Iachan
 <p><span class="math display">\[\left[p_{H}+\tau_{B}(r)\right]R_{e}^{d=0}\geq r_{e}^{d=r}+\left[p_{H}+\tau_{B}(0)\right]R_{e}^{d=r}\]</span></p>
 <p><span class="fonte">A segunda restrição (tipo <span class="math inline">\(B\)</span> mimetizar <span class="math inline">\(G\)</span>) fica folgada na determinação da renda penhorável; os desvios duplos ficam satisfeitos, implicados pelas outras. A restrição destacada acima — tipo <span class="math inline">\(G\)</span> não desviar para reinvestir — é a <strong>outra</strong> que binds.</span></p>
 </section>
-<section id="renda-penhorável-do-modelo" class="slide level2 smaller">
+<section id="renda-penhoravel" class="slide level2 smaller">
 <h2>Renda penhorável do modelo</h2>
 <p>Com separação, o pagamento ao investidor externo é</p>
 <p><span class="math display">\[\alpha\left[(r-r_{e}^{d=r})+(p_{H}+\tau_{G}(0))(R-R_{e}^{d=r})\right]+(1-\alpha)\left[p_{H}+\tau_{B}(r)\right](R-R_{e}^{d=0})\]</span></p>
@@ -1109,7 +1109,7 @@ Felipe Iachan
 <p>Substituindo as duas na expressão acima:</p>
 <p><span class="math display">\[P^{*}=\alpha\left[r+\left[p_{H}+\tau_{G}(0)\right]R-\left[p_{H}+\tau_{G}(r)\right]\frac{B}{\Delta p}\right]+(1-\alpha)\left[p_{H}+\tau_{B}(r)\right]\left(R-\frac{B}{\Delta p}\right)\]</span></p>
 <!-- ADICIONADO: ponte entre o exemplo (gestor com 20% de tudo) e a renda penhorável máxima. -->
-<p><span class="fonte">No exemplo: com o gestor tendo 20% de tudo, os investidores ficam com 60. Cortar a fatia dele no dividendo para 10% mantém os incentivos e sobe para 60,5.</span></p>
+<p><span class="fonte">No exemplo: com o gestor tendo 20% de tudo, os investidores ficam com 60. Cortar a fatia dele no dividendo para 10% mantém os incentivos e sobe para 60,5. <a href="#/duas-fatias">→ Por que duas fatias?</a></span></p>
 </section>
 <section id="valor-da-firma-antes-e-depois-do-anúncio" class="slide level2 smaller">
 <h2>Valor da firma antes e depois do anúncio</h2>
@@ -1171,13 +1171,69 @@ Felipe Iachan
 <li>O mesmo Tirole volta: no IPO, o emissor informado pode sinalizar deixando <span class="destaque">dinheiro na mesa</span></li>
 </ul>
 </section>
+<section>
+<section id="apêndice" class="title-slide slide level1 center">
+<h1>Apêndice</h1>
+<!-- ADICIONADO (18/11/2026): não está na fonte. Ponte entre o exemplo numérico (gestor com 20% de tudo) e o contrato geral com frações diferentes de r e R. Motivo: em 17/11 o exemplo funcionou bem, mas foi difícil motivar s1 ≠ s2 a partir da formulação geral. -->
+</section>
+<section id="duas-fatias" class="slide level2 smaller">
+<h2>Duas fatias, duas tarefas</h2>
+<p>No exemplo, o gestor tem a fração <span class="math inline">\(s_1\)</span> do dividendo <span class="math inline">\(r\)</span> e <span class="math inline">\(s_2\)</span> do lucro final <span class="math inline">\(R\)</span>. Cada uma tem uma tarefa.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fatia</th>
+<th>Tarefa</th>
+<th>Restrição</th>
+<th style="text-align: center;">No exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(s_2\)</span>, do lucro final</td>
+<td>Esforço alto</td>
+<td><span class="math inline">\(s_2R\geq B/\Delta p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s_2=\)</span> 20%</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(s_1\)</span>, do dividendo</td>
+<td>Fazer <span class="math inline">\(G\)</span> pagar</td>
+<td><span class="math inline">\(s_1 r\geq s_2\left[\tau_G(r)-\tau_G(0)\right]R\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(s_1\geq\)</span> 10%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Acima de 10%, a fatia do dividendo é <span class="destaque">renda do gestor sem ganho de incentivo</span></li>
+<li><span class="math inline">\(B\)</span> continua sem imitar <span class="math inline">\(G\)</span>: ganharia 1 hoje e perderia 4 de ganho esperado</li>
+<li>Investidores: de 60 para 60,5. Ganho <span class="math inline">\(\alpha(s_2-s_1)r\)</span>, pequeno porque <span class="math inline">\(r\)</span> é pequeno perto de <span class="math inline">\(R\)</span></li>
+</ul>
+<p><span class="fonte"><a href="#/renda-penhoravel">← Renda penhorável</a></span></p>
+</section>
+<section id="na-prática-s_1s_2-com-opções" class="slide level2 smaller">
+<h2>Na prática: <span class="math inline">\(s_1&lt;s_2\)</span> com opções</h2>
+<ul>
+<li>Opções de ações do executivo <span class="destaque">não recebem dividendos</span>, mas acompanham o valor final da firma</li>
+<li>Remunerar com opções dá ao gestor mais do lucro final que do dividendo: <span class="math inline">\(s_1&lt;s_2\)</span></li>
+<li>Após adotar planos de opções, firmas reduzem dividendos (Lambert, Lanen e Larcker, 1989)</li>
+<li>Mais opções nas mãos da gestão: menos dividendos, mais recompras (Fenn e Liang, 2001)</li>
+</ul>
+<p><span class="fonte">Lambert, Lanen e Larcker (1989), <em>Journal of Financial and Quantitative Analysis</em>; Fenn e Liang (2001), <em>Journal of Financial Economics</em>.</span></p>
+<!-- PLANNING: o modelo prevê s1 baixo para não pagar o gestor à toa; a evidência sobre opções é uma versão real do mesmo instrumento, não um teste do modelo. -->
+</section>
 <section id="onde-estudar" class="slide level2 center">
 <h2>Onde estudar</h2>
 <!-- ADICIONADO (16/11/2026): link para o guia de estudo único (guia/guia-estudo.qmd, publicado como guia-estudo.pdf). -->
 <p>O guia de estudo diz onde ler cada tópico desta aula: Berk e DeMarzo, Tirole ou artigos.</p>
 <p><span class="destaque"><a href="https://f-iachan.github.io/financas-graduacao/guia-estudo.pdf">Guia de estudo, Aula 16</a></span></p>
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
