@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="pt"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <meta name="author" content="Felipe Iachan">
+  <title>Estudo de caso: o IPO da Anthropic</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-ebc22d1efb10b48ab26dfda692002621.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Estudo de caso: o IPO da Anthropic</h1>
+  <p class="subtitle">Complemento à Aula 17</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felipe Iachan 
+</div>
+</div>
+</div>
+
+</section>
+<section id="o-maior-ipo-da-história-ao-vivo" class="slide level2 center">
+<h2>O maior IPO da história, ao vivo</h2>
+<!-- PLANNING: deck complementar à Aula 17, criado em 19/11/2026, um dia depois da precificação (18/11) e no
+     dia da estreia na Nasdaq. ~35–45 min. Fontes: S-1/A de 17/11/2026 (SEC, CIK 2130357), comunicado de
+     precificação da Anthropic (18/11), CNBC e TechCrunch (18/11), anúncios das Séries E, G e H.
+     Números conferidos um a um contra o S-1/A; três números do rascunho do ChatGPT estavam errados
+     (Série G a US$ 380 bi, não 350; Google com 1,79 bi de ações N, não 1,65; 589 → 83 é conversão 10:1, não desdobramento).
+     O prospecto final (424B4) ainda não estava no EDGAR: o spread dos bancos fica como exercício.
+     ATUALIZAR depois do fechamento de 19/11: constante FECHAMENTO no artefato a17b-mesa. -->
+<div class="r-fit-text">
+<p>18/11/2026: a Anthropic vende 980 milhões de ações a US$ 83.</p>
+<p><span class="destaque">US$ 81 bilhões</span> na oferta, mais US$ 26 bilhões em colocação privada.</p>
+</div>
+<!-- PLANNING: abrir perguntando quem eles acham que recebe os US$ 81 bi: a empresa ou quem investiu antes? -->
+</section>
+<section id="o-que-o-caso-ilustra" class="slide level2 smaller">
+<h2>O que o caso ilustra</h2>
+<p>Cada pedaço da Aula 17 aparece com números reais:</p>
+<ul>
+<li><span class="destaque">Rodadas de VC</span>: oito séries de preferenciais, de US$ 2,57 a US$ 589 por ação</li>
+<li><span class="destaque">Primária × secundária</span>: quem fica com o dinheiro</li>
+<li><span class="destaque"><em>Book building</em></span>: da faixa indicativa ao preço final</li>
+<li><span class="destaque"><em>Underpricing</em></span>: quanto ficou na mesa no 1º dia</li>
+<li><span class="destaque">Controle</span>: quem manda quando grandes sócios não votam?</li>
+</ul>
+<p><span class="fonte">Fontes principais: S-1/A de 17/11/2026 (SEC) e comunicado de precificação de 18/11/2026.</span></p>
+</section>
+<section>
+<section id="antes-do-ipo-as-rodadas" class="title-slide slide level1 center">
+<h1>Antes do IPO: as rodadas</h1>
+
+</section>
+<section id="oito-séries-de-preferenciais" class="slide level2 smaller">
+<h2>Oito séries de preferenciais</h2>
+<div id="27bd88dc" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-3-output-1.svg"></p>
+<figcaption>Preço original de emissão de cada série (círculo vazio) e o mesmo preço por ação ordinária equivalente (ponto cheio). Cada preferencial converte em 10 ordinárias (Série D: ≈10,6). Fonte: S-1/A, notas F-46 e F-47.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="de-us-589-para-us-83-um-down-round" class="slide level2 smaller">
+<h2>De US$ 589 para US$ 83: um <em>down round</em>?</h2>
+<ul>
+<li>Não. A Série H pagou US$ 589,01 por uma preferencial que <span class="destaque">vira 10 ordinárias</span></li>
+<li>Por ação ordinária equivalente: US$ 58,90</li>
+<li>Da Série H (maio/26) ao IPO (nov/26): <span class="math inline">\(83 / 58{,}90 - 1 = +41\%\)</span></li>
+</ul>
+<div class="fragment">
+<p><span class="fonte">Lição: compare preços por unidade de direito econômico, não por papel com nome diferente.</span></p>
+<!-- PLANNING: deixar a turma achar a resposta. Muitos jornais escreveram "queda" ao ver 589 e 83 lado a lado. -->
+</div>
+</section>
+<section id="valuations-das-rodadas" class="slide level2 smaller">
+<h2><em>Valuations</em> das rodadas</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Rodada</th>
+<th>Data</th>
+<th>Captação</th>
+<th><em>Post-money</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Série E</td>
+<td>mar/2025</td>
+<td>US$ 3,5 bi</td>
+<td>US$ 61,5 bi</td>
+</tr>
+<tr class="even">
+<td>Série F</td>
+<td>set/2025</td>
+<td>US$ 13 bi</td>
+<td>US$ 183 bi</td>
+</tr>
+<tr class="odd">
+<td>Série G</td>
+<td>fev/2026</td>
+<td>US$ 30 bi</td>
+<td>US$ 380 bi</td>
+</tr>
+<tr class="even">
+<td>Série H</td>
+<td>mai/2026</td>
+<td>US$ 65 bi</td>
+<td>US$ 965 bi</td>
+</tr>
+<tr class="odd">
+<td>IPO</td>
+<td>nov/2026</td>
+<td>US$ 81 bi + 26 bi</td>
+<td>≈ US$ 1,5 tri (diluído)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Fontes: anúncios das rodadas pela Anthropic; CNBC (18/11/2026) para o IPO.</span></p>
+</section>
+<section id="subiu-55-em-seis-meses" class="slide level2 smaller">
+<h2>Subiu 55% em seis meses?</h2>
+<ul>
+<li>Manchete: <span class="math inline">\(1{,}5 / 0{,}965 - 1 \approx 55\%\)</span></li>
+<li>Por ação ordinária equivalente: <span class="destaque">+41%</span></li>
+<li>Por que diferem? Base de diluição diferente e <button type="button" class="pop-gatilho" popovertarget="pop-1">dinheiro novo</button><span id="pop-1" popover="" class="pop-caixa">Valor da firma sobe mecanicamente quando entra caixa. Entre a Série H e o IPO entraram ≈ US$ 105 bi (79 bi da primária + 26 bi da colocação). Comparar <em>valuations</em> totais mistura valorização com captação; o preço por ação não.</span></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Lembre Gornall e Strebulaev (Aula 17): a preferencial H tinha <button type="button" class="pop-gatilho" popovertarget="pop-2">direitos extras</button><span id="pop-2" popover="" class="pop-caixa">Preferência de liquidação e senioridade valem algo. Se a H valia mais que a ordinária em maio, a ordinária valia menos que US$ 58,90 então, e a valorização da ordinária até o IPO foi maior que 41%.</span></li>
+<li>No IPO tudo converte: <span class="destaque">o problema mecânico do <em>post-money</em> some</span></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="a-oferta" class="title-slide slide level1 center">
+<h1>A oferta</h1>
+
+</section>
+<section id="os-números" class="slide level2 smaller">
+<h2>Os números</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Componente</th>
+<th style="text-align: right;">Ações</th>
+<th style="text-align: right;">Valor a US$ 83</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primária: ações novas</td>
+<td style="text-align: right;">956,35 mi</td>
+<td style="text-align: right;">US$ 79,38 bi</td>
+</tr>
+<tr class="even">
+<td>Secundária: cofundadores</td>
+<td style="text-align: right;">23,65 mi</td>
+<td style="text-align: right;">US$ 1,96 bi</td>
+</tr>
+<tr class="odd">
+<td><strong>Total da oferta</strong></td>
+<td style="text-align: right;"><strong>980 mi</strong></td>
+<td style="text-align: right;"><strong>US$ 81,34 bi</strong></td>
+</tr>
+<tr class="even">
+<td>Lote suplementar (opção, 30 dias)</td>
+<td style="text-align: right;">até 147 mi</td>
+<td style="text-align: right;">até US$ 12,20 bi</td>
+</tr>
+<tr class="odd">
+<td>Colocação privada, Classe N</td>
+<td style="text-align: right;">≈ 313 mi</td>
+<td style="text-align: right;">US$ 26,0 bi</td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Fontes: comunicado de 18/11/2026; S-1/A. Ações da colocação: 26 bi / 83 (cálculo nosso).</span></p>
+</section>
+<section id="quem-fica-com-o-dinheiro" class="slide level2 smaller">
+<h2>Quem fica com o dinheiro?</h2>
+<div id="346c6522" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.svg"></p>
+<figcaption>Recursos brutos em US$ bilhões, a US$ 83. O lote suplementar só entra se os bancos exercerem a opção. Fonte: comunicado de 18/11/2026 e S-1/A.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">97,6% da oferta é primária: o IPO aqui é <span class="destaque">captação</span>, não saída de investidores.</span></p>
+</section>
+<section id="quem-vende-na-secundária" class="slide level2 smaller">
+<h2>Quem vende na secundária?</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Vendedor</th>
+<th style="text-align: right;">Ações</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dario Amodei</td>
+<td style="text-align: right;">3.378.378</td>
+</tr>
+<tr class="even">
+<td>Daniela Amodei</td>
+<td style="text-align: right;">3.378.378</td>
+</tr>
+<tr class="odd">
+<td>Tom Brown</td>
+<td style="text-align: right;">3.378.378</td>
+</tr>
+<tr class="even">
+<td>Jack Clark</td>
+<td style="text-align: right;">3.378.378</td>
+</tr>
+<tr class="odd">
+<td>Jared Kaplan</td>
+<td style="text-align: right;">3.378.378</td>
+</tr>
+<tr class="even">
+<td>Sam McCandlish</td>
+<td style="text-align: right;">3.378.378</td>
+</tr>
+<tr class="odd">
+<td>Chris Olah</td>
+<td style="text-align: right;">3.378.378</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:44%;">
+<ul>
+<li>Os sete cofundadores, <span class="destaque">≈ US$ 280 mi cada</span></li>
+<li>Nenhum fundo de VC vende no IPO</li>
+<li>Cofundadores ficam presos por <button type="button" class="pop-gatilho" popovertarget="pop-3"><em>lockup</em> de 365 dias</button><span id="pop-3" popover="" class="pop-caixa">O S-1/A prevê <em>lockup</em> de até 180 dias para a maioria e de até 365 dias para cofundadores e detentores de mais de 0,5% do capital diluído. As ações da colocação privada não têm <em>lockup</em>.</span></li>
+</ul>
+</div></div>
+<p><span class="fonte">Fonte: S-1/A, <em>Principal and Selling Stockholders</em>.</span></p>
+<!-- PLANNING: perguntar por que vender só um pedaço pequeno. Diversificação pessoal sem sinalizar saída (Leland-Pyle, Aula 13). -->
+</section>
+<section id="por-que-captar-mais-de-us-100-bilhões" class="slide level2 smaller">
+<h2>Por que captar mais de US$ 100 bilhões?</h2>
+<div id="21c4628a" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-5-output-1.svg"></p>
+<figcaption>Receita e fluxo de caixa operacional, US$ bilhões. 9M = nove primeiros meses do ano. Fonte: S-1/A.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Receita 13× maior em um ano; caixa operacional já positivo</li>
+<li>Mas <span class="destaque">≈ US$ 901 bi</span> em compromissos de compra e <em>leasing</em>, quase todos de computação</li>
+</ul>
+</section>
+<section id="um-prejuízo-de-us-104-bilhões" class="slide level2 smaller">
+<h2>Um prejuízo de US$ 104 bilhões</h2>
+<ul>
+<li>Prejuízo líquido em 9M26: US$ 104,0 bi, com prejuízo operacional de só US$ 1,3 bi</li>
+<li>De onde vem a diferença? <span class="destaque">US$ 94,3 bi</span> de variação no valor justo de notas conversíveis</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>A firma vale mais → a opção de conversão dos credores vale mais → a contabilidade registra perda</li>
+<li><span class="destaque">Mesmo tema da Aula 17</span>: títulos com direitos diferentes têm valores diferentes</li>
+</ul>
+<p><span class="fonte">Fonte: S-1/A, demonstrações financeiras.</span></p>
+<!-- PLANNING: bom para mostrar que lucro contábil e criação de valor podem andar em sentidos opostos. -->
+</div>
+</section></section>
+<section>
+<section id="book-building" class="title-slide slide level1 center">
+<h1><em>Book building</em></h1>
+
+</section>
+<section id="da-faixa-ao-preço" class="slide level2 smaller">
+<h2>Da faixa ao preço</h2>
+<div id="ecb802aa" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.svg"></p>
+<figcaption>Faixa indicativa (10/11) e precificação final (18/11). Fonte: S-1/A e comunicado de 18/11/2026.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">A demanda mexeu no preço <span class="destaque">e</span> na quantidade: a empresa escolhe quanto captar, não só a que preço.</span></p>
+</section>
+<section id="soft-commitment-um-exemplo-real" class="slide level2 smaller">
+<h2><em>Soft commitment</em>: um exemplo real</h2>
+<ul>
+<li>O S-1/A revela <span class="destaque">indicações de interesse</span> de dois conselheiros:
+<ul>
+<li>fundo filantrópico ligado a Reed Hastings: até <span class="destaque">US$ 300 mi</span></li>
+<li>Christopher Liddell e esposa: até US$ 3 mi</li>
+</ul></li>
+<li>O texto avisa: <button type="button" class="pop-gatilho" popovertarget="pop-4">não são compromissos de compra</button><span id="pop-4" popover="" class="pop-caixa">Indicação de interesse não vincula. O investidor pode desistir, e os bancos podem alocar menos, ou nada. É o <em>soft commitment</em> da Aula 17.</span></li>
+</ul>
+<div class="fragment">
+<p><span class="destaque">Pergunta: Hastings pode receber só US$ 100 mi? Pode não receber nada?</span></p>
+</div>
+</section>
+<section id="dois-compromissos-diferentes" class="slide level2 smaller">
+<h2>Dois compromissos diferentes</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>Investidor → bancos</strong></p>
+<ul>
+<li>Antes do preço: indicação, sem obrigação</li>
+<li>Depois da confirmação: compra firme</li>
+<li>Alocação decidida pelos bancos</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>Bancos → Anthropic</strong></p>
+<ul>
+<li><span class="destaque"><em>Firm commitment</em></span>: o sindicato compra todas as 980 mi</li>
+<li>Assinado na precificação, 18/11</li>
+<li>22 bancos; Goldman Sachs e Morgan Stanley lideram</li>
+</ul>
+</div></div>
+<p><span class="fonte">O banco assume risco próprio, mas só depois de ver o livro de ordens. Fonte: S-1/A, seção <em>Underwriting</em>.</span></p>
+</section>
+<section id="por-que-não-us-90" class="slide level2 smaller">
+<h2>Por que não US$ 90?</h2>
+<ul>
+<li>Havia demanda para subir preço <span class="destaque">e</span> quantidade</li>
+<li>Evidência: ofertas precificadas acima da faixa têm <span class="destaque">retorno maior no 1º dia</span>
+<ul>
+<li>O preço sobe, mas <button type="button" class="pop-gatilho" popovertarget="pop-5">só parcialmente</button><span id="pop-5" popover="" class="pop-caixa"><em>Partial adjustment</em>: Hanley (1993). A informação colhida no <em>book building</em> sobe o preço, mas só em parte. Benveniste e Spindt (1989): é a recompensa para os investidores revelarem demanda verdadeira.</span></li>
+</ul></li>
+<li>Rock (Aula 17): desconto para os desinformados não fugirem</li>
+</ul>
+<div class="fragment">
+<p><span class="fonte">Previsão para hoje: retorno positivo no 1º dia. Vamos conferir.</span></p>
+</div>
+</section></section>
+<section>
+<section id="o-primeiro-dia" class="title-slide slide level1 center">
+<h1>O primeiro dia</h1>
+
+</section>
+<section id="quanto-ficou-na-mesa" class="slide level2 smaller">
+<h2>Quanto ficou na mesa?</h2>
+<!-- ADICIONADO (19/11/2026): artefato a17b-mesa. Slider com o preço de fechamento do 1º dia (P1).
+     Mostra retorno, dinheiro deixado na mesa (oferta-base e com lote), parte da própria Anthropic e a
+     régua com a média (19,0%) e a mediana (7,0%) dos IPOs nos EUA 1980–2025 (Ritter, mesma fonte da Aula 17).
+     Quando o fechamento real for conhecido, preencher FECHAMENTO no script. No PDF (decktape,
+     fragments:false), ?print-pdf e Ctrl+P, vira uma tabela de quadros fixos. -->
+<!-- PLANNING: pedir o palpite de cada um ANTES de mexer no slider. -->
+<style>
+.a17bm{ --c-l:#d97757; --c-a:#6a9bcc; --c-v:#788c5d; --c-t:#141413; --c-c:#5f5e5a; --c-li:#e8e6dc; --c-p:#faf9f5;
+  width:100%; max-width:1180px; margin:0 auto; color:var(--c-t); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3;}
+.a17bm *{box-sizing:border-box;}
+.a17bm-ctl{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:6px 20px; padding:6px 14px;
+  border:1px solid var(--c-li); border-radius:10px; background:var(--c-p);}
+.a17bm-ctl label{display:flex; justify-content:space-between; color:var(--c-c); font-size:13px; font-weight:600;}
+.a17bm-ctl output{color:var(--c-t); font-weight:700; font-variant-numeric:tabular-nums;}
+.a17bm-ctl input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--c-l); cursor:pointer;}
+.a17bm-btn{font:inherit; font-size:13px; font-weight:600; color:var(--c-c); background:#fff; border:1px solid var(--c-li);
+  border-radius:8px; padding:4px 10px; cursor:pointer; margin-left:6px;}
+.a17bm svg{display:block; width:100%; height:auto; margin-top:6px;}
+.a17bm-cards{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-top:6px;}
+.a17bm-card{border:1px solid var(--c-li); border-top:4px solid var(--cor); border-radius:8px; padding:6px 10px; background:#fff;}
+.a17bm-card .k{font-size:12.5px; color:var(--c-c); font-weight:600;}
+.a17bm-card .v{font-size:24px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--cor);}
+.a17bm-card .s{font-size:12px; color:var(--c-c); font-variant-numeric:tabular-nums;}
+.a17bm-cap{font-size:15px; min-height:2.6em; margin-top:6px;}
+.a17bm-est{display:none;}
+.a17bm.impressao .a17bm-ctl, .a17bm.impressao .a17bm-cap, .a17bm.impressao .a17bm-cards{display:none;}
+.a17bm.impressao .a17bm-est{display:block; margin-top:6px;}
+.a17bm-est table{width:100%; border-collapse:collapse; font-size:13px; font-variant-numeric:tabular-nums;}
+.a17bm-est th, .a17bm-est td{padding:3px 8px; border-bottom:1px solid var(--c-li); text-align:right;}
+.a17bm-est th:first-child, .a17bm-est td:first-child{text-align:left;}
+.a17bm-est th{color:var(--c-c); font-weight:600;}
+</style>
+
+<div class="a17bm" id="a17bm-root" data-artefato="a17b-mesa" data-pdf-check="Quadros fixos: P1 = 75, 83, 89, 99, 110 e 125">
+  <div class="a17bm-ctl" id="a17bm-ctl" data-prevent-swipe="">
+    <div>
+      <label for="a17bm-p"><span>P1: preço de fechamento no 1º dia (US$)</span><output id="a17bm-lbl">83,00</output></label>
+      <input type="range" id="a17bm-p" min="60" max="140" step="0.5" value="83">
+    </div>
+    <div><button type="button" class="a17bm-btn" id="a17bm-reset">P1 = 83</button><button type="button" class="a17bm-btn" id="a17bm-real" style="display:none">fechamento real</button></div>
+  </div>
+  <svg id="a17bm-svg" viewbox="0 0 1000 120" role="img" aria-label="Régua de preços: preço de oferta, mediana e média históricas do retorno no 1º dia, e o P1 escolhido"></svg>
+  <div class="a17bm-cards" id="a17bm-cards"></div>
+  <div class="a17bm-cap" id="a17bm-cap" aria-live="polite"></div>
+  <div class="a17bm-est" id="a17bm-est"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById("a17bm-root");
+  if (!root) return;
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {l:"#d97757", a:"#6a9bcc", v:"#788c5d", t:"#141413", c:"#5f5e5a", cc:"#b0aea5", g:"#ece9e0"};
+  function fmt(x, d){ d = d === undefined ? 1 : d; if (Math.abs(x) < 5e-9) x = 0;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits:d, maximumFractionDigits:d}).replace("-", "−"); }
+  function el(tag, at, pai){ var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, s, at){ var a = {x:x, y:y, fill:C.t, "font-size":14}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.textContent = s; return e; }
+
+  // MODELO-INICIO --- comunicado de 18/11/2026 e S-1/A; Ritter (Aula 17): média 19,0%, mediana 7,0%, US$ 250 bi na mesa em 1980–2025.
+  var P0 = 83, N = 980e6, PRIM = 956351354, LOTE = 147e6, SEC = 23648646, MESA_EUA = 250e9;
+  var FECHAMENTO = null;   // preencher com o fechamento real de 19/11/2026 (US$)
+  function calc(P1){
+    var r = P1/P0 - 1, d = Math.max(0, P1 - P0), exerce = P1 > P0;
+    var nTot = N + (exerce ? LOTE : 0);
+    return {r:r, base:N*d, total:nTot*d, firma:(PRIM + (exerce ? LOTE : 0))*d, cof:SEC*d, frac:N*d/MESA_EUA, exerce:exerce};
+  }
+  // MODELO-FIM
+
+  var X0 = 40, X1 = 960, PMIN = 60, PMAX = 140;
+  function sx(p){ return X0 + (X1 - X0)*(p - PMIN)/(PMAX - PMIN); }
+  var svg = document.getElementById("a17bm-svg"), marca, marcaTx, faixa;
+  (function init(){
+    el("line", {x1:X0, x2:X1, y1:70, y2:70, stroke:C.c, "stroke-width":1.4}, svg);
+    for (var p = 60; p <= 140; p += 10){
+      el("line", {x1:sx(p), x2:sx(p), y1:70, y2:76, stroke:C.c}, svg);
+      tx(svg, sx(p), 94, fmt(p, 0), {"text-anchor":"middle", "font-size":13, fill:C.c});
+    }
+    tx(svg, X1, 114, "US$ por ação", {"text-anchor":"end", "font-size":12, fill:C.c});
+    faixa = el("rect", {x:sx(83), y:58, width:0, height:12, fill:C.l, opacity:.25}, svg);
+    [[P0, "oferta: 83", C.t], [P0*1.07, "mediana +7%", C.v], [P0*1.19, "média +19%", C.a]].forEach(function(m, j){
+      el("line", {x1:sx(m[0]), x2:sx(m[0]), y1:44, y2:70, stroke:m[2], "stroke-width":2, "stroke-dasharray":j ? "4 3" : null}, svg);
+      tx(svg, sx(m[0]) + (j ? 4 : -6), 52, m[1], {"text-anchor":j ? "start" : "end", "font-size":12.5, fill:m[2], "font-weight":600});
+    });
+    marca = el("circle", {cx:sx(83), cy:70, r:9, fill:C.l, stroke:"#fff", "stroke-width":2}, svg);
+    marcaTx = tx(svg, sx(83), 16, "", {"text-anchor":"middle", "font-size":13, fill:C.l, "font-weight":700});
+  })();
+
+  function card(cor, k, v, s){ return "<div class=\"a17bm-card\" style=\"--cor:" + cor + "\"><div class=\"k\">" + k + "</div><div class=\"v\">" + v + "</div><div class=\"s\">" + s + "</div></div>"; }
+  var cards = document.getElementById("a17bm-cards"), cap = document.getElementById("a17bm-cap");
+  function desenha(P1){
+    var c = calc(P1);
+    marca.setAttribute("cx", sx(P1)); marcaTx.setAttribute("x", sx(P1)); marcaTx.textContent = "P1 = " + fmt(P1, 2);
+    faixa.setAttribute("x", Math.min(sx(P0), sx(P1))); faixa.setAttribute("width", Math.abs(sx(P1) - sx(P0)));
+    faixa.setAttribute("fill", P1 >= P0 ? C.l : C.c);
+    cards.innerHTML =
+      card(C.l, "Retorno no 1º dia", (c.r >= 0 ? "+" : "") + fmt(100*c.r, 1) + "%", "(P1 − 83) / 83") +
+      card(C.a, "Na mesa: oferta-base", "US$ " + fmt(c.base/1e9, 1) + " bi", "980 mi × (P1 − 83)") +
+      card(C.v, "Na mesa: só a Anthropic", "US$ " + fmt(c.firma/1e9, 1) + " bi", c.exerce ? "primária + lote de 147 mi" : "lote não exercido") +
+      card(C.c, "Fração da mesa dos EUA", fmt(100*c.frac, 1) + "%", "de US$ 250 bi em 1980–2025");
+    var m;
+    if (P1 < P0) m = "Abaixo do preço de oferta: nada fica na mesa. O banco não exerce o lote e recompra as ações sobrealocadas no mercado: é a <b>estabilização</b>.";
+    else if (P1 === P0) m = "Fechamento no preço de oferta: zero na mesa, mas o banco provavelmente sustentou o preço (Facebook, 2012).";
+    else m = "Com lote exercido, o total na mesa é US$ " + fmt(c.total/1e9, 1) + " bi. Os cofundadores teriam ganho US$ " + fmt(c.cof/1e9, 2) + " bi a mais vendendo a P1.";
+    cap.innerHTML = m;
+  }
+  var inP = document.getElementById("a17bm-p"), lbP = document.getElementById("a17bm-lbl");
+  function livre(){ var P1 = +inP.value; lbP.textContent = fmt(P1, 2); desenha(P1); }
+  inP.addEventListener("input", livre);
+  document.getElementById("a17bm-ctl").addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  document.getElementById("a17bm-reset").addEventListener("click", function(){ inP.value = 83; livre(); });
+  var bReal = document.getElementById("a17bm-real");
+  if (FECHAMENTO !== null){
+    bReal.style.display = "inline-block"; bReal.textContent = "real: " + fmt(FECHAMENTO, 2);
+    bReal.addEventListener("click", function(){ inP.value = FECHAMENTO; livre(); });
+  }
+
+  var QUADROS = [75, 83, 89, 99, 110, 125];
+  function tabela(){
+    var h = "<p style=\"font-size:13px;color:#5f5e5a;margin:0 0 3px\">Quadros fixos: P1 = 75, 83, 89, 99, 110 e 125 (89 ≈ mediana +7%; 99 ≈ média +19%). Valores em US$ bilhões.</p>" +
+      "<table><tr><th>P1 (US$)</th><th>Retorno</th><th>Na mesa (base)</th><th>Com lote</th><th>Só a Anthropic</th><th>% da mesa dos EUA 1980–2025</th></tr>";
+    QUADROS.forEach(function(P1){
+      var c = calc(P1);
+      h += "<tr><td>" + fmt(P1, 0) + "</td><td>" + (c.r >= 0 ? "+" : "") + fmt(100*c.r, 1) + "%</td><td>" + fmt(c.base/1e9, 1) + "</td><td>" +
+        fmt(c.total/1e9, 1) + "</td><td>" + fmt(c.firma/1e9, 1) + "</td><td>" + fmt(100*c.frac, 1) + "%</td></tr>";
+    });
+    return h + "</table>";
+  }
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao|view=print)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && typeof Reveal.isPrintView === "function" && Reveal.isPrintView()) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (err) {}
+    return false;
+  }
+  function modoImpressao(){ root.classList.add("impressao"); desenha(FECHAMENTO !== null ? FECHAMENTO : 99); document.getElementById("a17bm-est").innerHTML = tabela(); }
+  function modoSala(){ root.classList.remove("impressao"); livre(); }
+  function sincroniza(){ if (emImpressao()) modoImpressao(); else modoSala(); }
+  window.addEventListener("beforeprint", modoImpressao);
+  window.addEventListener("afterprint", sincroniza);
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+    sincroniza();
+  });
+
+  (function autoteste(){
+    var f = [], c = calc(100);
+    if (Math.abs(c.base - 16.66e9) > 1e6) f.push("base em 100: " + c.base);
+    if (Math.abs(c.firma - (956351354 + 147e6)*17) > 1) f.push("firma em 100");
+    if (calc(80).base !== 0 || calc(80).exerce) f.push("abaixo de 83 não deveria haver mesa nem lote");
+    if (Math.abs(PRIM + SEC - N) > 0) f.push("primária + secundária != 980 mi");
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+    if (f.length) console.error("Autoteste (17b, mesa) FALHOU:\n" + f.join("\n"));
+  })();
+  sincroniza();
+})();
+</script>
+</section>
+<section id="em-perspectiva-os-maiores-ipos" class="slide level2 smaller">
+<h2>Em perspectiva: os maiores IPOs</h2>
+<div id="07f74450" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-7-output-1.svg"></p>
+<figcaption>Oferta-base em US$ bilhões nominais, sem lote suplementar. Fontes: comunicado da Anthropic e CNBC (2026); Dealroom e Nasdaq (anteriores).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Com o lote exercido, a SpaceX chegou a ≈ US$ 86 bi; a Anthropic passa disso só se os bancos exercerem o seu.</span></p>
+</section></section>
+<section>
+<section id="quem-manda" class="title-slide slide level1 center">
+<h1>Quem manda?</h1>
+
+</section>
+<section id="quatro-classes-de-ações" class="slide level2 smaller">
+<h2>Quatro classes de ações</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classe</th>
+<th>Quem tem</th>
+<th>Direitos econômicos</th>
+<th>Voto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>público, investidores antigos</td>
+<td>sim, <em>pro rata</em></td>
+<td>1 por ação (49,9% do total)</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>Amazon, Google, parceiros</td>
+<td>iguais à A</td>
+<td><span class="destaque">nenhum</span></td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>LLC dos 7 cofundadores</td>
+<td>nenhum</td>
+<td><span class="destaque">50,1% fixos</span></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td><em>Long-Term Benefit Trust</em></td>
+<td>nenhum</td>
+<td>elege a maioria do conselho</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>N vira A, 1 por 1, quando vendida a <button type="button" class="pop-gatilho" popovertarget="pop-6">terceiro não afiliado</button><span id="pop-6" popover="" class="pop-caixa">Conversão automática numa oferta registrada, numa venda em bolsa ou numa transferência a terceiro não afiliado. Quem compra uma N na bolsa recebe uma A, com voto.</span></li>
+</ul>
+<p><span class="fonte">Fonte: S-1/A, <em>Description of Capital Stock</em>. A Anthropic é uma <em>public benefit corporation</em> de Delaware.</span></p>
+</section>
+<section id="capital-e-votos-separados" class="slide level2 smaller">
+<h2>Capital e votos, separados</h2>
+<div id="bf49806c" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.svg"></p>
+<figcaption>Participação no capital e nos votos gerais após a oferta. Capital: S-1/A (Classe N = 43,2% após a oferta, a US$ 74). Votos: a Classe F tem 50,1% fixos; a Classe T elege a maioria do conselho por voto separado.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="fonte">Amazon (14,7%) e Google (13,7%) têm muito capital e <span class="destaque">nenhum voto</span>.</span></p>
+</section>
+<section id="por-que-comprar-ações-sem-voto" class="slide level2 smaller">
+<h2>Por que comprar ações sem voto?</h2>
+<ul>
+<li>Colocação de US$ 26 bi em Classe N: AMD, Broadcom, Google, Micron, Microsoft, NVIDIA, TSMC</li>
+<li>Mesmo preço da A, sem voto e <span class="secundario">sem <em>lockup</em></span></li>
+<li>Quase todos <span class="destaque">vendem para a Anthropic</span>: chips, nuvem, memória</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Hipóteses: relação comercial, conversão futura, voto da A vale pouco com a F mandando</li>
+<li>Para a Anthropic: capital de fornecedores <span class="destaque">sem dar controle a fornecedores</span></li>
+</ul>
+<!-- PLANNING: hipóteses, não motivos documentados de cada investidor. Ligar com Myers-Majluf: comprador estratégico e informado no mesmo preço do IPO é um sinal sobre o preço. -->
+</div>
+</section>
+<section id="capital-liquidez-e-controle" class="slide level2 smaller">
+<h2>Capital, liquidez e controle</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Decisão</th>
+<th>Quem ganha</th>
+<th>Como</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="destaque">Captar</span></td>
+<td>a firma</td>
+<td>US$ 79 bi primária + 26 bi colocação</td>
+</tr>
+<tr class="even">
+<td><span class="destaque">Liquidez</span></td>
+<td>cofundadores</td>
+<td>US$ 1,96 bi na secundária</td>
+</tr>
+<tr class="odd">
+<td><span class="destaque">Controle</span></td>
+<td>cofundadores e <em>trust</em></td>
+<td>Classe F (50,1%) e Classe T (conselho)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="fonte">Três decisões que a Aula 17 tratou juntas aparecem aqui separadas.</span></p>
+</section></section>
+<section>
+<section id="quanto-vale" class="title-slide slide level1 center">
+<h1>Quanto vale?</h1>
+
+</section>
+<section id="market-cap-básico-diluído" class="slide level2 smaller">
+<h2><em>Market cap</em> básico × diluído</h2>
+<!-- ADICIONADO (19/11/2026): artefato a17b-valor. Slider com o preço por ação. Ações básicas após a oferta:
+     13.086.672.593 do S-1/A (a US$ 74) ajustadas para US$ 83 (+155 mi primárias, −38,1 mi na colocação) = 13,20 bi
+     (cálculo nosso). Diluídas ≈ 18,1 bi: implícitas no US$ 1,5 tri da imprensa a US$ 83 (aproximação).
+     Receita anualizada: 4/3 × 33,242 bi de 9M26 (S-1/A); run-rate de US$ 81 bi segundo a CNBC (não conferido no S-1).
+     No PDF vira tabela de quadros fixos. -->
+<style>
+.a17bv{ --c-l:#d97757; --c-a:#6a9bcc; --c-v:#788c5d; --c-t:#141413; --c-c:#5f5e5a; --c-li:#e8e6dc; --c-p:#faf9f5;
+  width:100%; max-width:1180px; margin:0 auto; color:var(--c-t); text-align:left;
+  font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.3;}
+.a17bv *{box-sizing:border-box;}
+.a17bv-ctl{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:6px 20px; padding:6px 14px;
+  border:1px solid var(--c-li); border-radius:10px; background:var(--c-p);}
+.a17bv-ctl label{display:flex; justify-content:space-between; color:var(--c-c); font-size:13px; font-weight:600;}
+.a17bv-ctl output{color:var(--c-t); font-weight:700; font-variant-numeric:tabular-nums;}
+.a17bv-ctl input[type=range]{width:100%; margin:2px 0 0; accent-color:var(--c-a); cursor:pointer;}
+.a17bv-btn{font:inherit; font-size:13px; font-weight:600; color:var(--c-c); background:#fff; border:1px solid var(--c-li); border-radius:8px; padding:4px 10px; cursor:pointer;}
+.a17bv-main{display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:14px; margin-top:8px; align-items:start;}
+.a17bv svg{display:block; width:100%; height:auto;}
+.a17bv-tab{width:100%; border-collapse:collapse; font-size:17px; font-variant-numeric:tabular-nums;}
+.a17bv-tab td{padding:5px 6px; border-bottom:1px solid var(--c-li);}
+.a17bv-tab td:last-child{text-align:right; font-weight:700;}
+.a17bv-cap{font-size:15px; margin-top:6px; min-height:2.6em;}
+.a17bv-est{display:none;}
+.a17bv.impressao .a17bv-ctl, .a17bv.impressao .a17bv-cap{display:none;}
+.a17bv.impressao .a17bv-est{display:block; margin-top:6px;}
+.a17bv-est table{width:100%; border-collapse:collapse; font-size:13px; font-variant-numeric:tabular-nums;}
+.a17bv-est th, .a17bv-est td{padding:3px 8px; border-bottom:1px solid var(--c-li); text-align:right;}
+.a17bv-est th:first-child, .a17bv-est td:first-child{text-align:left;}
+.a17bv-est th{color:var(--c-c); font-weight:600;}
+</style>
+
+<div class="a17bv" id="a17bv-root" data-artefato="a17b-valor" data-pdf-check="Quadros fixos: P = 60, 83, 100 e 120">
+  <div class="a17bv-ctl" id="a17bv-ctl" data-prevent-swipe="">
+    <div>
+      <label for="a17bv-p"><span>P: preço da ação Classe A (US$)</span><output id="a17bv-lbl">83,00</output></label>
+      <input type="range" id="a17bv-p" min="50" max="150" step="0.5" value="83">
+    </div>
+    <button type="button" class="a17bv-btn" id="a17bv-reset">P = 83</button>
+  </div>
+  <div class="a17bv-main">
+    <svg id="a17bv-svg" viewbox="0 0 620 300" role="img" aria-label="Barras com o valor de mercado básico e diluído, em US$ trilhões, e a linha do post-money da Série H"></svg>
+    <table class="a17bv-tab" id="a17bv-tab"></table>
+  </div>
+  <div class="a17bv-cap" id="a17bv-cap" aria-live="polite"></div>
+  <div class="a17bv-est" id="a17bv-est"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById("a17bv-root");
+  if (!root) return;
+  var NS = "http://www.w3.org/2000/svg";
+  var C = {l:"#d97757", a:"#6a9bcc", v:"#788c5d", t:"#141413", c:"#5f5e5a", cc:"#b0aea5", g:"#ece9e0"};
+  function fmt(x, d){ d = d === undefined ? 1 : d; if (Math.abs(x) < 5e-9) x = 0;
+    return x.toLocaleString("pt-BR", {minimumFractionDigits:d, maximumFractionDigits:d}).replace("-", "−"); }
+  function el(tag, at, pai){ var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (pai) pai.appendChild(e); return e; }
+  function tx(pai, x, y, s, at){ var a = {x:x, y:y, fill:C.t, "font-size":14}; for (var k in at) a[k] = at[k]; var e = el("text", a, pai); e.textContent = s; return e; }
+
+  // MODELO-INICIO
+  var N_BAS = 13086672593 + 155e6 - (351351348 - Math.round(26e9/83));   // ≈ 13,20 bi (S-1/A ajustado a US$ 83)
+  var N_DIL = 1.5e12/83;                                                  // ≈ 18,1 bi, implícito no US$ 1,5 tri
+  var REC_ANUAL = 33.242e9*4/3, RUNRATE = 81e9, H_EQ = 58.901, H_POST = 965e9;
+  function calc(P){ return {bas:N_BAS*P, dil:N_DIL*P, mRec:N_BAS*P/REC_ANUAL, mRun:N_BAS*P/RUNRATE, vsH:P/H_EQ - 1}; }
+  // MODELO-FIM
+
+  var svg = document.getElementById("a17bv-svg"), Y0 = 30, Y1 = 250, VMAX = 3.0;
+  function sy(v){ return Y1 - (Y1 - Y0)*v/VMAX; }
+  var bB, bD, tB, tD;
+  (function init(){
+    [0, 0.5, 1, 1.5, 2, 2.5, 3].forEach(function(v){
+      el("line", {x1:60, x2:600, y1:sy(v), y2:sy(v), stroke:v ? C.g : C.c}, svg);
+      tx(svg, 52, sy(v) + 5, fmt(v, 1), {"text-anchor":"end", "font-size":12.5, fill:C.c});
+    });
+    tx(svg, 14, 20, "US$ trilhões", {"font-size":12.5, fill:C.c});
+    el("line", {x1:60, x2:600, y1:sy(H_POST/1e12), y2:sy(H_POST/1e12), stroke:C.v, "stroke-width":2, "stroke-dasharray":"6 4"}, svg);
+    tx(svg, 600, sy(H_POST/1e12) + 18, "post-money da Série H: 0,965", {"text-anchor":"end", "font-size":12.5, fill:C.v});
+    bB = el("rect", {x:120, width:150, fill:C.a}, svg);
+    bD = el("rect", {x:360, width:150, fill:C.l}, svg);
+    tB = tx(svg, 195, 0, "", {"text-anchor":"middle", "font-size":15, "font-weight":700, fill:C.a});
+    tD = tx(svg, 435, 0, "", {"text-anchor":"middle", "font-size":15, "font-weight":700, fill:C.l});
+    tx(svg, 195, 274, "básico (13,2 bi de ações)", {"text-anchor":"middle", "font-size":13, fill:C.c});
+    tx(svg, 435, 274, "diluído (≈ 18,1 bi)", {"text-anchor":"middle", "font-size":13, fill:C.c});
+  })();
+  var tab = document.getElementById("a17bv-tab"), cap = document.getElementById("a17bv-cap");
+  function desenha(P){
+    var c = calc(P);
+    [[bB, tB, c.bas], [bD, tD, c.dil]].forEach(function(b){
+      var v = Math.min(b[2]/1e12, VMAX);
+      b[0].setAttribute("y", sy(v)); b[0].setAttribute("height", Y1 - sy(v));
+      b[1].setAttribute("y", sy(v) - 8); b[1].textContent = fmt(b[2]/1e12, 2);
+    });
+    tab.innerHTML =
+      "<tr><td>Valor de mercado básico</td><td>US$ " + fmt(c.bas/1e12, 2) + " tri</td></tr>" +
+      "<tr><td>Valor diluído (aprox.)</td><td>US$ " + fmt(c.dil/1e12, 2) + " tri</td></tr>" +
+      "<tr><td>Básico / receita anualizada (9M26 × 4/3)</td><td>" + fmt(c.mRec, 1) + "×</td></tr>" +
+      "<tr><td>Básico / <i>run-rate</i> de out/26 (CNBC)</td><td>" + fmt(c.mRun, 1) + "×</td></tr>" +
+      "<tr><td>vs. Série H por ação equivalente</td><td>" + (c.vsH >= 0 ? "+" : "") + fmt(100*c.vsH, 0) + "%</td></tr>";
+    cap.innerHTML = "A diferença de US$ " + fmt((c.dil - c.bas)/1e12, 2) + " tri entre as barras são ações que ainda não existem: opções, RSUs, conversíveis. Diluir tudo a P ignora preços de exercício.";
+  }
+  var inP = document.getElementById("a17bv-p"), lbP = document.getElementById("a17bv-lbl");
+  function livre(){ var P = +inP.value; lbP.textContent = fmt(P, 2); desenha(P); }
+  inP.addEventListener("input", livre);
+  document.getElementById("a17bv-ctl").addEventListener("keydown", function(ev){ ev.stopPropagation(); });
+  document.getElementById("a17bv-reset").addEventListener("click", function(){ inP.value = 83; livre(); });
+
+  var QUADROS = [60, 83, 100, 120];
+  function tabela(){
+    var h = "<p style=\"font-size:13px;color:#5f5e5a;margin:0 0 3px\">Quadros fixos: P = 60, 83, 100 e 120 (o gráfico mostra P = 83).</p>" +
+      "<table><tr><th>P (US$)</th><th>Básico (US$ tri)</th><th>Diluído (US$ tri)</th><th>Básico / receita anualizada</th><th>Básico / run-rate</th><th>vs. Série H</th></tr>";
+    QUADROS.forEach(function(P){
+      var c = calc(P);
+      h += "<tr><td>" + fmt(P, 0) + "</td><td>" + fmt(c.bas/1e12, 2) + "</td><td>" + fmt(c.dil/1e12, 2) + "</td><td>" + fmt(c.mRec, 1) + "×</td><td>" +
+        fmt(c.mRun, 1) + "×</td><td>" + (c.vsH >= 0 ? "+" : "") + fmt(100*c.vsH, 0) + "%</td></tr>";
+    });
+    return h + "</table>";
+  }
+  function emImpressao(){
+    try {
+      if (/[?&](print-pdf|impressao|view=print)\b/.test(location.search)) return true;
+      if (window.matchMedia && window.matchMedia("print").matches) return true;
+      if (window.Reveal && typeof Reveal.isPrintView === "function" && Reveal.isPrintView()) return true;
+      if (window.Reveal && Reveal.getConfig && Reveal.getConfig().fragments === false) return true;
+    } catch (err) {}
+    return false;
+  }
+  function modoImpressao(){ root.classList.add("impressao"); desenha(83); document.getElementById("a17bv-est").innerHTML = tabela(); }
+  function modoSala(){ root.classList.remove("impressao"); livre(); }
+  function sincroniza(){ if (emImpressao()) modoImpressao(); else modoSala(); }
+  window.addEventListener("beforeprint", modoImpressao);
+  window.addEventListener("afterprint", sincroniza);
+  window.addEventListener("load", function(){
+    if (window.Reveal && Reveal.on){ Reveal.on("ready", sincroniza); Reveal.on("slidechanged", sincroniza); }
+    sincroniza();
+  });
+  (function autoteste(){
+    var f = [], c = calc(83);
+    if (Math.abs(c.bas/1e12 - 1.0959) > 0.001) f.push("básico a 83: " + c.bas);
+    if (Math.abs(c.dil - 1.5e12) > 1) f.push("diluído a 83");
+    if (Math.abs(c.vsH - 0.4091) > 0.001) f.push("vs H: " + c.vsH);
+    root.setAttribute("data-autoteste", f.length ? "falhou" : "ok");
+    if (f.length) console.error("Autoteste (17b, valor) FALHOU:\n" + f.join("\n"));
+  })();
+  sincroniza();
+})();
+</script>
+</section>
+<section id="o-market-cap-pode-estar-inflado" class="slide level2 smaller">
+<h2>O <em>market cap</em> pode estar inflado?</h2>
+<ul>
+<li>O vício do <em>post-money</em> (direitos diferentes) <span class="destaque">some no IPO</span>: tudo vira A ou N</li>
+<li>Restam dois cuidados:
+<ul>
+<li><button type="button" class="pop-gatilho" popovertarget="pop-7">Base de diluição</button><span id="pop-7" popover="" class="pop-caixa">US$ 1,1 tri usa as ações que existem; US$ 1,5 tri multiplica também ações potenciais pelo preço de hoje, sem descontar o preço de exercício das opções.</span>: US$ 1,1 tri básico × US$ 1,5 tri diluído</li>
+<li><button type="button" class="pop-gatilho" popovertarget="pop-8">Preço marginal</button><span id="pop-8" popover="" class="pop-caixa">O preço é de quem negocia hoje. Com <em>lockup</em>, só uma pequena fração das ações pode ser vendida nos primeiros meses; ninguém compraria a firma inteira a esse preço por ação.</span>: <em>market cap</em> = preço de poucas ações × todas as ações</li>
+</ul></li>
+<li>E o de sempre: o preço pode exceder o valor fundamental</li>
+</ul>
+<!-- PLANNING: respondendo a pergunta do professor: o problema de Berk e DeMarzo é de rodadas privadas. No IPO a distorção mecânica some; sobra o risco de preço, que é outro problema. -->
+</section></section>
+<section>
+<section id="fecho" class="title-slide slide level1 center">
+<h1>Fecho</h1>
+
+</section>
+<section id="o-que-aprendemos-com-o-caso" class="slide level2 smaller">
+<h2>O que aprendemos com o caso</h2>
+<ul>
+<li>Preço por ação só compara com <span class="destaque">a mesma unidade de direitos</span>: 589 → 83 não é queda</li>
+<li>IPO grande pode ser quase todo <span class="destaque">captação</span>: 97,6% primária</li>
+<li><em>Book building</em> mexe em preço e quantidade; o ajuste é parcial</li>
+<li><span class="destaque">Capital, liquidez e controle</span> são três decisões distintas</li>
+</ul>
+</section>
+<section id="para-fazer-em-casa" class="slide level2 smaller">
+<h2>Para fazer em casa</h2>
+<ul>
+<li>Quando o prospecto final (424B4) sair: qual o <em>spread</em> dos bancos, em % e em US$?</li>
+<li>Compare com a regra dos 7% (Aula 17). Por que a Anthropic paga tão menos?</li>
+<li>Com o fechamento do 1º dia: retorno, dinheiro na mesa e lote exercido?</li>
+<li>Quanto a Amazon ganhou em papel entre a Série H e o IPO?</li>
+</ul>
+<!-- PLANNING: a última pergunta exige achar o preço equivalente médio da Amazon nas conversões; boa para monitoria. -->
+</section>
+<section id="fontes" class="slide level2 smaller">
+<h2>Fontes</h2>
+<ul>
+<li>Anthropic, PBC: <a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026074338/anthropicpbc-sx1ax3.htm">S-1/A de 17/11/2026</a> (SEC)</li>
+<li>Anthropic: <a href="https://www.anthropic.com/news/anthropic-prices-initial-public-offering">comunicado de precificação</a>, 18/11/2026</li>
+<li>Anthropic: anúncios das Séries <a href="https://www.anthropic.com/news/anthropic-raises-series-e-at-usd61-5b-post-money-valuation">E</a>, <a href="https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation">G</a> e <a href="https://www.anthropic.com/news/series-h">H</a></li>
+<li><a href="https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html">CNBC</a> e <a href="https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/">TechCrunch</a>, 18/11/2026</li>
+<li>Jay Ritter, <em>IPO Statistics</em> (mesma base da Aula 17)</li>
+</ul>
+</section>
+<section id="onde-estudar" class="slide level2 center">
+<h2>Onde estudar</h2>
+<p>O guia de estudo diz onde ler cada tópico da Aula 17, que este caso complementa.</p>
+<p><span class="destaque"><a href="https://f-iachan.github.io/financas-graduacao/guia-estudo.pdf">Guia de estudo, Aula 17</a></span></p>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <style>
+      .reveal .slides [data-figure-zoom] { cursor: zoom-in; }
+      .reveal .slides [data-figure-zoom]:focus-visible {
+        outline: 3px solid #d97757;
+        outline-offset: 4px;
+      }
+      .figure-zoom {
+        box-sizing: border-box;
+        display: none;
+        width: 96vw;
+        height: 94vh;
+        max-width: none;
+        max-height: none;
+        padding: 12px;
+        border: 1px solid #b0aea5;
+        border-radius: 8px;
+        background: #faf9f5;
+        color: #141413;
+        font: 16px Arial, sans-serif;
+      }
+      .figure-zoom[open] { display: flex; flex-direction: column; gap: 8px; }
+      .figure-zoom::backdrop { background: rgba(20, 20, 19, .82); }
+      .figure-zoom-header { display: flex; align-items: center; gap: 8px; flex: none; }
+      .figure-zoom-title { flex: 1; min-width: 0; margin: 0; font-size: 16px; }
+      .figure-zoom button {
+        flex: none;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 4px 8px;
+        border: 1px solid #b0aea5;
+        border-radius: 4px;
+        color: #141413;
+        background: #fff;
+        font: 20px Arial, sans-serif;
+        cursor: pointer;
+      }
+      .figure-zoom button:focus-visible { outline: 3px solid #d97757; outline-offset: 2px; }
+      .figure-zoom button:disabled { opacity: .4; cursor: default; }
+      .figure-zoom-level { min-width: 45px; text-align: center; }
+      .figure-zoom-viewport {
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+        overscroll-behavior: contain;
+        background: #fff;
+      }
+      .figure-zoom-stage { display: grid; place-items: center; }
+      .figure-zoom-stage > img, .figure-zoom-stage > svg {
+        display: block;
+        flex: none;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 0 !important;
+        user-select: none;
+      }
+      .figure-zoom-viewport.can-pan { cursor: grab; }
+      .figure-zoom-viewport.is-panning { cursor: grabbing; }
+      @media (max-width: 600px) {
+        .figure-zoom-title { font-size: 13px; }
+        .figure-zoom-header { gap: 4px; }
+        .figure-zoom { padding: 6px; }
+        .figure-zoom button { min-width: 36px; padding: 4px; }
+      }
+      @media print {
+        .figure-zoom, .figure-zoom::backdrop { display: none !important; }
+        .reveal .slides [data-figure-zoom] { outline: none !important; }
+      }
+      html.print-pdf .figure-zoom, body.print-pdf .figure-zoom { display: none !important; }
+    </style>
+    <script>
+    (() => {
+      "use strict";
+      // Shared by all reveal.js decks; does not wrap or resize the original figures.
+      function initialize() {
+        const slides = document.querySelector(".reveal .slides");
+        if (!slides || !HTMLDialogElement.prototype.showModal) return;
+        const printing = () => matchMedia("print").matches ||
+          document.documentElement.classList.contains("print-pdf") ||
+          document.body.classList.contains("print-pdf") || /[?&]print-pdf(?:[=&]|$)/.test(location.search);
+        const dialog = document.createElement("dialog");
+        dialog.className = "figure-zoom";
+        dialog.setAttribute("aria-labelledby", "figure-zoom-title");
+        dialog.innerHTML = `
+          <header class="figure-zoom-header">
+            <p class="figure-zoom-title" id="figure-zoom-title"></p>
+            <button type="button" data-action="less" aria-label="Diminuir ampliação">−</button>
+            <span class="figure-zoom-level" aria-live="polite"></span>
+            <button type="button" data-action="more" aria-label="Aumentar ampliação">+</button>
+            <button type="button" data-action="fit" aria-label="Ajustar figura à janela">Ajustar</button>
+            <button type="button" data-action="close" aria-label="Fechar figura ampliada">×</button>
+          </header>
+          <div class="figure-zoom-viewport"><div class="figure-zoom-stage"></div></div>`;
+        document.body.append(dialog);
+        const viewport = dialog.querySelector(".figure-zoom-viewport");
+        const stage = dialog.querySelector(".figure-zoom-stage");
+        const title = dialog.querySelector(".figure-zoom-title");
+        const level = dialog.querySelector(".figure-zoom-level");
+        const closeButton = dialog.querySelector('[data-action="close"]');
+        let trigger, media, dimensions, zoom = 1, drag = null, serial = 0;
+        const svgStyles = ["fill", "fill-opacity", "fill-rule", "stroke", "stroke-width",
+          "stroke-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap",
+          "stroke-linejoin", "opacity", "color", "font-family", "font-size", "font-weight",
+          "font-style", "letter-spacing", "line-height", "white-space", "text-align", "box-sizing",
+          "margin-top", "margin-right", "margin-bottom", "margin-left", "text-anchor", "dominant-baseline", "visibility",
+          "display", "paint-order", "vector-effect", "clip-path", "filter", "marker-start", "marker-mid", "marker-end"];
+        const label = el => el.getAttribute("aria-label") || el.getAttribute("alt") ||
+          el.querySelector("title")?.textContent || el.closest("section")?.querySelector("h2")?.textContent || "Figura";
+        const eligible = el => !el.closest("a, button, .math, .MathJax, mjx-container, .MJX_Assistive_MathML, .nolightbox, [data-no-zoom]") &&
+          !(el.tagName.toLowerCase() === "svg" && el.parentElement.closest("svg"));
+        function decorate() {
+          slides.querySelectorAll("img, svg").forEach(el => {
+            if (!eligible(el) || el.hasAttribute("data-figure-zoom")) return;
+            el.setAttribute("data-figure-zoom", "");
+            el.setAttribute("tabindex", "0");
+            el.setAttribute("role", "button");
+            if (!el.hasAttribute("title")) el.setAttribute("title", "Clique para ampliar");
+            el.setAttribute("aria-label", `Ampliar figura: ${label(el)}`);
+          });
+        }
+        function snapshotSVG(source) {
+          const clone = source.cloneNode(true);
+          const originals = [source, ...source.querySelectorAll("*")];
+          const copies = [clone, ...clone.querySelectorAll("*")];
+          const ids = new Map();
+          copies.forEach((el, i) => {
+            const style = getComputedStyle(originals[i]);
+            svgStyles.forEach(name => el.style.setProperty(name, style.getPropertyValue(name)));
+            if (el.id) { ids.set(el.id, `figure-zoom-${++serial}-${el.id}`); el.id = ids.get(el.id); }
+            el.removeAttribute("data-figure-zoom");
+            el.removeAttribute("tabindex");
+          });
+          copies.forEach(el => [...el.attributes].forEach(attr => {
+            const value = attr.value.replace(/url\(["']?(?:[^)#]*#)([^)"']+)["']?\)/g,
+              (match, id) => ids.has(id) ? `url(#${ids.get(id)})` : match);
+            if (value !== attr.value) el.setAttribute(attr.name, value);
+            if ((attr.name === "href" || attr.name === "xlink:href") && ids.has(attr.value.slice(1)))
+              el.setAttribute(attr.name, `#${ids.get(attr.value.slice(1))}`);
+          }));
+          // Mermaid scopes its embedded CSS with the SVG's ID.
+          clone.querySelectorAll("style").forEach(el => {
+            el.textContent = el.textContent.replace(/#([\w-]+)/g,
+              (match, id) => ids.has(id) ? `#${ids.get(id)}` : match);
+          });
+          clone.setAttribute("role", "img");
+          return clone;
+        }
+        function layout(recenter = false) {
+          if (!dialog.open || !dimensions) return;
+          const fit = Math.min(viewport.clientWidth / dimensions.width, viewport.clientHeight / dimensions.height);
+          const width = dimensions.width * fit * zoom, height = dimensions.height * fit * zoom;
+          const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / Math.max(stage.clientWidth, 1);
+          const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / Math.max(stage.clientHeight, 1);
+          stage.style.width = `${Math.max(width, viewport.clientWidth)}px`;
+          stage.style.height = `${Math.max(height, viewport.clientHeight)}px`;
+          media.style.setProperty("width", `${width}px`, "important");
+          media.style.setProperty("height", `${height}px`, "important");
+          viewport.scrollLeft = (recenter ? .5 : centerX) * stage.clientWidth - viewport.clientWidth / 2;
+          viewport.scrollTop = (recenter ? .5 : centerY) * stage.clientHeight - viewport.clientHeight / 2;
+          viewport.classList.toggle("can-pan", zoom > 1);
+          level.textContent = `${Math.round(zoom * 100)}%`;
+          dialog.querySelector('[data-action="less"]').disabled = zoom <= 1;
+          dialog.querySelector('[data-action="more"]').disabled = zoom >= 6;
+        }
+        function close() { if (dialog.open) dialog.close(); }
+        function open(source) {
+          if (printing() || dialog.open || !eligible(source)) return;
+          const isSVG = source.tagName.toLowerCase() === "svg";
+          if (!isSVG && (!source.complete || !source.naturalWidth)) return;
+          trigger = source;
+          const box = source.getBoundingClientRect();
+          const vb = isSVG ? source.viewBox.baseVal : null;
+          dimensions = {width: vb?.width || source.naturalWidth || box.width,
+            height: vb?.height || source.naturalHeight || box.height};
+          if (!dimensions.width || !dimensions.height) return;
+          media = isSVG ? snapshotSVG(source) : document.createElement("img");
+          if (!isSVG) { media.src = source.currentSrc || source.src; media.alt = source.alt; media.draggable = false; }
+          title.textContent = label(source).replace(/^Ampliar figura: /, "");
+          stage.replaceChildren(media);
+          zoom = 1;
+          dialog.showModal();
+          layout(true);
+          closeButton.focus();
+        }
+        function changeZoom(value) { zoom = Math.max(1, Math.min(6, value)); layout(); }
+        slides.addEventListener("click", event => {
+          if (event.target.closest("a, button, input")) return;
+          const source = event.target.closest("[data-figure-zoom]");
+          if (!source || event.altKey || event.ctrlKey || event.metaKey) return;
+          event.preventDefault(); event.stopPropagation(); open(source);
+        });
+        slides.addEventListener("keydown", event => {
+          if (!["Enter", " "].includes(event.key) || !event.target.matches("[data-figure-zoom]")) return;
+          event.preventDefault(); event.stopPropagation(); open(event.target);
+        });
+        dialog.addEventListener("click", event => {
+          const action = event.target.closest("[data-action]")?.dataset.action;
+          if (action === "close" || event.target === dialog) close();
+          else if (action === "more") changeZoom(zoom * 1.5);
+          else if (action === "less") changeZoom(zoom / 1.5);
+          else if (action === "fit") { zoom = 1; layout(true); }
+        });
+        dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
+        dialog.addEventListener("close", () => {
+          stage.replaceChildren(); drag = null;
+          viewport.classList.remove("is-panning");
+          if (trigger?.isConnected) trigger.focus({preventScroll: true});
+        });
+        window.addEventListener("keydown", event => {
+          if (!dialog.open) return;
+          event.stopImmediatePropagation();
+          if (event.key === "Escape") { event.preventDefault(); close(); }
+          else if (event.key === "+" || event.key === "=") { event.preventDefault(); changeZoom(zoom * 1.5); }
+          else if (event.key === "-") { event.preventDefault(); changeZoom(zoom / 1.5); }
+          else if (event.key.startsWith("Arrow")) {
+            event.preventDefault();
+            viewport.scrollBy({left: event.key === "ArrowRight" ? 80 : event.key === "ArrowLeft" ? -80 : 0,
+              top: event.key === "ArrowDown" ? 80 : event.key === "ArrowUp" ? -80 : 0});
+          }
+        }, true);
+        viewport.addEventListener("pointerdown", event => {
+          if (zoom <= 1 || event.button !== 0 || event.pointerType !== "mouse") return;
+          drag = {x: event.clientX, y: event.clientY, left: viewport.scrollLeft, top: viewport.scrollTop};
+          viewport.setPointerCapture(event.pointerId); viewport.classList.add("is-panning");
+          event.preventDefault();
+        });
+        viewport.addEventListener("pointermove", event => {
+          if (!drag) return;
+          viewport.scrollLeft = drag.left + drag.x - event.clientX;
+          viewport.scrollTop = drag.top + drag.y - event.clientY;
+        });
+        const stopDrag = () => { drag = null; viewport.classList.remove("is-panning"); };
+        viewport.addEventListener("pointerup", stopDrag);
+        viewport.addEventListener("pointercancel", stopDrag);
+        window.addEventListener("resize", () => layout());
+        window.addEventListener("beforeprint", close);
+        decorate();
+        new MutationObserver(decorate).observe(slides, {childList: true, subtree: true});
+        function connectReveal() {
+          if (!window.Reveal?.on) { requestAnimationFrame(connectReveal); return; }
+          window.Reveal.on("slidechanged", close);
+        }
+        connectReveal();
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize, {once: true});
+      else initialize();
+    })();
+    </script>
+    <!-- Pop-ups de esclarecimento (ver recursos/POP.md). Marcação gerada por recursos/pop.lua. -->
+    <style>
+      .reveal .slides button.pop-gatilho {
+        all: unset;
+        cursor: help;
+        color: inherit;
+        font: inherit;
+        border-bottom: 2px dotted #d97757;
+      }
+      .reveal .slides button.pop-gatilho:hover { background: rgba(217, 119, 87, .12); }
+      .reveal .slides button.pop-gatilho:focus-visible { outline: 3px solid #d97757; outline-offset: 2px; }
+      /* A caixa vai para a camada superior do navegador: não herda a escala do reveal,
+         por isso o tamanho da fonte acompanha a janela (vw). */
+      .pop-caixa {
+        position: fixed;
+        inset: 0 !important;
+        margin: auto !important;
+        width: fit-content;
+        height: fit-content;
+        box-sizing: border-box;
+        max-width: min(46em, 85vw);
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 1.1em 1.4em;
+        border: 2px solid #d97757;
+        border-radius: 8px;
+        background: #faf9f5;
+        color: #141413;
+        font-size: clamp(17px, 1.6vw, 32px);
+        line-height: 1.45;
+        text-align: left;
+        box-shadow: 0 10px 34px rgba(20, 20, 19, .28);
+      }
+      .pop-caixa::backdrop { background: rgba(20, 20, 19, .25); }
+      @media print {
+        .pop-caixa { display: none !important; }
+        .reveal .slides button.pop-gatilho { border-bottom: none; }
+      }
+    </style>
+    <script>
+      (function () {
+        // Enquanto um pop-up está aberto, o teclado do reveal fica desligado:
+        // Esc só fecha o pop-up (sem abrir a visão geral) e as setas não mudam de slide.
+        document.addEventListener("toggle", function (e) {
+          var el = e.target;
+          if (!el.classList || !el.classList.contains("pop-caixa") || !window.Reveal) return;
+          var aberto = document.querySelector(".pop-caixa:popover-open") !== null;
+          window.Reveal.configure({ keyboard: !aberto });
+        }, true);
+        function liga() {
+          if (!window.Reveal || !window.Reveal.on) return setTimeout(liga, 100);
+          window.Reveal.on("slidechanged", function () {
+            document.querySelectorAll(".pop-caixa:popover-open").forEach(function (p) { p.hidePopover(); });
+          });
+        }
+        liga();
+      })();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
