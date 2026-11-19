@@ -397,7 +397,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="a-mesma-regra-em-todo-estado" class="slide level2 smaller">
 <h2>A mesma regra em todo estado</h2>
 <p>Para <span class="math inline">\(\omega_1=0{,}6\)</span> e <span class="math inline">\(\omega_2=0{,}4\)</span>:</p>
-<div id="dde93f2d" class="cell" data-execution_count="2">
+<div id="8614d4c6" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <table class="caption-top">
 <thead>
@@ -437,13 +437,13 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Retorno esperado: a linearidade é uma consequência</h2>
 <p><span class="math display">\[ E\left[R_{p}\right]=\sum_{s}\pi_{s}R_{p}(s)=\sum_{s}\pi_{s}\sum_{i}\omega_{i}R_{i}(s)=\sum_{i}\omega_{i}\sum_{s}\pi_{s}R_{i}(s)=\sum_{i}\omega_{i}E\left[R_{i}\right] \]</span></p>
 <p><span class="destaque">A troca da ordem das somas é o único passo: <span class="math inline">\(E[\cdot]\)</span> é linear porque é uma soma ponderada.</span></p>
-<div id="eb70d195" class="cell" data-execution_count="3">
+<div id="497ea395" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <p>No exemplo: <span class="math inline">\(E[R_1]=5\%\)</span>, <span class="math inline">\(E[R_2]=11\%\)</span>, <span class="math inline">\(E[R_p]=0{,}6\times5\%+0{,}4\times11\%=7,4\%\)</span> — confere com a tabela anterior.</p>
 </div>
 </div>
 <p>Exemplo de uma linha: R$ 25 mil a 18% e R$ 35 mil a 25%:</p>
-<div id="5e088942" class="cell" data-execution_count="4">
+<div id="2f44ce94" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math display">\[E[R_p] = 0,4167\times 0{,}18 + 0,5833\times 0{,}25 = 22,1\%\]</span></p>
 </div>
@@ -465,7 +465,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Correlação</h2>
 <p>Mede o risco comum entre duas ações, independente das suas volatilidades:</p>
 <p><span class="math display">\[ Corr\left(R_{i},R_{j}\right)=\dfrac{Cov\left(R_{i},R_{j}\right)}{SD\left(R_{i}\right)SD\left(R_{j}\right)} \]</span></p>
-<div id="97e1b903" class="cell" data-execution_count="5">
+<div id="47bcf15f" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -489,7 +489,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <h2>Média é reta, variância é parábola</h2>
 <p><span class="math display">\[ SD\left(R_{p}\right)\leq\sum_{i}\left|\omega_{i}\right|\sigma_{i} \]</span></p>
 <p><span class="destaque">Desigualdade triangular: com posições compradas e correlações inferiores a 1, a desigualdade é estrita.</span></p>
-<div id="ecc76b81" class="cell" data-execution_count="6">
+<div id="c7556579" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -509,7 +509,7 @@ W_{t+1}(s) &amp;= \sum_i q_i\left[D_{i,t+1}(s)+P_{i,t+1}(s)\right] &amp;&amp; \t
 <section id="exemplo-numérico-pesos-iguais" class="slide level2 smaller">
 <h2>Exemplo numérico: pesos iguais</h2>
 <p>Desvio-padrão médio das ações: 10% a.m.; correlação média: 0,40. Investindo o mesmo montante em cada ação, qual a variância do portfólio quando <span class="math inline">\(n\to\infty\)</span>? E se a correlação fosse 0? E 1?</p>
-<div id="6f1e51f4" class="cell" data-execution_count="7">
+<div id="7799c222" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <p><span class="math display">\[Cov\left(R_i,R_j\right) = 0{,}40\times0{,}10\times0{,}10 = 0,004\]</span></p>
 <p><span class="math display">\[\sigma_p \underset{n\to\infty}{\approx} \sqrt{0,004} = 6,3\%\]</span></p>
@@ -969,7 +969,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 </section>
 <section id="gráfico-combinando-duas-em-duas" class="slide level2 smaller">
 <h2>Gráfico: combinando duas em duas</h2>
-<div id="4481c52f" class="cell" data-execution_count="8">
+<div id="4683723c" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -981,7 +981,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 </section>
 <section id="fronteira-eficiente-com-três-ativos" class="slide level2 smaller">
 <h2>Fronteira eficiente com três ativos</h2>
-<div id="af30e157" class="cell" data-execution_count="9">
+<div id="d324e2e6" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -995,7 +995,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 <section id="mais-ações-expandem-a-fronteira" class="slide level2 smaller">
 <h2>Mais ações expandem a fronteira</h2>
 <p>Cada ativo adicional, se não perfeitamente correlacionado com os demais, amplia as possibilidades de diversificação.</p>
-<div id="b6a5137d" class="cell" data-execution_count="10">
+<div id="9b435b8b" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1032,7 +1032,7 @@ function a9pPct(x, casas){ return a9pFmt(x*100, casas) + "%"; }
 <h2>Gráfico: alavancando um portfólio arriscado</h2>
 <!-- ADICIONADO: exemplo numérico com r_f=1% e carteira igualmente ponderada;
      a fonte apresenta o resultado simbolicamente, sem esse parâmetro. -->
-<div id="87226cba" class="cell" data-execution_count="11">
+<div id="4cc16fce" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
