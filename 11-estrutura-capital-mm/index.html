@@ -205,7 +205,7 @@ Felipe Iachan
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="eua-três-firmas">EUA: três firmas</h3>
-<div id="ea2ac63f" class="cell" data-execution_count="2">
+<div id="62d384a1" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -241,7 +241,7 @@ Felipe Iachan
 </ul>
 </div><div class="column" style="width:51%;">
 <h3 id="brasil-extremos-do-top-20">Brasil: extremos do top 20</h3>
-<div id="8c7cf3a2" class="cell" data-execution_count="3">
+<div id="9557563b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -292,7 +292,7 @@ Felipe Iachan
 </section>
 <section id="painel-ilustrativo-uma-firma-por-setor" class="slide level2 smaller">
 <h2>Painel ilustrativo: uma firma por setor</h2>
-<div id="fb3122bb" class="cell" data-execution_count="4">
+<div id="074ccd44" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -989,7 +989,7 @@ R^{WACC}(s)
 </section>
 <section id="wacc-não-muda-com-alavancagem-sem-impostos" class="slide level2 smaller">
 <h2>WACC não muda com alavancagem (sem impostos)</h2>
-<div id="be94c88b" class="cell" data-execution_count="5">
+<div id="ba256319" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1081,7 +1081,7 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
 </section>
 <section id="wacc-cai-com-a-alavancagem-com-impostos" class="slide level2 smaller">
 <h2>WACC cai com a alavancagem (com impostos)</h2>
-<div id="4b0cbcef" class="cell" data-execution_count="6">
+<div id="df4e04ba" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1131,7 +1131,7 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
 </section>
 <section id="trade-off-benefício-fiscal-vs.-custo-de-falência" class="slide level2 smaller">
 <h2>Trade-off: benefício fiscal vs.&nbsp;custo de falência</h2>
-<div id="51783bc4" class="cell" data-execution_count="7">
+<div id="86ed2cc5" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1673,6 +1673,64 @@ r_{WACC}=\underbrace{r^{E}\frac{E}{E+D}+r^{D}\frac{D}{E+D}}_{\text{WACC pré-imp
       if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize, {once: true});
       else initialize();
     })();
+    </script>
+    <!-- Pop-ups de esclarecimento (ver recursos/POP.md). Marcação gerada por recursos/pop.lua. -->
+    <style>
+      .reveal .slides button.pop-gatilho {
+        all: unset;
+        cursor: help;
+        color: inherit;
+        font: inherit;
+        border-bottom: 2px dotted #d97757;
+      }
+      .reveal .slides button.pop-gatilho:hover { background: rgba(217, 119, 87, .12); }
+      .reveal .slides button.pop-gatilho:focus-visible { outline: 3px solid #d97757; outline-offset: 2px; }
+      /* A caixa vai para a camada superior do navegador: não herda a escala do reveal,
+         por isso o tamanho da fonte acompanha a janela (vw). */
+      .pop-caixa {
+        position: fixed;
+        inset: 0 !important;
+        margin: auto !important;
+        width: fit-content;
+        height: fit-content;
+        box-sizing: border-box;
+        max-width: min(46em, 85vw);
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 1.1em 1.4em;
+        border: 2px solid #d97757;
+        border-radius: 8px;
+        background: #faf9f5;
+        color: #141413;
+        font-size: clamp(17px, 1.6vw, 32px);
+        line-height: 1.45;
+        text-align: left;
+        box-shadow: 0 10px 34px rgba(20, 20, 19, .28);
+      }
+      .pop-caixa::backdrop { background: rgba(20, 20, 19, .25); }
+      @media print {
+        .pop-caixa { display: none !important; }
+        .reveal .slides button.pop-gatilho { border-bottom: none; }
+      }
+    </style>
+    <script>
+      (function () {
+        // Enquanto um pop-up está aberto, o teclado do reveal fica desligado:
+        // Esc só fecha o pop-up (sem abrir a visão geral) e as setas não mudam de slide.
+        document.addEventListener("toggle", function (e) {
+          var el = e.target;
+          if (!el.classList || !el.classList.contains("pop-caixa") || !window.Reveal) return;
+          var aberto = document.querySelector(".pop-caixa:popover-open") !== null;
+          window.Reveal.configure({ keyboard: !aberto });
+        }, true);
+        function liga() {
+          if (!window.Reveal || !window.Reveal.on) return setTimeout(liga, 100);
+          window.Reveal.on("slidechanged", function () {
+            document.querySelectorAll(".pop-caixa:popover-open").forEach(function (p) { p.hidePopover(); });
+          });
+        }
+        liga();
+      })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
